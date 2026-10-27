@@ -1,0 +1,26 @@
+# Cada hora descarga de futgal.es los equipos con datos más viejos y, si cambia algo,
+# hace commit de federacion.js (y de los escudos nuevos, ya sin fondo): Vercel vuelve a publicar la web solo.
+name: Actualizar datos de la federación
+on:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  actualizar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python actualizar.py
+      - run: pip install pillow && python escudos.py
+        continue-on-error: true  # si falla, se suben igual los datos; los escudos se intentan la próxima hora
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add federacion.js escudos.js img/escudos
+          git diff --cached --quiet || (git commit -m "Datos de la federación" && git push)

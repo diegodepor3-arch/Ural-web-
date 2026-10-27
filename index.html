@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Ural Español C.F.</title>
+  <meta name="description" content="Web oficial del Ural Español C.F. (A Coruña, desde 1929): todos los equipos, de biberón a juvenil, con calendario, resultados, clasificaciones y plantillas.">
+  <meta name="theme-color" content="#f3eee2">
+  <link rel="icon" href="img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..700&family=Geist:wght@400..700&family=Geist+Mono:wght@400..600&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+    <symbol id="i-buscar" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M15.5 15.5 21 21" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></symbol>
+    <symbol id="i-flecha" viewBox="0 0 24 24"><path d="M4 12h16M14 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></symbol>
+    <symbol id="i-izq" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></symbol>
+    <symbol id="i-der" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></symbol>
+    <symbol id="i-externo" viewBox="0 0 24 24"><path d="M9 5h10v10M19 5 6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h18" stroke="currentColor" stroke-width="1.8"/></symbol>
+  </svg>
+
+  <a class="saltar" href="#app">Ir al contenido</a>
+
+  <div class="franja">
+    <span>Desde 1929</span><span class="franja-sep">▲</span><span>Santa Lucía · A Coruña</span><span class="franja-sep">▲</span><span id="franja-temporada">Temporada 2026-27</span>
+  </div>
+
+  <header class="menu">
+    <a href="#/" class="menu-marca" aria-label="Inicio · Ural Español C.F.">
+      <img src="img/escudo.png" alt="" width="42" height="40">
+      <span><b>Ural</b> Español <i>C.F.</i></span>
+    </a>
+    <button class="menu-abrir" type="button" aria-label="Menú" aria-expanded="false" aria-controls="menu-enlaces">
+      <svg class="icono" aria-hidden="true"><use href="#i-menu"/></svg>
+    </button>
+    <nav class="menu-enlaces" id="menu-enlaces" aria-label="Principal">
+      <a href="#/" data-seccion="">Inicio</a>
+      <a href="#/equipo/juvenil-a" data-seccion="equipo/juvenil-a">Juvenil A</a>
+      <a href="#/cantera" data-seccion="cantera">Equipos</a>
+      <a href="#/historia" data-seccion="historia">Historia</a>
+      <a href="#/noticias" data-seccion="noticias">Noticias</a>
+      <a href="#/socios" data-seccion="socios" class="menu-socio">Hazte socio</a>
+      <form class="buscador" role="search">
+        <svg class="icono" aria-hidden="true"><use href="#i-buscar"/></svg>
+        <input type="search" name="q" placeholder="Buscar" aria-label="Busca un jugador, equipo o noticia" autocomplete="off">
+      </form>
+    </nav>
+  </header>
+
+  <main id="app" tabindex="-1"></main>
+
+  <footer class="pie">
+    <div class="contenedor pie-dentro">
+      <div class="pie-club">
+        <img src="img/escudo.png" alt="Escudo del Ural Español C.F." width="84" height="80">
+        <p class="pie-nombre">Ural Español <i>C.F.</i></p>
+        <p class="pie-lema">Fútbol base en Santa Lucía desde 1929</p>
+        <p id="pie-contacto"></p>
+      </div>
+      <nav class="pie-menu" aria-label="Secundaria">
+        <a href="#/equipo/juvenil-a">Juvenil A</a>
+        <a href="#/cantera">Todos los equipos</a>
+        <a href="#/historia">Historia</a>
+        <a href="#/noticias">Noticias</a>
+        <a href="#/socios">Hazte socio</a>
+        <a id="pie-x" target="_blank" rel="noopener">X / Twitter</a>
+        <a id="pie-fed" target="_blank" rel="noopener">El club en la federación</a>
+      </nav>
+    </div>
+    <p class="contenedor pie-fuente" id="pie-fuente"></p>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="federacion.js"></script>
+  <script src="escudos.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
