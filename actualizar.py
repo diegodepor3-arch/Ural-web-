@@ -4,6 +4,7 @@ y los guarda en federacion.js. Uso: python actualizar.py
 ponytail: lee el HTML de la federación con expresiones regulares; si futgal cambia
 el diseño de sus páginas habrá que ajustar los patrones de este archivo.
 """
+import gzip
 import html
 import http.cookiejar
 import json
@@ -232,15 +233,23 @@ def dorsales(actas_):
     return out
 
 
+def copia_acta(cod_acta):
+    """Ruta de la copia de un acta, comprimida (las antiguas sin comprimir también valen); None si no hay."""
+    for ruta in (os.path.join(".cache", f"acta-{cod_acta}.html.gz"), os.path.join(".cache", f"acta-{cod_acta}.html")):
+        if os.path.exists(ruta):
+            return ruta
+    return None
+
+
 def acta_html(cod_acta):
-    """Copia local de cada acta (.cache/): si cambia la forma de leerla no hay que volver a pedirla a futgal."""
-    ruta = os.path.join(".cache", f"acta-{cod_acta}.html")
-    if os.path.exists(ruta):
-        with open(ruta, encoding="utf-8") as f:
+    """Copia de cada acta en .cache/ (se sube a GitHub): si cambia la forma de leerla no hay que volver a pedirla a futgal."""
+    ruta = copia_acta(cod_acta)
+    if ruta:
+        with (gzip.open(ruta, "rt", encoding="utf-8") if ruta.endswith(".gz") else open(ruta, encoding="utf-8")) as f:
             return f.read()
     s = get(f"{BASE}NFG_CmpPartido?cod_primaria=1000120&CodActa={cod_acta}")
     os.makedirs(".cache", exist_ok=True)
-    with open(ruta, "w", encoding="utf-8") as f:
+    with gzip.open(os.path.join(".cache", f"acta-{cod_acta}.html.gz"), "wt", encoding="utf-8") as f:
         f.write(s)
     return s
 
@@ -248,12 +257,18 @@ def acta_html(cod_acta):
 def actas(cod, comp, grupo, jugados, previas):
     """Actas de los partidos jugados. Las ya leídas se guardan y solo se piden las nuevas."""
     out = dict(previas or {})
-    for j, a in out.items():  # las que tienen copia local se vuelven a leer gratis (por si mejora la lectura)
-        if a.get("id") and os.path.exists(os.path.join(".cache", f"acta-{a['id']}.html")):
+    for j, a in out.items():  # las que tienen copia se vuelven a leer gratis (por si mejora la lectura)
+        if a.get("id") and copia_acta(a["id"]):
             out[j] = dict(leer_acta(acta_html(a["id"])), id=a["id"])
+    # ponytail: pocas actas por ejecución para no provocar el bloqueo de futgal
+    # leídas antes de guardar copias: se vuelven a pedir por su código, para poder releerlas cuando mejore la lectura
+    sin_copia = [j for j, a in out.items() if a.get("id") and not copia_acta(a["id"])][:MAX_ACTAS]
+    for j in sin_copia:
+        out[j] = dict(leer_acta(acta_html(out[j]["id"])), id=out[j]["id"])
     # sin "c": leída antes de guardar los cambios (minutos jugados); se vuelve a pedir
     nuevas = [p for p in jugados if not out.get(str(p["jornada"]), {}).get("id") or "c" not in out[str(p["jornada"])]]
-    for p in nuevas[-MAX_ACTAS:]:  # ponytail: pocas actas por ejecución para no provocar el bloqueo de futgal
+    resto = MAX_ACTAS - len(sin_copia)
+    for p in nuevas[-resto:] if resto > 0 else []:
         s = jornada(comp, grupo, p["jornada"])
         i = s.find(f"Codigo_Equipo={cod}\"")
         cerca = [(abs(m.start() - i), m.group(1)) for m in re.finditer(r"CodActa=(\d+)", s)]

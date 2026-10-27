@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths-ignore: [federacion.js, escudos.js, "img/escudos/**"]
+    paths-ignore: [federacion.js, escudos.js, "img/escudos/**", ".cache/**"]
 permissions:
   contents: write
 jobs:
@@ -27,5 +27,5 @@ jobs:
       - run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add federacion.js escudos.js img/escudos
+          git add federacion.js escudos.js img/escudos .cache
           git diff --cached --quiet || (git commit -m "Datos de la federación" && git push)

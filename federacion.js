@@ -1,5 +1,5 @@
 // GENERADO por actualizar.py desde futgal.es. No editar a mano.
-const ACTUALIZADO = "2026-10-27T20:17";
+const ACTUALIZADO = "2026-10-27T20:55";
 const EQUIPOS = [
  {
   "id": "juvenil-a",
@@ -3619,31 +3619,418 @@ const EQUIPOS = [
     ],
     "rm": {},
     "id": "1440204"
+   },
+   "1": {
+    "t": [
+     "Eloy González-Arias Roa",
+     "Jaime Ventureira Fidalgo",
+     "Pablo Montero Barro",
+     "Adrián Rivas Pato",
+     "Alejandro Varela Amor",
+     "Adrián Bello Caamaño",
+     "Daniel Gato Tojo",
+     "Gonzalo Fraga Campos",
+     "Pablo González Paisal",
+     "Brais Martínez López",
+     "Roberto Freire Quintas"
+    ],
+    "s": [
+     "Eder Lobo Santiago",
+     "Diego Nogareda Vázquez",
+     "Hugo Rodríguez Santiago",
+     "Gonzalo Reboyras Ochoa",
+     "Yago Nuñez Muñoz"
+    ],
+    "e": [
+     "Hugo Rodríguez Santiago",
+     "Diego Nogareda Vázquez",
+     "Gonzalo Reboyras Ochoa",
+     "Yago Nuñez Muñoz"
+    ],
+    "g": {
+     "Hugo Rodríguez Santiago": 1
+    },
+    "a": [
+     "Pablo Montero Barro",
+     "Diego Nogareda Vázquez"
+    ],
+    "r": [],
+    "d": {
+     "Eloy González-Arias Roa": 96,
+     "Jaime Ventureira Fidalgo": 4,
+     "Pablo Montero Barro": 5,
+     "Adrián Rivas Pato": 6,
+     "Alejandro Varela Amor": 7,
+     "Adrián Bello Caamaño": 9,
+     "Daniel Gato Tojo": 10,
+     "Gonzalo Fraga Campos": 11,
+     "Pablo González Paisal": 12,
+     "Brais Martínez López": 14,
+     "Roberto Freire Quintas": 21,
+     "Eder Lobo Santiago": 13,
+     "Diego Nogareda Vázquez": 3,
+     "Hugo Rodríguez Santiago": 8,
+     "Gonzalo Reboyras Ochoa": 17,
+     "Yago Nuñez Muñoz": 18
+    },
+    "c": [
+     [
+      "Hugo Rodríguez Santiago",
+      "Daniel Gato Tojo",
+      53
+     ],
+     [
+      "Diego Nogareda Vázquez",
+      "Pablo González Paisal",
+      53
+     ],
+     [
+      "Gonzalo Reboyras Ochoa",
+      "Adrián Rivas Pato",
+      65
+     ],
+     [
+      "Yago Nuñez Muñoz",
+      "Alejandro Varela Amor",
+      75
+     ]
+    ],
+    "rm": {},
+    "id": "1440156"
+   },
+   "2": {
+    "t": [
+     "Eder Lobo Santiago",
+     "Diego Nogareda Vázquez",
+     "Jaime Ventureira Fidalgo",
+     "Pablo Montero Barro",
+     "Adrián Rivas Pato",
+     "Hugo Rodríguez Santiago",
+     "Adrián Bello Caamaño",
+     "Gonzalo Fraga Campos",
+     "Brais Martínez López",
+     "Gonzalo Reboyras Ochoa",
+     "Roberto Freire Quintas"
+    ],
+    "s": [
+     "Eloy González-Arias Roa",
+     "Nicolás Olivares Sinde",
+     "Mateo Mayo Tagle",
+     "Yael Espiñeira Pardo",
+     "Yago Nuñez Muñoz"
+    ],
+    "e": [
+     "Yago Nuñez Muñoz",
+     "Yael Espiñeira Pardo",
+     "Nicolás Olivares Sinde",
+     "Mateo Mayo Tagle"
+    ],
+    "g": {
+     "Roberto Freire Quintas": 3,
+     "Adrián Bello Caamaño": 3
+    },
+    "a": [
+     "Adrián Rivas Pato"
+    ],
+    "r": [],
+    "d": {
+     "Eder Lobo Santiago": 13,
+     "Diego Nogareda Vázquez": 3,
+     "Jaime Ventureira Fidalgo": 4,
+     "Pablo Montero Barro": 5,
+     "Adrián Rivas Pato": 6,
+     "Hugo Rodríguez Santiago": 8,
+     "Adrián Bello Caamaño": 9,
+     "Gonzalo Fraga Campos": 11,
+     "Brais Martínez López": 14,
+     "Gonzalo Reboyras Ochoa": 17,
+     "Roberto Freire Quintas": 21,
+     "Eloy González-Arias Roa": 96,
+     "Nicolás Olivares Sinde": 2,
+     "Mateo Mayo Tagle": 15,
+     "Yael Espiñeira Pardo": 16,
+     "Yago Nuñez Muñoz": 18
+    },
+    "c": [
+     [
+      "Yago Nuñez Muñoz",
+      "Gonzalo Fraga Campos",
+      53
+     ],
+     [
+      "Yael Espiñeira Pardo",
+      "Adrián Rivas Pato",
+      53
+     ],
+     [
+      "Nicolás Olivares Sinde",
+      "Jaime Ventureira Fidalgo",
+      68
+     ],
+     [
+      "Mateo Mayo Tagle",
+      "Yael Espiñeira Pardo",
+      68
+     ]
+    ],
+    "rm": {},
+    "id": "1440164"
+   },
+   "3": {
+    "t": [
+     "Eloy González-Arias Roa",
+     "Diego Nogareda Vázquez",
+     "Jaime Ventureira Fidalgo",
+     "Pablo Montero Barro",
+     "Adrián Rivas Pato",
+     "Alejandro Varela Amor",
+     "Hugo Rodríguez Santiago",
+     "Adrián Bello Caamaño",
+     "Brais Martínez López",
+     "Gonzalo Reboyras Ochoa",
+     "Roberto Freire Quintas"
+    ],
+    "s": [
+     "Eder Lobo Santiago",
+     "Nicolás Olivares Sinde",
+     "Gonzalo Fraga Campos",
+     "Mateo Mayo Tagle",
+     "Yael Espiñeira Pardo"
+    ],
+    "e": [
+     "Gonzalo Fraga Campos",
+     "Mateo Mayo Tagle",
+     "Nicolás Olivares Sinde",
+     "Yael Espiñeira Pardo"
+    ],
+    "g": {},
+    "a": [
+     "Jaime Ventureira Fidalgo"
+    ],
+    "r": [],
+    "d": {
+     "Eloy González-Arias Roa": 96,
+     "Diego Nogareda Vázquez": 3,
+     "Jaime Ventureira Fidalgo": 4,
+     "Pablo Montero Barro": 5,
+     "Adrián Rivas Pato": 6,
+     "Alejandro Varela Amor": 7,
+     "Hugo Rodríguez Santiago": 8,
+     "Adrián Bello Caamaño": 9,
+     "Brais Martínez López": 14,
+     "Gonzalo Reboyras Ochoa": 17,
+     "Roberto Freire Quintas": 21,
+     "Eder Lobo Santiago": 13,
+     "Nicolás Olivares Sinde": 2,
+     "Gonzalo Fraga Campos": 11,
+     "Mateo Mayo Tagle": 15,
+     "Yael Espiñeira Pardo": 16
+    },
+    "c": [
+     [
+      "Gonzalo Fraga Campos",
+      "Alejandro Varela Amor",
+      41
+     ],
+     [
+      "Mateo Mayo Tagle",
+      "Hugo Rodríguez Santiago",
+      62
+     ],
+     [
+      "Nicolás Olivares Sinde",
+      "Jaime Ventureira Fidalgo",
+      72
+     ],
+     [
+      "Yael Espiñeira Pardo",
+      "Roberto Freire Quintas",
+      72
+     ]
+    ],
+    "rm": {},
+    "id": "1440171"
+   },
+   "4": {
+    "t": [
+     "Eloy González-Arias Roa",
+     "Jaime Ventureira Fidalgo",
+     "Pablo Montero Barro",
+     "Hugo Rodríguez Santiago",
+     "Adrián Bello Caamaño",
+     "Gonzalo Fraga Campos",
+     "Pablo González Paisal",
+     "Brais Martínez López",
+     "Mateo Mayo Tagle",
+     "Gonzalo Reboyras Ochoa",
+     "Yago Nuñez Muñoz"
+    ],
+    "s": [
+     "Eder Lobo Santiago",
+     "Diego Nogareda Vázquez",
+     "Adrián Rivas Pato",
+     "Daniel Gato Tojo",
+     "Gabriel López Oreiro"
+    ],
+    "e": [
+     "Adrián Rivas Pato",
+     "Diego Nogareda Vázquez",
+     "Daniel Gato Tojo",
+     "Gabriel López Oreiro"
+    ],
+    "g": {
+     "Pablo Montero Barro": 1,
+     "Hugo Rodríguez Santiago": 1
+    },
+    "a": [],
+    "r": [],
+    "d": {
+     "Eloy González-Arias Roa": 96,
+     "Jaime Ventureira Fidalgo": 4,
+     "Pablo Montero Barro": 5,
+     "Hugo Rodríguez Santiago": 8,
+     "Adrián Bello Caamaño": 9,
+     "Gonzalo Fraga Campos": 11,
+     "Pablo González Paisal": 12,
+     "Brais Martínez López": 14,
+     "Mateo Mayo Tagle": 15,
+     "Gonzalo Reboyras Ochoa": 17,
+     "Yago Nuñez Muñoz": 18,
+     "Eder Lobo Santiago": 13,
+     "Diego Nogareda Vázquez": 3,
+     "Adrián Rivas Pato": 6,
+     "Daniel Gato Tojo": 10,
+     "Gabriel López Oreiro": 19
+    },
+    "c": [
+     [
+      "Adrián Rivas Pato",
+      "Mateo Mayo Tagle",
+      41
+     ],
+     [
+      "Diego Nogareda Vázquez",
+      "Pablo González Paisal",
+      54
+     ],
+     [
+      "Daniel Gato Tojo",
+      "Gonzalo Reboyras Ochoa",
+      65
+     ],
+     [
+      "Gabriel López Oreiro",
+      "Gonzalo Fraga Campos",
+      71
+     ]
+    ],
+    "rm": {},
+    "id": "1440179"
+   },
+   "5": {
+    "t": [
+     "Eder Lobo Santiago",
+     "Diego Nogareda Vázquez",
+     "Jaime Ventureira Fidalgo",
+     "Pablo Montero Barro",
+     "Adrián Rivas Pato",
+     "Alejandro Varela Amor",
+     "Hugo Rodríguez Santiago",
+     "Daniel Gato Tojo",
+     "Gonzalo Fraga Campos",
+     "Brais Martínez López",
+     "Gonzalo Reboyras Ochoa"
+    ],
+    "s": [
+     "Eloy González-Arias Roa",
+     "Adrián Bello Caamaño",
+     "Yael Espiñeira Pardo",
+     "Yago Nuñez Muñoz",
+     "Gabriel López Oreiro"
+    ],
+    "e": [
+     "Adrián Bello Caamaño",
+     "Yago Nuñez Muñoz",
+     "Gabriel López Oreiro",
+     "Yael Espiñeira Pardo"
+    ],
+    "g": {
+     "Daniel Gato Tojo": 1,
+     "Adrián Bello Caamaño": 1
+    },
+    "a": [
+     "Jaime Ventureira Fidalgo",
+     "Alejandro Varela Amor"
+    ],
+    "r": [],
+    "d": {
+     "Eder Lobo Santiago": 13,
+     "Diego Nogareda Vázquez": 3,
+     "Jaime Ventureira Fidalgo": 4,
+     "Pablo Montero Barro": 5,
+     "Adrián Rivas Pato": 6,
+     "Alejandro Varela Amor": 7,
+     "Hugo Rodríguez Santiago": 8,
+     "Daniel Gato Tojo": 10,
+     "Gonzalo Fraga Campos": 11,
+     "Brais Martínez López": 14,
+     "Gonzalo Reboyras Ochoa": 17,
+     "Eloy González-Arias Roa": 96,
+     "Adrián Bello Caamaño": 9,
+     "Yael Espiñeira Pardo": 16,
+     "Yago Nuñez Muñoz": 18,
+     "Gabriel López Oreiro": 19
+    },
+    "c": [
+     [
+      "Adrián Bello Caamaño",
+      "Alejandro Varela Amor",
+      51
+     ],
+     [
+      "Yago Nuñez Muñoz",
+      "Gonzalo Fraga Campos",
+      64
+     ],
+     [
+      "Gabriel López Oreiro",
+      "Diego Nogareda Vázquez",
+      64
+     ],
+     [
+      "Yael Espiñeira Pardo",
+      "Daniel Gato Tojo",
+      75
+     ]
+    ],
+    "rm": {},
+    "id": "1440187"
    }
   },
   "dorsales": {
-   "Eder Lobo Santiago": 13,
-   "Nicolás Olivares Sinde": 2,
-   "Diego Nogareda Vázquez": 3,
+   "Eloy González-Arias Roa": 96,
    "Jaime Ventureira Fidalgo": 4,
+   "Pablo Montero Barro": 5,
+   "Adrián Rivas Pato": 6,
    "Alejandro Varela Amor": 7,
-   "Hugo Rodríguez Santiago": 8,
    "Adrián Bello Caamaño": 9,
    "Daniel Gato Tojo": 10,
    "Gonzalo Fraga Campos": 11,
-   "Yael Espiñeira Pardo": 16,
-   "Gonzalo Reboyras Ochoa": 17,
-   "Eloy González-Arias Roa": 96,
-   "Adrián Rivas Pato": 6,
    "Pablo González Paisal": 12,
    "Brais Martínez López": 14,
-   "Adán Giménez Muñoz": 22,
-   "Pablo Montero Barro": 5,
+   "Roberto Freire Quintas": 21,
+   "Eder Lobo Santiago": 13,
+   "Diego Nogareda Vázquez": 3,
+   "Hugo Rodríguez Santiago": 8,
+   "Gonzalo Reboyras Ochoa": 17,
    "Yago Nuñez Muñoz": 18,
+   "Nicolás Olivares Sinde": 2,
    "Mateo Mayo Tagle": 15,
-   "Gabriel López Oreiro": 19
+   "Yael Espiñeira Pardo": 16,
+   "Gabriel López Oreiro": 19,
+   "Adán Giménez Muñoz": 22
   },
-  "descargado": "2026-10-27T19:47"
+  "descargado": "2026-10-27T20:55"
  },
  {
   "id": "infantil-a",
@@ -4253,29 +4640,287 @@ const EQUIPOS = [
     "c": [],
     "rm": {},
     "id": "1437604"
+   },
+   "1": {
+    "t": [
+     "Artai Filgueira Recarey",
+     "Iago Pena Arias",
+     "Esteban David Pérez Vera",
+     "Javier Meiriño López",
+     "Roi Fraga Cobas",
+     "Gael Conde Ruiz",
+     "Miguel Candal Barreiro",
+     "Teo Martínez Rego",
+     "Pablo Marquez Coelho",
+     "Alejandro Romero Cutanda",
+     "Iván Ferreiro Sales"
+    ],
+    "s": [
+     "Diego Sánchez Seijas",
+     "Iker Ferreiro Orgueira",
+     "Elias Granell Corral",
+     "Lautaro Sicilia Viana",
+     "Roque Freire Pereira"
+    ],
+    "e": [],
+    "g": {
+     "Elias Granell Corral": 1
+    },
+    "a": [
+     "Esteban David Pérez Vera"
+    ],
+    "r": [],
+    "d": {
+     "Artai Filgueira Recarey": 13,
+     "Iago Pena Arias": 3,
+     "Esteban David Pérez Vera": 4,
+     "Javier Meiriño López": 5,
+     "Roi Fraga Cobas": 6,
+     "Gael Conde Ruiz": 8,
+     "Miguel Candal Barreiro": 9,
+     "Teo Martínez Rego": 10,
+     "Pablo Marquez Coelho": 11,
+     "Alejandro Romero Cutanda": 17,
+     "Iván Ferreiro Sales": 24,
+     "Diego Sánchez Seijas": 1,
+     "Iker Ferreiro Orgueira": 2,
+     "Elias Granell Corral": 7,
+     "Lautaro Sicilia Viana": 18,
+     "Roque Freire Pereira": 21
+    },
+    "c": [],
+    "rm": {},
+    "id": "1437559"
+   },
+   "2": {
+    "t": [
+     "Artai Filgueira Recarey",
+     "Iker Ferreiro Orgueira",
+     "Iago Pena Arias",
+     "Esteban David Pérez Vera",
+     "Javier Meiriño López",
+     "Roi Fraga Cobas",
+     "Gael Conde Ruiz",
+     "Miguel Candal Barreiro",
+     "Teo Martínez Rego",
+     "Pablo Marquez Coelho",
+     "Iván Ferreiro Sales"
+    ],
+    "s": [
+     "Diego Sánchez Seijas",
+     "Álvaro Ramil García",
+     "Pedro Moreira Trillo",
+     "Alejandro Romero Cutanda",
+     "Lautaro Sicilia Viana"
+    ],
+    "e": [],
+    "g": {},
+    "a": [
+     "Esteban David Pérez Vera"
+    ],
+    "r": [
+     "Roi Fraga Cobas"
+    ],
+    "d": {
+     "Artai Filgueira Recarey": 13,
+     "Iker Ferreiro Orgueira": 2,
+     "Iago Pena Arias": 3,
+     "Esteban David Pérez Vera": 4,
+     "Javier Meiriño López": 5,
+     "Roi Fraga Cobas": 6,
+     "Gael Conde Ruiz": 8,
+     "Miguel Candal Barreiro": 9,
+     "Teo Martínez Rego": 10,
+     "Pablo Marquez Coelho": 11,
+     "Iván Ferreiro Sales": 24,
+     "Diego Sánchez Seijas": 1,
+     "Álvaro Ramil García": 12,
+     "Pedro Moreira Trillo": 16,
+     "Alejandro Romero Cutanda": 17,
+     "Lautaro Sicilia Viana": 19
+    },
+    "c": [],
+    "rm": {
+     "Roi Fraga Cobas": 70
+    },
+    "id": "1437567"
+   },
+   "3": {
+    "t": [
+     "Artai Filgueira Recarey",
+     "Iago Pena Arias",
+     "Javier Meiriño López",
+     "Elias Granell Corral",
+     "Gael Conde Ruiz",
+     "Teo Martínez Rego",
+     "Pablo Marquez Coelho",
+     "Álvaro Ramil García",
+     "Pedro Moreira Trillo",
+     "Alejandro Romero Cutanda",
+     "Iván Ferreiro Sales"
+    ],
+    "s": [
+     "Diego Sánchez Seijas",
+     "Iker Ferreiro Orgueira",
+     "Esteban David Pérez Vera",
+     "Miguel Candal Barreiro",
+     "Roque Freire Pereira"
+    ],
+    "e": [],
+    "g": {
+     "Gael Conde Ruiz": 2,
+     "Esteban David Pérez Vera": 1,
+     "Pablo Marquez Coelho": 1,
+     "Teo Martínez Rego": 1
+    },
+    "a": [
+     "Iván Ferreiro Sales"
+    ],
+    "r": [],
+    "d": {
+     "Artai Filgueira Recarey": 13,
+     "Iago Pena Arias": 3,
+     "Javier Meiriño López": 5,
+     "Elias Granell Corral": 7,
+     "Gael Conde Ruiz": 8,
+     "Teo Martínez Rego": 10,
+     "Pablo Marquez Coelho": 11,
+     "Álvaro Ramil García": 12,
+     "Pedro Moreira Trillo": 16,
+     "Alejandro Romero Cutanda": 17,
+     "Iván Ferreiro Sales": 24,
+     "Diego Sánchez Seijas": 1,
+     "Iker Ferreiro Orgueira": 2,
+     "Esteban David Pérez Vera": 4,
+     "Miguel Candal Barreiro": 9,
+     "Roque Freire Pereira": 21
+    },
+    "c": [],
+    "rm": {},
+    "id": "1437574"
+   },
+   "4": {
+    "t": [
+     "Artai Filgueira Recarey",
+     "Iago Pena Arias",
+     "Esteban David Pérez Vera",
+     "Roi Fraga Cobas",
+     "Gael Conde Ruiz",
+     "Miguel Candal Barreiro",
+     "Pablo Marquez Coelho",
+     "Alejandro Romero Cutanda",
+     "Lautaro Sicilia Viana",
+     "Roque Freire Pereira",
+     "Iván Ferreiro Sales"
+    ],
+    "s": [
+     "Diego Sánchez Seijas",
+     "Javier Meiriño López",
+     "Elias Granell Corral",
+     "Teo Martínez Rego",
+     "Álvaro Ramil García"
+    ],
+    "e": [],
+    "g": {
+     "Pablo Marquez Coelho": 1
+    },
+    "a": [
+     "Roque Freire Pereira"
+    ],
+    "r": [],
+    "d": {
+     "Artai Filgueira Recarey": 13,
+     "Iago Pena Arias": 3,
+     "Esteban David Pérez Vera": 4,
+     "Roi Fraga Cobas": 6,
+     "Gael Conde Ruiz": 8,
+     "Miguel Candal Barreiro": 9,
+     "Pablo Marquez Coelho": 11,
+     "Alejandro Romero Cutanda": 17,
+     "Lautaro Sicilia Viana": 19,
+     "Roque Freire Pereira": 21,
+     "Iván Ferreiro Sales": 24,
+     "Diego Sánchez Seijas": 1,
+     "Javier Meiriño López": 5,
+     "Elias Granell Corral": 7,
+     "Teo Martínez Rego": 10,
+     "Álvaro Ramil García": 12
+    },
+    "c": [],
+    "rm": {},
+    "id": "1437582"
+   },
+   "5": {
+    "t": [
+     "Artai Filgueira Recarey",
+     "Iker Ferreiro Orgueira",
+     "Iago Pena Arias",
+     "Esteban David Pérez Vera",
+     "Javier Meiriño López",
+     "Roi Fraga Cobas",
+     "Elias Granell Corral",
+     "Gael Conde Ruiz",
+     "Miguel Candal Barreiro",
+     "Pablo Marquez Coelho",
+     "Pedro Moreira Trillo"
+    ],
+    "s": [
+     "Diego Sánchez Seijas",
+     "Alejandro Romero Cutanda",
+     "Lautaro Sicilia Viana",
+     "Roque Freire Pereira",
+     "Iván Ferreiro Sales"
+    ],
+    "e": [],
+    "g": {
+     "Pablo Marquez Coelho": 2
+    },
+    "a": [],
+    "r": [],
+    "d": {
+     "Artai Filgueira Recarey": 13,
+     "Iker Ferreiro Orgueira": 2,
+     "Iago Pena Arias": 3,
+     "Esteban David Pérez Vera": 4,
+     "Javier Meiriño López": 5,
+     "Roi Fraga Cobas": 6,
+     "Elias Granell Corral": 7,
+     "Gael Conde Ruiz": 8,
+     "Miguel Candal Barreiro": 9,
+     "Pablo Marquez Coelho": 11,
+     "Pedro Moreira Trillo": 16,
+     "Diego Sánchez Seijas": 1,
+     "Alejandro Romero Cutanda": 17,
+     "Lautaro Sicilia Viana": 19,
+     "Roque Freire Pereira": 21,
+     "Iván Ferreiro Sales": 24
+    },
+    "c": [],
+    "rm": {},
+    "id": "1437589"
    }
   },
   "dorsales": {
    "Artai Filgueira Recarey": 13,
    "Iago Pena Arias": 3,
    "Esteban David Pérez Vera": 4,
+   "Javier Meiriño López": 5,
+   "Roi Fraga Cobas": 6,
+   "Gael Conde Ruiz": 8,
    "Miguel Candal Barreiro": 9,
    "Teo Martínez Rego": 10,
    "Pablo Marquez Coelho": 11,
-   "Pedro Moreira Trillo": 16,
    "Alejandro Romero Cutanda": 17,
-   "Lautaro Sicilia Viana": 19,
-   "Roque Freire Pereira": 21,
    "Iván Ferreiro Sales": 24,
    "Diego Sánchez Seijas": 1,
    "Iker Ferreiro Orgueira": 2,
-   "Roi Fraga Cobas": 6,
    "Elias Granell Corral": 7,
-   "Gael Conde Ruiz": 8,
-   "Javier Meiriño López": 5,
-   "Álvaro Ramil García": 12
+   "Lautaro Sicilia Viana": 19,
+   "Roque Freire Pereira": 21,
+   "Álvaro Ramil García": 12,
+   "Pedro Moreira Trillo": 16
   },
-  "descargado": "2026-10-27T19:58"
+  "descargado": "2026-10-27T20:55"
  },
  {
   "id": "infantil-b",
