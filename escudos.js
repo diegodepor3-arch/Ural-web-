@@ -53,6 +53,7 @@ const ESCUDOS = {
  "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000941018_ESCUDO_OFICIAL_ORILLAMAR_SD_PRINCIPAL.jpg": "img/escudos/00100_0000941018_ESCUDO_OFICIAL_ORILLAMAR_SD_PRINCIPAL.webp",
  "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000942446_escudo_club_pequeno.jpg": "img/escudos/00100_0000942446_escudo_club_pequeno.webp",
  "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000942895_Escudo_Santa_peque_o.png": "img/escudos/00100_0000942895_Escudo_Santa_peque_o.webp",
+ "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000957278_descarga__3_.jpg": "img/escudos/00100_0000957278_descarga__3_.webp",
  "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001003273_pontevedra_plano.jpg": "img/escudos/00100_0001003273_pontevedra_plano.webp",
  "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001003337_ESCUDO_CD_AS_PONTES.jpg": "img/escudos/00100_0001003337_ESCUDO_CD_AS_PONTES.webp",
  "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001003537_escudo_scdmilagrosa_hires.png": "img/escudos/00100_0001003537_escudo_scdmilagrosa_hires.webp",

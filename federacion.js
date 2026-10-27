@@ -1,5 +1,5 @@
 // GENERADO por actualizar.py desde futgal.es. No editar a mano.
-const ACTUALIZADO = "2026-10-27T20:55";
+const ACTUALIZADO = "2026-10-27T23:52";
 const EQUIPOS = [
  {
   "id": "juvenil-a",
@@ -9679,8 +9679,391 @@ const EQUIPOS = [
    "Eduardo Álvarez Pose"
   ],
   "delegados": [],
-  "clasificacion": [],
-  "partidos": []
+  "clasificacion": [
+   {
+    "equipo": "VICTORIA C.F. \"B\"",
+    "pts": 12,
+    "pj": 4,
+    "g": 4,
+    "e": 0,
+    "p": 0,
+    "gf": 55,
+    "gc": 1,
+    "propio": false
+   },
+   {
+    "equipo": "URAL ESPAÑOL C.F. \"B\"",
+    "pts": 12,
+    "pj": 4,
+    "g": 4,
+    "e": 0,
+    "p": 0,
+    "gf": 55,
+    "gc": 4,
+    "propio": true
+   },
+   {
+    "equipo": "C.D. CIUDAD",
+    "pts": 9,
+    "pj": 4,
+    "g": 3,
+    "e": 0,
+    "p": 1,
+    "gf": 26,
+    "gc": 15,
+    "propio": false
+   },
+   {
+    "equipo": "C. P. ESCLAVAS \"B\"",
+    "pts": 9,
+    "pj": 4,
+    "g": 3,
+    "e": 0,
+    "p": 1,
+    "gf": 24,
+    "gc": 17,
+    "propio": false
+   },
+   {
+    "equipo": "SILVA S.D. \"B\"",
+    "pts": 6,
+    "pj": 4,
+    "g": 2,
+    "e": 0,
+    "p": 2,
+    "gf": 13,
+    "gc": 26,
+    "propio": false
+   },
+   {
+    "equipo": "TORRE S.D.",
+    "pts": 4,
+    "pj": 4,
+    "g": 1,
+    "e": 1,
+    "p": 2,
+    "gf": 13,
+    "gc": 26,
+    "propio": false
+   },
+   {
+    "equipo": "C.D. CIUDAD JARDIN",
+    "pts": 3,
+    "pj": 4,
+    "g": 1,
+    "e": 0,
+    "p": 3,
+    "gf": 2,
+    "gc": 29,
+    "propio": false
+   },
+   {
+    "equipo": "SANTA MARIA DEL MAR \"D\"",
+    "pts": 2,
+    "pj": 4,
+    "g": 0,
+    "e": 2,
+    "p": 2,
+    "gf": 9,
+    "gc": 30,
+    "propio": false
+   },
+   {
+    "equipo": "SPORTING CORUÑES \"C\"",
+    "pts": 1,
+    "pj": 4,
+    "g": 0,
+    "e": 1,
+    "p": 3,
+    "gf": 11,
+    "gc": 18,
+    "propio": false
+   },
+   {
+    "equipo": "IMPERATOR O.A.R. \"B\"",
+    "pts": 0,
+    "pj": 4,
+    "g": 0,
+    "e": 0,
+    "p": 4,
+    "gf": 2,
+    "gc": 44,
+    "propio": false
+   }
+  ],
+  "partidos": [
+   {
+    "jornada": 1,
+    "fecha": "2026-10-03",
+    "hora": "09:45",
+    "local": false,
+    "rival": "IMPERATOR O.A.R. \"B\"",
+    "resultado": "0-16",
+    "campo": ""
+   },
+   {
+    "jornada": 2,
+    "fecha": "2026-10-10",
+    "hora": "12:30",
+    "local": true,
+    "rival": "SILVA S.D. \"B\"",
+    "resultado": "16-0",
+    "campo": ""
+   },
+   {
+    "jornada": 3,
+    "fecha": "2026-10-17",
+    "hora": "12:00",
+    "local": false,
+    "rival": "SANTA MARIA DEL MAR \"D\"",
+    "resultado": "1-14",
+    "campo": ""
+   },
+   {
+    "jornada": 4,
+    "fecha": "2026-10-24",
+    "hora": "13:00",
+    "local": true,
+    "rival": "C. P. ESCLAVAS \"B\"",
+    "resultado": "9-3",
+    "campo": ""
+   },
+   {
+    "jornada": 5,
+    "fecha": "2026-10-31",
+    "hora": "17:00",
+    "local": false,
+    "rival": "C.D. CIUDAD JARDIN",
+    "resultado": "",
+    "campo": "Torre Nº3.1"
+   },
+   {
+    "jornada": 6,
+    "fecha": "2026-11-07",
+    "hora": "",
+    "local": true,
+    "rival": "TORRE S.D.",
+    "resultado": "",
+    "campo": ""
+   },
+   {
+    "jornada": 7,
+    "fecha": "2026-11-14",
+    "hora": "",
+    "local": false,
+    "rival": "SPORTING CORUÑES \"C\"",
+    "resultado": "",
+    "campo": ""
+   },
+   {
+    "jornada": 8,
+    "fecha": "2026-11-21",
+    "hora": "",
+    "local": false,
+    "rival": "VICTORIA C.F. \"B\"",
+    "resultado": "",
+    "campo": ""
+   },
+   {
+    "jornada": 9,
+    "fecha": "2026-11-28",
+    "hora": "",
+    "local": true,
+    "rival": "C.D. CIUDAD",
+    "resultado": "",
+    "campo": ""
+   }
+  ],
+  "competicion": "Benjamin F-8 - Segunda Futgal · A Coruña | 1ª Fase G1",
+  "urlClasificacion": "https://www.futgal.es/pnfg/NPcd/NFG_VisClasificacion?cod_primaria=1000120&codgrupo=26991829&codcompeticion=26991813",
+  "escudos": {
+   "SANTA MARIA DEL MAR \"D\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001611104_Escudo_sin_fondo.png",
+   "IMPERATOR O.A.R. \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000911974_ESCUDO__IMPERATOR_final.png",
+   "TORRE S.D.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000957278_descarga__3_.jpg",
+   "SPORTING CORUÑES \"C\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000801946_escudo-4154.jpg",
+   "C. P. ESCLAVAS \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001133115_4DA7C320_0949_4D89_A088_624E6471CBA6.jpeg",
+   "C.D. CIUDAD": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001223589_CD_CIUDAD_TR_2.png",
+   "C.D. CIUDAD JARDIN": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001218414_Imagen_de_WhatsApp_2024_04_26_a_las_20.12.37_97ce5fe8.jpg",
+   "URAL ESPAÑOL C.F. \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000891301_ESCUDO_URAL_B.jpg",
+   "VICTORIA C.F. \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000004135_victoriacfblanco.jpg",
+   "SILVA S.D. \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001103292_escudo_rfgf.jpg"
+  },
+  "actas": {
+   "1": {
+    "t": [
+     "Leo Pereira Juega",
+     "Bruno Castro Rial Pena",
+     "Matias Regueiro Callau",
+     "Marco Aláez Soto",
+     "Byron Fernández Paulino",
+     "Lucas Queiro Trillo",
+     "Alberto Veira Martí",
+     "Leo García Pastrana"
+    ],
+    "s": [
+     "David Lamas Villa",
+     "Antón Pardo Pérez",
+     "Roi Peteiro Ronquete",
+     "Rafael Ferreiro González",
+     "Pablo Moreira Trillo"
+    ],
+    "e": [],
+    "g": {},
+    "a": [],
+    "r": [],
+    "d": {
+     "Leo Pereira Juega": 13,
+     "Bruno Castro Rial Pena": 2,
+     "Matias Regueiro Callau": 3,
+     "Marco Aláez Soto": 5,
+     "Byron Fernández Paulino": 7,
+     "Lucas Queiro Trillo": 8,
+     "Alberto Veira Martí": 9,
+     "Leo García Pastrana": 10,
+     "David Lamas Villa": 1,
+     "Antón Pardo Pérez": 4,
+     "Roi Peteiro Ronquete": 6,
+     "Rafael Ferreiro González": 11,
+     "Pablo Moreira Trillo": 12
+    },
+    "c": [],
+    "rm": {},
+    "id": "1510245"
+   },
+   "2": {
+    "t": [
+     "David Lamas Villa",
+     "Bruno Castro Rial Pena",
+     "Matias Regueiro Callau",
+     "Marco Aláez Soto",
+     "Lucas Queiro Trillo",
+     "Alberto Veira Martí",
+     "Leo García Pastrana",
+     "Rafael Ferreiro González"
+    ],
+    "s": [
+     "Leo Pereira Juega",
+     "Roi Peteiro Ronquete",
+     "Byron Fernández Paulino",
+     "Pablo Moreira Trillo"
+    ],
+    "e": [],
+    "g": {},
+    "a": [],
+    "r": [],
+    "d": {
+     "David Lamas Villa": 1,
+     "Bruno Castro Rial Pena": 2,
+     "Matias Regueiro Callau": 3,
+     "Marco Aláez Soto": 5,
+     "Lucas Queiro Trillo": 8,
+     "Alberto Veira Martí": 9,
+     "Leo García Pastrana": 10,
+     "Rafael Ferreiro González": 11,
+     "Leo Pereira Juega": 13,
+     "Roi Peteiro Ronquete": 6,
+     "Byron Fernández Paulino": 7,
+     "Pablo Moreira Trillo": 12
+    },
+    "c": [],
+    "rm": {},
+    "id": "1510250"
+   },
+   "3": {
+    "t": [
+     "Leo Pereira Juega",
+     "Bruno Castro Rial Pena",
+     "Matias Regueiro Callau",
+     "Roi Peteiro Ronquete",
+     "Byron Fernández Paulino",
+     "Lucas Queiro Trillo",
+     "Leo García Pastrana",
+     "Rafael Ferreiro González"
+    ],
+    "s": [
+     "David Lamas Villa",
+     "Antón Pardo Pérez",
+     "Marco Aláez Soto",
+     "Pablo Moreira Trillo"
+    ],
+    "e": [],
+    "g": {},
+    "a": [],
+    "r": [],
+    "d": {
+     "Leo Pereira Juega": 13,
+     "Bruno Castro Rial Pena": 2,
+     "Matias Regueiro Callau": 3,
+     "Roi Peteiro Ronquete": 6,
+     "Byron Fernández Paulino": 7,
+     "Lucas Queiro Trillo": 8,
+     "Leo García Pastrana": 10,
+     "Rafael Ferreiro González": 11,
+     "David Lamas Villa": 1,
+     "Antón Pardo Pérez": 4,
+     "Marco Aláez Soto": 5,
+     "Pablo Moreira Trillo": 12
+    },
+    "c": [],
+    "rm": {},
+    "id": "1510254"
+   },
+   "4": {
+    "t": [
+     "David Lamas Villa",
+     "Matias Regueiro Callau",
+     "Marco Aláez Soto",
+     "Roi Peteiro Ronquete",
+     "Byron Fernández Paulino",
+     "Lucas Queiro Trillo",
+     "Rafael Ferreiro González",
+     "Pablo Moreira Trillo"
+    ],
+    "s": [
+     "Leo Pereira Juega",
+     "Bruno Castro Rial Pena",
+     "Antón Pardo Pérez",
+     "Leo García Pastrana"
+    ],
+    "e": [],
+    "g": {},
+    "a": [],
+    "r": [],
+    "d": {
+     "David Lamas Villa": 1,
+     "Matias Regueiro Callau": 3,
+     "Marco Aláez Soto": 5,
+     "Roi Peteiro Ronquete": 6,
+     "Byron Fernández Paulino": 7,
+     "Lucas Queiro Trillo": 8,
+     "Rafael Ferreiro González": 11,
+     "Pablo Moreira Trillo": 12,
+     "Leo Pereira Juega": 13,
+     "Bruno Castro Rial Pena": 2,
+     "Antón Pardo Pérez": 4,
+     "Leo García Pastrana": 10
+    },
+    "c": [],
+    "rm": {},
+    "id": "1510259"
+   }
+  },
+  "dorsales": {
+   "Leo Pereira Juega": 13,
+   "Bruno Castro Rial Pena": 2,
+   "Matias Regueiro Callau": 3,
+   "Marco Aláez Soto": 5,
+   "Byron Fernández Paulino": 7,
+   "Lucas Queiro Trillo": 8,
+   "Alberto Veira Martí": 9,
+   "Leo García Pastrana": 10,
+   "David Lamas Villa": 1,
+   "Antón Pardo Pérez": 4,
+   "Roi Peteiro Ronquete": 6,
+   "Rafael Ferreiro González": 11,
+   "Pablo Moreira Trillo": 12
+  },
+  "descargado": "2026-10-27T23:51"
  },
  {
   "id": "benjamin-c",
@@ -9711,8 +10094,383 @@ const EQUIPOS = [
    "Andrea Amil Fernández"
   ],
   "delegados": [],
-  "clasificacion": [],
-  "partidos": []
+  "clasificacion": [
+   {
+    "equipo": "COMPAÑIA DE MARIA",
+    "pts": 7,
+    "pj": 3,
+    "g": 2,
+    "e": 1,
+    "p": 0,
+    "gf": 10,
+    "gc": 6,
+    "propio": false
+   },
+   {
+    "equipo": "OZA JUVENIL S.D. \"B\"",
+    "pts": 9,
+    "pj": 4,
+    "g": 3,
+    "e": 0,
+    "p": 1,
+    "gf": 27,
+    "gc": 7,
+    "propio": false
+   },
+   {
+    "equipo": "URAL ESPAÑOL C.F. \"C\"",
+    "pts": 9,
+    "pj": 4,
+    "g": 3,
+    "e": 0,
+    "p": 1,
+    "gf": 19,
+    "gc": 14,
+    "propio": true
+   },
+   {
+    "equipo": "ORILLAMAR S.D. \"B\"",
+    "pts": 6,
+    "pj": 3,
+    "g": 2,
+    "e": 0,
+    "p": 1,
+    "gf": 10,
+    "gc": 7,
+    "propio": false
+   },
+   {
+    "equipo": "RELÁMPAGO S. D.",
+    "pts": 6,
+    "pj": 4,
+    "g": 2,
+    "e": 0,
+    "p": 2,
+    "gf": 10,
+    "gc": 18,
+    "propio": false
+   },
+   {
+    "equipo": "C.F. BATALLADOR S.D.",
+    "pts": 3,
+    "pj": 3,
+    "g": 1,
+    "e": 0,
+    "p": 2,
+    "gf": 11,
+    "gc": 12,
+    "propio": false
+   },
+   {
+    "equipo": "VICTORIA C.F. \"E\"",
+    "pts": 4,
+    "pj": 4,
+    "g": 1,
+    "e": 1,
+    "p": 2,
+    "gf": 12,
+    "gc": 24,
+    "propio": false
+   },
+   {
+    "equipo": "CLUB XESUITINAS \"B\"",
+    "pts": 1,
+    "pj": 3,
+    "g": 0,
+    "e": 1,
+    "p": 2,
+    "gf": 8,
+    "gc": 11,
+    "propio": false
+   },
+   {
+    "equipo": "C. D. CALASANZ \"E\"",
+    "pts": 1,
+    "pj": 4,
+    "g": 0,
+    "e": 1,
+    "p": 3,
+    "gf": 10,
+    "gc": 18,
+    "propio": false
+   }
+  ],
+  "partidos": [
+   {
+    "jornada": 1,
+    "fecha": "2026-10-03",
+    "hora": "10:30",
+    "local": true,
+    "rival": "ORILLAMAR S.D. \"B\"",
+    "resultado": "5-2",
+    "campo": ""
+   },
+   {
+    "jornada": 2,
+    "fecha": "2026-10-14",
+    "hora": "18:00",
+    "local": false,
+    "rival": "RELÁMPAGO S. D.",
+    "resultado": "1-5",
+    "campo": ""
+   },
+   {
+    "jornada": 3,
+    "fecha": "2026-10-17",
+    "hora": "12:30",
+    "local": true,
+    "rival": "VICTORIA C.F. \"E\"",
+    "resultado": "7-3",
+    "campo": ""
+   },
+   {
+    "jornada": 4,
+    "fecha": "2026-10-24",
+    "hora": "15:00",
+    "local": false,
+    "rival": "C.F. BATALLADOR S.D.",
+    "resultado": "8-2",
+    "campo": ""
+   },
+   {
+    "jornada": 5,
+    "fecha": "2026-10-31",
+    "hora": "16:00",
+    "local": true,
+    "rival": "COMPAÑIA DE MARIA",
+    "resultado": "",
+    "campo": "Torre Nº1.2"
+   },
+   {
+    "jornada": 6,
+    "fecha": "2026-11-07",
+    "hora": "",
+    "local": false,
+    "rival": "OZA JUVENIL S.D. \"B\"",
+    "resultado": "",
+    "campo": ""
+   },
+   {
+    "jornada": 7,
+    "fecha": "",
+    "hora": "",
+    "local": true,
+    "rival": "14-11-2026",
+    "resultado": "",
+    "campo": ""
+   },
+   {
+    "jornada": 8,
+    "fecha": "2026-11-21",
+    "hora": "",
+    "local": true,
+    "rival": "C. D. CALASANZ \"E\"",
+    "resultado": "",
+    "campo": ""
+   },
+   {
+    "jornada": 9,
+    "fecha": "2026-11-28",
+    "hora": "",
+    "local": false,
+    "rival": "CLUB XESUITINAS \"B\"",
+    "resultado": "",
+    "campo": ""
+   }
+  ],
+  "competicion": "Benjamin F-8 - Segunda Futgal · A Coruña | 1ª Fase G3",
+  "urlClasificacion": "https://www.futgal.es/pnfg/NPcd/NFG_VisClasificacion?cod_primaria=1000120&codgrupo=28997334&codcompeticion=26991813",
+  "escudos": {
+   "OZA JUVENIL S.D. \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000734970_00100_0000629374_Untitled_-_1.jpg",
+   "ORILLAMAR S.D. \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000941018_ESCUDO_OFICIAL_ORILLAMAR_SD_PRINCIPAL.jpg",
+   "RELÁMPAGO S. D.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000894509_Escudo.PNG",
+   "C. D. CALASANZ \"E\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001120003_escudo_calasanz.jpg",
+   "C.F. BATALLADOR S.D.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000918106_ESCUDO_.jpg",
+   "URAL ESPAÑOL C.F. \"C\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000891301_ESCUDO_URAL_B.jpg",
+   "COMPAÑIA DE MARIA": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001004468_logo.png",
+   "CLUB XESUITINAS \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001224529_CLUB_XESUITINAS__A_Corun__a___2_.png",
+   "VICTORIA C.F. \"E\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000004135_victoriacfblanco.jpg"
+  },
+  "actas": {
+   "1": {
+    "t": [
+     "Jorge Fernández De Tejera Mosquera",
+     "Iago Blanco Pérez",
+     "Pablo Cedillo Barros",
+     "Leo Escudero Pereira",
+     "Gabriel Añón Sarceda",
+     "Martín Lorenzo Beiro",
+     "Lukas Villar Sande",
+     "Nil Álvarez-Conchado Barlocco"
+    ],
+    "s": [
+     "Darío Vázquez Valiño",
+     "Alejandro Muñoz Blanco",
+     "Roi Pinales Núñez",
+     "Yago Prieto Cancelo",
+     "Juan González Vázquez"
+    ],
+    "e": [],
+    "g": {},
+    "a": [],
+    "r": [],
+    "d": {
+     "Jorge Fernández De Tejera Mosquera": 13,
+     "Iago Blanco Pérez": 5,
+     "Pablo Cedillo Barros": 7,
+     "Leo Escudero Pereira": 8,
+     "Gabriel Añón Sarceda": 9,
+     "Martín Lorenzo Beiro": 10,
+     "Lukas Villar Sande": 12,
+     "Nil Álvarez-Conchado Barlocco": 15,
+     "Darío Vázquez Valiño": 2,
+     "Alejandro Muñoz Blanco": 3,
+     "Roi Pinales Núñez": 6,
+     "Yago Prieto Cancelo": 11,
+     "Juan González Vázquez": 16
+    },
+    "c": [],
+    "rm": {},
+    "id": "1510333"
+   },
+   "2": {
+    "t": [
+     "Jorge Fernández De Tejera Mosquera",
+     "Alejandro Muñoz Blanco",
+     "Alex López García",
+     "Iago Blanco Pérez",
+     "Roi Pinales Núñez",
+     "Pablo Cedillo Barros",
+     "Martín Lorenzo Beiro",
+     "Nil Álvarez-Conchado Barlocco"
+    ],
+    "s": [
+     "Darío Vázquez Valiño",
+     "Leo Escudero Pereira",
+     "Yago Prieto Cancelo",
+     "Danilo Molina Rocha",
+     "Juan González Vázquez"
+    ],
+    "e": [],
+    "g": {},
+    "a": [],
+    "r": [],
+    "d": {
+     "Jorge Fernández De Tejera Mosquera": 13,
+     "Alejandro Muñoz Blanco": 3,
+     "Alex López García": 4,
+     "Iago Blanco Pérez": 5,
+     "Roi Pinales Núñez": 6,
+     "Pablo Cedillo Barros": 7,
+     "Martín Lorenzo Beiro": 10,
+     "Nil Álvarez-Conchado Barlocco": 15,
+     "Darío Vázquez Valiño": 2,
+     "Leo Escudero Pereira": 8,
+     "Yago Prieto Cancelo": 11,
+     "Danilo Molina Rocha": 14,
+     "Juan González Vázquez": 16
+    },
+    "c": [],
+    "rm": {},
+    "id": "1510339"
+   },
+   "3": {
+    "t": [
+     "Jorge Fernández De Tejera Mosquera",
+     "Roi Pinales Núñez",
+     "Pablo Cedillo Barros",
+     "Leo Escudero Pereira",
+     "Martín Lorenzo Beiro",
+     "Yago Prieto Cancelo",
+     "Nil Álvarez-Conchado Barlocco",
+     "Juan González Vázquez"
+    ],
+    "s": [
+     "Darío Vázquez Valiño",
+     "Alejandro Muñoz Blanco",
+     "Alex López García",
+     "Iago Blanco Pérez",
+     "Danilo Molina Rocha"
+    ],
+    "e": [],
+    "g": {},
+    "a": [],
+    "r": [],
+    "d": {
+     "Jorge Fernández De Tejera Mosquera": 13,
+     "Roi Pinales Núñez": 6,
+     "Pablo Cedillo Barros": 7,
+     "Leo Escudero Pereira": 8,
+     "Martín Lorenzo Beiro": 10,
+     "Yago Prieto Cancelo": 11,
+     "Nil Álvarez-Conchado Barlocco": 15,
+     "Juan González Vázquez": 16,
+     "Darío Vázquez Valiño": 2,
+     "Alejandro Muñoz Blanco": 3,
+     "Alex López García": 4,
+     "Iago Blanco Pérez": 5,
+     "Danilo Molina Rocha": 14
+    },
+    "c": [],
+    "rm": {},
+    "id": "1510344"
+   },
+   "4": {
+    "t": [
+     "Yago Prieto Cancelo",
+     "Alex López García",
+     "Iago Blanco Pérez",
+     "Roi Pinales Núñez",
+     "Leo Escudero Pereira",
+     "Danilo Molina Rocha",
+     "Nil Álvarez-Conchado Barlocco",
+     "Juan González Vázquez"
+    ],
+    "s": [
+     "Alejandro Muñoz Blanco",
+     "Gabriel Añón Sarceda",
+     "Lukas Villar Sande"
+    ],
+    "e": [],
+    "g": {},
+    "a": [],
+    "r": [],
+    "d": {
+     "Yago Prieto Cancelo": 1,
+     "Alex López García": 4,
+     "Iago Blanco Pérez": 5,
+     "Roi Pinales Núñez": 6,
+     "Leo Escudero Pereira": 8,
+     "Danilo Molina Rocha": 14,
+     "Nil Álvarez-Conchado Barlocco": 15,
+     "Juan González Vázquez": 16,
+     "Alejandro Muñoz Blanco": 3,
+     "Gabriel Añón Sarceda": 9,
+     "Lukas Villar Sande": 12
+    },
+    "c": [],
+    "rm": {},
+    "id": "1510350"
+   }
+  },
+  "dorsales": {
+   "Jorge Fernández De Tejera Mosquera": 13,
+   "Iago Blanco Pérez": 5,
+   "Pablo Cedillo Barros": 7,
+   "Leo Escudero Pereira": 8,
+   "Gabriel Añón Sarceda": 9,
+   "Martín Lorenzo Beiro": 10,
+   "Lukas Villar Sande": 12,
+   "Nil Álvarez-Conchado Barlocco": 15,
+   "Darío Vázquez Valiño": 2,
+   "Alejandro Muñoz Blanco": 3,
+   "Roi Pinales Núñez": 6,
+   "Yago Prieto Cancelo": 1,
+   "Juan González Vázquez": 16,
+   "Alex López García": 4,
+   "Danilo Molina Rocha": 14
+  },
+  "descargado": "2026-10-27T23:52"
  },
  {
   "id": "prebenjamin-a",
