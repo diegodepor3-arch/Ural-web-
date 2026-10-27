@@ -380,23 +380,26 @@ def juvenil_division_honor(e):
     e["clasificacion"] = sorted(tabla.values(), key=lambda t: (-t["pts"], -(t["gf"] - t["gc"]), -t["gf"], t["equipo"]))
 
 
-def descargar_equipo(cod, nombre, cat, anterior=None):
-    ficha = get(f"{BASE}NFG_VisEquipos?cod_primaria=1000119&Codigo_Equipo={cod}")
+def equipo_basico(cod, nombre, cat):
+    """Lo que se sabe de un equipo con solo la lista del club: la web ya le hace página aunque falten sus datos."""
     letra = re.search(r'"([A-Z])"', nombre)
     cid = categoria(cat)
-    e = {
+    return {
         "id": f"{cid}-{(letra.group(1) if letra else 'a').lower()}{'-f11' if 'F-11' in cat else ''}{'-fs' if 'F.S' in cat else ''}",
         "codigo": cod,
         "categoria": cid,
         "letra": letra.group(1) if letra else "A",
         "liga": cat.title(),
         "urlFederacion": f"https://www.futgal.es/pnfg/NPcd/NFG_VisEquipos?cod_primaria=1000119&Codigo_Equipo={cod}",
-        "plantilla": lista_personas(ficha, "Jugadores"),
-        "entrenadores": lista_personas(ficha, "cnicos"),
-        "delegados": lista_personas(ficha, "Delegados"),
-        "clasificacion": [],
-        "partidos": [],
+        "plantilla": [], "entrenadores": [], "delegados": [], "clasificacion": [], "partidos": [],
     }
+
+
+def descargar_equipo(cod, nombre, cat, anterior=None):
+    ficha = get(f"{BASE}NFG_VisEquipos?cod_primaria=1000119&Codigo_Equipo={cod}")
+    e = equipo_basico(cod, nombre, cat)
+    e.update(plantilla=lista_personas(ficha, "Jugadores"), entrenadores=lista_personas(ficha, "cnicos"),
+             delegados=lista_personas(ficha, "Delegados"))
     comp = competicion_actual(cod)
     if not comp and "DIVISION DE HONOR JUVENIL" in cat.upper():
         try:
@@ -444,6 +447,9 @@ def main():
     programado cada hora, todos se mantienen al día aunque futgal corte a mitad."""
     previo = leer_previo()
     club = equipos_del_club()
+    for cod, nombre, cat in club:  # los aún no descargados salen ya en la web, sin datos
+        previo.setdefault(cod, equipo_basico(cod, nombre, cat))
+    guardar([previo[c] for c, _, _ in club])
     pendientes = sorted(club, key=lambda t: previo.get(t[0], {}).get("descargado", ""))
     # python actualizar.py juvenil cadete -> esas categorías primero
     pendientes.sort(key=lambda t: categoria(t[2]) not in sys.argv[1:])

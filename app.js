@@ -265,7 +265,7 @@ function vistaEquipo(id, sub = "", jugador = "") {
             <div><dt>Goles</dt><dd>${fila.gf}<small>:${fila.gc}</small></dd></div>
             ${racha.length ? `<div><dt>Racha</dt><dd class="racha">${racha.map((r) => `<i class="marca marca--${r}" title="${{ G: "Victoria", E: "Empate", P: "Derrota" }[r]}">${r === "P" ? "D" : r === "G" ? "V" : "E"}</i>`).join("")}</dd></div>` : ""}
           </dl>` : ""}
-          <p class="fuente"><span class="punto"></span>Partidos de ${esc(e.fuente || "futgal.es (RFGF)")}${e.descargado ? ` · actualizado ${esc(actualizado(e.descargado))}` : ""}
+          <p class="fuente"><span class="punto"></span>Partidos de ${esc(e.fuente || "futgal.es (RFGF)")}${e.descargado ? ` · actualizado ${esc(actualizado(e.descargado))}` : " · descarga pendiente: se actualiza sola cada hora"}
             · <a href="${esc(e.urlOficial || e.urlFederacion)}" target="_blank" rel="noopener">${e.urlOficial ? "Calendario oficial RFEF" : "Ficha en la RFGF"} ${icono("i-externo")}</a></p>
         </div>
         ${p ? `<div><p class="rotulo">Próximo partido</p>${billete(p)}</div>` : ""}
@@ -287,10 +287,10 @@ function vistaEquipo(id, sub = "", jugador = "") {
       <section class="bloque">
         <div class="hub">
           ${tarjetaHub(e, "calendario", "01", "Calendario",
-            p ? `${fmt(p.fecha, { day: "numeric" })}<small>${fmt(p.fecha, { month: "short" })}</small>` : partidos.length,
-            p ? `Próximo: ${p.local ? "vs" : "en"} ${p.rival}` : `${plural(partidos.length, "partido")}`)}
-          ${tarjetaHub(e, "plantilla", "02", "Plantilla", e.plantilla.length,
-            `jugadores${e.entrenadores.length ? " · cuerpo técnico" : ""}`)}
+            p ? `${fmt(p.fecha, { day: "numeric" })}<small>${fmt(p.fecha, { month: "short" })}</small>` : partidos.length || "–",
+            p ? `Próximo: ${p.local ? "vs" : "en"} ${p.rival}` : partidos.length ? `${plural(partidos.length, "partido")}` : "Pendiente de la federación")}
+          ${tarjetaHub(e, "plantilla", "02", "Plantilla", e.plantilla.length || "–",
+            e.plantilla.length ? `jugadores${e.entrenadores.length ? " · cuerpo técnico" : ""}` : "Pendiente de la federación")}
           ${tarjetaHub(e, "clasificacion", "03", "Clasificación",
             fila ? `${pos + 1}º` : "–", fila ? `${fila.pts} puntos · ${e.clasificacion.length} equipos` : "Pendiente de la federación")}
         </div>
