@@ -392,6 +392,13 @@ const slug = (n) => normal(n).replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 const ordenJugadores = (e) => [...e.plantilla].sort((a, b) => (dorsal(e, a) ?? 999) - (dorsal(e, b) ?? 999));
 const rutaFicha = (e, n) => `${rutaEquipo(e)}/plantilla/${slug(n)}`;
 
+// Actas en las que el árbitro no apuntó a todos los goleadores del club (pasa mucho en fútbol 7 y 8)
+function actasSinGoleadores(e) {
+  const jugados = e.partidos.filter((p) => p.resultado && e.actas?.[p.jornada]);
+  const faltan = jugados.filter((p) => Object.values(e.actas[p.jornada].g).reduce((s, v) => s + v, 0) < marcador(p).nos);
+  return faltan.length ? `En ${faltan.length} de ${plural(jugados.length, "acta")} la federación no recoge a todos los goleadores: los goles de cada jugador pueden ser más.` : "";
+}
+
 function plantilla(e) {
   const cab = titulo("03", "Plantilla", `${plural(e.plantilla.length, "jugador", "jugadores")}`);
   if (!e.plantilla.length && !e.entrenadores.length) {
@@ -403,6 +410,7 @@ function plantilla(e) {
   return `
     <section class="bloque" id="plantilla">
       ${cab}
+      ${actasSinGoleadores(e) ? `<p class="aviso">${actasSinGoleadores(e)}</p>` : ""}
       <ul class="plantilla">${ordenJugadores(e).map((n) => {
         const num = dorsal(e, n), est = conActas ? estadisticas(e, n) : null, foto = conFoto && fotos[n];
         const [nombre, ...apellidos] = n.split(" ");
@@ -512,7 +520,7 @@ function vistaFicha(e, id) {
           ${est.totales ? vacio("La RFEF no publica en abierto las actas de División de Honor: hay totales de la temporada, pero no el detalle de cada jornada.") : tiraJornadas(est.jornadas)}
           <p class="fuente">${est.totales
             ? `Totales de la temporada: <a href="${esc(e.perfiles.url)}" target="_blank" rel="noopener">lapreferente.com</a> (web no oficial)`
-            : `Partidos, goles y tarjetas: actas de la RFGF (futgal.es)${est.actas ? "" : " · actas pendientes de descargar"}`}. Pulsa ← → para cambiar de jugador.</p>
+            : `Partidos, goles y tarjetas: actas de la RFGF (futgal.es)${est.actas ? "" : " · actas pendientes de descargar"}${actasSinGoleadores(e) ? `. ${actasSinGoleadores(e)}` : ""}`}. Pulsa ← → para cambiar de jugador.</p>
         </section>
       </div>
     </section>`;
