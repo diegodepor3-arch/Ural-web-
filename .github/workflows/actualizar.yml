@@ -5,6 +5,9 @@ on:
   schedule:
     - cron: "17 * * * *"
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths-ignore: [federacion.js, escudos.js, "img/escudos/**"]
 permissions:
   contents: write
 jobs:
@@ -16,6 +19,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - run: python actualizar.py plantillas  # primero la plantilla de los equipos que no la tienen
+        continue-on-error: true
       - run: python actualizar.py
       - run: pip install pillow && python escudos.py
         continue-on-error: true  # si falla, se suben igual los datos; los escudos se intentan la próxima hora

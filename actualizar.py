@@ -441,6 +441,22 @@ def guardar(equipos):
         f.write(f"const EQUIPOS = {json.dumps(equipos, ensure_ascii=False, indent=1)};\n")
 
 
+def plantillas(club, previo):
+    """Pasada rápida: solo la ficha de los equipos sin plantilla (una página por equipo)."""
+    for cod, nombre, cat in club:
+        if previo[cod]["plantilla"]:
+            continue
+        try:
+            ficha = get(f"{BASE}NFG_VisEquipos?cod_primaria=1000119&Codigo_Equipo={cod}")
+        except (RuntimeError, OSError) as err:
+            print("Parado, se sigue en la próxima ejecución:", err)
+            break
+        previo[cod].update(plantilla=lista_personas(ficha, "Jugadores"), entrenadores=lista_personas(ficha, "cnicos"),
+                           delegados=lista_personas(ficha, "Delegados"))
+        print("·", previo[cod]["id"], len(previo[cod]["plantilla"]), "jugadores", flush=True)
+        guardar([previo[c] for c, _, _ in club])
+
+
 def main():
     """futgal bloquea la IP tras unas decenas de páginas seguidas. Por eso cada equipo
     se guarda al momento y cada ejecución empieza por los equipos con datos más viejos:
@@ -450,6 +466,8 @@ def main():
     for cod, nombre, cat in club:  # los aún no descargados salen ya en la web, sin datos
         previo.setdefault(cod, equipo_basico(cod, nombre, cat))
     guardar([previo[c] for c, _, _ in club])
+    if "plantillas" in sys.argv[1:]:
+        return plantillas(club, previo)
     pendientes = sorted(club, key=lambda t: previo.get(t[0], {}).get("descargado", ""))
     # python actualizar.py juvenil cadete -> esas categorías primero
     pendientes.sort(key=lambda t: categoria(t[2]) not in sys.argv[1:])
