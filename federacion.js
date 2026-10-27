@@ -7716,8 +7716,391 @@ const EQUIPOS = [
   "delegados": [
    "Diego Campos Naveira"
   ],
-  "clasificacion": [],
-  "partidos": []
+  "clasificacion": [
+   {
+    "equipo": "SILVA S.D.",
+    "pts": 12,
+    "pj": 4,
+    "g": 4,
+    "e": 0,
+    "p": 0,
+    "gf": 38,
+    "gc": 4,
+    "propio": false
+   },
+   {
+    "equipo": "URAL ESPAÑOL C.F. \"C\"",
+    "pts": 12,
+    "pj": 4,
+    "g": 4,
+    "e": 0,
+    "p": 0,
+    "gf": 34,
+    "gc": 8,
+    "propio": true
+   },
+   {
+    "equipo": "C. D. CALASANZ \"F\"",
+    "pts": 9,
+    "pj": 4,
+    "g": 3,
+    "e": 0,
+    "p": 1,
+    "gf": 24,
+    "gc": 7,
+    "propio": false
+   },
+   {
+    "equipo": "C.D. CIUDAD",
+    "pts": 6,
+    "pj": 4,
+    "g": 2,
+    "e": 0,
+    "p": 2,
+    "gf": 24,
+    "gc": 10,
+    "propio": false
+   },
+   {
+    "equipo": "VICTORIA C.F. \"B\"",
+    "pts": 6,
+    "pj": 4,
+    "g": 2,
+    "e": 0,
+    "p": 2,
+    "gf": 13,
+    "gc": 14,
+    "propio": false
+   },
+   {
+    "equipo": "RELÁMPAGO S. D. \"B\"",
+    "pts": 6,
+    "pj": 4,
+    "g": 2,
+    "e": 0,
+    "p": 2,
+    "gf": 11,
+    "gc": 38,
+    "propio": false
+   },
+   {
+    "equipo": "SPORTING CORUÑES \"C\"",
+    "pts": 3,
+    "pj": 4,
+    "g": 1,
+    "e": 0,
+    "p": 3,
+    "gf": 21,
+    "gc": 24,
+    "propio": false
+   },
+   {
+    "equipo": "C.D. MARTE \"A\"",
+    "pts": 3,
+    "pj": 4,
+    "g": 1,
+    "e": 0,
+    "p": 3,
+    "gf": 11,
+    "gc": 26,
+    "propio": false
+   },
+   {
+    "equipo": "VIOÑO C.F. \"A\"",
+    "pts": 3,
+    "pj": 4,
+    "g": 1,
+    "e": 0,
+    "p": 3,
+    "gf": 7,
+    "gc": 26,
+    "propio": false
+   },
+   {
+    "equipo": "C.D. CIUDAD JARDIN \"B\"",
+    "pts": 0,
+    "pj": 4,
+    "g": 0,
+    "e": 0,
+    "p": 4,
+    "gf": 7,
+    "gc": 33,
+    "propio": false
+   }
+  ],
+  "partidos": [
+   {
+    "jornada": 1,
+    "fecha": "2026-10-03",
+    "hora": "09:30",
+    "local": true,
+    "rival": "RELÁMPAGO S. D. \"B\"",
+    "resultado": "20-0",
+    "campo": ""
+   },
+   {
+    "jornada": 2,
+    "fecha": "2026-10-10",
+    "hora": "10:30",
+    "local": false,
+    "rival": "SPORTING CORUÑES \"C\"",
+    "resultado": "4-6",
+    "campo": ""
+   },
+   {
+    "jornada": 3,
+    "fecha": "2026-10-17",
+    "hora": "09:30",
+    "local": true,
+    "rival": "VICTORIA C.F. \"B\"",
+    "resultado": "3-2",
+    "campo": ""
+   },
+   {
+    "jornada": 4,
+    "fecha": "2026-10-24",
+    "hora": "15:00",
+    "local": false,
+    "rival": "C.D. CIUDAD",
+    "resultado": "2-5",
+    "campo": ""
+   },
+   {
+    "jornada": 5,
+    "fecha": "2026-11-01",
+    "hora": "09:30",
+    "local": true,
+    "rival": "C.D. MARTE \"A\"",
+    "resultado": "",
+    "campo": "Torre Nº 4"
+   },
+   {
+    "jornada": 6,
+    "fecha": "2026-11-07",
+    "hora": "",
+    "local": false,
+    "rival": "SILVA S.D.",
+    "resultado": "",
+    "campo": ""
+   },
+   {
+    "jornada": 7,
+    "fecha": "2026-11-14",
+    "hora": "",
+    "local": false,
+    "rival": "VIOÑO C.F. \"A\"",
+    "resultado": "",
+    "campo": ""
+   },
+   {
+    "jornada": 8,
+    "fecha": "2026-11-21",
+    "hora": "",
+    "local": true,
+    "rival": "C. D. CALASANZ \"F\"",
+    "resultado": "",
+    "campo": ""
+   },
+   {
+    "jornada": 9,
+    "fecha": "2026-11-28",
+    "hora": "",
+    "local": false,
+    "rival": "C.D. CIUDAD JARDIN \"B\"",
+    "resultado": "",
+    "campo": ""
+   }
+  ],
+  "competicion": "Alevin F-7 - Segunda Futgal · A Coruña | 1ª Fase G1",
+  "urlClasificacion": "https://www.futgal.es/pnfg/NPcd/NFG_VisClasificacion?cod_primaria=1000120&codgrupo=26991619&codcompeticion=26991597",
+  "escudos": {
+   "C. D. CALASANZ \"F\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000621474_escudo_calasanz.bmp",
+   "C.D. CIUDAD": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001223589_CD_CIUDAD_TR_2.png",
+   "RELÁMPAGO S. D. \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000894509_Escudo.PNG",
+   "SPORTING CORUÑES \"C\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000801946_escudo-4154.jpg",
+   "VIOÑO C.F. \"A\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001406822_Screenshot_2024_09_30_23_24_06_656_com.android.chrome_edit.jpg",
+   "SILVA S.D.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001103292_escudo_rfgf.jpg",
+   "C.D. CIUDAD JARDIN \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001218414_Imagen_de_WhatsApp_2024_04_26_a_las_20.12.37_97ce5fe8.jpg",
+   "VICTORIA C.F. \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000004135_victoriacfblanco.jpg",
+   "URAL ESPAÑOL C.F. \"C\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000891301_ESCUDO_URAL_B.jpg",
+   "C.D. MARTE \"A\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001109542_nuevo_escudo_page_0001.jpg"
+  },
+  "actas": {
+   "1": {
+    "t": [
+     "Mario Veleiro Gesto",
+     "Breogan Rodríguez Sánchez-Feijoo",
+     "Mateo Castro Alvela",
+     "Nico González Viña",
+     "Mateo Alonso Linares",
+     "Darío García Nión",
+     "Martín Álvarez Arrojo"
+    ],
+    "s": [
+     "Bruno Loureiro Vidal",
+     "Diego Maquieira Sánchez",
+     "Enrique Martínez Micha",
+     "Marcelo Sánchez Serantes",
+     "Breogán Saavedra Pérez"
+    ],
+    "e": [],
+    "g": {},
+    "a": [],
+    "r": [],
+    "d": {
+     "Mario Veleiro Gesto": 13,
+     "Breogan Rodríguez Sánchez-Feijoo": 2,
+     "Mateo Castro Alvela": 6,
+     "Nico González Viña": 8,
+     "Mateo Alonso Linares": 14,
+     "Darío García Nión": 15,
+     "Martín Álvarez Arrojo": 16,
+     "Bruno Loureiro Vidal": 1,
+     "Diego Maquieira Sánchez": 3,
+     "Enrique Martínez Micha": 9,
+     "Marcelo Sánchez Serantes": 10,
+     "Breogán Saavedra Pérez": 12
+    },
+    "c": [],
+    "rm": {},
+    "id": "1509555"
+   },
+   "2": {
+    "t": [
+     "Mario Veleiro Gesto",
+     "Mario Velasco Vilanova",
+     "Nico González Viña",
+     "Breogán Saavedra Pérez",
+     "Mateo Alonso Linares",
+     "Martín Álvarez Arrojo",
+     "Mauro Afonso Gómez"
+    ],
+    "s": [
+     "Bruno Loureiro Vidal",
+     "Diego Maquieira Sánchez",
+     "Dylan Adriano Leon Ramírez",
+     "Enrique Martínez Micha",
+     "Darío García Nión"
+    ],
+    "e": [],
+    "g": {},
+    "a": [],
+    "r": [],
+    "d": {
+     "Mario Veleiro Gesto": 13,
+     "Mario Velasco Vilanova": 7,
+     "Nico González Viña": 8,
+     "Breogán Saavedra Pérez": 12,
+     "Mateo Alonso Linares": 14,
+     "Martín Álvarez Arrojo": 16,
+     "Mauro Afonso Gómez": 17,
+     "Bruno Loureiro Vidal": 1,
+     "Diego Maquieira Sánchez": 3,
+     "Dylan Adriano Leon Ramírez": 5,
+     "Enrique Martínez Micha": 9,
+     "Darío García Nión": 15
+    },
+    "c": [],
+    "rm": {},
+    "id": "1509561"
+   },
+   "3": {
+    "t": [
+     "Mario Veleiro Gesto",
+     "Breogan Rodríguez Sánchez-Feijoo",
+     "Mateo Castro Alvela",
+     "Nico González Viña",
+     "Marcelo Sánchez Serantes",
+     "Mauro Afonso Gómez",
+     "Enrique Martínez Micha"
+    ],
+    "s": [
+     "Bruno Loureiro Vidal",
+     "Dylan Adriano Leon Ramírez",
+     "Mario Velasco Vilanova",
+     "Breogán Saavedra Pérez",
+     "Mateo Alonso Linares"
+    ],
+    "e": [],
+    "g": {},
+    "a": [],
+    "r": [],
+    "d": {
+     "Mario Veleiro Gesto": 13,
+     "Breogan Rodríguez Sánchez-Feijoo": 2,
+     "Mateo Castro Alvela": 6,
+     "Nico González Viña": 8,
+     "Marcelo Sánchez Serantes": 10,
+     "Mauro Afonso Gómez": 17,
+     "Enrique Martínez Micha": 40,
+     "Bruno Loureiro Vidal": 1,
+     "Dylan Adriano Leon Ramírez": 5,
+     "Mario Velasco Vilanova": 7,
+     "Breogán Saavedra Pérez": 12,
+     "Mateo Alonso Linares": 14
+    },
+    "c": [],
+    "rm": {},
+    "id": "1509566"
+   },
+   "4": {
+    "t": [
+     "Bruno Loureiro Vidal",
+     "Breogan Rodríguez Sánchez-Feijoo",
+     "Nico González Viña",
+     "Marcelo Sánchez Serantes",
+     "Mateo Alonso Linares",
+     "Darío García Nión",
+     "Martín Álvarez Arrojo"
+    ],
+    "s": [
+     "Diego Maquieira Sánchez",
+     "Dylan Adriano Leon Ramírez",
+     "Mateo Castro Alvela",
+     "Mario Velasco Vilanova",
+     "Mauro Afonso Gómez"
+    ],
+    "e": [],
+    "g": {},
+    "a": [],
+    "r": [],
+    "d": {
+     "Bruno Loureiro Vidal": 1,
+     "Breogan Rodríguez Sánchez-Feijoo": 2,
+     "Nico González Viña": 8,
+     "Marcelo Sánchez Serantes": 10,
+     "Mateo Alonso Linares": 14,
+     "Darío García Nión": 15,
+     "Martín Álvarez Arrojo": 16,
+     "Diego Maquieira Sánchez": 3,
+     "Dylan Adriano Leon Ramírez": 5,
+     "Mateo Castro Alvela": 6,
+     "Mario Velasco Vilanova": 7,
+     "Mauro Afonso Gómez": 17
+    },
+    "c": [],
+    "rm": {},
+    "id": "1509572"
+   }
+  },
+  "dorsales": {
+   "Mario Veleiro Gesto": 13,
+   "Breogan Rodríguez Sánchez-Feijoo": 2,
+   "Mateo Castro Alvela": 6,
+   "Nico González Viña": 8,
+   "Mateo Alonso Linares": 14,
+   "Darío García Nión": 15,
+   "Martín Álvarez Arrojo": 16,
+   "Bruno Loureiro Vidal": 1,
+   "Diego Maquieira Sánchez": 3,
+   "Enrique Martínez Micha": 40,
+   "Marcelo Sánchez Serantes": 10,
+   "Breogán Saavedra Pérez": 12,
+   "Mario Velasco Vilanova": 7,
+   "Mauro Afonso Gómez": 17,
+   "Dylan Adriano Leon Ramírez": 5
+  },
+  "descargado": "2026-10-27T19:59"
  },
  {
   "id": "alevin-d",
@@ -7745,8 +8128,384 @@ const EQUIPOS = [
    "Adrián Cagigao Taboada"
   ],
   "delegados": [],
-  "clasificacion": [],
-  "partidos": []
+  "clasificacion": [
+   {
+    "equipo": "ACADEMIA CORUÑA DEPORTIVA \"B\"",
+    "pts": 12,
+    "pj": 4,
+    "g": 4,
+    "e": 0,
+    "p": 0,
+    "gf": 25,
+    "gc": 10,
+    "propio": false
+   },
+   {
+    "equipo": "C.F. BATALLADOR S.D.",
+    "pts": 10,
+    "pj": 4,
+    "g": 3,
+    "e": 1,
+    "p": 0,
+    "gf": 23,
+    "gc": 4,
+    "propio": false
+   },
+   {
+    "equipo": "A. C. RUEIRO",
+    "pts": 9,
+    "pj": 4,
+    "g": 3,
+    "e": 0,
+    "p": 1,
+    "gf": 20,
+    "gc": 12,
+    "propio": false
+   },
+   {
+    "equipo": "IMPERATOR O.A.R.",
+    "pts": 7,
+    "pj": 4,
+    "g": 2,
+    "e": 1,
+    "p": 1,
+    "gf": 25,
+    "gc": 10,
+    "propio": false
+   },
+   {
+    "equipo": "ATL. CORUÑA MONTAÑEROS C.F. \"C\"",
+    "pts": 6,
+    "pj": 4,
+    "g": 2,
+    "e": 0,
+    "p": 2,
+    "gf": 15,
+    "gc": 7,
+    "propio": false
+   },
+   {
+    "equipo": "ORILLAMAR S.D. \"B\"",
+    "pts": 6,
+    "pj": 4,
+    "g": 2,
+    "e": 0,
+    "p": 2,
+    "gf": 14,
+    "gc": 13,
+    "propio": false
+   },
+   {
+    "equipo": "URAL ESPAÑOL C.F. \"D\"",
+    "pts": 4,
+    "pj": 4,
+    "g": 1,
+    "e": 1,
+    "p": 2,
+    "gf": 15,
+    "gc": 10,
+    "propio": true
+   },
+   {
+    "equipo": "C.D. CALASANZ \"E\"",
+    "pts": 4,
+    "pj": 4,
+    "g": 1,
+    "e": 1,
+    "p": 2,
+    "gf": 12,
+    "gc": 19,
+    "propio": false
+   },
+   {
+    "equipo": "C.D. CIUDAD JARDÍN",
+    "pts": 0,
+    "pj": 4,
+    "g": 0,
+    "e": 0,
+    "p": 4,
+    "gf": 5,
+    "gc": 25,
+    "propio": false
+   },
+   {
+    "equipo": "C.D. CIUDAD \"B\"",
+    "pts": 0,
+    "pj": 4,
+    "g": 0,
+    "e": 0,
+    "p": 4,
+    "gf": 0,
+    "gc": 44,
+    "propio": false
+   }
+  ],
+  "partidos": [
+   {
+    "jornada": 1,
+    "fecha": "2026-10-03",
+    "hora": "09:30",
+    "local": true,
+    "rival": "ACADEMIA CORUÑA DEPORTIVA \"B\"",
+    "resultado": "3-4",
+    "campo": ""
+   },
+   {
+    "jornada": 2,
+    "fecha": "2026-10-11",
+    "hora": "12:00",
+    "local": false,
+    "rival": "ATL. CORUÑA MONTAÑEROS C.F. \"C\"",
+    "resultado": "3-1",
+    "campo": ""
+   },
+   {
+    "jornada": 3,
+    "fecha": "2026-10-17",
+    "hora": "09:30",
+    "local": true,
+    "rival": "C.D. CALASANZ \"E\"",
+    "resultado": "3-3",
+    "campo": ""
+   },
+   {
+    "jornada": 4,
+    "fecha": "2026-10-24",
+    "hora": "09:00",
+    "local": false,
+    "rival": "C.D. CIUDAD \"B\"",
+    "resultado": "0-8",
+    "campo": ""
+   },
+   {
+    "jornada": 5,
+    "fecha": "2026-11-01",
+    "hora": "13:30",
+    "local": true,
+    "rival": "C.D. CIUDAD JARDÍN",
+    "resultado": "",
+    "campo": "Torre Nº 4"
+   },
+   {
+    "jornada": 6,
+    "fecha": "2026-11-07",
+    "hora": "",
+    "local": false,
+    "rival": "C.F. BATALLADOR S.D.",
+    "resultado": "",
+    "campo": ""
+   },
+   {
+    "jornada": 7,
+    "fecha": "2026-11-14",
+    "hora": "",
+    "local": true,
+    "rival": "IMPERATOR O.A.R.",
+    "resultado": "",
+    "campo": ""
+   },
+   {
+    "jornada": 8,
+    "fecha": "2026-11-21",
+    "hora": "",
+    "local": true,
+    "rival": "ORILLAMAR S.D. \"B\"",
+    "resultado": "",
+    "campo": ""
+   },
+   {
+    "jornada": 9,
+    "fecha": "2026-11-28",
+    "hora": "",
+    "local": false,
+    "rival": "A. C. RUEIRO",
+    "resultado": "",
+    "campo": ""
+   }
+  ],
+  "competicion": "Alevin F-7 - Segunda Futgal · A Coruña | 1ª Fase G3",
+  "urlClasificacion": "https://www.futgal.es/pnfg/NPcd/NFG_VisClasificacion?cod_primaria=1000120&codgrupo=28988795&codcompeticion=26991597",
+  "escudos": {
+   "A. C. RUEIRO": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001404224_WhatsApp_Image_2024_09_26_at_13.47.47.jpeg",
+   "ACADEMIA CORUÑA DEPORTIVA \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001621171_ESCUDO_ACADEMIA_CORU_A.jpg",
+   "IMPERATOR O.A.R.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000911974_ESCUDO__IMPERATOR_final.png",
+   "C.D. CALASANZ \"E\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001120003_escudo_calasanz.jpg",
+   "C.D. CIUDAD \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001223589_CD_CIUDAD_TR_2.png",
+   "C.F. BATALLADOR S.D.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000918106_ESCUDO_.jpg",
+   "ATL. CORUÑA MONTAÑEROS C.F. \"C\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000889647_AtleticoCorunaMonta.png",
+   "ORILLAMAR S.D. \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000941018_ESCUDO_OFICIAL_ORILLAMAR_SD_PRINCIPAL.jpg",
+   "URAL ESPAÑOL C.F. \"D\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000891301_ESCUDO_URAL_B.jpg",
+   "C.D. CIUDAD JARDÍN": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001218414_Imagen_de_WhatsApp_2024_04_26_a_las_20.12.37_97ce5fe8.jpg"
+  },
+  "actas": {
+   "1": {
+    "t": [
+     "Ian Montoro Valeiro",
+     "Martín Pérez García",
+     "Alejandro Álvarez Buceta",
+     "Borja Pérez García",
+     "Mario Barcon Vergara",
+     "Javier García Bermúdez",
+     "Telmo Díaz Tordable"
+    ],
+    "s": [
+     "Ibai Salazar Abarrategui",
+     "Luis Pesqueira Esteve De Miguel",
+     "Adrián Rey Reiriz",
+     "José Venancio Salcines Barros",
+     "Pablo Bello Caamaño"
+    ],
+    "e": [],
+    "g": {},
+    "a": [],
+    "r": [],
+    "d": {
+     "Ian Montoro Valeiro": 1,
+     "Martín Pérez García": 2,
+     "Alejandro Álvarez Buceta": 5,
+     "Borja Pérez García": 6,
+     "Mario Barcon Vergara": 9,
+     "Javier García Bermúdez": 10,
+     "Telmo Díaz Tordable": 12,
+     "Ibai Salazar Abarrategui": 3,
+     "Luis Pesqueira Esteve De Miguel": 7,
+     "Adrián Rey Reiriz": 8,
+     "José Venancio Salcines Barros": 15,
+     "Pablo Bello Caamaño": 16
+    },
+    "c": [],
+    "rm": {},
+    "id": "1509649"
+   },
+   "2": {
+    "t": [
+     "Ian Montoro Valeiro",
+     "Laura Rodríguez Pena",
+     "Pedro López López-Crespo",
+     "Alejandro Álvarez Buceta",
+     "Javier García Bermúdez",
+     "Telmo Díaz Tordable",
+     "José Venancio Salcines Barros"
+    ],
+    "s": [
+     "Ibai Salazar Abarrategui",
+     "Luis Pesqueira Esteve De Miguel",
+     "Adrián Rey Reiriz"
+    ],
+    "e": [],
+    "g": {},
+    "a": [],
+    "r": [],
+    "d": {
+     "Ian Montoro Valeiro": 1,
+     "Laura Rodríguez Pena": 4,
+     "Pedro López López-Crespo": 5,
+     "Alejandro Álvarez Buceta": 9,
+     "Javier García Bermúdez": 10,
+     "Telmo Díaz Tordable": 12,
+     "José Venancio Salcines Barros": 15,
+     "Ibai Salazar Abarrategui": 3,
+     "Luis Pesqueira Esteve De Miguel": 7,
+     "Adrián Rey Reiriz": 8
+    },
+    "c": [],
+    "rm": {},
+    "id": "1509650"
+   },
+   "3": {
+    "t": [
+     "Ian Montoro Valeiro",
+     "Martín Pérez García",
+     "Laura Rodríguez Pena",
+     "Pedro López López-Crespo",
+     "Mario Barcon Vergara",
+     "Telmo Díaz Tordable",
+     "Alejandro Álvarez Buceta"
+    ],
+    "s": [
+     "Ibai Salazar Abarrategui",
+     "Borja Pérez García",
+     "Luis Pesqueira Esteve De Miguel",
+     "Adrián Rey Reiriz"
+    ],
+    "e": [],
+    "g": {},
+    "a": [],
+    "r": [],
+    "d": {
+     "Ian Montoro Valeiro": 1,
+     "Martín Pérez García": 2,
+     "Laura Rodríguez Pena": 4,
+     "Pedro López López-Crespo": 5,
+     "Mario Barcon Vergara": 9,
+     "Telmo Díaz Tordable": 12,
+     "Alejandro Álvarez Buceta": 14,
+     "Ibai Salazar Abarrategui": 3,
+     "Borja Pérez García": 6,
+     "Luis Pesqueira Esteve De Miguel": 7,
+     "Adrián Rey Reiriz": 8
+    },
+    "c": [],
+    "rm": {},
+    "id": "1509659"
+   },
+   "4": {
+    "t": [
+     "Ian Montoro Valeiro",
+     "Martín Pérez García",
+     "Laura Rodríguez Pena",
+     "Pedro López López-Crespo",
+     "Mario Barcon Vergara",
+     "Telmo Díaz Tordable",
+     "Alejandro Álvarez Buceta"
+    ],
+    "s": [
+     "Ibai Salazar Abarrategui",
+     "Borja Pérez García",
+     "Luis Pesqueira Esteve De Miguel",
+     "Adrián Rey Reiriz",
+     "Javier García Bermúdez"
+    ],
+    "e": [],
+    "g": {},
+    "a": [],
+    "r": [],
+    "d": {
+     "Ian Montoro Valeiro": 1,
+     "Martín Pérez García": 2,
+     "Laura Rodríguez Pena": 4,
+     "Pedro López López-Crespo": 5,
+     "Mario Barcon Vergara": 9,
+     "Telmo Díaz Tordable": 12,
+     "Alejandro Álvarez Buceta": 14,
+     "Ibai Salazar Abarrategui": 3,
+     "Borja Pérez García": 6,
+     "Luis Pesqueira Esteve De Miguel": 7,
+     "Adrián Rey Reiriz": 8,
+     "Javier García Bermúdez": 10
+    },
+    "c": [],
+    "rm": {},
+    "id": "1509660"
+   }
+  },
+  "dorsales": {
+   "Ian Montoro Valeiro": 1,
+   "Martín Pérez García": 2,
+   "Alejandro Álvarez Buceta": 14,
+   "Borja Pérez García": 6,
+   "Mario Barcon Vergara": 9,
+   "Javier García Bermúdez": 10,
+   "Telmo Díaz Tordable": 12,
+   "Ibai Salazar Abarrategui": 3,
+   "Luis Pesqueira Esteve De Miguel": 7,
+   "Adrián Rey Reiriz": 8,
+   "José Venancio Salcines Barros": 15,
+   "Pablo Bello Caamaño": 16,
+   "Laura Rodríguez Pena": 4,
+   "Pedro López López-Crespo": 5
+  },
+  "descargado": "2026-10-27T20:00"
  },
  {
   "id": "alevin-e",
