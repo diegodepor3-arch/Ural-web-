@@ -5569,8 +5569,171 @@ const EQUIPOS = [
   "plantilla": [],
   "entrenadores": [],
   "delegados": [],
-  "clasificacion": [],
-  "partidos": []
+  "clasificacion": [
+   {
+    "equipo": "URAL ESPAÑOL C.F. \"A\"",
+    "pts": 27,
+    "pj": 10,
+    "g": 9,
+    "e": 0,
+    "p": 1,
+    "gf": 59,
+    "gc": 3,
+    "propio": true
+   },
+   {
+    "equipo": "ATL. CORUÑA MONTAÑEROS C.F.",
+    "pts": 27,
+    "pj": 10,
+    "g": 9,
+    "e": 0,
+    "p": 1,
+    "gf": 47,
+    "gc": 11,
+    "propio": false
+   },
+   {
+    "equipo": "SP CORUÑES SDC",
+    "pts": 12,
+    "pj": 10,
+    "g": 4,
+    "e": 0,
+    "p": 6,
+    "gf": 18,
+    "gc": 27,
+    "propio": false
+   },
+   {
+    "equipo": "ESCUELA F. LUIS CALVO SANZ \"A\"",
+    "pts": 10,
+    "pj": 10,
+    "g": 4,
+    "e": 1,
+    "p": 5,
+    "gf": 23,
+    "gc": 30,
+    "propio": false
+   },
+   {
+    "equipo": "C.D. CALASANZ \"B\"",
+    "pts": 10,
+    "pj": 10,
+    "g": 3,
+    "e": 1,
+    "p": 6,
+    "gf": 18,
+    "gc": 32,
+    "propio": false
+   },
+   {
+    "equipo": "SILVA S.D. \"A\"",
+    "pts": 0,
+    "pj": 10,
+    "g": 0,
+    "e": 0,
+    "p": 10,
+    "gf": 8,
+    "gc": 70,
+    "propio": false
+   }
+  ],
+  "partidos": [
+   {
+    "jornada": 1,
+    "fecha": "2021-04-11",
+    "hora": "12:30",
+    "local": false,
+    "rival": "SP CORUÑES SDC",
+    "resultado": "1-7",
+    "campo": ""
+   },
+   {
+    "jornada": 2,
+    "fecha": "2021-04-18",
+    "hora": "18:30",
+    "local": true,
+    "rival": "SILVA S.D. \"A\"",
+    "resultado": "12-0",
+    "campo": ""
+   },
+   {
+    "jornada": 3,
+    "fecha": "2021-06-05",
+    "hora": "19:30",
+    "local": false,
+    "rival": "C.D. CALASANZ \"B\"",
+    "resultado": "0-7",
+    "campo": ""
+   },
+   {
+    "jornada": 4,
+    "fecha": "2021-05-02",
+    "hora": "16:30",
+    "local": true,
+    "rival": "ESCUELA F. LUIS CALVO SANZ \"A\"",
+    "resultado": "2-0",
+    "campo": ""
+   },
+   {
+    "jornada": 5,
+    "fecha": "2021-05-09",
+    "hora": "09:30",
+    "local": false,
+    "rival": "ATL. CORUÑA MONTAÑEROS C.F.",
+    "resultado": "2-1",
+    "campo": ""
+   },
+   {
+    "jornada": 6,
+    "fecha": "2021-05-15",
+    "hora": "18:00",
+    "local": true,
+    "rival": "SP CORUÑES SDC",
+    "resultado": "2-0",
+    "campo": ""
+   },
+   {
+    "jornada": 7,
+    "fecha": "2021-05-16",
+    "hora": "12:30",
+    "local": false,
+    "rival": "SILVA S.D. \"A\"",
+    "resultado": "0-14",
+    "campo": ""
+   },
+   {
+    "jornada": 8,
+    "fecha": "2021-05-23",
+    "hora": "09:30",
+    "local": true,
+    "rival": "C.D. CALASANZ \"B\"",
+    "resultado": "6-0",
+    "campo": ""
+   },
+   {
+    "jornada": 9,
+    "fecha": "2021-05-29",
+    "hora": "10:00",
+    "local": false,
+    "rival": "ESCUELA F. LUIS CALVO SANZ \"A\"",
+    "resultado": "0-6",
+    "campo": ""
+   },
+   {
+    "jornada": 10,
+    "fecha": "2021-06-13",
+    "hora": "19:30",
+    "local": true,
+    "rival": "ATL. CORUÑA MONTAÑEROS C.F.",
+    "resultado": "2-0",
+    "campo": ""
+   }
+  ],
+  "competicion": "Alevin F-11 - Primera Galicia · A Coruña - Mariñas - Arteixo | Grupo B",
+  "urlClasificacion": "https://www.futgal.es/pnfg/NPcd/NFG_VisClasificacion?cod_primaria=1000120&codgrupo=12460933&codcompeticion=11295966",
+  "actas": {},
+  "dorsales": {},
+  "descargado": "2026-10-27T19:41"
  },
  {
   "id": "alevin-b-f11",
@@ -5582,8 +5745,161 @@ const EQUIPOS = [
   "plantilla": [],
   "entrenadores": [],
   "delegados": [],
-  "clasificacion": [],
-  "partidos": []
+  "clasificacion": [
+   {
+    "equipo": "VICTORIA C.F. \"A\"",
+    "pts": 21,
+    "pj": 8,
+    "g": 7,
+    "e": 0,
+    "p": 1,
+    "gf": 45,
+    "gc": 6,
+    "propio": false
+   },
+   {
+    "equipo": "OZA JUVENIL S.D. \"A\"",
+    "pts": 18,
+    "pj": 8,
+    "g": 6,
+    "e": 0,
+    "p": 2,
+    "gf": 31,
+    "gc": 7,
+    "propio": false
+   },
+   {
+    "equipo": "URAL ESPAÑOL C.F. \"B\"",
+    "pts": 11,
+    "pj": 8,
+    "g": 3,
+    "e": 2,
+    "p": 3,
+    "gf": 19,
+    "gc": 18,
+    "propio": true
+   },
+   {
+    "equipo": "ATLETICO CASTROS \"A\"",
+    "pts": 5,
+    "pj": 8,
+    "g": 1,
+    "e": 2,
+    "p": 5,
+    "gf": 10,
+    "gc": 51,
+    "propio": false
+   },
+   {
+    "equipo": "BETANZOS C.F.",
+    "pts": 2,
+    "pj": 8,
+    "g": 0,
+    "e": 2,
+    "p": 6,
+    "gf": 11,
+    "gc": 34,
+    "propio": false
+   }
+  ],
+  "partidos": [
+   {
+    "jornada": 1,
+    "fecha": "",
+    "hora": "",
+    "local": true,
+    "rival": "10-04-2021",
+    "resultado": "",
+    "campo": ""
+   },
+   {
+    "jornada": 2,
+    "fecha": "2021-04-18",
+    "hora": "09:30",
+    "local": true,
+    "rival": "OZA JUVENIL S.D. \"A\"",
+    "resultado": "1-3",
+    "campo": ""
+   },
+   {
+    "jornada": 3,
+    "fecha": "2021-04-24",
+    "hora": "19:00",
+    "local": false,
+    "rival": "BETANZOS C.F.",
+    "resultado": "2-2",
+    "campo": ""
+   },
+   {
+    "jornada": 4,
+    "fecha": "2021-05-01",
+    "hora": "09:30",
+    "local": true,
+    "rival": "VICTORIA C.F. \"A\"",
+    "resultado": "1-4",
+    "campo": ""
+   },
+   {
+    "jornada": 5,
+    "fecha": "2021-05-09",
+    "hora": "16:30",
+    "local": false,
+    "rival": "ATLETICO CASTROS \"A\"",
+    "resultado": "3-3",
+    "campo": ""
+   },
+   {
+    "jornada": 6,
+    "fecha": "",
+    "hora": "",
+    "local": true,
+    "rival": "15-05-2021",
+    "resultado": "",
+    "campo": ""
+   },
+   {
+    "jornada": 7,
+    "fecha": "2021-06-06",
+    "hora": "19:30",
+    "local": false,
+    "rival": "OZA JUVENIL S.D. \"A\"",
+    "resultado": "0-1",
+    "campo": ""
+   },
+   {
+    "jornada": 8,
+    "fecha": "2021-05-23",
+    "hora": "19:30",
+    "local": true,
+    "rival": "BETANZOS C.F.",
+    "resultado": "4-2",
+    "campo": ""
+   },
+   {
+    "jornada": 9,
+    "fecha": "2021-05-30",
+    "hora": "19:30",
+    "local": false,
+    "rival": "VICTORIA C.F. \"A\"",
+    "resultado": "4-0",
+    "campo": ""
+   },
+   {
+    "jornada": 10,
+    "fecha": "2021-06-13",
+    "hora": "09:35",
+    "local": true,
+    "rival": "ATLETICO CASTROS \"A\"",
+    "resultado": "7-0",
+    "campo": ""
+   }
+  ],
+  "competicion": "Alevin F-11 - Primera Galicia · A Coruña - Mariñas - Arteixo | Grupo C",
+  "urlClasificacion": "https://www.futgal.es/pnfg/NPcd/NFG_VisClasificacion?cod_primaria=1000120&codgrupo=12461041&codcompeticion=11295966",
+  "escudos": {},
+  "actas": {},
+  "dorsales": {},
+  "descargado": "2026-10-27T19:42"
  },
  {
   "id": "alevin-a",
