@@ -1,5 +1,5 @@
 // GENERADO por actualizar.py desde futgal.es. No editar a mano.
-const ACTUALIZADO = "2026-10-28T13:12";
+const ACTUALIZADO = "2026-10-28T18:57";
 const EQUIPOS = [
  {
   "id": "juvenil-a",
@@ -6378,7 +6378,7 @@ const EQUIPOS = [
   "urlClasificacion": "https://www.futgal.es/pnfg/NPcd/NFG_VisClasificacion?cod_primaria=1000120&codgrupo=12460933&codcompeticion=11295966",
   "actas": {},
   "dorsales": {},
-  "descargado": "2026-10-27T19:41"
+  "descargado": "2026-10-28T18:57"
  },
  {
   "id": "alevin-b-f11",
@@ -11923,8 +11923,673 @@ const EQUIPOS = [
   "delegados": [
    "Jesús Ángel Sánchez Veiga"
   ],
-  "clasificacion": [],
-  "partidos": []
+  "clasificacion": [
+   {
+    "equipo": "S.C.D. SAN CRISTOBAL DAS VIÑAS",
+    "pts": 18,
+    "pj": 6,
+    "g": 6,
+    "e": 0,
+    "p": 0,
+    "gf": 22,
+    "gc": 5,
+    "propio": false
+   },
+   {
+    "equipo": "IMPERATOR OAR \"B\"",
+    "pts": 15,
+    "pj": 6,
+    "g": 5,
+    "e": 0,
+    "p": 1,
+    "gf": 25,
+    "gc": 10,
+    "propio": false
+   },
+   {
+    "equipo": "SPORTING CORUÑES SDC",
+    "pts": 13,
+    "pj": 7,
+    "g": 4,
+    "e": 1,
+    "p": 2,
+    "gf": 20,
+    "gc": 16,
+    "propio": false
+   },
+   {
+    "equipo": "S.D. CULTURAL MANIÑOS",
+    "pts": 12,
+    "pj": 6,
+    "g": 4,
+    "e": 0,
+    "p": 2,
+    "gf": 19,
+    "gc": 12,
+    "propio": false
+   },
+   {
+    "equipo": "ATLETICO PERILLO",
+    "pts": 10,
+    "pj": 7,
+    "g": 3,
+    "e": 1,
+    "p": 3,
+    "gf": 20,
+    "gc": 19,
+    "propio": false
+   },
+   {
+    "equipo": "A.C.D. POULO",
+    "pts": 10,
+    "pj": 7,
+    "g": 3,
+    "e": 1,
+    "p": 3,
+    "gf": 16,
+    "gc": 17,
+    "propio": false
+   },
+   {
+    "equipo": "VIOÑO C.F.",
+    "pts": 10,
+    "pj": 7,
+    "g": 3,
+    "e": 1,
+    "p": 3,
+    "gf": 14,
+    "gc": 15,
+    "propio": false
+   },
+   {
+    "equipo": "ACD VETERANOS ARANGA",
+    "pts": 8,
+    "pj": 6,
+    "g": 2,
+    "e": 2,
+    "p": 2,
+    "gf": 19,
+    "gc": 16,
+    "propio": false
+   },
+   {
+    "equipo": "UD CARRAL",
+    "pts": 8,
+    "pj": 7,
+    "g": 2,
+    "e": 2,
+    "p": 3,
+    "gf": 12,
+    "gc": 13,
+    "propio": false
+   },
+   {
+    "equipo": "URAL ESPAÑOL C.F. VUELTA XENTES",
+    "pts": 6,
+    "pj": 6,
+    "g": 2,
+    "e": 0,
+    "p": 4,
+    "gf": 11,
+    "gc": 17,
+    "propio": true
+   },
+   {
+    "equipo": "S.D. FONTEMAYOR \"B\"",
+    "pts": 6,
+    "pj": 6,
+    "g": 2,
+    "e": 0,
+    "p": 4,
+    "gf": 8,
+    "gc": 20,
+    "propio": false
+   },
+   {
+    "equipo": "EIRÍS S.D.",
+    "pts": 3,
+    "pj": 6,
+    "g": 0,
+    "e": 3,
+    "p": 3,
+    "gf": 10,
+    "gc": 15,
+    "propio": false
+   },
+   {
+    "equipo": "ATLETICO ARTEIXO",
+    "pts": 3,
+    "pj": 0,
+    "g": 1,
+    "e": 6,
+    "p": 15,
+    "gf": 32,
+    "gc": 3,
+    "propio": false
+   }
+  ],
+  "partidos": [
+   {
+    "jornada": 1,
+    "fecha": "2026-09-12",
+    "hora": "16:00",
+    "local": true,
+    "rival": "UD CARRAL",
+    "resultado": "3-4",
+    "campo": ""
+   },
+   {
+    "jornada": 2,
+    "fecha": "",
+    "hora": "",
+    "local": true,
+    "rival": "19-09-2026",
+    "resultado": "",
+    "campo": "San Pedro de Visma 2"
+   },
+   {
+    "jornada": 3,
+    "fecha": "2026-09-27",
+    "hora": "12:00",
+    "local": true,
+    "rival": "ATLETICO ARTEIXO",
+    "resultado": "4-3",
+    "campo": ""
+   },
+   {
+    "jornada": 4,
+    "fecha": "2026-10-03",
+    "hora": "20:00",
+    "local": false,
+    "rival": "IMPERATOR OAR \"B\"",
+    "resultado": "4-0",
+    "campo": ""
+   },
+   {
+    "jornada": 5,
+    "fecha": "2026-10-11",
+    "hora": "11:00",
+    "local": false,
+    "rival": "A.C.D. POULO",
+    "resultado": "2-1",
+    "campo": ""
+   },
+   {
+    "jornada": 6,
+    "fecha": "2026-10-17",
+    "hora": "18:00",
+    "local": true,
+    "rival": "S.C.D. SAN CRISTOBAL DAS VIÑAS",
+    "resultado": "0-4",
+    "campo": ""
+   },
+   {
+    "jornada": 7,
+    "fecha": "2026-10-25",
+    "hora": "12:00",
+    "local": false,
+    "rival": "S.D. FONTEMAYOR \"B\"",
+    "resultado": "0-3",
+    "campo": ""
+   },
+   {
+    "jornada": 8,
+    "fecha": "2026-11-07",
+    "hora": "",
+    "local": true,
+    "rival": "S.D. CULTURAL MANIÑOS",
+    "resultado": "",
+    "campo": ""
+   },
+   {
+    "jornada": 9,
+    "fecha": "2026-11-14",
+    "hora": "",
+    "local": false,
+    "rival": "ACD VETERANOS ARANGA",
+    "resultado": "",
+    "campo": ""
+   },
+   {
+    "jornada": 10,
+    "fecha": "2026-11-21",
+    "hora": "",
+    "local": true,
+    "rival": "EIRÍS S.D.",
+    "resultado": "",
+    "campo": ""
+   },
+   {
+    "jornada": 11,
+    "fecha": "2026-11-28",
+    "hora": "",
+    "local": false,
+    "rival": "SPORTING CORUÑES SDC",
+    "resultado": "",
+    "campo": ""
+   },
+   {
+    "jornada": 12,
+    "fecha": "2026-12-05",
+    "hora": "",
+    "local": true,
+    "rival": "VIOÑO C.F.",
+    "resultado": "",
+    "campo": ""
+   },
+   {
+    "jornada": 13,
+    "fecha": "2026-12-12",
+    "hora": "",
+    "local": false,
+    "rival": "ATLETICO PERILLO",
+    "resultado": "",
+    "campo": ""
+   },
+   {
+    "jornada": 14,
+    "fecha": "2026-12-19",
+    "hora": "",
+    "local": false,
+    "rival": "UD CARRAL",
+    "resultado": "",
+    "campo": ""
+   },
+   {
+    "jornada": 15,
+    "fecha": "",
+    "hora": "",
+    "local": true,
+    "rival": "09-01-2027",
+    "resultado": "",
+    "campo": ""
+   },
+   {
+    "jornada": 16,
+    "fecha": "2027-01-16",
+    "hora": "12:00",
+    "local": false,
+    "rival": "ATLETICO ARTEIXO",
+    "resultado": "",
+    "campo": ""
+   },
+   {
+    "jornada": 17,
+    "fecha": "2027-01-23",
+    "hora": "",
+    "local": true,
+    "rival": "IMPERATOR OAR \"B\"",
+    "resultado": "",
+    "campo": ""
+   },
+   {
+    "jornada": 18,
+    "fecha": "2027-01-30",
+    "hora": "",
+    "local": true,
+    "rival": "A.C.D. POULO",
+    "resultado": "",
+    "campo": ""
+   },
+   {
+    "jornada": 19,
+    "fecha": "2027-02-06",
+    "hora": "",
+    "local": false,
+    "rival": "S.C.D. SAN CRISTOBAL DAS VIÑAS",
+    "resultado": "",
+    "campo": ""
+   },
+   {
+    "jornada": 20,
+    "fecha": "2027-02-20",
+    "hora": "",
+    "local": true,
+    "rival": "S.D. FONTEMAYOR \"B\"",
+    "resultado": "",
+    "campo": ""
+   },
+   {
+    "jornada": 21,
+    "fecha": "2027-02-27",
+    "hora": "",
+    "local": false,
+    "rival": "S.D. CULTURAL MANIÑOS",
+    "resultado": "",
+    "campo": ""
+   },
+   {
+    "jornada": 22,
+    "fecha": "2027-03-06",
+    "hora": "",
+    "local": true,
+    "rival": "ACD VETERANOS ARANGA",
+    "resultado": "",
+    "campo": ""
+   },
+   {
+    "jornada": 23,
+    "fecha": "2027-03-13",
+    "hora": "",
+    "local": false,
+    "rival": "EIRÍS S.D.",
+    "resultado": "",
+    "campo": ""
+   },
+   {
+    "jornada": 24,
+    "fecha": "2027-03-20",
+    "hora": "",
+    "local": true,
+    "rival": "SPORTING CORUÑES SDC",
+    "resultado": "",
+    "campo": ""
+   },
+   {
+    "jornada": 25,
+    "fecha": "2027-04-03",
+    "hora": "",
+    "local": false,
+    "rival": "VIOÑO C.F.",
+    "resultado": "",
+    "campo": ""
+   },
+   {
+    "jornada": 26,
+    "fecha": "2027-04-10",
+    "hora": "",
+    "local": true,
+    "rival": "ATLETICO PERILLO",
+    "resultado": "",
+    "campo": ""
+   }
+  ],
+  "competicion": "Veteranos - Tercera Galicia · A Coruña | 3ª División G2",
+  "urlClasificacion": "https://www.futgal.es/pnfg/NPcd/NFG_VisClasificacion?cod_primaria=1000120&codgrupo=28259876&codcompeticion=26991165",
+  "escudos": {
+   "URAL ESPAÑOL C.F. VUELTA XENTES": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000891301_ESCUDO_URAL_B.jpg",
+   "SPORTING CORUÑES SDC": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000801946_escudo-4154.jpg",
+   "ACD VETERANOS ARANGA": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001486797_ArangaCDX_logotipo_positivo.png",
+   "EIRÍS S.D.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000934032_Eiris.png",
+   "A.C.D. POULO": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000805848_EscudoPoulo.jpg",
+   "UD CARRAL": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001484347_Carral.jpg",
+   "S.C.D. SAN CRISTOBAL DAS VIÑAS": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000716647_EMBLEMA_CLUB.jpg",
+   "ATLETICO ARTEIXO": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001213772_Atle__tico_Arteixo.png",
+   "IMPERATOR OAR \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000911974_ESCUDO__IMPERATOR_final.png",
+   "VIOÑO C.F.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001406822_Screenshot_2024_09_30_23_24_06_656_com.android.chrome_edit.jpg",
+   "S.D. CULTURAL MANIÑOS": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000007711_Escudo.gif",
+   "ATLETICO PERILLO": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000034822_ESCUDO_PERILLO.jpg",
+   "S.D. FONTEMAYOR \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000805847_Escudo-Fontemaior.jpg"
+  },
+  "actas": {
+   "3": {
+    "t": [
+     "Feliciano Penas Pérez",
+     "Mauro García Juncal",
+     "Marcos Ferreras Rodríguez",
+     "José R Ares Suárez",
+     "Juan C Ponte Mahia",
+     "Jesús Furelos Quintas",
+     "Francisco B Barreiro Pena",
+     "Pablo López Villanueva",
+     "José Manuel Molla González",
+     "Carlos Rey Villamor",
+     "Pablo Barallobre Fernández"
+    ],
+    "s": [
+     "David Castro Santos",
+     "Miguel A Mejuto Pajaro",
+     "Luciano R Pérez C Iglesias"
+    ],
+    "e": [],
+    "g": {
+     "José Manuel Molla González": 4
+    },
+    "a": [],
+    "r": [],
+    "d": {
+     "Feliciano Penas Pérez": 14,
+     "Mauro García Juncal": 2,
+     "Marcos Ferreras Rodríguez": 6,
+     "José R Ares Suárez": 9,
+     "Juan C Ponte Mahia": 15,
+     "Jesús Furelos Quintas": 16,
+     "Francisco B Barreiro Pena": 17,
+     "Pablo López Villanueva": 22,
+     "José Manuel Molla González": 24,
+     "Carlos Rey Villamor": 26,
+     "Pablo Barallobre Fernández": 99,
+     "David Castro Santos": 3,
+     "Miguel A Mejuto Pajaro": 28,
+     "Luciano R Pérez C Iglesias": 29
+    },
+    "c": [],
+    "rm": {},
+    "id": "1477797"
+   },
+   "4": {
+    "t": [
+     "Feliciano Penas Pérez",
+     "Mauro García Juncal",
+     "David Castro Santos",
+     "Antón Baldomir Vilela",
+     "José Manuel Molla González",
+     "Marcos Ferreras Rodríguez",
+     "José R Ares Suárez",
+     "Francisco B Barreiro Pena",
+     "Pablo López Villanueva",
+     "Carlos Rey Villamor",
+     "Pablo Barallobre Fernández"
+    ],
+    "s": [
+     "Alberto Felipez Sánchez",
+     "Jesús Furelos Quintas",
+     "José Antonio Elizondo Martínez",
+     "Miguel A Mejuto Pajaro",
+     "Luciano R Pérez C Iglesias"
+    ],
+    "e": [],
+    "g": {},
+    "a": [
+     "Antón Baldomir Vilela",
+     "David Castro Santos"
+    ],
+    "r": [],
+    "d": {
+     "Feliciano Penas Pérez": 14,
+     "Mauro García Juncal": 2,
+     "David Castro Santos": 3,
+     "Antón Baldomir Vilela": 4,
+     "José Manuel Molla González": 5,
+     "Marcos Ferreras Rodríguez": 6,
+     "José R Ares Suárez": 9,
+     "Francisco B Barreiro Pena": 17,
+     "Pablo López Villanueva": 22,
+     "Carlos Rey Villamor": 26,
+     "Pablo Barallobre Fernández": 99,
+     "Alberto Felipez Sánchez": 12,
+     "Jesús Furelos Quintas": 16,
+     "José Antonio Elizondo Martínez": 23,
+     "Miguel A Mejuto Pajaro": 28,
+     "Luciano R Pérez C Iglesias": 29
+    },
+    "c": [],
+    "rm": {},
+    "id": "1477805"
+   },
+   "5": {
+    "t": [
+     "Feliciano Penas Pérez",
+     "David Castro Santos",
+     "Antón Baldomir Vilela",
+     "José Manuel Molla González",
+     "Marcos Ferreras Rodríguez",
+     "José R Ares Suárez",
+     "Juan C Ponte Mahia",
+     "Jesús Furelos Quintas",
+     "Pablo López Villanueva",
+     "José Antonio Elizondo Martínez",
+     "Pablo Barallobre Fernández"
+    ],
+    "s": [
+     "Domingo A Monteiga Blanco",
+     "Francisco B Barreiro Pena",
+     "José M García Villar",
+     "Carlos Rey Villamor",
+     "Miguel A Mejuto Pajaro",
+     "Luciano R Pérez C Iglesias"
+    ],
+    "e": [],
+    "g": {
+     "Domingo A Monteiga Blanco": 1
+    },
+    "a": [
+     "Jesús Furelos Quintas"
+    ],
+    "r": [],
+    "d": {
+     "Feliciano Penas Pérez": 14,
+     "David Castro Santos": 3,
+     "Antón Baldomir Vilela": 4,
+     "José Manuel Molla González": 5,
+     "Marcos Ferreras Rodríguez": 6,
+     "José R Ares Suárez": 9,
+     "Juan C Ponte Mahia": 15,
+     "Jesús Furelos Quintas": 16,
+     "Pablo López Villanueva": 22,
+     "José Antonio Elizondo Martínez": 23,
+     "Pablo Barallobre Fernández": 99,
+     "Domingo A Monteiga Blanco": 7,
+     "Francisco B Barreiro Pena": 17,
+     "José M García Villar": 21,
+     "Carlos Rey Villamor": 26,
+     "Miguel A Mejuto Pajaro": 28,
+     "Luciano R Pérez C Iglesias": 29
+    },
+    "c": [],
+    "rm": {},
+    "id": "1477812"
+   },
+   "6": {
+    "t": [
+     "Feliciano Penas Pérez",
+     "Antón Baldomir Vilela",
+     "José Manuel Molla González",
+     "Domingo A Monteiga Blanco",
+     "José R Ares Suárez",
+     "Juan C Ponte Mahia",
+     "Jesús Furelos Quintas",
+     "Ambrosio Orons Baña",
+     "José M García Villar",
+     "José Antonio Elizondo Martínez",
+     "Carlos Rey Villamor"
+    ],
+    "s": [
+     "Marcos Ferreras Rodríguez",
+     "Alberto Felipez Sánchez",
+     "Francisco B Barreiro Pena",
+     "Luciano R Pérez C Iglesias"
+    ],
+    "e": [],
+    "g": {},
+    "a": [],
+    "r": [],
+    "d": {
+     "Feliciano Penas Pérez": 14,
+     "Antón Baldomir Vilela": 4,
+     "José Manuel Molla González": 5,
+     "Domingo A Monteiga Blanco": 7,
+     "José R Ares Suárez": 9,
+     "Juan C Ponte Mahia": 15,
+     "Jesús Furelos Quintas": 16,
+     "Ambrosio Orons Baña": 19,
+     "José M García Villar": 21,
+     "José Antonio Elizondo Martínez": 23,
+     "Carlos Rey Villamor": 26,
+     "Marcos Ferreras Rodríguez": 6,
+     "Alberto Felipez Sánchez": 12,
+     "Francisco B Barreiro Pena": 17,
+     "Luciano R Pérez C Iglesias": 29
+    },
+    "c": [],
+    "rm": {},
+    "id": "1477819"
+   },
+   "7": {
+    "t": [
+     "David Castro Santos",
+     "Mauro García Juncal",
+     "Antón Baldomir Vilela",
+     "Marcos Ferreras Rodríguez",
+     "José R Ares Suárez",
+     "Alberto Felipez Sánchez",
+     "José Manuel Molla González",
+     "Jesús Furelos Quintas",
+     "Ambrosio Orons Baña",
+     "José M García Villar",
+     "Carlos Rey Villamor"
+    ],
+    "s": [
+     "Francisco B Barreiro Pena",
+     "Pablo López Villanueva",
+     "José Antonio Elizondo Martínez",
+     "Luciano R Pérez C Iglesias",
+     "Pablo Barallobre Fernández"
+    ],
+    "e": [],
+    "g": {
+     "Ambrosio Orons Baña": 1,
+     "Pablo Barallobre Fernández": 1,
+     "Carlos Rey Villamor": 1
+    },
+    "a": [],
+    "r": [],
+    "d": {
+     "David Castro Santos": 13,
+     "Mauro García Juncal": 2,
+     "Antón Baldomir Vilela": 4,
+     "Marcos Ferreras Rodríguez": 6,
+     "José R Ares Suárez": 9,
+     "Alberto Felipez Sánchez": 12,
+     "José Manuel Molla González": 14,
+     "Jesús Furelos Quintas": 16,
+     "Ambrosio Orons Baña": 19,
+     "José M García Villar": 21,
+     "Carlos Rey Villamor": 26,
+     "Francisco B Barreiro Pena": 17,
+     "Pablo López Villanueva": 22,
+     "José Antonio Elizondo Martínez": 23,
+     "Luciano R Pérez C Iglesias": 29,
+     "Pablo Barallobre Fernández": 99
+    },
+    "c": [],
+    "rm": {},
+    "id": "1477825"
+   }
+  },
+  "dorsales": {
+   "Marcos Ferreras Rodríguez": 6,
+   "José R Ares Suárez": 9,
+   "Antón Baldomir Vilela": 4,
+   "Mauro García Juncal": 2,
+   "David Castro Santos": 3,
+   "José Manuel Molla González": 5,
+   "Domingo A Monteiga Blanco": 7,
+   "Jesús Furelos Quintas": 16,
+   "Francisco B Barreiro Pena": 17,
+   "Carlos Rey Villamor": 26,
+   "Luciano R Pérez C Iglesias": 29,
+   "Feliciano Penas Pérez": 14,
+   "Pablo López Villanueva": 22,
+   "José Antonio Elizondo Martínez": 23,
+   "Pablo Barallobre Fernández": 99,
+   "Alberto Felipez Sánchez": 12,
+   "Juan C Ponte Mahia": 15,
+   "José M García Villar": 21,
+   "Miguel A Mejuto Pajaro": 28,
+   "Ambrosio Orons Baña": 19
+  },
+  "descargado": "2026-10-28T18:56"
  },
  {
   "id": "biberon-a-fs",
@@ -11936,7 +12601,247 @@ const EQUIPOS = [
   "plantilla": [],
   "entrenadores": [],
   "delegados": [],
-  "clasificacion": [],
-  "partidos": []
+  "clasificacion": [
+   {
+    "equipo": "C.D. CIUDAD JARDÍN",
+    "pts": 0,
+    "pj": 0,
+    "g": 0,
+    "e": 0,
+    "p": 0,
+    "gf": 0,
+    "gc": 0,
+    "propio": false
+   },
+   {
+    "equipo": "CLUB ATLÉTICO DOS CASTROS",
+    "pts": 0,
+    "pj": 0,
+    "g": 0,
+    "e": 0,
+    "p": 0,
+    "gf": 0,
+    "gc": 0,
+    "propio": false
+   },
+   {
+    "equipo": "CLUB ROSALÍA MERA",
+    "pts": 0,
+    "pj": 0,
+    "g": 0,
+    "e": 0,
+    "p": 0,
+    "gf": 0,
+    "gc": 0,
+    "propio": false
+   },
+   {
+    "equipo": "EIRIS S.D.",
+    "pts": 0,
+    "pj": 0,
+    "g": 0,
+    "e": 0,
+    "p": 0,
+    "gf": 0,
+    "gc": 0,
+    "propio": false
+   },
+   {
+    "equipo": "LICEO DE MONELOS S.D.",
+    "pts": 0,
+    "pj": 0,
+    "g": 0,
+    "e": 0,
+    "p": 0,
+    "gf": 0,
+    "gc": 0,
+    "propio": false
+   },
+   {
+    "equipo": "OLIMPICO C.F.",
+    "pts": 0,
+    "pj": 0,
+    "g": 0,
+    "e": 0,
+    "p": 0,
+    "gf": 0,
+    "gc": 0,
+    "propio": false
+   },
+   {
+    "equipo": "OZA JUVENIL S.D.",
+    "pts": 0,
+    "pj": 0,
+    "g": 0,
+    "e": 0,
+    "p": 0,
+    "gf": 0,
+    "gc": 0,
+    "propio": false
+   },
+   {
+    "equipo": "SALESIANOS CORUÑA",
+    "pts": 0,
+    "pj": 0,
+    "g": 0,
+    "e": 0,
+    "p": 0,
+    "gf": 0,
+    "gc": 0,
+    "propio": false
+   },
+   {
+    "equipo": "SILVA S.D. ARBOCO",
+    "pts": 0,
+    "pj": 0,
+    "g": 0,
+    "e": 0,
+    "p": 0,
+    "gf": 0,
+    "gc": 0,
+    "propio": false
+   },
+   {
+    "equipo": "URAL ESPAÑOL C.F.",
+    "pts": 0,
+    "pj": 0,
+    "g": 0,
+    "e": 0,
+    "p": 0,
+    "gf": 0,
+    "gc": 0,
+    "propio": true
+   },
+   {
+    "equipo": "VICTORIA C.F.",
+    "pts": 0,
+    "pj": 0,
+    "g": 0,
+    "e": 0,
+    "p": 0,
+    "gf": 0,
+    "gc": 0,
+    "propio": false
+   }
+  ],
+  "partidos": [
+   {
+    "jornada": 1,
+    "fecha": "2026-11-08",
+    "hora": "",
+    "local": false,
+    "rival": "SALESIANOS CORUÑA",
+    "resultado": "",
+    "campo": "Polideportivo Salesiano"
+   },
+   {
+    "jornada": 2,
+    "fecha": "2026-11-22",
+    "hora": "17:20",
+    "local": true,
+    "rival": "SILVA S.D. ARBOCO",
+    "resultado": "",
+    "campo": ""
+   },
+   {
+    "jornada": 3,
+    "fecha": "2026-12-13",
+    "hora": "",
+    "local": false,
+    "rival": "VICTORIA C.F.",
+    "resultado": "",
+    "campo": ""
+   },
+   {
+    "jornada": 4,
+    "fecha": "2027-01-10",
+    "hora": "",
+    "local": true,
+    "rival": "C.D. CIUDAD JARDÍN",
+    "resultado": "",
+    "campo": ""
+   },
+   {
+    "jornada": 5,
+    "fecha": "2027-01-24",
+    "hora": "",
+    "local": false,
+    "rival": "OLIMPICO C.F.",
+    "resultado": "",
+    "campo": ""
+   },
+   {
+    "jornada": 6,
+    "fecha": "2027-02-07",
+    "hora": "",
+    "local": true,
+    "rival": "CLUB ROSALÍA MERA",
+    "resultado": "",
+    "campo": ""
+   },
+   {
+    "jornada": 7,
+    "fecha": "2027-02-21",
+    "hora": "",
+    "local": false,
+    "rival": "OZA JUVENIL S.D.",
+    "resultado": "",
+    "campo": ""
+   },
+   {
+    "jornada": 8,
+    "fecha": "2027-03-07",
+    "hora": "",
+    "local": true,
+    "rival": "EIRIS S.D.",
+    "resultado": "",
+    "campo": ""
+   },
+   {
+    "jornada": 9,
+    "fecha": "",
+    "hora": "",
+    "local": true,
+    "rival": "21-03-2027",
+    "resultado": "",
+    "campo": ""
+   },
+   {
+    "jornada": 10,
+    "fecha": "2027-04-11",
+    "hora": "",
+    "local": false,
+    "rival": "CLUB ATLÉTICO DOS CASTROS",
+    "resultado": "",
+    "campo": ""
+   },
+   {
+    "jornada": 11,
+    "fecha": "2027-04-25",
+    "hora": "",
+    "local": true,
+    "rival": "LICEO DE MONELOS S.D.",
+    "resultado": "",
+    "campo": ""
+   }
+  ],
+  "competicion": "Biberón - Primera Futgal F.S. · A Coruña | Liga",
+  "urlClasificacion": "https://www.futgal.es/pnfg/NPcd/NFG_VisClasificacion?cod_primaria=1000120&codgrupo=26991033&codcompeticion=26991025",
+  "escudos": {
+   "SALESIANOS CORUÑA": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001213904_Escudo_SC_rojo.png",
+   "URAL ESPAÑOL C.F.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000891301_ESCUDO_URAL_B.jpg",
+   "LICEO DE MONELOS S.D.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000884334_liceo_monelos_1.png",
+   "C.D. CIUDAD JARDÍN": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001218414_Imagen_de_WhatsApp_2024_04_26_a_las_20.12.37_97ce5fe8.jpg",
+   "OLIMPICO C.F.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000867912_escudo_federaci_n.jpg",
+   "VICTORIA C.F.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000004135_victoriacfblanco.jpg",
+   "CLUB ROSALÍA MERA": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001008004_ROSALIA_MERA_ESCUDO_GRANDE.jpg",
+   "SILVA S.D. ARBOCO": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001103292_escudo_rfgf.jpg",
+   "OZA JUVENIL S.D.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000734970_00100_0000629374_Untitled_-_1.jpg",
+   "EIRIS S.D.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000934032_Eiris.png",
+   "CLUB ATLÉTICO DOS CASTROS": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001611037_escudo128.png"
+  },
+  "actas": {},
+  "dorsales": {},
+  "descargado": "2026-10-28T18:56"
  }
 ];
