@@ -1,5 +1,5 @@
 // GENERADO por actualizar.py desde futgal.es. No editar a mano.
-const ACTUALIZADO = "2026-10-28T05:56";
+const ACTUALIZADO = "2026-10-28T13:12";
 const EQUIPOS = [
  {
   "id": "juvenil-a",
@@ -11469,8 +11469,362 @@ const EQUIPOS = [
   ],
   "entrenadores": [],
   "delegados": [],
-  "clasificacion": [],
-  "partidos": []
+  "clasificacion": [
+   {
+    "equipo": "ORILLAMAR S.D.",
+    "pts": 12,
+    "pj": 4,
+    "g": 4,
+    "e": 0,
+    "p": 0,
+    "gf": 16,
+    "gc": 0,
+    "propio": false
+   },
+   {
+    "equipo": "COLEGIO OBRADOIRO",
+    "pts": 10,
+    "pj": 4,
+    "g": 3,
+    "e": 1,
+    "p": 0,
+    "gf": 14,
+    "gc": 2,
+    "propio": false
+   },
+   {
+    "equipo": "CLUB ROSALIA MERA",
+    "pts": 9,
+    "pj": 4,
+    "g": 3,
+    "e": 0,
+    "p": 1,
+    "gf": 8,
+    "gc": 4,
+    "propio": false
+   },
+   {
+    "equipo": "COMPAÑIA DE MARIA \"B\"",
+    "pts": 6,
+    "pj": 4,
+    "g": 2,
+    "e": 0,
+    "p": 2,
+    "gf": 7,
+    "gc": 6,
+    "propio": false
+   },
+   {
+    "equipo": "A. C. RUEIRO",
+    "pts": 6,
+    "pj": 4,
+    "g": 2,
+    "e": 0,
+    "p": 2,
+    "gf": 7,
+    "gc": 8,
+    "propio": false
+   },
+   {
+    "equipo": "EIRÍS S.D.",
+    "pts": 6,
+    "pj": 4,
+    "g": 2,
+    "e": 0,
+    "p": 2,
+    "gf": 5,
+    "gc": 10,
+    "propio": false
+   },
+   {
+    "equipo": "URAL ESPAÑOL C.F. \"C\"",
+    "pts": 4,
+    "pj": 4,
+    "g": 1,
+    "e": 1,
+    "p": 2,
+    "gf": 6,
+    "gc": 7,
+    "propio": true
+   },
+   {
+    "equipo": "OZA JUVENIL S.D. \"B\"",
+    "pts": 3,
+    "pj": 4,
+    "g": 1,
+    "e": 0,
+    "p": 3,
+    "gf": 3,
+    "gc": 11,
+    "propio": false
+   },
+   {
+    "equipo": "IMPERATOR O.A.R. \"B\"",
+    "pts": 3,
+    "pj": 4,
+    "g": 1,
+    "e": 0,
+    "p": 3,
+    "gf": 2,
+    "gc": 11,
+    "propio": false
+   },
+   {
+    "equipo": "SANTA MARIA DEL MAR \"D\"",
+    "pts": 0,
+    "pj": 4,
+    "g": 0,
+    "e": 0,
+    "p": 4,
+    "gf": 2,
+    "gc": 11,
+    "propio": false
+   }
+  ],
+  "partidos": [
+   {
+    "jornada": 1,
+    "fecha": "2026-10-04",
+    "hora": "16:00",
+    "local": true,
+    "rival": "CLUB ROSALIA MERA",
+    "resultado": "3-0",
+    "campo": ""
+   },
+   {
+    "jornada": 2,
+    "fecha": "2026-10-11",
+    "hora": "10:00",
+    "local": false,
+    "rival": "COLEGIO OBRADOIRO",
+    "resultado": "2-2",
+    "campo": ""
+   },
+   {
+    "jornada": 3,
+    "fecha": "2026-10-17",
+    "hora": "09:30",
+    "local": true,
+    "rival": "COMPAÑIA DE MARIA \"B\"",
+    "resultado": "0-2",
+    "campo": ""
+   },
+   {
+    "jornada": 4,
+    "fecha": "2026-10-25",
+    "hora": "09:30",
+    "local": false,
+    "rival": "EIRÍS S.D.",
+    "resultado": "3-1",
+    "campo": ""
+   },
+   {
+    "jornada": 5,
+    "fecha": "2026-10-31",
+    "hora": "11:00",
+    "local": true,
+    "rival": "IMPERATOR O.A.R. \"B\"",
+    "resultado": "",
+    "campo": "Torre Nº 5"
+   },
+   {
+    "jornada": 6,
+    "fecha": "2026-11-07",
+    "hora": "",
+    "local": false,
+    "rival": "SANTA MARIA DEL MAR \"D\"",
+    "resultado": "",
+    "campo": ""
+   },
+   {
+    "jornada": 7,
+    "fecha": "2026-11-14",
+    "hora": "",
+    "local": true,
+    "rival": "OZA JUVENIL S.D. \"B\"",
+    "resultado": "",
+    "campo": ""
+   },
+   {
+    "jornada": 8,
+    "fecha": "2026-11-21",
+    "hora": "",
+    "local": true,
+    "rival": "ORILLAMAR S.D.",
+    "resultado": "",
+    "campo": ""
+   },
+   {
+    "jornada": 9,
+    "fecha": "2026-11-28",
+    "hora": "",
+    "local": false,
+    "rival": "A. C. RUEIRO",
+    "resultado": "",
+    "campo": ""
+   }
+  ],
+  "competicion": "Prebenjamin - Segunda Futgal · A Coruña | 1ª Fase G3",
+  "urlClasificacion": "https://www.futgal.es/pnfg/NPcd/NFG_VisClasificacion?cod_primaria=1000120&codgrupo=28989697&codcompeticion=26991921",
+  "escudos": {
+   "A. C. RUEIRO": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001404224_WhatsApp_Image_2024_09_26_at_13.47.47.jpeg",
+   "CLUB ROSALIA MERA": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001008004_ROSALIA_MERA_ESCUDO_GRANDE.jpg",
+   "URAL ESPAÑOL C.F. \"C\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000891301_ESCUDO_URAL_B.jpg",
+   "IMPERATOR O.A.R. \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000911974_ESCUDO__IMPERATOR_final.png",
+   "OZA JUVENIL S.D. \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000734970_00100_0000629374_Untitled_-_1.jpg",
+   "COMPAÑIA DE MARIA \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001004468_logo.png",
+   "COLEGIO OBRADOIRO": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000994690_Escudo_Colegio_Obradoiro.jpg",
+   "ORILLAMAR S.D.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000941018_ESCUDO_OFICIAL_ORILLAMAR_SD_PRINCIPAL.jpg",
+   "EIRÍS S.D.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000934032_Eiris.png",
+   "SANTA MARIA DEL MAR \"D\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001611104_Escudo_sin_fondo.png"
+  },
+  "actas": {
+   "1": {
+    "t": [
+     "Mariano Castro Vázquez",
+     "Logan Barros De Andrés",
+     "Luis Posado Varela",
+     "Gael García Fidalgo",
+     "Jacobo Regos Aguión",
+     "Carlos Rey Serrano",
+     "Aldan Ulla Yáñez",
+     "Gabriel Sixto Rodríguez"
+    ],
+    "s": [
+     "Rafael Pesqueira Esteve De Miguel"
+    ],
+    "e": [],
+    "g": {},
+    "a": [],
+    "r": [],
+    "d": {
+     "Mariano Castro Vázquez": 1,
+     "Logan Barros De Andrés": 2,
+     "Luis Posado Varela": 3,
+     "Gael García Fidalgo": 4,
+     "Jacobo Regos Aguión": 5,
+     "Carlos Rey Serrano": 6,
+     "Aldan Ulla Yáñez": 7,
+     "Gabriel Sixto Rodríguez": 8,
+     "Rafael Pesqueira Esteve De Miguel": 9
+    },
+    "c": [],
+    "rm": {},
+    "id": "1510009"
+   },
+   "2": {
+    "t": [
+     "Mariano Castro Vázquez",
+     "Luis Posado Varela",
+     "Gael García Fidalgo",
+     "Pablo Vilariño Graña",
+     "Carlos Rey Serrano",
+     "Jacobo Regos Aguión",
+     "Gabriel Sixto Rodríguez",
+     "Manuel Pesqueira Esteve De Miguel"
+    ],
+    "s": [
+     "Aldan Ulla Yáñez"
+    ],
+    "e": [],
+    "g": {},
+    "a": [],
+    "r": [],
+    "d": {
+     "Mariano Castro Vázquez": 1,
+     "Luis Posado Varela": 3,
+     "Gael García Fidalgo": 4,
+     "Pablo Vilariño Graña": 5,
+     "Carlos Rey Serrano": 6,
+     "Jacobo Regos Aguión": 9,
+     "Gabriel Sixto Rodríguez": 10,
+     "Manuel Pesqueira Esteve De Miguel": 11,
+     "Aldan Ulla Yáñez": 7
+    },
+    "c": [],
+    "rm": {},
+    "id": "1510010"
+   },
+   "3": {
+    "t": [
+     "Luis Posado Varela",
+     "Mariano Castro Vázquez",
+     "Pablo Vilariño Graña",
+     "Carlos Rey Serrano",
+     "Aldan Ulla Yáñez",
+     "Hugo Díez Ferreras",
+     "Jacobo Regos Aguión",
+     "Gabriel Sixto Rodríguez"
+    ],
+    "s": [],
+    "e": [],
+    "g": {},
+    "a": [],
+    "r": [],
+    "d": {
+     "Luis Posado Varela": 3,
+     "Mariano Castro Vázquez": 2,
+     "Pablo Vilariño Graña": 5,
+     "Carlos Rey Serrano": 6,
+     "Aldan Ulla Yáñez": 7,
+     "Hugo Díez Ferreras": 8,
+     "Jacobo Regos Aguión": 9,
+     "Gabriel Sixto Rodríguez": 10
+    },
+    "c": [],
+    "rm": {},
+    "id": "1510019"
+   },
+   "4": {
+    "t": [
+     "Luis Posado Varela",
+     "Mariano Castro Vázquez",
+     "Pablo Vilariño Graña",
+     "Carlos Rey Serrano",
+     "Aldan Ulla Yáñez",
+     "Hugo Díez Ferreras",
+     "Jacobo Regos Aguión",
+     "Gabriel Sixto Rodríguez"
+    ],
+    "s": [
+     "Simón Corgo Del Río"
+    ],
+    "e": [],
+    "g": {},
+    "a": [],
+    "r": [],
+    "d": {
+     "Luis Posado Varela": 3,
+     "Mariano Castro Vázquez": 1,
+     "Pablo Vilariño Graña": 5,
+     "Carlos Rey Serrano": 6,
+     "Aldan Ulla Yáñez": 7,
+     "Hugo Díez Ferreras": 8,
+     "Jacobo Regos Aguión": 9,
+     "Gabriel Sixto Rodríguez": 10,
+     "Simón Corgo Del Río": 2
+    },
+    "c": [],
+    "rm": {},
+    "id": "1510020"
+   }
+  },
+  "dorsales": {
+   "Luis Posado Varela": 3,
+   "Carlos Rey Serrano": 6,
+   "Aldan Ulla Yáñez": 7,
+   "Mariano Castro Vázquez": 1,
+   "Pablo Vilariño Graña": 5,
+   "Jacobo Regos Aguión": 9,
+   "Gabriel Sixto Rodríguez": 10,
+   "Gael García Fidalgo": 4,
+   "Hugo Díez Ferreras": 8,
+   "Logan Barros De Andrés": 2,
+   "Manuel Pesqueira Esteve De Miguel": 11,
+   "Rafael Pesqueira Esteve De Miguel": 12,
+   "Simón Corgo Del Río": 13
+  },
+  "descargado": "2026-10-28T13:12"
  },
  {
   "id": "biberon-a",
@@ -11494,7 +11848,45 @@ const EQUIPOS = [
   "entrenadores": [],
   "delegados": [],
   "clasificacion": [],
-  "partidos": []
+  "partidos": [
+   {
+    "jornada": 1,
+    "fecha": "2025-12-27",
+    "hora": "10:00",
+    "local": false,
+    "rival": "CLUB ATLÉTICO DOS CASTROS",
+    "resultado": "",
+    "campo": "Elviña Grande (La Coruña)"
+   },
+   {
+    "jornada": 2,
+    "fecha": "",
+    "hora": "",
+    "local": true,
+    "rival": "27-12-2025",
+    "resultado": "",
+    "campo": ""
+   },
+   {
+    "jornada": 3,
+    "fecha": "2025-12-27",
+    "hora": "13:00",
+    "local": true,
+    "rival": "C.D. CIUDAD",
+    "resultado": "",
+    "campo": ""
+   }
+  ],
+  "competicion": "Categoria Biberon · I Goliños No Nadal 2025 | Subgrupo B",
+  "urlClasificacion": "https://www.futgal.es/pnfg/NPcd/NFG_VisClasificacion?cod_primaria=1000120&codgrupo=26699788&codcompeticion=24123349",
+  "escudos": {
+   "C.D. CIUDAD": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001223589_CD_CIUDAD_TR_2.png",
+   "CLUB ATLÉTICO DOS CASTROS": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001611037_escudo128.png",
+   "URAL ESPAÑOL C.F.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000891301_ESCUDO_URAL_B.jpg"
+  },
+  "actas": {},
+  "dorsales": {},
+  "descargado": "2026-10-28T13:12"
  },
  {
   "id": "veteranos-a",
