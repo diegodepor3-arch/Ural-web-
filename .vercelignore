@@ -6,3 +6,5 @@ PRODUCT.md
 .impeccable
 .cache
 __pycache__
+.taste-skill
+.playwright-cli

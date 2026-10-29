@@ -6557,15 +6557,6 @@ const EQUIPOS = [
   ],
   "partidos": [
    {
-    "jornada": 1,
-    "fecha": "",
-    "hora": "",
-    "local": true,
-    "rival": "10-04-2021",
-    "resultado": "",
-    "campo": ""
-   },
-   {
     "jornada": 2,
     "fecha": "2021-04-18",
     "hora": "09:30",
@@ -6599,15 +6590,6 @@ const EQUIPOS = [
     "local": false,
     "rival": "ATLETICO CASTROS \"A\"",
     "resultado": "3-3",
-    "campo": ""
-   },
-   {
-    "jornada": 6,
-    "fecha": "",
-    "hora": "",
-    "local": true,
-    "rival": "15-05-2021",
-    "resultado": "",
     "campo": ""
    },
    {
@@ -10402,15 +10384,6 @@ const EQUIPOS = [
     "campo": ""
    },
    {
-    "jornada": 7,
-    "fecha": "",
-    "hora": "",
-    "local": true,
-    "rival": "14-11-2026",
-    "resultado": "",
-    "campo": ""
-   },
-   {
     "jornada": 8,
     "fecha": "2026-11-21",
     "hora": "",
@@ -12010,15 +11983,6 @@ const EQUIPOS = [
     "campo": "Elviña Grande (La Coruña)"
    },
    {
-    "jornada": 2,
-    "fecha": "",
-    "hora": "",
-    "local": true,
-    "rival": "27-12-2025",
-    "resultado": "",
-    "campo": ""
-   },
-   {
     "jornada": 3,
     "fecha": "2025-12-27",
     "hora": "13:00",
@@ -12230,15 +12194,6 @@ const EQUIPOS = [
     "campo": ""
    },
    {
-    "jornada": 2,
-    "fecha": "",
-    "hora": "",
-    "local": true,
-    "rival": "19-09-2026",
-    "resultado": "",
-    "campo": "San Pedro de Visma 2"
-   },
-   {
     "jornada": 3,
     "fecha": "2026-09-27",
     "hora": "12:00",
@@ -12343,15 +12298,6 @@ const EQUIPOS = [
     "hora": "",
     "local": false,
     "rival": "UD CARRAL",
-    "resultado": "",
-    "campo": ""
-   },
-   {
-    "jornada": 15,
-    "fecha": "",
-    "hora": "",
-    "local": true,
-    "rival": "09-01-2027",
     "resultado": "",
     "campo": ""
    },
@@ -12945,15 +12891,6 @@ const EQUIPOS = [
     "hora": "",
     "local": true,
     "rival": "EIRIS S.D.",
-    "resultado": "",
-    "campo": ""
-   },
-   {
-    "jornada": 9,
-    "fecha": "",
-    "hora": "",
-    "local": true,
-    "rival": "21-03-2027",
     "resultado": "",
     "campo": ""
    },

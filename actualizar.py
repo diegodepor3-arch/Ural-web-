@@ -135,6 +135,8 @@ def partidos(cod, grupo):
         if len(h5) < 4 or not h5[0].isdigit():
             continue
         local, visitante = h5[1], h5[2]
+        if re.match(r"\d\d-\d\d-\d{4}", visitante):  # jornada de descanso: solo sale un equipo y la fecha
+            continue
         m = re.match(r"(\d\d)-(\d\d)-(\d{4})\s*(\d\d:\d\d)?", h5[3])
         res = re.findall(r"\d+", h5[4]) if len(h5) > 4 else []
         out.append({

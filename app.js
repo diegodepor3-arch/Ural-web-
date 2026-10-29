@@ -7,6 +7,18 @@ const icono = (id, cls = "icono") => `<svg class="${cls}" aria-hidden="true"><us
 const normal = (s) => String(s).toLowerCase().normalize("NFD").replace(/\p{M}/gu, "");
 const plural = (n, s, p = `${s}s`) => `${n} ${n === 1 ? s : p}`;
 
+// Fotos de A Coruña y del fútbol gallego (Wikimedia Commons, créditos en el pie). Ninguna es del club.
+const FOTO = {
+  galerias: { src: "assets/a-coruna-galerias-07.jpg", alt: "Galerías de la Marina, A Coruña", w: 1600, h: 1200 },
+  galeriasDetalle: { src: "assets/galerias-glazed-window-balconies-a-coruna-galicia.jpg", alt: "Detalle de las galerías acristaladas de A Coruña", w: 1009, h: 1600 },
+  partido: { src: "assets/ud-ourense-villalonga-cf-lance-do-xogo.jpg", alt: "Partido de fútbol gallego: UD Ourense contra Villalonga", w: 1600, h: 958 },
+  torre: { src: "assets/torre-de-hercules-divesgallaecia2012-62.jpg", alt: "La Torre de Hércules, A Coruña", w: 1600, h: 1067 },
+  lluvia: { src: "assets/rua-real-dia-de-lluvia-panoramio.jpg", alt: "La Rúa Real de A Coruña en un día de lluvia", w: 1200, h: 1600 },
+  orzan: { src: "assets/playa-de-el-orzan-panoramio.jpg", alt: "Temporal en la playa del Orzán, A Coruña", w: 1600, h: 1200 },
+};
+const foto = (f, cls = "", lazy = true) =>
+  `<img class="${cls}" src="${f.src}" alt="${esc(f.alt)}" width="${f.w}" height="${f.h}"${lazy ? ' loading="lazy"' : ' fetchpriority="high"'}>`;
+
 // --- Fechas -------------------------------------------------------------
 const dia = (f) => new Date(`${f}T12:00`); // mediodía: sin líos de zona horaria
 const fmt = (f, op) => dia(f).toLocaleDateString("es-ES", op).replace(".", "");
@@ -14,6 +26,7 @@ const fechaCorta = (f) => `${fmt(f, { weekday: "short" })} ${fmt(f, { day: "nume
 const hoy = () => { const d = new Date(); d.setHours(12, 0, 0, 0); return d; };
 const sumarDias = (d, n) => { const r = new Date(d); r.setDate(r.getDate() + n); return r; };
 const mayus = (s) => s.charAt(0).toUpperCase() + s.slice(1);
+const iso = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 
 // --- Equipos ------------------------------------------------------------
 const categoria = (id) => CATEGORIAS.find((c) => c.id === id) || { id, nombre: mayus(id), singular: mayus(id) };
@@ -34,207 +47,217 @@ function marcador(p) {
   const nos = p.local ? l : v, ellos = p.local ? v : l;
   return { l, v, nos, ellos, res: nos > ellos ? "G" : nos < ellos ? "P" : "E" };
 }
+const RESULTADO = { G: "Victoria", E: "Empate", P: "Derrota" };
 
 const iniciales = (n) => n.replace(/[^A-ZÁÉÍÓÚÑ ]/gi, "").trim().split(/\s+/).slice(0, 2).map((x) => x[0]).join("").toUpperCase();
 // Escudo sin fondo (escudos.py lo recorta y lo guarda en img/escudos); si aún no está, el de la federación
 const sinFondo = (url) => (typeof ESCUDOS === "object" && ESCUDOS[url]) || url;
 const escudoDe = (e, nombre) => e.escudos?.[nombre]
-  ? `<img class="escudo" src="${esc(sinFondo(e.escudos[nombre]))}" alt="" loading="lazy">`
+  ? `<img class="escudo" src="${esc(sinFondo(e.escudos[nombre]))}" alt="" width="40" height="40" loading="lazy">`
   : `<span class="escudo escudo--vacio" aria-hidden="true">${esc(iniciales(nombre))}</span>`;
-const nuestro = `<img class="escudo" src="img/escudo.png" alt="">`;
+const nuestro = `<img class="escudo" src="img/escudo.png" alt="" width="40" height="38">`;
 const vacio = (txt) => `<p class="vacio">${txt}</p>`;
 const actualizado = (f) => new Date(f).toLocaleString("es-ES", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
+// Local primero, como en el cartel
+const cruce = (p) => p.local ? `${CLUB.corto} – ${p.rival}` : `${p.rival} – ${CLUB.corto}`;
 
-// --- Dibujos ------------------------------------------------------------
-// Cresta de montaña determinista (mismo dibujo en cada visita): picos alternos como los del escudo
-function cresta(W, H, picos, semilla = 7) {
-  let s = semilla;
-  const azar = () => ((s = (s * 9301 + 49297) % 233280) / 233280);
-  const pts = [[0, H * 0.75]];
-  for (let i = 0; i < picos; i++) {
-    const x = ((i + 0.5) / picos) * W;
-    pts.push([x - W / picos / 2 + azar() * 10, H * (0.55 + azar() * 0.2)]);
-    pts.push([x + (azar() - 0.5) * 20, H * (0.12 + azar() * 0.35)]);
-  }
-  pts.push([W, H * 0.6]);
-  return pts.map(([x, y], i) => `${i ? "L" : "M"}${x.toFixed(1)} ${y.toFixed(1)}`).join("");
+// La semana en curso (lunes a domingo) y la anterior
+function semanas() {
+  const lunes = sumarDias(hoy(), -((hoy().getDay() + 6) % 7)), domingo = sumarDias(lunes, 6);
+  const en = (p, a, b) => p.fecha && dia(p.fecha) >= a && dia(p.fecha) <= b;
+  const todos = todosLosPartidos();
+  const orden = (a, b) => (a.fecha + (a.hora || "99")).localeCompare(b.fecha + (b.hora || "99")) || ordenCat(a.e) - ordenCat(b.e);
+  return {
+    lunes, domingo,
+    esta: todos.filter((p) => en(p, lunes, domingo)).sort(orden),
+    pasada: todos.filter((p) => p.resultado && en(p, sumarDias(lunes, -7), sumarDias(lunes, -1)))
+      .sort((a, b) => ordenCat(a.e) - ordenCat(b.e) || a.e.letra.localeCompare(b.e.letra)),
+  };
 }
-
-// Curvas de nivel: la misma cresta repetida hacia abajo, cada vez más tenue
-const curvas = (d, n = 7, paso = 14) => Array.from({ length: n }, (_, i) =>
-  `<path d="${d}" transform="translate(0 ${i * paso})" style="opacity:${(1 - i / n).toFixed(2)}"/>`).join("");
-
-const fondoMontes = () => {
-  const d = cresta(1200, 300, 9, 11);
-  return `<svg class="montes" viewBox="0 0 1200 400" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
-    <g class="montes-curvas">${curvas(d, 9, 16)}</g>
-    <path class="montes-cresta" d="${d}"/>
-  </svg>`;
-};
-
-// --- Piezas comunes -----------------------------------------------------
-function cuentaAtras(p) {
-  if (!p.hora) return `<p class="billete-sin-hora">Hora por confirmar</p>`;
-  return `<div class="cuenta" data-objetivo="${p.fecha}T${p.hora}" role="timer" aria-label="Cuenta atrás">
-    ${["d", "h", "min"].map((u) => `<span><b>--</b><small>${u}</small></span>`).join("")}</div>`;
-}
-
-const lados = (p) => p.local
-  ? [{ n: CLUB.corto, img: nuestro, propio: true }, { n: p.rival, img: escudoDe(p.e, p.rival) }]
-  : [{ n: p.rival, img: escudoDe(p.e, p.rival) }, { n: CLUB.corto, img: nuestro, propio: true }];
-
-// Billete del próximo partido: matriz con el cruce y talón con la cuenta atrás
-function billete(p) {
-  const [casa, fuera] = lados(p);
-  return `
-    <article class="billete">
-      <div class="billete-matriz">
-        <p class="billete-cab"><span>${esc(nombreEquipo(p.e))}</span><span>Jornada ${p.jornada}</span></p>
-        <div class="billete-cruce">
-          <div class="billete-equipo${casa.propio ? " es-propio" : ""}">${casa.img}<strong>${esc(casa.n)}</strong><small>Local</small></div>
-          <span class="billete-vs">vs</span>
-          <div class="billete-equipo${fuera.propio ? " es-propio" : ""}">${fuera.img}<strong>${esc(fuera.n)}</strong><small>Visitante</small></div>
-        </div>
-        <p class="billete-campo">${icono("i-pin")}${p.campo ? esc(p.campo) : "Campo por confirmar"}</p>
-      </div>
-      <div class="billete-talon">
-        <p class="billete-fecha"><small>${esc(fmt(p.fecha, { weekday: "long" }))}</small><b>${esc(fmt(p.fecha, { day: "numeric" }))}</b><small>${esc(fmt(p.fecha, { month: "long" }))}</small></p>
-        <p class="billete-hora">${p.hora ? esc(p.hora) : "--:--"}</p>
-        ${cuentaAtras(p)}
-      </div>
-    </article>`;
-}
-
-// Fila de partido: sirve para la agenda de la portada y para el calendario de cada equipo
-function filaPartido(p, conEquipo = false) {
-  const m = p.resultado && marcador(p);
-  const [casa, fuera] = lados(p);
-  const etiqueta = conEquipo ? "a" : "div";
-  return `
-    <${etiqueta} class="fila${m ? ` fila--${m.res}` : ""}${p.esHoy ? " fila--hoy" : ""}"${conEquipo ? ` href="${rutaEquipo(p.e)}"` : ""} role="listitem">
-      <span class="fila-hora">${conEquipo ? (p.hora || "--:--") : `<small>J${p.jornada}</small>${esc(p.fecha ? fmt(p.fecha, { day: "numeric", month: "short" }) : "")}`}</span>
-      ${conEquipo ? `<span class="fila-equipo"><b>${esc(nombreEquipo(p.e))}</b><small>${esc(p.e.liga)}</small></span>` : ""}
-      <span class="fila-cruce">
-        <span class="fila-lado${casa.propio ? " es-propio" : ""}">${esc(casa.n)}${casa.img}</span>
-        ${m ? `<b class="fila-res">${m.l}<i>-</i>${m.v}</b>` : `<b class="fila-res fila-res--vacio">${!conEquipo && p.hora ? esc(p.hora) : "vs"}</b>`}
-        <span class="fila-lado${fuera.propio ? " es-propio" : ""}">${fuera.img}${esc(fuera.n)}</span>
-      </span>
-      <span class="fila-campo">${m ? `<span class="marca marca--${m.res}">${{ G: "Victoria", E: "Empate", P: "Derrota" }[m.res]}</span>` : p.campo ? `${icono("i-pin")}${esc(p.campo)}` : ""}</span>
-    </${etiqueta}>`;
-}
-
-const titulo = (num, texto, extra = "") => `
-  <div class="titulo"><span class="titulo-num">${num}</span><h2>${texto}</h2>${extra ? `<span class="titulo-extra">${extra}</span>` : ""}</div>`;
 
 // --- Inicio -------------------------------------------------------------
 function inicio() {
-  const lunes = sumarDias(hoy(), -((hoy().getDay() + 6) % 7)), domingo = sumarDias(lunes, 6);
-  const enRango = (p, a, b) => p.fecha && dia(p.fecha) >= a && dia(p.fecha) <= b;
-  const orden = (a, b) => (a.fecha + (a.hora || "99")).localeCompare(b.fecha + (b.hora || "99")) || ordenCat(a.e) - ordenCat(b.e);
-  const todos = todosLosPartidos();
-  const semana = todos.filter((p) => enRango(p, lunes, domingo)).sort(orden);
-  const pasada = todos.filter((p) => p.resultado && enRango(p, sumarDias(lunes, -7), sumarDias(lunes, -1)))
-    .sort((a, b) => ordenCat(a.e) - ordenCat(b.e) || a.e.letra.localeCompare(b.e.letra));
-  const principal = equipo(PRINCIPAL), pp = principal && proximo(principal), pos = principal ? filaPropia(principal) : -1;
-  const ganados = pasada.filter((p) => marcador(p).res === "G").length;
+  const { esta, pasada } = semanas();
+  const pendientes = esta.filter((p) => !p.resultado);
+  const principal = equipo(PRINCIPAL), pp = principal && proximo(principal);
+  const titular = pendientes.length ? ["Este finde,", `${plural(pendientes.length, "partido")}.`] : ["Ural Español,", `desde ${CLUB.fundado}.`];
 
   return `
-    <section class="portada">
-      ${fondoMontes()}
-      <div class="contenedor portada-dentro">
-        <div class="portada-texto">
-          <p class="antetitulo">Fútbol base · ${EQUIPOS.length} equipos · Temporada 2026-27</p>
-          <h1 class="portada-titulo">Ural<span>Español</span></h1>
-          <p class="portada-lema">De biberón a División de Honor. Una cantera que sube desde Santa Lucía desde ${CLUB.fundado}.</p>
-          ${principal ? `
-            <dl class="datos-rapidos">
-              <div><dt>Juvenil A</dt><dd>${esc(principal.competicion?.split("·")[0].trim() || principal.liga)}</dd></div>
-              ${pos >= 0 ? `<div><dt>Posición</dt><dd>${pos + 1}º<small> / ${principal.clasificacion.length}</small></dd></div>
-              <div><dt>Puntos</dt><dd>${principal.clasificacion[pos].pts}</dd></div>` : ""}
-            </dl>` : ""}
-        </div>
-        ${pp ? `<div class="portada-billete"><p class="rotulo">Próximo partido</p>${billete({ ...pp, e: principal })}</div>` : ""}
+    <section class="portada" aria-labelledby="portada-titulo">
+      <div class="portada-charla">
+        <p class="portada-lema">${EQUIPOS.length} equipos de fútbol base en Santa Lucía, A Coruña, desde ${CLUB.fundado}.</p>
+        <a class="boton boton--oro" href="#donde">¿Dónde juega tu hijo?</a>
+      </div>
+      <div class="portada-grande">
+        <h1 class="portada-titulo" id="portada-titulo">${titular.map((l) => `<span class="linea"><span>${esc(l)}</span></span>`).join("")}</h1>
+        <figure class="portada-foto">
+          ${foto(FOTO.galerias, "deriva", false)}
+          ${pp ? `<a class="portada-aviso" href="${rutaEquipo(principal)}">
+            <b>${esc(mayus(fmt(pp.fecha, { weekday: "short" })))} ${esc(pp.hora || "")}</b>
+            <span>${esc(cruce(pp))}</span>
+            <small>Juvenil A · División de Honor</small>
+          </a>` : ""}
+        </figure>
       </div>
     </section>
 
-    <div class="contenedor">
-      <section class="bloque">
-        ${titulo("01", "Agenda de la semana", `${esc(fmt(iso(lunes), { day: "numeric", month: "short" }))} – ${esc(fmt(iso(domingo), { day: "numeric", month: "short" }))}`)}
-        ${semana.length ? agenda(semana) : vacio("La federación aún no ha publicado partidos para esta semana.")}
-      </section>
+    ${donde()}
 
-      ${pasada.length ? `
-      <section class="bloque">
-        ${titulo("02", "Resultados de la semana pasada", `${ganados} de ${pasada.length} ganados`)}
-        <div class="resultados">${pasada.map((p) => {
-          const m = marcador(p);
-          return `<a class="resultado resultado--${m.res}" href="${rutaEquipo(p.e)}">
-            <span>${esc(nombreEquipo(p.e))}</span>
-            <b>${m.nos}<i>-</i>${m.ellos}</b>
-            <small>${p.local ? "vs" : "en"} ${esc(p.rival)}</small>
-          </a>`;
-        }).join("")}</div>
-      </section>` : ""}
+    <section class="agenda" id="agenda" aria-labelledby="agenda-titulo">
+      <h2 class="titulo" id="agenda-titulo">Partidos de esta semana</h2>
+      ${esta.length ? agenda(esta) : vacio("La federación aún no ha publicado partidos para esta semana.")}
+    </section>
 
-      <section class="bloque">
-        ${titulo(pasada.length ? "03" : "02", "Nuestros equipos", `<a href="#/cantera">Ver todos ${icono("i-flecha")}</a>`)}
-        <p class="entradilla">De los 4 a los 18 años. Pulsa un equipo para ver su calendario, su plantilla y su clasificación.</p>
-        ${categorias()}
-      </section>
+    ${pasada.length ? cifrasSemana(pasada, principal) : ""}
 
-      <section class="bloque">
-        ${titulo(pasada.length ? "04" : "03", "Noticias", `<a href="#/noticias">Ver todas ${icono("i-flecha")}</a>`)}
-        ${listaNoticias(NOTICIAS.slice(0, 3))}
-      </section>
-    </div>`;
+    <section class="cantera" aria-labelledby="cantera-titulo">
+      <div class="cantera-pila" aria-hidden="true">
+        <p class="cantera-linea cantera-linea--suave">De biberón</p>
+        <p class="cantera-linea cantera-linea--suave">a División</p>
+      </div>
+      <h2 class="cantera-linea" id="cantera-titulo">de Honor.</h2>
+      ${foto(FOTO.partido, "cantera-foto")}
+      <div class="cantera-datos">
+        <p>El Ural compite en todas las categorías de la Real Federación Galega de Fútbol: ${EQUIPOS.length} equipos, de los 4 a los 18 años, y unos veteranos que siguen jugando.</p>
+        <p>El Juvenil A juega en División de Honor, la liga nacional más alta de su edad, contra el Celta, el Deportivo o el Sporting.</p>
+      </div>
+    </section>
+
+    <section class="muro-seccion" aria-labelledby="muro-titulo">
+      ${muro()}
+    </section>
+
+    ${historiaFija()}
+
+    <a class="unete" href="#/socios">
+      <span class="unete-texto">Hazte socio del Ural: cada carné sostiene a ${EQUIPOS.length} equipos de fútbol base.</span>
+      ${icono("i-diagonal", "icono unete-flecha")}
+      <span class="unete-palabra">Únete</span>
+    </a>`;
 }
-const iso = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 
-// Agenda: un panel de salidas por día, con filtro por categoría
-let filtroAgenda = "";
+// ¿Dónde juega tu hijo?: eliges el equipo y sale su próximo partido como un cartel
+const CLAVE_EQUIPO = "ural-equipo";
+const recordado = () => { try { return localStorage.getItem(CLAVE_EQUIPO); } catch { return null; } };
+function donde() {
+  const elegido = equipo(recordado()) || equipo(PRINCIPAL) || EQUIPOS[0];
+  if (!elegido) return "";
+  const grupos = CATEGORIAS.filter((c) => EQUIPOS.some((e) => e.categoria === c.id));
+  return `
+    <section class="donde" id="donde" aria-labelledby="donde-titulo">
+      <div class="donde-elige">
+        <h2 class="titulo" id="donde-titulo">¿Dónde juega tu hijo?</h2>
+        <label class="donde-etiqueta" for="donde-equipo">Elige su equipo</label>
+        <select id="donde-equipo" class="donde-select">
+          ${grupos.map((c) => `<optgroup label="${esc(c.nombre)}">${EQUIPOS.filter((e) => e.categoria === c.id).map((e) =>
+            `<option value="${e.id}"${e === elegido ? " selected" : ""}>${esc(nombreEquipo(e))}</option>`).join("")}</optgroup>`).join("")}
+        </select>
+      </div>
+      <div class="donde-cartel" aria-live="polite">${cartel(elegido)}</div>
+    </section>`;
+}
+
+function cartel(e) {
+  const p = proximo(e);
+  if (!p) return `<p class="cartel-vacio">${esc(nombreEquipo(e))} no tiene partidos pendientes.</p>
+    <a class="enlace" href="${rutaEquipo(e)}">Ver su temporada ${icono("i-flecha")}</a>`;
+  const mapa = p.campo && `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${p.campo}, A Coruña`)}`;
+  return `
+    <p class="cartel-cuando">${esc(mayus(fmt(p.fecha, { weekday: "long", day: "numeric", month: "long" })))}${p.hora ? ` · ${esc(p.hora)}` : " · hora por confirmar"}</p>
+    <p class="cartel-cruce">${esc(cruce(p))}</p>
+    <p class="cartel-donde">${p.campo ? esc(p.campo) : "Campo por confirmar"} · ${esc(nombreEquipo(e))}, jornada ${p.jornada}</p>
+    <p class="cartel-acciones">
+      <a class="boton" href="${calendarioIcs(p, e)}" download="ural-${e.id}-j${p.jornada}.ics">Añadir al calendario</a>
+      ${mapa ? `<a class="boton boton--claro" href="${mapa}" target="_blank" rel="noopener">Cómo llegar</a>` : ""}
+      <a class="enlace" href="${rutaEquipo(e)}">Todo su calendario ${icono("i-flecha")}</a>
+    </p>`;
+}
+
+// Evento .ics para el calendario del móvil: hora local de A Coruña, hora y media de partido
+function calendarioIcs(p, e) {
+  const f = p.fecha.replaceAll("-", "");
+  const cuando = p.hora
+    ? (() => {
+        const [h, m] = p.hora.split(":").map(Number), fin = h * 60 + m + 90;
+        const hhmm = (min) => `${String(Math.floor(min / 60) % 24).padStart(2, "0")}${String(min % 60).padStart(2, "0")}00`;
+        return `DTSTART;TZID=Europe/Madrid:${f}T${hhmm(h * 60 + m)}\r\nDTEND;TZID=Europe/Madrid:${f}T${hhmm(fin)}`;
+      })()
+    : `DTSTART;VALUE=DATE:${f}`;
+  const ics = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Ural Español CF//Web//ES", "BEGIN:VEVENT",
+    `UID:${e.id}-${p.jornada}@ural-web`, cuando, `SUMMARY:${nombreEquipo(e)}: ${cruce(p)}`,
+    `LOCATION:${p.campo || "Campo por confirmar"}`, "END:VEVENT", "END:VCALENDAR"].join("\r\n");
+  return `data:text/calendar;charset=utf-8,${encodeURIComponent(ics)}`;
+}
+
+// Agenda: una sola tabla a un solo tamaño, con el día fijo arriba mientras se baja
 function agenda(partidos) {
-  const cats = CATEGORIAS.filter((c) => partidos.some((p) => p.e.categoria === c.id));
-  if (!cats.some((c) => c.id === filtroAgenda)) filtroAgenda = "";
   const hoyIso = iso(hoy());
   const dias = [...new Set(partidos.map((p) => p.fecha))];
-  return `
-    <div class="filtros" role="group" aria-label="Filtrar por categoría">
-      <button type="button" data-filtro="" aria-pressed="${!filtroAgenda}">Todos <small>${partidos.length}</small></button>
-      ${cats.map((c) => `<button type="button" data-filtro="${c.id}" aria-pressed="${filtroAgenda === c.id}">${esc(c.nombre)} <small>${partidos.filter((p) => p.e.categoria === c.id).length}</small></button>`).join("")}
-    </div>
-    <div class="agenda">${dias.map((f) => `
-      <div class="agenda-dia${f === hoyIso ? " agenda-dia--hoy" : ""}" data-dia>
-        <h3><span>${esc(mayus(fmt(f, { weekday: "long" })))}</span> ${esc(fmt(f, { day: "numeric", month: "long" }))}${f === hoyIso ? " <em>Hoy</em>" : ""}</h3>
-        <div role="list">${partidos.filter((p) => p.fecha === f).map((p) =>
-          filaPartido(p, true).replace('role="listitem"', `role="listitem" data-cat="${p.e.categoria}"${filtroAgenda && filtroAgenda !== p.e.categoria ? " hidden" : ""}`)).join("")}</div>
-      </div>`).join("")}
-    </div>`;
+  return dias.map((f) => `
+    <div class="agenda-dia">
+      <h3 class="agenda-fecha">${esc(mayus(fmt(f, { weekday: "long", day: "numeric", month: "long" })))}${f === hoyIso ? ", hoy" : ""}</h3>
+      <ul class="agenda-lista">${partidos.filter((p) => p.fecha === f).map((p) => {
+        const m = p.resultado && marcador(p);
+        return `<li><a class="agenda-fila${m ? ` agenda-fila--${m.res}` : ""}" href="${rutaEquipo(p.e)}">
+          <span class="agenda-equipo">${esc(nombreEquipo(p.e))}</span>
+          <span class="agenda-rival">${p.local ? "contra" : "en casa de"} ${esc(p.rival)}</span>
+          <span class="agenda-campo">${esc(p.campo || "")}</span>
+          <span class="agenda-hora">${m ? `${m.nos}-${m.ellos}` : esc(p.hora || "--:--")}</span>
+        </a></li>`;
+      }).join("")}</ul>
+    </div>`).join("");
 }
 
-// Categorías: una tarjeta por categoría con sus equipos; el verde se aclara de juvenil a biberón
-function categorias() {
-  const cats = CATEGORIAS.filter((c) => EQUIPOS.some((e) => e.categoria === c.id));
-  if (!cats.length) return vacio("Equipos pendientes de la federación.");
+// La semana pasada: tres cifras en tres bloques escalonados y, debajo, todos los resultados
+function cifrasSemana(pasada, principal) {
+  const ganados = pasada.filter((p) => marcador(p).res === "G").length;
+  const goles = pasada.reduce((s, p) => s + marcador(p).nos, 0);
+  const pos = principal ? filaPropia(principal) : -1;
   return `
-    <div class="categorias">${cats.map((c, i) => {
-      const eqs = EQUIPOS.filter((e) => e.categoria === c.id);
-      return `
-      <section class="categoria" style="--tono:${Math.max(0, 1 - i / (cats.length - 1 || 1))}">
-        <a class="categoria-cab" href="#/cantera/${c.id}">
-          <span class="categoria-edad">${esc(c.edad || "")}</span>
-          <h3>${esc(c.nombre)}</h3>
-          <span class="categoria-num">${eqs.length}<small>${eqs.length === 1 ? "equipo" : "equipos"}</small></span>
-        </a>
-        <ul class="categoria-equipos">${eqs.map((e) => {
-          const pos = filaPropia(e);
-          return `<li><a href="${rutaEquipo(e)}">
-            <b>${esc(e.categoria === "veteranos" ? "V" : e.letra)}</b>
-            <span>${esc(nombreEquipo(e))}<small>${esc(e.liga)}</small></span>
-            ${pos >= 0 ? `<i>${pos + 1}º</i>` : ""}
-          </a></li>`;
-        }).join("")}</ul>
-      </section>`;
-    }).join("")}</div>`;
+    <section class="semana" aria-labelledby="semana-titulo">
+      <div class="semana-bloques">
+        <div class="bloque-cifra bloque-cifra--alto"><b>${ganados}</b><span>victorias en ${plural(pasada.length, "partido")} el fin de semana pasado</span></div>
+        <h2 class="titulo semana-titulo" id="semana-titulo">La semana pasada</h2>
+        <div class="bloque-cifra bloque-cifra--medio"><b>${goles}</b><span>goles del Ural</span></div>
+        ${pos >= 0 ? `<a class="bloque-cifra bloque-cifra--bajo" href="${rutaEquipo(principal)}"><b>${pos + 1}º</b><span>el Juvenil A en División de Honor</span></a>` : ""}
+      </div>
+      <ul class="resultados">${pasada.map((p) => {
+        const m = marcador(p);
+        return `<li><a href="${rutaEquipo(p.e)}"><span>${esc(nombreEquipo(p.e))}</span><b class="res-${m.res}">${m.nos}-${m.ellos}</b><span>${p.local ? "contra" : "en casa de"} ${esc(p.rival)}</span></a></li>`;
+      }).join("")}</ul>
+    </section>`;
+}
+
+// Muro de categorías: una baldosa por categoría, con una foto cada pocas
+function muro() {
+  const cats = CATEGORIAS.filter((c) => EQUIPOS.some((e) => e.categoria === c.id));
+  const fotos = [FOTO.galeriasDetalle, FOTO.lluvia, FOTO.torre];
+  const celdas = [`<h2 class="baldosa baldosa--titulo" id="muro-titulo">Nuestros equipos</h2>`];
+  cats.forEach((c, i) => {
+    const n = EQUIPOS.filter((e) => e.categoria === c.id).length;
+    celdas.push(`<a class="baldosa" href="#/cantera/${c.id}"><b>${n}</b><span>${esc(c.nombre)}</span><small>${esc(c.edad || "")}</small></a>`);
+    if (i % 3 === 1 && fotos.length) celdas.push(`<figure class="baldosa baldosa--foto">${foto(fotos.shift())}</figure>`);
+  });
+  return `<div class="muro">${celdas.join("")}</div>`;
+}
+
+// Historia con el título fijo a la izquierda mientras pasan los momentos
+// En la portada, tres momentos; en la página de historia, todos
+function historiaFija(todos = false) {
+  const fotos = todos ? [FOTO.torre, FOTO.lluvia, FOTO.galeriasDetalle] : [FOTO.torre];
+  const hitos = todos ? HISTORIA.hitos : HISTORIA.hitos.filter((h) => [1929, 1962, 2020].includes(h.anio));
+  return `
+    <section class="fija" aria-labelledby="fija-titulo">
+      <h2 class="fija-titulo" id="fija-titulo">Desde ${CLUB.fundado}</h2>
+      <ol class="fija-momentos">${hitos.map((h, i) => `
+        <li class="momento">
+          ${fotos[i] ? `<figure>${foto(fotos[i])}</figure>` : ""}
+          <b>${h.anio}</b>
+          <p>${esc(h.texto)}</p>
+        </li>`).join("")}
+      </ol>
+      <a class="enlace fija-mas" href="#/historia">La historia completa ${icono("i-flecha")}</a>
+    </section>`;
 }
 
 // --- Equipo -------------------------------------------------------------
@@ -249,89 +272,86 @@ function vistaEquipo(id, sub = "", jugador = "") {
   const videos = (tipo) => (extra.videos || []).filter((v) => v.tipo === tipo && v.youtube);
   const pos = filaPropia(e), fila = e.clasificacion[pos];
   const racha = jugados.slice(-5).map((x) => marcador(x).res);
+  const SECCION = { calendario: "Calendario", plantilla: "Plantilla", clasificacion: "Clasificación" };
 
-  return `
-    <section class="cab-equipo">
-      ${fondoMontes()}
-      <div class="contenedor cab-equipo-dentro">
-        <div>
-          <p class="migas"><a href="#/cantera">Equipos</a> / <a href="#/cantera/${e.categoria}">${esc(categoria(e.categoria).nombre)}</a>${sub ? ` / <a href="${rutaEquipo(e)}">${esc(nombreEquipo(e))}</a>` : ""}</p>
-          <h1 class="titular">${esc(nombreEquipo(e))}</h1>
-          <p class="cab-liga">${esc(e.competicion || e.liga)}</p>
-          ${fila ? `
-          <dl class="datos-rapidos">
-            <div><dt>Posición</dt><dd>${pos + 1}º<small> / ${e.clasificacion.length}</small></dd></div>
-            <div><dt>Puntos</dt><dd>${fila.pts}</dd></div>
-            <div><dt>Goles</dt><dd>${fila.gf}<small>:${fila.gc}</small></dd></div>
-            ${racha.length ? `<div><dt>Racha</dt><dd class="racha">${racha.map((r) => `<i class="marca marca--${r}" title="${{ G: "Victoria", E: "Empate", P: "Derrota" }[r]}">${r === "P" ? "D" : r === "G" ? "V" : "E"}</i>`).join("")}</dd></div>` : ""}
-          </dl>` : ""}
-          <p class="fuente"><span class="punto"></span>Partidos de ${esc(e.fuente || "futgal.es (RFGF)")}${e.descargado ? ` · actualizado ${esc(actualizado(e.descargado))}` : " · descarga pendiente: se actualiza sola cada hora"}
-            · <a href="${esc(e.urlOficial || e.urlFederacion)}" target="_blank" rel="noopener">${e.urlOficial ? "Calendario oficial RFEF" : "Ficha en la RFGF"} ${icono("i-externo")}</a></p>
-        </div>
-        ${p ? `<div><p class="rotulo">Próximo partido</p>${billete(p)}</div>` : ""}
+  const cabecera = `
+    <section class="cab cab--equipo">
+      <div class="cab-texto">
+        <p class="migas"><a href="#/cantera">Equipos</a> / <a href="#/cantera/${e.categoria}">${esc(categoria(e.categoria).nombre)}</a>${sub ? ` / <a href="${rutaEquipo(e)}">${esc(nombreEquipo(e))}</a>` : ""}</p>
+        <h1 class="cab-titulo">${esc(sub && SECCION[sub] ? `${SECCION[sub]}` : nombreEquipo(e))}</h1>
+        <p class="cab-sub">${sub ? `${esc(nombreEquipo(e))} · ` : ""}${esc(e.competicion || e.liga)}</p>
+        ${fila && !sub ? `
+        <dl class="cifras">
+          <div><dt>Posición</dt><dd>${pos + 1}º de ${e.clasificacion.length}</dd></div>
+          <div><dt>Puntos</dt><dd>${fila.pts}</dd></div>
+          <div><dt>Goles</dt><dd>${fila.gf} a ${fila.gc}</dd></div>
+          ${racha.length ? `<div><dt>Últimos</dt><dd class="racha">${racha.map((r) => `<i class="marca res-${r}" title="${RESULTADO[r]}">${r === "P" ? "D" : r === "G" ? "V" : "E"}</i>`).join("")}</dd></div>` : ""}
+        </dl>` : ""}
+        <p class="fuente">Partidos de ${esc(e.fuente || "futgal.es (RFGF)")}${e.descargado ? `, actualizado ${esc(actualizado(e.descargado))}` : ", descarga pendiente: se actualiza sola cada hora"}.
+          <a href="${esc(e.urlOficial || e.urlFederacion)}" target="_blank" rel="noopener">${e.urlOficial ? "Calendario oficial RFEF" : "Ficha en la RFGF"}</a></p>
       </div>
+      ${p ? `<div class="cab-cartel"><h2 class="cab-cartel-titulo">Próximo partido</h2>${cartel(e)}</div>` : ""}
+    </section>`;
+
+  if (sub === "calendario") return `${cabecera}
+    <section class="seccion" aria-label="Calendario">${partidos.length ? calendario(partidos, jugados.length) : vacio("La federación todavía no ha publicado el calendario.")}</section>`;
+  if (sub === "clasificacion") return `${cabecera}
+    <section class="seccion" aria-label="Clasificación">${tablaClasificacion(e)}
+      ${e.urlClasificacion ? `<a class="enlace" href="${esc(e.urlClasificacion)}" target="_blank" rel="noopener">Ver en ${esc(e.fuente || "futgal.es")} ${icono("i-diagonal")}</a>` : ""}</section>`;
+  if (sub === "plantilla") return `${cabecera}${plantilla(e)}`;
+  if (sub) return `${cabecera}<section class="seccion">${vacio("Esta sección no existe.")}</section>`;
+
+  return `${cabecera}
+    <nav class="hub" aria-label="Secciones del equipo">
+      ${tarjetaHub(e, "calendario", "Calendario",
+        p ? `${fmt(p.fecha, { day: "numeric" })} ${fmt(p.fecha, { month: "short" })}` : partidos.length || "–",
+        p ? `Próximo: ${p.local ? "contra" : "en casa de"} ${p.rival}` : partidos.length ? plural(partidos.length, "partido") : "Pendiente de la federación")}
+      ${tarjetaHub(e, "plantilla", "Plantilla", e.plantilla.length || "–",
+        e.plantilla.length ? `jugadores${e.entrenadores.length ? " y cuerpo técnico" : ""}` : "Pendiente de la federación")}
+      ${tarjetaHub(e, "clasificacion", "Clasificación", fila ? `${pos + 1}º` : "–",
+        fila ? `${fila.pts} puntos, ${plural(e.clasificacion.length, "equipo")}` : "Pendiente de la federación")}
+    </nav>
+    <section class="seccion" aria-labelledby="perfil-titulo">
+      <h2 class="titulo" id="perfil-titulo">Así va la temporada</h2>
+      ${perfilTemporada(jugados)}
     </section>
-    <div class="contenedor">${
-      sub === "calendario" ? `
-      <section class="bloque">
-        ${titulo("02", "Calendario", `${plural(partidos.length - jugados.length, "partido")} por jugar`)}
-        ${partidos.length ? calendario(partidos, jugados.length) : vacio("La federación todavía no ha publicado el calendario.")}
-      </section>` :
-      sub === "clasificacion" ? `
-      <section class="bloque">
-        ${titulo("04", "Clasificación", e.urlClasificacion ? `<a href="${esc(e.urlClasificacion)}" target="_blank" rel="noopener">${esc(e.fuente || "futgal.es")} ${icono("i-externo")}</a>` : "")}
-        ${tablaClasificacion(e)}
-      </section>` :
-      sub === "plantilla" ? plantilla(e) :
-      sub ? vacio("Esta sección no existe.") : `
-      <section class="bloque">
-        <div class="hub">
-          ${tarjetaHub(e, "calendario", "01", "Calendario",
-            p ? `${fmt(p.fecha, { day: "numeric" })}<small>${fmt(p.fecha, { month: "short" })}</small>` : partidos.length || "–",
-            p ? `Próximo: ${p.local ? "vs" : "en"} ${p.rival}` : partidos.length ? `${plural(partidos.length, "partido")}` : "Pendiente de la federación")}
-          ${tarjetaHub(e, "plantilla", "02", "Plantilla", e.plantilla.length || "–",
-            e.plantilla.length ? `jugadores${e.entrenadores.length ? " · cuerpo técnico" : ""}` : "Pendiente de la federación")}
-          ${tarjetaHub(e, "clasificacion", "03", "Clasificación",
-            fila ? `${pos + 1}º` : "–", fila ? `${fila.pts} puntos · ${e.clasificacion.length} equipos` : "Pendiente de la federación")}
-        </div>
-      </section>
-
-      <section class="bloque">
-        ${titulo("04", "Perfil de la temporada", jugados.length ? `${plural(jugados.length, "jornada")} jugada${jugados.length === 1 ? "" : "s"}` : "")}
-        ${perfilTemporada(jugados)}
-      </section>
-
-      ${videos("highlight").length ? `<section class="bloque">${titulo("05", "Resúmenes")}${listaVideos(videos("highlight"))}</section>` : ""}
-      ${videos("entrevista").length ? `<section class="bloque">${titulo("06", "Entrevistas")}${listaVideos(videos("entrevista"))}</section>` : ""}`}
-    </div>`;
+    ${videos("highlight").length ? `<section class="seccion"><h2 class="titulo">Resúmenes</h2>${listaVideos(videos("highlight"))}</section>` : ""}
+    ${videos("entrevista").length ? `<section class="seccion"><h2 class="titulo">Entrevistas</h2>${listaVideos(videos("entrevista"))}</section>` : ""}`;
 }
 
-const tarjetaHub = (e, sub, num, tit, cifra, texto) => `
-  <a class="hub-tarjeta" href="${rutaEquipo(e)}/${sub}">
-    <span class="hub-num">${num}</span>
-    <b class="hub-cifra">${cifra}</b>
-    <strong>${tit}</strong>
-    <small>${esc(texto)}</small>
+const tarjetaHub = (e, sub, tit, cifra, texto) => `
+  <a class="hub-panel hub-panel--${sub}" href="${rutaEquipo(e)}/${sub}">
+    <b class="hub-cifra">${esc(cifra)}</b>
+    <span class="hub-titulo">${tit}</span>
+    <span class="hub-texto">${esc(texto)}</span>
     ${icono("i-flecha", "icono hub-flecha")}
   </a>`;
 
-// Jugados y los 4 siguientes a la vista; el resto de la temporada, plegado (details nativo)
-const calendario = (partidos, jugados) => {
-  const corte = jugados + 4, fila = (x) => filaPartido(x);
-  return `<div class="calendario" role="list">${partidos.slice(0, corte).map(fila).join("")}</div>
-    ${partidos.length > corte ? `<details class="resto"><summary>Resto de la temporada (${partidos.length - corte})</summary>
-      <div class="calendario" role="list">${partidos.slice(corte).map(fila).join("")}</div></details>` : ""}`;
-};
+// Calendario: la misma tabla de un solo tamaño que la agenda; lo lejano, plegado
+function calendario(partidos, jugados) {
+  const corte = jugados + 4;
+  const fila = (p) => {
+    const m = p.resultado && marcador(p);
+    return `<li class="agenda-fila${m ? ` agenda-fila--${m.res}` : ""}${p.esHoy ? " agenda-fila--hoy" : ""}">
+      <span class="agenda-equipo">${esc(p.fecha ? fmt(p.fecha, { day: "numeric", month: "short" }) : `Jornada ${p.jornada}`)}</span>
+      <span class="agenda-rival">${p.local ? "contra" : "en casa de"} ${esc(p.rival)}</span>
+      <span class="agenda-campo">${m ? RESULTADO[m.res] : esc(p.campo || `Jornada ${p.jornada}`)}</span>
+      <span class="agenda-hora">${m ? `${m.nos}-${m.ellos}` : esc(p.hora || "--:--")}</span>
+    </li>`;
+  };
+  return `<ul class="agenda-lista">${partidos.slice(0, corte).map(fila).join("")}</ul>
+    ${partidos.length > corte ? `<details class="resto"><summary>Resto de la temporada (${partidos.length - corte} partidos)</summary>
+      <ul class="agenda-lista">${partidos.slice(corte).map(fila).join("")}</ul></details>` : ""}`;
+}
 
 function tablaClasificacion(e) {
   if (!e.clasificacion.length) return vacio("La federación todavía no ha publicado la clasificación.");
-  const n = e.clasificacion.length;
   return `
     <div class="tabla-marco"><table class="tabla">
-      <thead><tr><th scope="col">#</th><th scope="col">Equipo</th><th scope="col"><abbr title="Puntos">Pts</abbr></th><th scope="col"><abbr title="Partidos jugados">PJ</abbr></th><th scope="col" class="opc-movil"><abbr title="Ganados">G</abbr></th><th scope="col" class="opc-movil"><abbr title="Empatados">E</abbr></th><th scope="col" class="opc-movil"><abbr title="Perdidos">P</abbr></th><th scope="col" class="opc"><abbr title="Goles a favor">GF</abbr></th><th scope="col" class="opc"><abbr title="Goles en contra">GC</abbr></th><th scope="col"><abbr title="Diferencia de goles">DG</abbr></th></tr></thead>
+      <thead><tr><th scope="col">Pos.</th><th scope="col">Equipo</th><th scope="col"><abbr title="Puntos">Pts</abbr></th><th scope="col"><abbr title="Partidos jugados">PJ</abbr></th><th scope="col" class="opc-movil"><abbr title="Ganados">G</abbr></th><th scope="col" class="opc-movil"><abbr title="Empatados">E</abbr></th><th scope="col" class="opc-movil"><abbr title="Perdidos">P</abbr></th><th scope="col" class="opc"><abbr title="Goles a favor">GF</abbr></th><th scope="col" class="opc"><abbr title="Goles en contra">GC</abbr></th><th scope="col"><abbr title="Diferencia de goles">DG</abbr></th></tr></thead>
       <tbody>${e.clasificacion.map((f, i) => `
-        <tr class="${f.propio ? "propio" : ""}${i === 0 ? " lider" : ""}${i >= n - 3 && n > 8 ? " zona-baja" : ""}">
-          <td class="tabla-pos">${i + 1}</td>
+        <tr${f.propio ? ' class="propio"' : ""}>
+          <td>${i + 1}</td>
           <th scope="row"><span class="tabla-equipo">${f.propio ? nuestro : escudoDe(e, f.equipo)}<span>${esc(f.equipo)}</span></span></th>
           <td class="tabla-pts">${f.pts}</td>
           <td>${f.pj}</td><td class="opc-movil">${f.g}</td><td class="opc-movil">${f.e}</td><td class="opc-movil">${f.p}</td><td class="opc">${f.gf}</td><td class="opc">${f.gc}</td>
@@ -341,9 +361,9 @@ function tablaClasificacion(e) {
     </table></div>`;
 }
 
-// Perfil de etapa: puntos acumulados jornada a jornada frente al ritmo perfecto (ganarlo todo)
+// Puntos acumulados jornada a jornada frente al ritmo de ganarlo todo
 function perfilTemporada(jugados) {
-  if (!jugados.length) return vacio("El perfil aparece en cuanto se juegue la primera jornada.");
+  if (!jugados.length) return vacio("La gráfica aparece en cuanto se juegue la primera jornada.");
   const W = 900, H = 260, iz = 36, de = 16, ar = 20, ab = 34;
   const acum = [];
   jugados.forEach((p) => acum.push((acum.at(-1) || 0) + { G: 3, E: 1, P: 0 }[marcador(p).res]));
@@ -351,29 +371,23 @@ function perfilTemporada(jugados) {
   const x = (i) => iz + ((i + 1) / jugados.length) * (W - iz - de);
   const y = (v) => ar + (1 - v / max) * (H - ar - ab);
   const linea = `M${iz} ${y(0)}` + acum.map((v, i) => `L${x(i).toFixed(1)} ${y(v).toFixed(1)}`).join("");
-  const pct = Math.round((acum.at(-1) / max) * 100);
   const paso = jugados.length > 14 ? 2 : 1;
   return `
     <div class="perfil">
-      <div class="perfil-cifras">
-        <p><b>${acum.at(-1)}</b><small>puntos de ${max} posibles</small></p>
-        <p><b>${pct}%</b><small>de rendimiento</small></p>
-      </div>
-      <svg class="grafica" viewBox="0 0 ${W} ${H}" role="img" aria-label="Puntos acumulados: ${acum.map((v, i) => `J${jugados[i].jornada} ${v}`).join(", ")}">
-        <defs><pattern id="rayado" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="2" height="6" class="rayado"/></pattern></defs>
-        ${[0, 0.5, 1].map((k) => `<line x1="${iz}" x2="${W - de}" y1="${y(max * k)}" y2="${y(max * k)}" class="grafica-rejilla"/><text x="${iz - 8}" y="${y(max * k) + 4}" text-anchor="end" class="grafica-eje">${Math.round(max * k)}</text>`).join("")}
+      <p class="perfil-frase"><b>${acum.at(-1)} puntos</b> de ${max} posibles: un ${Math.round((acum.at(-1) / max) * 100)}% de rendimiento.</p>
+      <svg class="grafica" viewBox="0 0 ${W} ${H}" role="img" aria-label="Puntos acumulados: ${acum.map((v, i) => `jornada ${jugados[i].jornada}, ${v}`).join("; ")}">
         <path d="M${iz} ${y(0)}L${x(jugados.length - 1)} ${y(max)}" class="grafica-ideal"/>
-        <text x="${x(jugados.length - 1) - 6}" y="${y(max) + 16}" text-anchor="end" class="grafica-eje">ritmo perfecto</text>
-        <path d="${linea}L${x(jugados.length - 1)} ${y(0)}Z" fill="url(#rayado)"/>
+        <text x="${x(jugados.length - 1) - 6}" y="${y(max) + 18}" text-anchor="end" class="grafica-eje">ganándolo todo</text>
+        <path d="${linea}L${x(jugados.length - 1)} ${y(0)}Z" class="grafica-area"/>
         <path d="${linea}" class="grafica-linea"/>
         ${jugados.map((p, i) => {
           const m = marcador(p);
-          return `<g class="grafica-punto grafica-punto--${m.res}"><title>J${p.jornada} · ${p.local ? "vs" : "en"} ${p.rival}: ${m.nos}-${m.ellos}</title>
-            <circle cx="${x(i)}" cy="${y(acum[i])}" r="5"/>
-            ${i % paso === 0 || i === jugados.length - 1 ? `<text x="${x(i)}" y="${H - 10}" text-anchor="middle" class="grafica-eje">J${p.jornada}</text>` : ""}</g>`;
+          return `<g class="grafica-punto res-${m.res}"><title>Jornada ${p.jornada}, ${p.local ? "contra" : "en casa de"} ${p.rival}: ${m.nos}-${m.ellos}</title>
+            <circle cx="${x(i)}" cy="${y(acum[i])}" r="6"/>
+            ${i % paso === 0 || i === jugados.length - 1 ? `<text x="${x(i)}" y="${H - 8}" text-anchor="middle" class="grafica-eje">J${p.jornada}</text>` : ""}</g>`;
         }).join("")}
       </svg>
-      <p class="leyenda"><i class="marca marca--G">V</i>Victoria <i class="marca marca--E">E</i>Empate <i class="marca marca--P">D</i>Derrota <span class="leyenda-ideal"></span>Ritmo perfecto</p>
+      <p class="leyenda"><i class="marca res-G">V</i> Victoria <i class="marca res-E">E</i> Empate <i class="marca res-P">D</i> Derrota</p>
     </div>`;
 }
 
@@ -400,34 +414,30 @@ function actasSinGoleadores(e) {
 }
 
 function plantilla(e) {
-  const cab = titulo("03", "Plantilla", `${plural(e.plantilla.length, "jugador", "jugadores")}`);
-  if (!e.plantilla.length && !e.entrenadores.length) {
-    return `<section class="bloque" id="plantilla">${cab}${vacio("Plantilla pendiente de la federación.")}</section>`;
-  }
+  if (!e.plantilla.length && !e.entrenadores.length) return `<section class="seccion">${vacio("Plantilla pendiente de la federación.")}</section>`;
   const conFoto = CATEGORIAS_CON_FOTO.has(e.categoria);
   const fotos = (EXTRA[e.id] || {}).fotos || {};
-  const conActas = Object.keys(e.actas || {}).length > 0 || !!e.perfiles;
+  const conDatos = Object.keys(e.actas || {}).length > 0 || !!e.perfiles;
   return `
-    <section class="bloque" id="plantilla">
-      ${cab}
+    <section class="seccion" aria-labelledby="plantilla-titulo">
+      <h2 class="titulo" id="plantilla-titulo">${plural(e.plantilla.length, "jugador", "jugadores")}</h2>
       ${actasSinGoleadores(e) ? `<p class="aviso">${actasSinGoleadores(e)}</p>` : ""}
       <ul class="plantilla">${ordenJugadores(e).map((n) => {
-        const num = dorsal(e, n), est = conActas ? estadisticas(e, n) : null, foto = conFoto && fotos[n];
-        const [nombre, ...apellidos] = n.split(" ");
+        const num = dorsal(e, n), est = conDatos ? estadisticas(e, n) : null, f = conFoto && fotos[n];
         return `<li><a class="jugador${esPortero(e, n) ? " jugador--portero" : ""}" href="${rutaFicha(e, n)}">
-          ${foto ? `<img class="jugador-foto" src="${esc(foto)}" alt="" loading="lazy">` : ""}
-          <span class="jugador-num${num == null ? " jugador-num--iniciales" : ""}">${num ?? iniciales(n)}</span>
-          <span class="jugador-nombre">${esc(nombre)} <b>${esc(apellidos.join(" "))}</b></span>
-          ${est ? `<span class="jugador-datos"><span>${est.jugados} PJ</span><span>${est.goles} G</span>${est.amarillas ? `<span class="tarjeta-a">${est.amarillas}</span>` : ""}${est.rojas ? `<span class="tarjeta-r">${est.rojas}</span>` : ""}</span>` : ""}
+          <span class="jugador-num">${num ?? "–"}</span>
+          ${f ? `<img class="jugador-foto" src="${esc(f)}" alt="" width="64" height="64" loading="lazy">` : ""}
+          <span class="jugador-nombre">${esc(n)}</span>
+          <span class="jugador-datos">${est ? `${plural(est.jugados, "partido")}, ${plural(est.goles, "gol", "goles")}` : ""}</span>
         </a></li>`;
       }).join("")}</ul>
       ${e.entrenadores.length || e.delegados.length ? `
         <h3 class="subtitulo">Cuerpo técnico</h3>
         <ul class="tecnicos">
-          ${e.entrenadores.map((n) => `<li><small>Entrenador</small>${esc(n)}</li>`).join("")}
-          ${e.delegados.map((n) => `<li><small>Delegado</small>${esc(n)}</li>`).join("")}
+          ${e.entrenadores.map((n) => `<li><b>${esc(n)}</b> entrenador</li>`).join("")}
+          ${e.delegados.map((n) => `<li><b>${esc(n)}</b> delegado</li>`).join("")}
         </ul>` : ""}
-      <a class="enlace" href="${esc(e.urlFederacion)}" target="_blank" rel="noopener">Ficha del equipo en la RFGF ${icono("i-externo")}</a>
+      <a class="enlace" href="${esc(e.urlFederacion)}" target="_blank" rel="noopener">Ficha del equipo en la RFGF ${icono("i-diagonal")}</a>
     </section>`;
 }
 
@@ -461,20 +471,20 @@ const edad = (nacimiento) => {
   return h.getFullYear() - n.getFullYear() - (h < new Date(h.getFullYear(), n.getMonth(), n.getDate()) ? 1 : 0);
 };
 
-// Tira de jornadas: una columna por acta; la altura es lo que jugó, las bolitas los goles
+// Jornada a jornada: una columna por acta; la altura es lo que jugó, los puntos los goles
 function tiraJornadas(jornadas) {
   if (!jornadas.length) return vacio("Sin actas todavía.");
-  const ALTO = { titular: 100, entra: 55, banquillo: 12, no: 4 };
+  const ALTO = { titular: 100, entra: 55, banquillo: 14, no: 6 };
   const NOMBRE = { titular: "titular", entra: "entró desde el banquillo", banquillo: "en el banquillo, no jugó", no: "no convocado" };
   return `
-    <div class="tira" role="list">${jornadas.map((p) => `
-      <div class="tira-col tira-col--${p.estado}" role="listitem" aria-label="Jornada ${p.j}: ${NOMBRE[p.estado]}${p.g ? `, ${plural(p.g, "gol", "goles")}` : ""}">
-        <span class="tira-goles">${"●".repeat(Math.min(p.g, 4))}</span>
+    <ol class="tira">${jornadas.map((p) => `
+      <li class="tira-col tira-col--${p.estado}" aria-label="Jornada ${p.j}: ${NOMBRE[p.estado]}${p.g ? `, ${plural(p.g, "gol", "goles")}` : ""}">
+        <span class="tira-goles" aria-hidden="true">${"●".repeat(Math.min(p.g, 4))}</span>
         <span class="tira-barra" style="--alto:${ALTO[p.estado]}%"></span>
-        <small>${p.j}</small>
-      </div>`).join("")}
-    </div>
-    <p class="leyenda"><i class="ley ley--titular"></i>Titular <i class="ley ley--entra"></i>Entró <i class="ley ley--banquillo"></i>Banquillo <i class="ley ley--no"></i>No convocado <span class="ley-gol">●</span> Gol</p>`;
+        <span class="tira-j" aria-hidden="true">${p.j}</span>
+      </li>`).join("")}
+    </ol>
+    <p class="leyenda"><i class="ley ley--titular"></i> Titular <i class="ley ley--entra"></i> Entró <i class="ley ley--banquillo"></i> Banquillo <i class="ley ley--no"></i> No convocado <span class="ley-gol">●</span> Gol</p>`;
 }
 
 function vistaFicha(e, id) {
@@ -484,184 +494,161 @@ function vistaFicha(e, id) {
   const est = estadisticas(e, n);
   const volver = `${rutaEquipo(e)}/plantilla`;
   const ant = jugadores[(i - 1 + jugadores.length) % jugadores.length], sig = jugadores[(i + 1) % jugadores.length];
-  const foto = CATEGORIAS_CON_FOTO.has(e.categoria) && ((EXTRA[e.id] || {}).fotos || {})[n];
-  const [nombre, ...apellidos] = n.split(" ");
+  const f = CATEGORIAS_CON_FOTO.has(e.categoria) && ((EXTRA[e.id] || {}).fotos || {})[n];
   const cifra = (v, t) => `<div><dt>${t}</dt><dd>${v}</dd></div>`;
 
   return `
     <section class="ficha" data-anterior="${rutaFicha(e, ant)}" data-siguiente="${rutaFicha(e, sig)}" data-volver="${volver}">
-      ${fondoMontes()}
-      <div class="contenedor">
+      <div class="ficha-numero${portero ? " ficha-numero--portero" : ""}" aria-hidden="true">
+        ${f ? `<img src="${esc(f)}" alt="" width="800" height="1000">` : ""}<span>${num ?? iniciales(n)}</span>
+      </div>
+      <div class="ficha-texto">
         <nav class="ficha-nav" aria-label="Jugadores">
           <a href="${volver}">${icono("i-izq")} ${esc(nombreEquipo(e))}</a>
           <span>
             <a href="${rutaFicha(e, ant)}" aria-label="Jugador anterior: ${esc(ant)}">${icono("i-izq")}</a>
-            <span class="ficha-cuenta">${i + 1} / ${jugadores.length}</span>
+            <span>${i + 1} de ${jugadores.length}</span>
             <a href="${rutaFicha(e, sig)}" aria-label="Jugador siguiente: ${esc(sig)}">${icono("i-der")}</a>
           </span>
         </nav>
-        <div class="ficha-rejilla">
-          <div class="ficha-dorsal${portero ? " ficha-dorsal--portero" : ""}" aria-hidden="true">
-            ${foto ? `<img src="${esc(foto)}" alt="">` : ""}<span>${num ?? iniciales(n)}</span>
-          </div>
-          <div class="ficha-info">
-            <p class="antetitulo">${esc(datos.posicion || (portero ? "Portero" : "Jugador"))} · ${esc(nombreEquipo(e))}</p>
-            <h1 class="ficha-nombre">${esc(nombre)}<span>${esc(apellidos.join(" "))}</span></h1>
-            <dl class="ficha-cifras">
-              ${cifra(est.jugados, "Partidos")}${cifra(est.goles, "Goles")}${cifra(est.titular, "Titular")}
-              ${est.minutos != null ? cifra(est.minutos, "Minutos") : cifra(est.convocado, "Convocado")}
-              ${est.encajados != null ? cifra(est.encajados, "Encajados") : ""}${cifra(est.amarillas, "Amarillas")}${cifra(est.rojas, "Rojas")}
-              ${datos.edad != null ? cifra(datos.edad, "Edad") : ""}${datos.mvp ? cifra(datos.mvp, "MVP") : ""}
-            </dl>
-          </div>
-        </div>
-        <section class="bloque">
-          ${titulo("—", "Jornada a jornada", est.actas ? `${plural(est.actas, "acta")}` : "")}
-          ${est.totales ? vacio("La RFEF no publica en abierto las actas de División de Honor: hay totales de la temporada, pero no el detalle de cada jornada.") : tiraJornadas(est.jornadas)}
-          <p class="fuente">${est.totales
-            ? `Totales de la temporada: <a href="${esc(e.perfiles.url)}" target="_blank" rel="noopener">lapreferente.com</a> (web no oficial)`
-            : `Partidos, goles y tarjetas: actas de la RFGF (futgal.es)${est.actas ? "" : " · actas pendientes de descargar"}${actasSinGoleadores(e) ? `. ${actasSinGoleadores(e)}` : ""}`}. Pulsa ← → para cambiar de jugador.</p>
-        </section>
+        <h1 class="ficha-nombre">${esc(n)}</h1>
+        <p class="cab-sub">${esc(datos.posicion || (portero ? "Portero" : "Jugador"))} del ${esc(nombreEquipo(e))}</p>
+        <dl class="ficha-cifras">
+          ${cifra(est.jugados, "Partidos")}${cifra(est.goles, "Goles")}${cifra(est.titular, "Titular")}
+          ${est.minutos != null ? cifra(est.minutos, "Minutos") : cifra(est.convocado, "Convocado")}
+          ${est.encajados != null ? cifra(est.encajados, "Encajados") : ""}${cifra(est.amarillas, "Amarillas")}${cifra(est.rojas, "Rojas")}
+          ${datos.edad != null ? cifra(datos.edad, "Edad") : ""}${datos.mvp ? cifra(datos.mvp, "MVP") : ""}
+        </dl>
       </div>
+    </section>
+    <section class="seccion" aria-labelledby="jornadas-titulo">
+      <h2 class="titulo" id="jornadas-titulo">Jornada a jornada</h2>
+      ${est.totales ? vacio("La RFEF no publica en abierto las actas de División de Honor: hay totales de la temporada, pero no el detalle de cada jornada.") : tiraJornadas(est.jornadas)}
+      <p class="fuente">${est.totales
+        ? `Totales de la temporada: <a href="${esc(e.perfiles.url)}" target="_blank" rel="noopener">lapreferente.com</a> (web no oficial)`
+        : `Partidos, goles y tarjetas: actas de la RFGF (futgal.es)${est.actas ? `, ${plural(est.actas, "acta")}` : ", actas pendientes de descargar"}${actasSinGoleadores(e) ? `. ${actasSinGoleadores(e)}` : ""}`}. Con las flechas del teclado pasas de un jugador a otro.</p>
     </section>`;
 }
 
 // --- Equipos (cantera) --------------------------------------------------
 function cantera(catId) {
-  if (!catId) {
-    return `${cabeceraSimple("Equipos", `${plural(EQUIPOS.length, "equipo")} esta temporada, de biberón a juvenil`)}
-      <div class="contenedor bloque">
-        ${categorias()}
-      </div>`;
-  }
+  if (!catId) return `${cabeceraSimple("Equipos", `${plural(EQUIPOS.length, "equipo")} esta temporada, de biberón a juvenil.`)}
+    <section class="muro-seccion" aria-label="Categorías">${muro().replace('<h2 class="baldosa baldosa--titulo" id="muro-titulo">Nuestros equipos</h2>', "")}</section>`;
   const c = categoria(catId);
   const eqs = EQUIPOS.filter((e) => e.categoria === catId);
   if (!eqs.length) return noEncontrado();
-  return `${cabeceraSimple(c.nombre, `${esc(c.edad || "")} · ${plural(eqs.length, "equipo")} esta temporada`, `<p class="migas"><a href="#/cantera">Equipos</a></p>`)}
-    <div class="contenedor bloque"><div class="tarjetas">${eqs.map((e) => {
-      const p = proximo(e), pos = filaPropia(e);
-      return `<a class="tarjeta-equipo" href="${rutaEquipo(e)}">
-        <span class="tarjeta-letra" aria-hidden="true">${esc(e.letra)}</span>
-        <strong>${esc(nombreEquipo(e))}</strong>
-        <small>${esc(e.liga)}</small>
-        <span class="tarjeta-pie">
-          ${pos >= 0 ? `<span><b>${pos + 1}º</b> ${e.clasificacion[pos].pts} pts</span>` : ""}
-          <span>${p ? `${esc(fechaCorta(p.fecha))}${p.hora ? ` · ${esc(p.hora)}` : ""} · ${p.local ? "vs" : "en"} ${esc(p.rival)}` : "Sin partidos pendientes"}</span>
-        </span>
-      </a>`;
-    }).join("")}</div></div>`;
+  return `${cabeceraSimple(c.nombre, `${esc(c.edad || "")}: ${plural(eqs.length, "equipo")} esta temporada.`, `<p class="migas"><a href="#/cantera">Equipos</a></p>`)}
+    <section class="seccion" aria-label="${esc(c.nombre)}">
+      <ul class="lista-equipos">${eqs.map((e) => {
+        const p = proximo(e), pos = filaPropia(e);
+        return `<li><a href="${rutaEquipo(e)}">
+          <b>${esc(nombreEquipo(e))}</b>
+          <span>${esc(e.liga)}${pos >= 0 ? `, ${pos + 1}º con ${e.clasificacion[pos].pts} puntos` : ""}</span>
+          <span>${p ? `${esc(mayus(fechaCorta(p.fecha)))}${p.hora ? ` a las ${esc(p.hora)}` : ""}, ${p.local ? "contra" : "en casa de"} ${esc(p.rival)}` : "Sin partidos pendientes"}</span>
+        </a></li>`;
+      }).join("")}</ul>
+    </section>`;
 }
 
 // --- Historia -----------------------------------------------------------
 function historia() {
   const h = HISTORIA, t = h.temporadas;
-  const W = 960, H = 280, iz = 110, de = 10, ar = 20, ab = 40;
+  const W = 960, H = 300, iz = 120, de = 10, ar = 34, ab = 40;
   const x = (i) => iz + (i / (t.length - 1)) * (W - iz - de);
   const y = (nivel) => ar + (1 - (nivel - 1) / 3) * (H - ar - ab);
   const escalon = t.map(([, nv], i) => `${i ? `L${x(i - 0.5).toFixed(1)} ${y(t[i - 1][1]).toFixed(1)}L${x(i - 0.5).toFixed(1)} ${y(nv).toFixed(1)}` : `M${x(0)} ${y(nv)}`}`).join("") + `L${x(t.length - 1)} ${y(t.at(-1)[1])}`;
   return `
-    ${cabeceraSimple("Historia", `Desde ${CLUB.fundado} en Santa Lucía, A Coruña`)}
-    <div class="contenedor">
-      <section class="bloque historia-intro">
-        <p class="destacado">Los estudiantes que jugaban en Santa Margarita miraban el monte y veían los Urales. De ahí sale el nombre, y de ahí las montañas del escudo.</p>
-      </section>
-
-      <section class="bloque">
-        ${titulo("01", "Cuatro nombres, un club")}
-        <ol class="nombres">${h.nombres.map((x) => `<li><span>${x.desde}–${x.hasta ?? "hoy"}</span><b>${esc(x.nombre)}</b></li>`).join("")}</ol>
-      </section>
-
-      <section class="bloque">
-        ${titulo("02", "Momentos")}
-        <ol class="hitos">${h.hitos.map((x) => `<li><span class="hitos-anio">${x.anio}</span><p>${esc(x.texto)}</p></li>`).join("")}</ol>
-      </section>
-
-      <section class="bloque">
-        ${titulo("03", "Palmarés")}
-        <ul class="palmares">${h.palmares.map((x) => `<li><b>${x.veces}</b><span>${esc(x.titulo)}</span><small>${esc(x.anios)}</small></li>`).join("")}</ul>
-      </section>
-
-      <section class="bloque">
-        ${titulo("04", "Subidas y bajadas", `${t[0][0]} – ${t.at(-1)[0]}`)}
-        <p class="entradilla">Categoría del primer equipo temporada a temporada. Las banderas marcan los títulos de liga.</p>
-        <div class="tabla-marco"><svg class="grafica grafica--historia" viewBox="0 0 ${W} ${H}" role="img" aria-label="Categoría por temporada: ${t.map(([s, nv, p]) => `${s} ${h.niveles[nv]} ${p}º`).join(", ")}">
-          ${[1, 2, 3, 4].map((nv) => `<line x1="${iz}" x2="${W - de}" y1="${y(nv)}" y2="${y(nv)}" class="grafica-rejilla"/><text x="${iz - 10}" y="${y(nv) + 4}" text-anchor="end" class="grafica-eje">${h.niveles[nv]}</text>`).join("")}
-          <path d="${escalon}L${x(t.length - 1)} ${H - ab}L${x(0)} ${H - ab}Z" class="grafica-area"/>
-          <path d="${escalon}" class="grafica-linea"/>
-          ${t.map(([s, nv, p], i) => `${p === 1 ? `<g class="campeon"><title>${s}: campeón de ${h.niveles[nv]}</title><line x1="${x(i)}" x2="${x(i)}" y1="${y(nv)}" y2="${y(nv) - 26}"/><path d="M${x(i)} ${y(nv) - 26}h12l-3 4 3 4h-12z"/></g>` : ""}
-            ${i % 3 === 0 ? `<text x="${x(i)}" y="${H - 14}" text-anchor="middle" class="grafica-eje">${s.slice(0, 4)}</text>` : ""}`).join("")}
-        </svg></div>
-      </section>
-    </div>`;
+    ${cabeceraSimple("Historia", `Desde ${CLUB.fundado} en Santa Lucía, A Coruña.`)}
+    <section class="seccion seccion--frase" aria-label="El nombre">
+      <p class="destacado">Los estudiantes que jugaban en Santa Margarita miraban el monte y veían los Urales. De ahí sale el nombre.</p>
+    </section>
+    <section class="nombres-seccion" aria-labelledby="nombres-titulo">
+      <h2 class="titulo" id="nombres-titulo">Cuatro nombres, un club</h2>
+      <ol class="nombres">${h.nombres.map((n) => `<li><span>${n.desde}–${n.hasta ?? "hoy"}</span><b>${esc(n.nombre)}</b></li>`).join("")}</ol>
+    </section>
+    ${historiaFija(true).replace('<a class="enlace fija-mas" href="#/historia">La historia completa ' + icono("i-flecha") + "</a>", "")}
+    <section class="seccion" aria-labelledby="palmares-titulo">
+      <h2 class="titulo" id="palmares-titulo">Palmarés</h2>
+      <ul class="palmares">${h.palmares.map((p) => `<li><b>${p.veces}</b><span>${esc(p.titulo)}</span><small>${esc(p.anios)}</small></li>`).join("")}</ul>
+    </section>
+    <section class="seccion" aria-labelledby="subidas-titulo">
+      <h2 class="titulo" id="subidas-titulo">Subidas y bajadas</h2>
+      <p class="lead">Categoría del primer equipo de ${t[0][0]} a ${t.at(-1)[0]}. Las banderas marcan los títulos de liga.</p>
+      <div class="tabla-marco"><svg class="grafica grafica--historia" viewBox="0 0 ${W} ${H}" role="img" aria-label="Categoría por temporada: ${t.map(([s, nv, p]) => `${s} ${h.niveles[nv]} ${p}º`).join(", ")}">
+        ${[1, 2, 3, 4].map((nv) => `<text x="${iz - 12}" y="${y(nv) + 5}" text-anchor="end" class="grafica-eje">${h.niveles[nv]}</text>`).join("")}
+        <path d="${escalon}L${x(t.length - 1)} ${H - ab}L${x(0)} ${H - ab}Z" class="grafica-area"/>
+        <path d="${escalon}" class="grafica-linea"/>
+        ${t.map(([s, nv, p], i) => `${p === 1 ? `<g class="campeon"><title>${s}: campeón de ${h.niveles[nv]}</title><path d="M${x(i)} ${y(nv)}V${y(nv) - 28}h14l-4 5 4 5h-14"/></g>` : ""}
+          ${i % 3 === 0 ? `<text x="${x(i)}" y="${H - 12}" text-anchor="middle" class="grafica-eje">${s.slice(0, 4)}</text>` : ""}`).join("")}
+      </svg></div>
+    </section>`;
 }
 
 // --- Noticias y búsqueda ------------------------------------------------
-const listaNoticias = (ns) => ns.length ? `<div class="noticias">${ns.map((n, i) => `
-  <a class="noticia${i === 0 ? " noticia--grande" : ""}" href="#/noticia/${esc(n.id)}">
+const listaNoticias = (ns) => ns.length ? `<ul class="noticias">${ns.map((n) => `
+  <li><a class="noticia" href="#/noticia/${esc(n.id)}">
     <time datetime="${esc(n.fecha)}">${esc(fmt(n.fecha, { day: "numeric", month: "long", year: "numeric" }))}</time>
     <strong>${esc(n.titulo)}</strong>
     <p>${esc(n.resumen)}</p>
-    <span class="noticia-leer">Leer ${icono("i-flecha")}</span>
-  </a>`).join("")}</div>` : vacio("Todavía no hay noticias.");
+  </a></li>`).join("")}</ul>` : vacio("Todavía no hay noticias.");
 
 const listaVideos = (vs) => `<div class="videos">${vs.map((v) => `
   <figure class="video"><iframe src="https://www.youtube-nocookie.com/embed/${esc(v.youtube)}" title="${esc(v.titulo)}" loading="lazy" allowfullscreen></iframe>
   <figcaption>${esc(v.titulo)}</figcaption></figure>`).join("")}</div>`;
 
 const cabeceraSimple = (tit, sub = "", migas = "") => `
-  <section class="cab-simple">
-    ${fondoMontes()}
-    <div class="contenedor">${migas}<h1 class="titular">${esc(tit)}</h1>${sub ? `<p class="cab-liga">${sub}</p>` : ""}</div>
+  <section class="cab">
+    <div class="cab-texto">${migas}<h1 class="cab-titulo">${esc(tit)}</h1>${sub ? `<p class="cab-sub">${sub}</p>` : ""}</div>
   </section>`;
 
 function noticia(id) {
   const n = NOTICIAS.find((x) => x.id === id);
   if (!n) return noEncontrado();
   return `${cabeceraSimple(n.titulo, esc(fmt(n.fecha, { day: "numeric", month: "long", year: "numeric" })), `<p class="migas"><a href="#/noticias">Noticias</a></p>`)}
-    <article class="contenedor articulo">${n.cuerpo.split(/\n\s*\n/).map((p) => `<p>${esc(p)}</p>`).join("")}</article>`;
+    <article class="seccion articulo">${n.cuerpo.split(/\n\s*\n/).map((p) => `<p>${esc(p)}</p>`).join("")}</article>`;
 }
 
 function buscar(q) {
   const t = normal(q.trim());
-  if (!t) return cabeceraSimple("Buscar", "Escribe un nombre en el buscador.");
+  const form = `<form class="buscador" role="search" data-buscar>
+      <label for="buscar-q">Nombre de un jugador, un equipo o una noticia</label>
+      <span><input id="buscar-q" type="search" name="q" value="${esc(q)}" placeholder="Por ejemplo, Cotelo…" autocomplete="off" spellcheck="false">
+      <button class="boton" type="submit">Buscar</button></span>
+    </form>`;
+  if (!t) return `${cabeceraSimple("Buscar")}<section class="seccion">${form}</section>`;
   const coincide = (...s) => normal(s.join(" ")).includes(t);
   const personas = EQUIPOS.flatMap((e) => [...e.plantilla, ...e.entrenadores].filter((n) => coincide(n)).map((n) => ({ n, e })));
   const equipos = EQUIPOS.filter((e) => coincide(nombreEquipo(e), e.liga, categoria(e.categoria).nombre));
   const noticias = NOTICIAS.filter((n) => coincide(n.titulo, n.resumen, n.cuerpo));
   const total = personas.length + equipos.length + noticias.length;
-  const lista = (items) => `<ul class="lista-busqueda">${items}</ul>`;
+  const lista = (items) => `<ul class="lista-equipos">${items}</ul>`;
   return `${cabeceraSimple(`“${q.trim()}”`, total ? plural(total, "resultado") : "Sin resultados. Prueba con otro nombre o apellido.")}
-    <div class="contenedor">
-      ${personas.length ? `<section class="bloque">${titulo("—", "Personas")}${lista(personas.map(({ n, e }) =>
-        `<li><a href="${e.plantilla.includes(n) ? rutaFicha(e, n) : `${rutaEquipo(e)}/plantilla`}"><strong>${esc(n)}</strong><span>${esc(nombreEquipo(e))}</span></a></li>`).join(""))}</section>` : ""}
-      ${equipos.length ? `<section class="bloque">${titulo("—", "Equipos")}${lista(equipos.map((e) =>
-        `<li><a href="${rutaEquipo(e)}"><strong>${esc(nombreEquipo(e))}</strong><span>${esc(e.liga)}</span></a></li>`).join(""))}</section>` : ""}
-      ${noticias.length ? `<section class="bloque">${titulo("—", "Noticias")}${listaNoticias(noticias)}</section>` : ""}
-    </div>`;
+    <section class="seccion">${form}</section>
+    ${personas.length ? `<section class="seccion"><h2 class="titulo">Personas</h2>${lista(personas.map(({ n, e }) =>
+      `<li><a href="${e.plantilla.includes(n) ? rutaFicha(e, n) : `${rutaEquipo(e)}/plantilla`}"><b>${esc(n)}</b><span>${esc(nombreEquipo(e))}</span></a></li>`).join(""))}</section>` : ""}
+    ${equipos.length ? `<section class="seccion"><h2 class="titulo">Equipos</h2>${lista(equipos.map((e) =>
+      `<li><a href="${rutaEquipo(e)}"><b>${esc(nombreEquipo(e))}</b><span>${esc(e.liga)}</span></a></li>`).join(""))}</section>` : ""}
+    ${noticias.length ? `<section class="seccion"><h2 class="titulo">Noticias</h2>${listaNoticias(noticias)}</section>` : ""}`;
 }
 
 // --- Socios -------------------------------------------------------------
 // Pendiente: precios, ventajas y forma de pago los confirma el club.
 const contacto = (asunto) => CLUB.email
-  ? `<a class="boton" href="mailto:${esc(CLUB.email)}?subject=${encodeURIComponent(asunto)}">Escríbenos ${icono("i-flecha")}</a>`
+  ? `<a class="boton boton--oro" href="mailto:${esc(CLUB.email)}?subject=${encodeURIComponent(asunto)}">Escríbenos para hacerte socio</a>`
   : `<p class="vacio">Forma de contacto pendiente de confirmar con el club.</p>`;
-const socios = () => `${cabeceraSimple("Hazte socio", "Cada carné sostiene a más de veinte equipos de fútbol base")}
-  <div class="contenedor">
-    <section class="bloque socio">
-      <div class="carne" aria-hidden="true">
-        ${fondoMontes()}
-        <img src="img/escudo.png" alt="">
-        <p class="carne-club">Ural Español C.F.</p>
-        <p class="carne-tipo">Socio · Temporada 2026-27</p>
-        <p class="carne-num">Nº 0000</p>
-      </div>
-      <div class="articulo">
-        <p>Con el carné del Ural apoyas a todos los equipos del club, de biberón a juvenil: material, desplazamientos, árbitros y entrenadores titulados.</p>
-        <p class="vacio">Precios y ventajas: pendiente de confirmar con el club.</p>
-        ${contacto("Quiero hacerme socio")}
-      </div>
-    </section>
-  </div>`;
+const socios = () => `${cabeceraSimple("Hazte socio", `Cada carné sostiene a ${EQUIPOS.length} equipos de fútbol base.`)}
+  <section class="seccion socio" aria-label="El carné">
+    <div class="carne" aria-hidden="true">
+      <img src="img/escudo.png" alt="" width="72" height="68">
+      <p class="carne-club">Ural Español C.F.</p>
+      <p class="carne-tipo">Socio, temporada 2026-27</p>
+    </div>
+    <div class="articulo">
+      <p>Con el carné del Ural apoyas a todos los equipos del club, de biberón a juvenil: material, desplazamientos, árbitros y entrenadores titulados.</p>
+      <p class="vacio">Precios y ventajas: pendiente de confirmar con el club.</p>
+      ${contacto("Quiero hacerme socio")}
+    </div>
+  </section>`;
 
 const noEncontrado = () => cabeceraSimple("Fuera de juego", `Esta página no existe. <a href="#/">Volver al inicio</a>`);
 
@@ -674,12 +661,12 @@ function render() {
     ruta === "equipo" ? vistaEquipo(a, sub, extra) :
     ruta === "cantera" ? cantera(a) :
     ruta === "historia" ? historia() :
-    ruta === "noticias" ? `${cabeceraSimple("Noticias", "La actualidad del club")}<div class="contenedor bloque">${listaNoticias(NOTICIAS)}</div>` :
+    ruta === "noticias" ? `${cabeceraSimple("Noticias", "La actualidad del club.")}<section class="seccion" aria-label="Noticias">${listaNoticias(NOTICIAS)}</section>` :
     ruta === "noticia" ? noticia(a) :
     ruta === "socios" ? socios() :
     ruta === "buscar" ? buscar(a) :
     noEncontrado();
-  tictac();
+  document.body.classList.toggle("es-portada", !ruta);
   document.title = `${ruta ? app.querySelector("h1")?.textContent.trim() + " · " : ""}${CLUB.nombre}`;
   document.querySelectorAll(".menu-enlaces a").forEach((l) => {
     const s = l.dataset.seccion;
@@ -689,6 +676,7 @@ function render() {
   botonMenu.setAttribute("aria-expanded", "false");
   const destino = ancla && document.getElementById(ancla);
   destino ? destino.scrollIntoView() : scrollTo(0, 0);
+  entradas();
 }
 
 function navegar() {
@@ -696,52 +684,49 @@ function navegar() {
     ? document.startViewTransition(render) : render();
 }
 
-app.addEventListener("click", (ev) => {
-  const filtro = ev.target.closest("[data-filtro]");
-  if (!filtro) return;
-  filtroAgenda = filtro.dataset.filtro;
-  const bloque = filtro.closest(".bloque");
-  bloque.querySelectorAll("[data-filtro]").forEach((b) => b.setAttribute("aria-pressed", b === filtro));
-  bloque.querySelectorAll("[data-cat]").forEach((f) => (f.hidden = filtroAgenda && f.dataset.cat !== filtroAgenda));
-  bloque.querySelectorAll("[data-dia]").forEach((d) => (d.hidden = !d.querySelector("[data-cat]:not([hidden])")));
+// Entrada de cada sección al aparecer: título, texto e imagen escalonados. Sin script, todo se ve igual.
+const observador = "IntersectionObserver" in window && new IntersectionObserver((vistas) => {
+  for (const v of vistas) if (v.isIntersecting) { v.target.classList.add("visto"); observador.unobserve(v.target); }
+}, { rootMargin: "0px 0px -10% 0px" });
+function entradas() {
+  if (!observador) return;
+  app.querySelectorAll("section, .unete, .hub").forEach((s) => { s.classList.add("entra"); observador.observe(s); });
+}
+
+app.addEventListener("change", (ev) => {
+  if (ev.target.id !== "donde-equipo") return;
+  const e = equipo(ev.target.value);
+  try { localStorage.setItem(CLAVE_EQUIPO, e.id); } catch { /* sin almacenamiento: solo no se recuerda */ }
+  app.querySelector(".donde-cartel").innerHTML = cartel(e);
+});
+
+app.addEventListener("submit", (ev) => {
+  if (!ev.target.matches("[data-buscar]")) return;
+  ev.preventDefault();
+  location.hash = `#/buscar/${encodeURIComponent(ev.target.q.value.trim())}`;
 });
 
 addEventListener("keydown", (ev) => {
   const f = app.querySelector(".ficha");
-  if (!f || ev.target.closest?.("input")) return;
+  if (!f || ev.target.closest?.("input, select")) return;
   if (ev.key === "ArrowLeft") location.hash = f.dataset.anterior;
   if (ev.key === "ArrowRight") location.hash = f.dataset.siguiente;
   if (ev.key === "Escape") location.hash = f.dataset.volver;
 });
 
-// Menú del móvil y buscador
+// Menú del móvil
 const menu = document.querySelector(".menu"), botonMenu = document.querySelector(".menu-abrir");
 botonMenu.addEventListener("click", () => {
   const abierto = menu.classList.toggle("menu--abierto");
   botonMenu.setAttribute("aria-expanded", abierto);
 });
-document.querySelector(".buscador").addEventListener("submit", (ev) => {
-  ev.preventDefault();
-  const q = ev.target.q.value.trim();
-  if (q) location.hash = `#/buscar/${encodeURIComponent(q)}`;
-  ev.target.q.value = "";
-});
 
-function tictac() {
-  for (const c of document.querySelectorAll("[data-objetivo]")) {
-    const falta = Math.max(0, new Date(c.dataset.objetivo) - Date.now()) / 1000;
-    [falta / 86400, (falta % 86400) / 3600, (falta % 3600) / 60].forEach((v, i) =>
-      (c.children[i].firstChild.textContent = String(Math.floor(v)).padStart(2, "0")));
-  }
-}
-setInterval(tictac, 15000);
-
-document.getElementById("pie-contacto").innerHTML = [CLUB.direccion && esc(CLUB.direccion),
-  CLUB.email && `<a href="mailto:${esc(CLUB.email)}">${esc(CLUB.email)}</a>`].filter(Boolean).join("<br>");
+document.getElementById("pie-contacto").innerHTML = [CLUB.direccion && ` ${esc(CLUB.direccion)}.`,
+  CLUB.email && ` <a href="mailto:${esc(CLUB.email)}">${esc(CLUB.email)}</a>`].filter(Boolean).join("");
 document.getElementById("pie-x").href = CLUB.x;
 document.getElementById("pie-fed").href = CLUB.federacion;
 document.getElementById("pie-fuente").textContent =
-  `Partidos, plantillas y clasificaciones: Real Federación Galega de Fútbol (futgal.es)${typeof ACTUALIZADO === "string" && ACTUALIZADO ? ` · actualizado ${new Date(ACTUALIZADO).toLocaleString("es-ES", { dateStyle: "medium", timeStyle: "short" })}` : ""}.`;
+  `Partidos, plantillas y clasificaciones: Real Federación Galega de Fútbol (futgal.es)${typeof ACTUALIZADO === "string" && ACTUALIZADO ? `, actualizado ${new Date(ACTUALIZADO).toLocaleString("es-ES", { dateStyle: "medium", timeStyle: "short" })}` : ""}.`;
 
 addEventListener("hashchange", navegar);
 render();
