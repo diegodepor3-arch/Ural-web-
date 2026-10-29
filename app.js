@@ -75,67 +75,66 @@ function semanas() {
   };
 }
 
-// --- Inicio -------------------------------------------------------------
-// Las carpetas de la portada: una por sección, cada una con su color; la de delante está abierta
-const CARPETAS = [
-  { id: "historia", nombre: "Historia", color: "marino" },
-  { id: "equipos", nombre: "Equipos", color: "hueso" },
-  { id: "juvenil", nombre: "Juvenil A", color: "oro" },
-  { id: "agenda", nombre: "Partidos", color: "blanco" },
-  { id: "donde", nombre: "Este finde", color: "verde" },
-];
-
+// --- Inicio: el álbum ----------------------------------------------------
 function inicio() {
   const { esta, pasada } = semanas();
   const pendientes = esta.filter((p) => !p.resultado);
   const principal = equipo(PRINCIPAL);
 
   return `
-    <section class="portada" aria-labelledby="portada-titulo">
-      <h1 class="portada-titulo" id="portada-titulo"><span class="linea"><span>Ural Español</span></span><span class="portada-que">Fútbol base de A Coruña</span></h1>
-      <p class="portada-lema">${EQUIPOS.length} equipos, de biberón a juvenil, en Santa Lucía desde ${CLUB.fundado}.${pendientes.length ? ` Este fin de semana juegan ${plural(pendientes.length, "partido")}.` : ""}</p>
-      <nav class="carpetas" aria-label="Secciones de la portada">
-        ${CARPETAS.map((c, i) => `
-          <a class="carpeta carpeta--${c.color}" href="#/#${c.id}" style="--i:${i}">
-            <span class="carpeta-pestana">${esc(c.nombre)}</span>
-            ${i === CARPETAS.length - 1 ? `<span class="boton boton--oro carpeta-accion">¿Dónde juega tu hijo?</span>` : ""}
-          </a>`).join("")}
-      </nav>
+    <section class="tapa" aria-labelledby="tapa-titulo">
+      <div class="tapa-carton">
+        <img class="tapa-escudo" src="img/escudo.png" alt="" width="120" height="114">
+        <h1 class="tapa-titulo" id="tapa-titulo"><span class="linea"><span>Ural</span></span><span class="linea linea--2"><span>Español</span></span></h1>
+        <p class="tapa-que">El álbum del fútbol base de Santa Lucía, A Coruña</p>
+        <p class="tapa-datos"><span>Temporada 2026-27</span><i aria-hidden="true"></i><span>${EQUIPOS.length} equipos</span><i aria-hidden="true"></i><span>Desde ${CLUB.fundado}</span></p>
+        ${pendientes.length ? `<p class="tapa-finde">Este fin de semana juegan <b>${plural(pendientes.length, "partido")}</b>.</p>` : ""}
+      </div>
     </section>
 
     ${donde()}
 
     <section class="agenda" id="agenda" aria-labelledby="agenda-titulo">
-      <h2 class="titulo" id="agenda-titulo">Partidos de esta semana</h2>
-      ${esta.length ? agenda(esta) : vacio("La federación aún no ha publicado partidos para esta semana.")}
+      <div class="agenda-columna">
+        <h2 class="palabra" id="agenda-titulo">Partidos</h2>
+        <p class="agenda-sub">De esta semana, por categorías. Pulsa una para ver sus horarios.</p>
+        ${esta.length ? agenda(esta) : vacio("La federación aún no ha publicado partidos para esta semana.")}
+      </div>
+      <figure class="agenda-foto">${foto(FOTO.lluvia)}<figcaption>Sábado de lluvia en la Rúa Real, A Coruña</figcaption></figure>
     </section>
 
     ${pasada.length ? cifrasSemana(pasada, principal) : ""}
 
     ${principal ? juvenil(principal) : ""}
 
-    <section class="muro-seccion" id="equipos" aria-labelledby="muro-titulo">
+    <section class="cromos-seccion" id="equipos" aria-labelledby="cromos-titulo">
+      <h2 class="titulo" id="cromos-titulo">La colección: ${EQUIPOS.length} equipos</h2>
       ${muro()}
     </section>
 
-    <section class="panel" id="historia" aria-labelledby="panel-titulo">
-      <h2 class="panel-titulo" id="panel-titulo">Desde 1929 en Santa Lucía</h2>
-      <div class="panel-textos">
-        <div><h3>El nombre</h3><p>Los estudiantes que jugaban en Santa Margarita veían en su monte los Urales. De ahí sale el nombre del Ural C.F., fundado en 1962.</p></div>
-        <div><h3>Cuatro nombres, un club</h3><p>Deportivo Alameda en 1929, Derby, Español S.D. desde 1941 y Ural Español desde 2020, cuando los equipos del Ural C.F. pasaron al Español.</p></div>
-        <a class="boton boton--oro" href="#/historia">La historia completa</a>
-      </div>
-      <figure class="panel-foto">${foto(FOTO.torre)}</figure>
+    <section class="carta-seccion" id="historia" aria-labelledby="carta-titulo">
+      <article class="carta">
+        <img class="carta-escudo" src="img/escudo.png" alt="" width="44" height="42">
+        <h2 class="carta-titulo" id="carta-titulo">Una carta del club</h2>
+        <p>Somos el Ural Español, y llevamos jugando en Santa Lucía desde ${CLUB.fundado}. Empezamos como Deportivo Alameda, fuimos Derby y Español S.D., y en 2020 recogimos el nombre y el escudo del Ural C.F.</p>
+        <p>El nombre lo pusieron unos estudiantes que jugaban en Santa Margarita: miraban el monte y veían los <mark>montes Urales</mark>. Por eso hay montañas en el escudo.</p>
+        <p>Hoy somos ${EQUIPOS.length} equipos, de los 4 a los 18 años, y unos veteranos que no lo dejan. Cada fin de semana llenamos los campos de Grela, Torre y Elviña.</p>
+        <p class="carta-firma"><span>Ural Español C.F.</span><small>Santa Lucía, A Coruña</small></p>
+        <a class="carta-tira" href="#/historia">Lee la historia completa del club</a>
+      </article>
     </section>
 
-    <a class="unete" href="#/socios">
-      <span class="unete-texto">Hazte socio del Ural: cada carné sostiene a ${EQUIPOS.length} equipos de fútbol base.</span>
-      ${icono("i-diagonal", "icono unete-flecha")}
-      <span class="unete-palabra">Únete</span>
-    </a>`;
+    <section class="respuesta" aria-labelledby="respuesta-titulo">
+      <p class="respuesta-texto">Cada carné sostiene a ${EQUIPOS.length} equipos: material, árbitros, desplazamientos y entrenadores.</p>
+      <div class="respuesta-tarjeta">
+        <h2 id="respuesta-titulo">Hazte socio</h2>
+        <p>Temporada 2026-27. Tu nombre en el álbum del Ural.</p>
+        <a class="barra" href="#/socios">Quiero hacerme socio</a>
+      </div>
+    </section>`;
 }
 
-// El Juvenil A, solo: foto cuadrada a un lado, sus datos y dos accesos al otro
+// El Juvenil A: foto con muesca de entrada a un lado; sus datos y dos accesos al otro
 function juvenil(e) {
   const pos = filaPropia(e), fila = e.clasificacion[pos], p = proximo(e);
   return `
@@ -147,7 +146,7 @@ function juvenil(e) {
           <p class="lead">${fila ? `${pos + 1}º de ${e.clasificacion.length} con ${fila.pts} puntos en División de Honor, la liga nacional más alta de su edad.` : "En División de Honor, la liga nacional más alta de su edad."}${p ? ` Próximo partido: ${esc(mayus(fechaCorta(p.fecha)))}${p.hora ? ` a las ${esc(p.hora)}` : ""}, ${p.local ? "contra" : "en casa de"} ${esc(p.rival)}.` : ""}</p>
         </div>
         <p class="juvenil-acciones">
-          <a class="celda celda--tinta" href="${rutaEquipo(e)}">Ver el equipo</a>
+          <a class="celda celda--tinta" href="${rutaEquipo(e)}/plantilla">Ver sus cromos</a>
           <a class="celda" href="${rutaEquipo(e)}/clasificacion">Clasificación</a>
         </p>
       </div>
@@ -207,59 +206,66 @@ function calendarioIcs(p, e) {
   return `data:text/calendar;charset=utf-8,${encodeURIComponent(ics)}`;
 }
 
-// Agenda: por días, en dos columnas; el escudo del rival hace de viñeta
+// Agenda: una barra por categoría que se despliega con sus partidos de la semana
 function agenda(partidos) {
-  const hoyIso = iso(hoy());
-  const dias = [...new Set(partidos.map((p) => p.fecha))];
-  return dias.map((f) => {
-    const delDia = partidos.filter((p) => p.fecha === f);
+  const cats = CATEGORIAS.filter((c) => partidos.some((p) => p.e.categoria === c.id));
+  return `<div class="barras">${cats.map((c, i) => {
+    const suyos = partidos.filter((p) => p.e.categoria === c.id);
     return `
-    <div class="agenda-dia">
-      <h3 class="agenda-fecha"><span>${esc(mayus(fmt(f, { weekday: "long", day: "numeric", month: "long" })))}${f === hoyIso ? ", hoy" : ""}</span><small>${plural(delDia.length, "partido")}</small></h3>
-      <ul class="agenda-lista">${delDia.map((p) => {
+    <details class="barra-cat"${i === 0 ? " open" : ""}>
+      <summary><span>${esc(c.nombre)}</span><small>${plural(suyos.length, "partido")}</small></summary>
+      <ul>${suyos.map((p) => {
         const m = p.resultado && marcador(p);
-        return `<li><a class="agenda-item${m ? ` agenda-item--${m.res}` : ""}" href="${rutaEquipo(p.e)}">
-          <span class="agenda-vineta">${escudoDe(p.e, p.rival)}</span>
-          <span class="agenda-equipo">${esc(nombreEquipo(p.e))}</span>
-          <span class="agenda-hora">${m ? `${m.nos}-${m.ellos}` : esc(p.hora || "--:--")}</span>
-          <span class="agenda-detalle">${p.local ? "Contra" : "En casa de"} ${esc(p.rival)}${p.campo ? `<br>${esc(p.campo)}` : ""}</span>
+        return `<li><a href="${rutaEquipo(p.e)}">
+          <span><b>${esc(nombreEquipo(p.e))}</b> ${p.local ? "contra" : "en casa de"} ${esc(p.rival)}<small>${esc(mayus(fechaCorta(p.fecha)))}${p.campo ? `, ${esc(p.campo)}` : ""}</small></span>
+          <span class="barra-hora${m ? ` barra-hora--${m.res}` : ""}">${m ? `${m.nos}-${m.ellos}` : esc(p.hora || "--:--")}</span>
         </a></li>`;
       }).join("")}</ul>
-    </div>`;
-  }).join("");
+    </details>`;
+  }).join("")}</div>`;
 }
 
-// La semana pasada: tres cifras en tres bloques escalonados y, debajo, todos los resultados
+// La semana pasada como un libro de cuentas: cifras alineadas en la coma
 function cifrasSemana(pasada, principal) {
   const ganados = pasada.filter((p) => marcador(p).res === "G").length;
   const goles = pasada.reduce((s, p) => s + marcador(p).nos, 0);
+  const media = (goles / pasada.length).toFixed(1).split(".");
   const pos = principal ? filaPropia(principal) : -1;
+  const fila = (entero, dec, texto) => `<div class="cuenta-fila"><b>${entero}</b><b class="cuenta-dec">${dec ? `,${dec}` : ""}</b><span>${texto}</span></div>`;
   return `
-    <section class="semana" aria-labelledby="semana-titulo">
-      <div class="semana-bloques">
-        <div class="bloque-cifra bloque-cifra--alto"><b>${ganados}</b><span>victorias en ${plural(pasada.length, "partido")} el fin de semana pasado</span></div>
-        <h2 class="titulo semana-titulo" id="semana-titulo">La semana pasada</h2>
-        <div class="bloque-cifra bloque-cifra--medio"><b>${goles}</b><span>goles del Ural</span></div>
-        ${pos >= 0 ? `<a class="bloque-cifra bloque-cifra--bajo" href="${rutaEquipo(principal)}"><b>${pos + 1}º</b><span>el Juvenil A en División de Honor</span></a>` : ""}
+    <section class="cuentas" aria-labelledby="cuentas-titulo">
+      <h2 class="cuentas-titulo" id="cuentas-titulo"><span>La semana pasada,</span> en números</h2>
+      <div class="cuentas-cifras">
+        ${fila(pasada.length, "", "partidos jugados")}
+        ${fila(ganados, "", "victorias")}
+        ${fila(goles, "", "goles del Ural")}
+        ${fila(media[0], media[1], "goles por partido")}
+        ${pos >= 0 ? fila(`${pos + 1}º`, "", "el Juvenil A en División de Honor") : ""}
       </div>
-      <ul class="resultados">${pasada.map((p) => {
-        const m = marcador(p);
-        return `<li><a href="${rutaEquipo(p.e)}"><span>${esc(nombreEquipo(p.e))}</span><b class="res-${m.res}">${m.nos}-${m.ellos}</b><span>${p.local ? "contra" : "en casa de"} ${esc(p.rival)}</span></a></li>`;
-      }).join("")}</ul>
+      <div class="cuentas-todos">
+        <h3 class="subtitulo">Todos los resultados</h3>
+        <ul class="resultados">${pasada.map((p) => {
+          const m = marcador(p);
+          return `<li><a href="${rutaEquipo(p.e)}"><span>${esc(nombreEquipo(p.e))}</span><b class="res-${m.res}">${m.nos}-${m.ellos}</b><span>${p.local ? "contra" : "en casa de"} ${esc(p.rival)}</span></a></li>`;
+        }).join("")}</ul>
+      </div>
     </section>`;
 }
 
-// Muro de categorías: una baldosa por categoría, con una foto cada pocas
+// La colección: un cromo por categoría, foto arriba y banda de datos debajo
 function muro() {
   const cats = CATEGORIAS.filter((c) => EQUIPOS.some((e) => e.categoria === c.id));
-  const fotos = [FOTO.galeriasDetalle, FOTO.orzan, FOTO.lluvia];
-  const celdas = [`<h2 class="baldosa baldosa--titulo" id="muro-titulo">Nuestros equipos</h2>`];
-  cats.forEach((c, i) => {
-    const n = EQUIPOS.filter((e) => e.categoria === c.id).length;
-    celdas.push(`<a class="baldosa" href="#/cantera/${c.id}"><b>${n}</b><span>${esc(c.nombre)}</span><small>${esc(c.edad || "")}</small></a>`);
-    if (i % 3 === 1 && fotos.length) celdas.push(`<figure class="baldosa baldosa--foto">${foto(fotos.shift())}</figure>`);
-  });
-  return `<div class="muro">${celdas.join("")}</div>`;
+  const fotos = [FOTO.partido, FOTO.galeriasDetalle, FOTO.lluvia, FOTO.torre, FOTO.orzan, FOTO.galerias];
+  return `<ul class="cromos">${cats.map((c, i) => {
+    const eqs = EQUIPOS.filter((e) => e.categoria === c.id);
+    return `<li><a class="cromo-cat" href="#/cantera/${c.id}" style="--pos:${(i * 37) % 100}%">
+      ${foto(fotos[i % fotos.length])}
+      <span class="cromo-banda">
+        <b>${esc(c.nombre)}</b>
+        <span><span>${plural(eqs.length, "equipo")}</span><span>${esc(c.edad || "")}</span></span>
+      </span>
+    </a></li>`;
+  }).join("")}</ul>`;
 }
 
 // Historia con el título fijo a la izquierda mientras pasan los momentos
@@ -293,7 +299,7 @@ function vistaEquipo(id, sub = "", jugador = "") {
   const videos = (tipo) => (extra.videos || []).filter((v) => v.tipo === tipo && v.youtube);
   const pos = filaPropia(e), fila = e.clasificacion[pos];
   const racha = jugados.slice(-5).map((x) => marcador(x).res);
-  const SECCION = { calendario: "Calendario", plantilla: "Plantilla", clasificacion: "Clasificación" };
+  const SECCION = { calendario: "Calendario", plantilla: "Los cromos", clasificacion: "Clasificación" };
 
   const cabecera = `
     <section class="cab cab--equipo">
@@ -441,22 +447,20 @@ function plantilla(e) {
   const conDatos = Object.keys(e.actas || {}).length > 0 || !!e.perfiles;
   return `
     <section class="seccion" aria-labelledby="plantilla-titulo">
-      <h2 class="titulo" id="plantilla-titulo">${plural(e.plantilla.length, "jugador", "jugadores")}</h2>
+      <h2 class="titulo" id="plantilla-titulo">${plural(e.plantilla.length, "cromo")} en esta página</h2>
       ${actasSinGoleadores(e) ? `<p class="aviso">${actasSinGoleadores(e)}</p>` : ""}
-      <ul class="plantilla">${ordenJugadores(e).map((n) => {
+      <ul class="pagina-album">${ordenJugadores(e).map((n) => {
         const num = dorsal(e, n), est = conDatos ? estadisticas(e, n) : null, f = conFoto && fotos[n];
-        return `<li><a class="jugador${esPortero(e, n) ? " jugador--portero" : ""}" href="${rutaFicha(e, n)}">
-          <span class="jugador-num">${num ?? "–"}</span>
-          ${f ? `<img class="jugador-foto" src="${esc(f)}" alt="" width="64" height="64" loading="lazy">` : ""}
-          <span class="jugador-nombre">${esc(n)}</span>
-          <span class="jugador-datos">${est ? `${plural(est.jugados, "partido")}, ${plural(est.goles, "gol", "goles")}` : ""}</span>
+        return `<li><a class="cromo${esPortero(e, n) ? " cromo--portero" : ""}" href="${rutaFicha(e, n)}">
+          <span class="cromo-cara">${f ? `<img src="${esc(f)}" alt="" width="300" height="400" loading="lazy">` : ""}<b>${num ?? iniciales(n)}</b></span>
+          <span class="cromo-pie"><span class="cromo-nombre">${esc(n)}</span>${est ? `<small>${plural(est.jugados, "partido")}, ${plural(est.goles, "gol", "goles")}</small>` : ""}</span>
         </a></li>`;
       }).join("")}</ul>
       ${e.entrenadores.length || e.delegados.length ? `
         <h3 class="subtitulo">Cuerpo técnico</h3>
         <ul class="tecnicos">
-          ${e.entrenadores.map((n) => `<li><b>${esc(n)}</b> entrenador</li>`).join("")}
-          ${e.delegados.map((n) => `<li><b>${esc(n)}</b> delegado</li>`).join("")}
+          ${e.entrenadores.map((n) => `<li><b>${esc(n)}</b>, entrenador</li>`).join("")}
+          ${e.delegados.map((n) => `<li><b>${esc(n)}</b>, delegado</li>`).join("")}
         </ul>` : ""}
       <a class="enlace" href="${esc(e.urlFederacion)}" target="_blank" rel="noopener">Ficha del equipo en la RFGF ${icono("i-diagonal")}</a>
     </section>`;
@@ -519,27 +523,30 @@ function vistaFicha(e, id) {
   const cifra = (v, t) => `<div><dt>${t}</dt><dd>${v}</dd></div>`;
 
   return `
-    <section class="ficha" data-anterior="${rutaFicha(e, ant)}" data-siguiente="${rutaFicha(e, sig)}" data-volver="${volver}">
-      <div class="ficha-numero${portero ? " ficha-numero--portero" : ""}" aria-hidden="true">
-        ${f ? `<img src="${esc(f)}" alt="" width="800" height="1000">` : ""}<span>${num ?? iniciales(n)}</span>
-      </div>
-      <div class="ficha-texto">
-        <nav class="ficha-nav" aria-label="Jugadores">
-          <a href="${volver}">${icono("i-izq")} ${esc(nombreEquipo(e))}</a>
-          <span>
-            <a href="${rutaFicha(e, ant)}" aria-label="Jugador anterior: ${esc(ant)}">${icono("i-izq")}</a>
-            <span>${i + 1} de ${jugadores.length}</span>
-            <a href="${rutaFicha(e, sig)}" aria-label="Jugador siguiente: ${esc(sig)}">${icono("i-der")}</a>
-          </span>
-        </nav>
-        <h1 class="ficha-nombre">${esc(n)}</h1>
-        <p class="cab-sub">${esc(datos.posicion || (portero ? "Portero" : "Jugador"))} del ${esc(nombreEquipo(e))}</p>
-        <dl class="ficha-cifras">
-          ${cifra(est.jugados, "Partidos")}${cifra(est.goles, "Goles")}${cifra(est.titular, "Titular")}
-          ${est.minutos != null ? cifra(est.minutos, "Minutos") : cifra(est.convocado, "Convocado")}
-          ${est.encajados != null ? cifra(est.encajados, "Encajados") : ""}${cifra(est.amarillas, "Amarillas")}${cifra(est.rojas, "Rojas")}
-          ${datos.edad != null ? cifra(datos.edad, "Edad") : ""}${datos.mvp ? cifra(datos.mvp, "MVP") : ""}
-        </dl>
+    <section class="ficha" data-anterior="${rutaFicha(e, ant)}" data-siguiente="${rutaFicha(e, sig)}" data-volver="${volver}" aria-labelledby="ficha-nombre">
+      <nav class="ficha-nav" aria-label="Jugadores">
+        <a href="${volver}">${icono("i-izq")} Página del ${esc(nombreEquipo(e))}</a>
+        <span>
+          <a href="${rutaFicha(e, ant)}" aria-label="Jugador anterior: ${esc(ant)}">${icono("i-izq")}</a>
+          <span>Cromo ${i + 1} de ${jugadores.length}</span>
+          <a href="${rutaFicha(e, sig)}" aria-label="Jugador siguiente: ${esc(sig)}">${icono("i-der")}</a>
+        </span>
+      </nav>
+      <div class="ficha-cromos">
+        <div class="cromo cromo--grande${portero ? " cromo--portero" : ""}" aria-hidden="true">
+          <span class="cromo-cara">${f ? `<img src="${esc(f)}" alt="" width="600" height="800">` : ""}<b>${num ?? iniciales(n)}</b></span>
+          <span class="cromo-pie"><span class="cromo-nombre">${esc(n)}</span><small>${esc(nombreEquipo(e))}</small></span>
+        </div>
+        <div class="reverso">
+          <h1 class="ficha-nombre" id="ficha-nombre">${esc(n)}</h1>
+          <p class="reverso-sub">${esc(datos.posicion || (portero ? "Portero" : "Jugador"))} del ${esc(nombreEquipo(e))}, temporada 2026-27</p>
+          <dl class="ficha-cifras">
+            ${cifra(est.jugados, "Partidos")}${cifra(est.goles, "Goles")}${cifra(est.titular, "Titular")}
+            ${est.minutos != null ? cifra(est.minutos, "Minutos") : cifra(est.convocado, "Convocado")}
+            ${est.encajados != null ? cifra(est.encajados, "Encajados") : ""}${cifra(est.amarillas, "Amarillas")}${cifra(est.rojas, "Rojas")}
+            ${datos.edad != null ? cifra(datos.edad, "Edad") : ""}${datos.mvp ? cifra(datos.mvp, "MVP") : ""}
+          </dl>
+        </div>
       </div>
     </section>
     <section class="seccion" aria-labelledby="jornadas-titulo">
@@ -547,14 +554,14 @@ function vistaFicha(e, id) {
       ${est.totales ? vacio("La RFEF no publica en abierto las actas de División de Honor: hay totales de la temporada, pero no el detalle de cada jornada.") : tiraJornadas(est.jornadas)}
       <p class="fuente">${est.totales
         ? `Totales de la temporada: <a href="${esc(e.perfiles.url)}" target="_blank" rel="noopener">lapreferente.com</a> (web no oficial)`
-        : `Partidos, goles y tarjetas: actas de la RFGF (futgal.es)${est.actas ? `, ${plural(est.actas, "acta")}` : ", actas pendientes de descargar"}${actasSinGoleadores(e) ? `. ${actasSinGoleadores(e)}` : ""}`}. Con las flechas del teclado pasas de un jugador a otro.</p>
+        : `Partidos, goles y tarjetas: actas de la RFGF (futgal.es)${est.actas ? `, ${plural(est.actas, "acta")}` : ", actas pendientes de descargar"}${actasSinGoleadores(e) ? `. ${actasSinGoleadores(e)}` : ""}`}. Con las flechas del teclado pasas de un cromo a otro.</p>
     </section>`;
 }
 
 // --- Equipos (cantera) --------------------------------------------------
 function cantera(catId) {
   if (!catId) return `${cabeceraSimple("Equipos", `${plural(EQUIPOS.length, "equipo")} esta temporada, de biberón a juvenil.`)}
-    <section class="muro-seccion" aria-label="Categorías">${muro().replace('<h2 class="baldosa baldosa--titulo" id="muro-titulo">Nuestros equipos</h2>', "")}</section>`;
+    <section class="cromos-seccion" aria-label="Categorías">${muro()}</section>`;
   const c = categoria(catId);
   const eqs = EQUIPOS.filter((e) => e.categoria === catId);
   if (!eqs.length) return noEncontrado();
