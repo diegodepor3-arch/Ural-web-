@@ -1,5 +1,5 @@
 // GENERADO por actualizar.py desde futgal.es. No editar a mano.
-const ACTUALIZADO = "2026-10-29T13:20";
+const ACTUALIZADO = "2026-10-29T19:44";
 const EQUIPOS = [
  {
   "id": "juvenil-a",
@@ -2646,7 +2646,7 @@ const EQUIPOS = [
    "Jorge Cillero Seoane": 4,
    "Pablo Cillero Seoane": 20
   },
-  "descargado": "2026-10-27T20:17"
+  "descargado": "2026-10-29T19:43"
  },
  {
   "id": "cadete-b",
@@ -3724,7 +3724,7 @@ const EQUIPOS = [
    "Gabriel López Oreiro": 19,
    "Adán Giménez Muñoz": 22
   },
-  "descargado": "2026-10-27T20:55"
+  "descargado": "2026-10-29T19:43"
  },
  {
   "id": "infantil-a",
@@ -4614,7 +4614,7 @@ const EQUIPOS = [
    "Álvaro Ramil García": 12,
    "Pedro Moreira Trillo": 16
   },
-  "descargado": "2026-10-27T20:55"
+  "descargado": "2026-10-29T19:44"
  },
  {
   "id": "infantil-b",
@@ -10214,7 +10214,7 @@ const EQUIPOS = [
    "Rafael Ferreiro González": 11,
    "Pablo Moreira Trillo": 12
   },
-  "descargado": "2026-10-27T23:51"
+  "descargado": "2026-10-29T19:44"
  },
  {
   "id": "benjamin-c",
@@ -10621,7 +10621,7 @@ const EQUIPOS = [
    "Alex López García": 4,
    "Danilo Molina Rocha": 14
   },
-  "descargado": "2026-10-27T23:52"
+  "descargado": "2026-10-29T19:44"
  },
  {
   "id": "prebenjamin-a",
@@ -11198,7 +11198,7 @@ const EQUIPOS = [
    "Lucas Ribes Velez De Villa": 13,
    "Nicolás Saez Fernández": 14
   },
-  "descargado": "2026-10-28T05:55"
+  "descargado": "2026-10-29T19:44"
  },
  {
   "id": "prebenjamin-b",
