@@ -1,5 +1,5 @@
 // GENERADO por actualizar.py desde futgal.es. No editar a mano.
-const ACTUALIZADO = "2026-10-28T23:20";
+const ACTUALIZADO = "2026-10-29T06:00";
 const EQUIPOS = [
  {
   "id": "juvenil-a",
@@ -5533,31 +5533,289 @@ const EQUIPOS = [
     "c": [],
     "rm": {},
     "id": "1441696"
+   },
+   "1": {
+    "t": [
+     "Xoán Rama Da Luz",
+     "Ismael Díaz Fontela",
+     "Adrián Pancorbo Hualda",
+     "Aitor Arias Fernández",
+     "Brais Carreira Concheiro",
+     "Adrián Peteiro Ronquete",
+     "Mario Mosquera Martín",
+     "Mateo Juane Fernández",
+     "Hugo Casal Suárez",
+     "Nicolás Olveira Borrallo",
+     "Breogan Díaz Pérez"
+    ],
+    "s": [
+     "Marcos Peral Rachi",
+     "Teo Conde Ruiz",
+     "Yago Martín Rodríguez",
+     "Marcos Pardiñas Carrillo",
+     "Simón Gilsanz Rubal"
+    ],
+    "e": [],
+    "g": {
+     "Ismael Díaz Fontela": 1,
+     "Brais Carreira Concheiro": 1
+    },
+    "a": [
+     "Ismael Díaz Fontela"
+    ],
+    "r": [],
+    "d": {
+     "Xoán Rama Da Luz": 13,
+     "Ismael Díaz Fontela": 3,
+     "Adrián Pancorbo Hualda": 6,
+     "Aitor Arias Fernández": 7,
+     "Brais Carreira Concheiro": 9,
+     "Adrián Peteiro Ronquete": 11,
+     "Mario Mosquera Martín": 12,
+     "Mateo Juane Fernández": 15,
+     "Hugo Casal Suárez": 16,
+     "Nicolás Olveira Borrallo": 20,
+     "Breogan Díaz Pérez": 21,
+     "Marcos Peral Rachi": 1,
+     "Teo Conde Ruiz": 2,
+     "Yago Martín Rodríguez": 10,
+     "Marcos Pardiñas Carrillo": 14,
+     "Simón Gilsanz Rubal": 19
+    },
+    "c": [],
+    "rm": {},
+    "id": "1441645"
+   },
+   "2": {
+    "t": [
+     "Marcos Peral Rachi",
+     "Ismael Díaz Fontela",
+     "Jacobo López Alvite",
+     "Yago Martín Rodríguez",
+     "Adrián Peteiro Ronquete",
+     "Mario Mosquera Martín",
+     "Marcos Pardiñas Carrillo",
+     "Hugo Casal Suárez",
+     "Andrés Lema Mesura",
+     "Martín Quesada Mallo",
+     "Simón Gilsanz Rubal"
+    ],
+    "s": [
+     "Xoán Rama Da Luz",
+     "Pau Fernández Vila",
+     "Aitor Arias Fernández",
+     "Diego Torreira Fernández",
+     "Brais Carreira Concheiro"
+    ],
+    "e": [],
+    "g": {
+     "Ismael Díaz Fontela": 1,
+     "Marcos Pardiñas Carrillo": 1
+    },
+    "a": [
+     "Pau Fernández Vila"
+    ],
+    "r": [],
+    "d": {
+     "Marcos Peral Rachi": 1,
+     "Ismael Díaz Fontela": 3,
+     "Jacobo López Alvite": 5,
+     "Yago Martín Rodríguez": 10,
+     "Adrián Peteiro Ronquete": 11,
+     "Mario Mosquera Martín": 12,
+     "Marcos Pardiñas Carrillo": 14,
+     "Hugo Casal Suárez": 16,
+     "Andrés Lema Mesura": 17,
+     "Martín Quesada Mallo": 18,
+     "Simón Gilsanz Rubal": 19,
+     "Xoán Rama Da Luz": 13,
+     "Pau Fernández Vila": 4,
+     "Aitor Arias Fernández": 7,
+     "Diego Torreira Fernández": 8,
+     "Brais Carreira Concheiro": 9
+    },
+    "c": [],
+    "rm": {},
+    "id": "1441654"
+   },
+   "3": {
+    "t": [
+     "Xoán Rama Da Luz",
+     "Teo Conde Ruiz",
+     "Ismael Díaz Fontela",
+     "Pau Fernández Vila",
+     "Jacobo López Alvite",
+     "Adrián Pancorbo Hualda",
+     "Diego Torreira Fernández",
+     "Brais Carreira Concheiro",
+     "Marcos Pardiñas Carrillo",
+     "Andrés Lema Mesura",
+     "Nicolás Olveira Borrallo"
+    ],
+    "s": [
+     "Marcos Peral Rachi",
+     "Adrián Peteiro Ronquete",
+     "Mateo Juane Fernández",
+     "Simón Gilsanz Rubal",
+     "Breogan Díaz Pérez"
+    ],
+    "e": [],
+    "g": {
+     "Nicolás Olveira Borrallo": 1
+    },
+    "a": [],
+    "r": [],
+    "d": {
+     "Xoán Rama Da Luz": 13,
+     "Teo Conde Ruiz": 2,
+     "Ismael Díaz Fontela": 3,
+     "Pau Fernández Vila": 4,
+     "Jacobo López Alvite": 5,
+     "Adrián Pancorbo Hualda": 6,
+     "Diego Torreira Fernández": 8,
+     "Brais Carreira Concheiro": 9,
+     "Marcos Pardiñas Carrillo": 14,
+     "Andrés Lema Mesura": 17,
+     "Nicolás Olveira Borrallo": 20,
+     "Marcos Peral Rachi": 1,
+     "Adrián Peteiro Ronquete": 11,
+     "Mateo Juane Fernández": 15,
+     "Simón Gilsanz Rubal": 19,
+     "Breogan Díaz Pérez": 21
+    },
+    "c": [],
+    "rm": {},
+    "id": "1441662"
+   },
+   "4": {
+    "t": [
+     "Marcos Peral Rachi",
+     "Ismael Díaz Fontela",
+     "Adrián Pancorbo Hualda",
+     "Brais Carreira Concheiro",
+     "Yago Martín Rodríguez",
+     "Adrián Peteiro Ronquete",
+     "Marcos Pardiñas Carrillo",
+     "Hugo Casal Suárez",
+     "Andrés Lema Mesura",
+     "Nicolás Olveira Borrallo",
+     "Breogan Díaz Pérez"
+    ],
+    "s": [
+     "Xoán Rama Da Luz",
+     "Teo Conde Ruiz",
+     "Aitor Arias Fernández",
+     "Diego Torreira Fernández",
+     "Mario Mosquera Martín"
+    ],
+    "e": [],
+    "g": {
+     "Aitor Arias Fernández": 2
+    },
+    "a": [
+     "Aitor Arias Fernández",
+     "Xoán Rama Da Luz"
+    ],
+    "r": [],
+    "d": {
+     "Marcos Peral Rachi": 1,
+     "Ismael Díaz Fontela": 3,
+     "Adrián Pancorbo Hualda": 6,
+     "Brais Carreira Concheiro": 9,
+     "Yago Martín Rodríguez": 10,
+     "Adrián Peteiro Ronquete": 11,
+     "Marcos Pardiñas Carrillo": 14,
+     "Hugo Casal Suárez": 16,
+     "Andrés Lema Mesura": 17,
+     "Nicolás Olveira Borrallo": 20,
+     "Breogan Díaz Pérez": 21,
+     "Xoán Rama Da Luz": 13,
+     "Teo Conde Ruiz": 2,
+     "Aitor Arias Fernández": 7,
+     "Diego Torreira Fernández": 8,
+     "Mario Mosquera Martín": 12
+    },
+    "c": [],
+    "rm": {},
+    "id": "1441671"
+   },
+   "5": {
+    "t": [
+     "Marcos Peral Rachi",
+     "Teo Conde Ruiz",
+     "Jacobo López Alvite",
+     "Adrián Pancorbo Hualda",
+     "Aitor Arias Fernández",
+     "Diego Torreira Fernández",
+     "Mario Mosquera Martín",
+     "Marcos Pardiñas Carrillo",
+     "Andrés Lema Mesura",
+     "Martín Quesada Mallo",
+     "Breogan Díaz Pérez"
+    ],
+    "s": [
+     "Xoán Rama Da Luz",
+     "Ismael Díaz Fontela",
+     "Brais Carreira Concheiro",
+     "Yago Martín Rodríguez",
+     "Mateo Juane Fernández"
+    ],
+    "e": [],
+    "g": {
+     "Ismael Díaz Fontela": 3,
+     "Mario Mosquera Martín": 1
+    },
+    "a": [
+     "Martín Quesada Mallo"
+    ],
+    "r": [],
+    "d": {
+     "Marcos Peral Rachi": 1,
+     "Teo Conde Ruiz": 2,
+     "Jacobo López Alvite": 5,
+     "Adrián Pancorbo Hualda": 6,
+     "Aitor Arias Fernández": 7,
+     "Diego Torreira Fernández": 8,
+     "Mario Mosquera Martín": 12,
+     "Marcos Pardiñas Carrillo": 14,
+     "Andrés Lema Mesura": 17,
+     "Martín Quesada Mallo": 18,
+     "Breogan Díaz Pérez": 21,
+     "Xoán Rama Da Luz": 13,
+     "Ismael Díaz Fontela": 3,
+     "Brais Carreira Concheiro": 9,
+     "Yago Martín Rodríguez": 10,
+     "Mateo Juane Fernández": 15
+    },
+    "c": [],
+    "rm": {},
+    "id": "1441679"
    }
   },
   "dorsales": {
-   "Marcos Peral Rachi": 1,
-   "Teo Conde Ruiz": 2,
-   "Jacobo López Alvite": 5,
-   "Aitor Arias Fernández": 7,
-   "Diego Torreira Fernández": 8,
-   "Mateo Juane Fernández": 15,
-   "Hugo Casal Suárez": 16,
-   "Martín Quesada Mallo": 18,
-   "Simón Gilsanz Rubal": 19,
-   "Nicolás Olveira Borrallo": 20,
-   "Breogan Díaz Pérez": 21,
    "Xoán Rama Da Luz": 13,
-   "Pau Fernández Vila": 4,
-   "Adrián Peteiro Ronquete": 11,
-   "Marcos Pardiñas Carrillo": 14,
-   "Andrés Lema Mesura": 17,
    "Ismael Díaz Fontela": 3,
    "Adrián Pancorbo Hualda": 6,
+   "Aitor Arias Fernández": 7,
    "Brais Carreira Concheiro": 9,
-   "Yago Martín Rodríguez": 10
+   "Adrián Peteiro Ronquete": 11,
+   "Mario Mosquera Martín": 12,
+   "Mateo Juane Fernández": 15,
+   "Hugo Casal Suárez": 16,
+   "Nicolás Olveira Borrallo": 20,
+   "Breogan Díaz Pérez": 21,
+   "Marcos Peral Rachi": 1,
+   "Teo Conde Ruiz": 2,
+   "Yago Martín Rodríguez": 10,
+   "Marcos Pardiñas Carrillo": 14,
+   "Simón Gilsanz Rubal": 19,
+   "Jacobo López Alvite": 5,
+   "Andrés Lema Mesura": 17,
+   "Martín Quesada Mallo": 18,
+   "Pau Fernández Vila": 4,
+   "Diego Torreira Fernández": 8
   },
-  "descargado": "2026-10-27T19:58"
+  "descargado": "2026-10-29T05:59"
  },
  {
   "id": "infantil-c",
@@ -6178,31 +6436,187 @@ const EQUIPOS = [
      "Martín López García": 42
     },
     "id": "1497124"
+   },
+   "1": {
+    "t": [
+     "Gael Blanco Presedo",
+     "Hugo López Crespo",
+     "Daniel Díaz Feal",
+     "Adrián Garrido Calvete",
+     "Lucas Blanco Fernández",
+     "Xoel López Fernadez",
+     "Jorge Salvador Maceiras Vázquez",
+     "Leo García Agra",
+     "Hugo Hernández Matos",
+     "Martín López García",
+     "Bruno Tomé Blanco"
+    ],
+    "s": [
+     "Noe González Sánchez",
+     "Matteo Alessandro Bustamante Adobbato",
+     "Hugo Cadavieco Rey",
+     "Jacobo Martínez Lago",
+     "Alejandro Rey Rodríguez"
+    ],
+    "e": [],
+    "g": {
+     "Jorge Salvador Maceiras Vázquez": 2
+    },
+    "a": [],
+    "r": [],
+    "d": {
+     "Gael Blanco Presedo": 13,
+     "Hugo López Crespo": 3,
+     "Daniel Díaz Feal": 4,
+     "Adrián Garrido Calvete": 7,
+     "Lucas Blanco Fernández": 8,
+     "Xoel López Fernadez": 9,
+     "Jorge Salvador Maceiras Vázquez": 10,
+     "Leo García Agra": 11,
+     "Hugo Hernández Matos": 17,
+     "Martín López García": 19,
+     "Bruno Tomé Blanco": 24,
+     "Noe González Sánchez": 1,
+     "Matteo Alessandro Bustamante Adobbato": 5,
+     "Hugo Cadavieco Rey": 6,
+     "Jacobo Martínez Lago": 12,
+     "Alejandro Rey Rodríguez": 21
+    },
+    "c": [],
+    "rm": {},
+    "id": "1497094"
+   },
+   "2": {
+    "t": [
+     "Noe González Sánchez",
+     "Daniel Díaz Feal",
+     "Adrián Garrido Calvete",
+     "Lucas Blanco Fernández",
+     "Jorge Salvador Maceiras Vázquez",
+     "Leo García Agra",
+     "Jacobo Martínez Lago",
+     "Roque Castro Meizoso",
+     "Pedro Hervella Cruz",
+     "Hugo Hernández Matos",
+     "Bruno Tomé Blanco"
+    ],
+    "s": [
+     "Gael Blanco Presedo",
+     "Rodrigo Vidal Suárez",
+     "Hugo López Crespo",
+     "José Pérez Estrada",
+     "Marcos Ramos Seijo"
+    ],
+    "e": [],
+    "g": {
+     "Lucas Blanco Fernández": 1,
+     "Jorge Salvador Maceiras Vázquez": 1,
+     "Leo García Agra": 1
+    },
+    "a": [
+     "Daniel Díaz Feal"
+    ],
+    "r": [],
+    "d": {
+     "Noe González Sánchez": 1,
+     "Daniel Díaz Feal": 4,
+     "Adrián Garrido Calvete": 7,
+     "Lucas Blanco Fernández": 8,
+     "Jorge Salvador Maceiras Vázquez": 10,
+     "Leo García Agra": 11,
+     "Jacobo Martínez Lago": 12,
+     "Roque Castro Meizoso": 14,
+     "Pedro Hervella Cruz": 15,
+     "Hugo Hernández Matos": 17,
+     "Bruno Tomé Blanco": 24,
+     "Gael Blanco Presedo": 13,
+     "Rodrigo Vidal Suárez": 2,
+     "Hugo López Crespo": 3,
+     "José Pérez Estrada": 20,
+     "Marcos Ramos Seijo": 22
+    },
+    "c": [],
+    "rm": {},
+    "id": "1497102"
+   },
+   "3": {
+    "t": [
+     "Gael Blanco Presedo",
+     "Hugo López Crespo",
+     "Daniel Díaz Feal",
+     "Matteo Alessandro Bustamante Adobbato",
+     "Hugo Cadavieco Rey",
+     "Lucas Blanco Fernández",
+     "Jorge Salvador Maceiras Vázquez",
+     "Roque Castro Meizoso",
+     "Pedro Hervella Cruz",
+     "Hugo Hernández Matos",
+     "Martín López García"
+    ],
+    "s": [
+     "Rodrigo Vidal Suárez",
+     "Xoel López Fernadez",
+     "José Pérez Estrada",
+     "Alejandro Rey Rodríguez",
+     "Marcos Ramos Seijo"
+    ],
+    "e": [],
+    "g": {
+     "Jorge Salvador Maceiras Vázquez": 2,
+     "Hugo López Crespo": 1,
+     "Hugo Cadavieco Rey": 1
+    },
+    "a": [
+     "Daniel Díaz Feal"
+    ],
+    "r": [],
+    "d": {
+     "Gael Blanco Presedo": 13,
+     "Hugo López Crespo": 3,
+     "Daniel Díaz Feal": 4,
+     "Matteo Alessandro Bustamante Adobbato": 5,
+     "Hugo Cadavieco Rey": 6,
+     "Lucas Blanco Fernández": 8,
+     "Jorge Salvador Maceiras Vázquez": 10,
+     "Roque Castro Meizoso": 14,
+     "Pedro Hervella Cruz": 15,
+     "Hugo Hernández Matos": 17,
+     "Martín López García": 19,
+     "Rodrigo Vidal Suárez": 2,
+     "Xoel López Fernadez": 9,
+     "José Pérez Estrada": 16,
+     "Alejandro Rey Rodríguez": 21,
+     "Marcos Ramos Seijo": 22
+    },
+    "c": [],
+    "rm": {},
+    "id": "1497109"
    }
   },
   "dorsales": {
-   "Noe González Sánchez": 1,
+   "Gael Blanco Presedo": 13,
    "Hugo López Crespo": 3,
    "Daniel Díaz Feal": 4,
-   "Hugo Cadavieco Rey": 6,
+   "Adrián Garrido Calvete": 7,
    "Lucas Blanco Fernández": 8,
+   "Xoel López Fernadez": 9,
    "Jorge Salvador Maceiras Vázquez": 10,
-   "Jacobo Martínez Lago": 12,
-   "Pedro Hervella Cruz": 15,
+   "Leo García Agra": 11,
    "Hugo Hernández Matos": 17,
    "Martín López García": 19,
    "Bruno Tomé Blanco": 24,
+   "Noe González Sánchez": 1,
    "Matteo Alessandro Bustamante Adobbato": 5,
-   "Xoel López Fernadez": 9,
-   "Leo García Agra": 11,
-   "José Pérez Estrada": 16,
+   "Hugo Cadavieco Rey": 6,
+   "Jacobo Martínez Lago": 12,
    "Alejandro Rey Rodríguez": 21,
-   "Gael Blanco Presedo": 13,
    "Roque Castro Meizoso": 14,
+   "Pedro Hervella Cruz": 15,
    "Rodrigo Vidal Suárez": 2,
+   "José Pérez Estrada": 16,
    "Marcos Ramos Seijo": 22
   },
-  "descargado": "2026-10-27T19:59"
+  "descargado": "2026-10-29T06:00"
  },
  {
   "id": "alevin-a-f11",
