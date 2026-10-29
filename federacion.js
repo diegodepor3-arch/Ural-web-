@@ -1,5 +1,5 @@
 // GENERADO por actualizar.py desde futgal.es. No editar a mano.
-const ACTUALIZADO = "2026-10-29T06:00";
+const ACTUALIZADO = "2026-10-29T13:20";
 const EQUIPOS = [
  {
   "id": "juvenil-a",
@@ -491,317 +491,6 @@ const EQUIPOS = [
     "campo": ""
    }
   ],
-  "competicion": "División de Honor Juvenil · Grupo 1",
-  "fuente": "futbolme.com",
-  "urlOficial": "https://rfef.es/sites/default/files/2026-07/DHJ_Calendario_Grupo_1.pdf",
-  "urlClasificacion": "https://futbolme.com/resultados-directo/torneo/division-de-honor-juvenil-grupo-1/31/clasificacion",
-  "descargado": "2026-10-27T20:16",
-  "perfiles": {
-   "fecha": "2026-10-27T20:26",
-   "url": "https://www.lapreferente.com/E58614T20262027/ural-espa%C3%B1ol-cf",
-   "jugadores": {
-    "Joel Liste Barreiro": {
-     "posicion": "Portero",
-     "edad": 18,
-     "pc": 7,
-     "pj": 3,
-     "pt": 3,
-     "min": 270,
-     "goles": 0,
-     "encajados": 3,
-     "ta": 0,
-     "tr": 0
-    },
-    "Lucas Vázquez Bermúdez": {
-     "posicion": "Portero",
-     "edad": 18,
-     "pc": 7,
-     "pj": 4,
-     "pt": 4,
-     "min": 360,
-     "goles": 0,
-     "encajados": 9,
-     "ta": 0,
-     "tr": 0
-    },
-    "Hugo Amado Vázquez": {
-     "posicion": "Defensa",
-     "edad": 18,
-     "pc": 6,
-     "pj": 5,
-     "pt": 5,
-     "min": 422,
-     "goles": 0,
-     "encajados": null,
-     "ta": 1,
-     "tr": 0
-    },
-    "Asier Suárez Rivas": {
-     "posicion": "Defensa",
-     "edad": 18,
-     "pc": 4,
-     "pj": 4,
-     "pt": 2,
-     "min": 201,
-     "goles": 0,
-     "encajados": null,
-     "ta": 1,
-     "tr": 0
-    },
-    "Breixo Castro Mendez": {
-     "posicion": "Defensa",
-     "edad": 18,
-     "pc": 5,
-     "pj": 5,
-     "pt": 3,
-     "min": 315,
-     "goles": 0,
-     "encajados": null,
-     "ta": 0,
-     "tr": 1
-    },
-    "Hugo Camba Esmoris": {
-     "posicion": "Defensa",
-     "edad": 18,
-     "pc": 5,
-     "pj": 4,
-     "pt": 3,
-     "min": 227,
-     "goles": 0,
-     "encajados": null,
-     "ta": 1,
-     "tr": 0
-    },
-    "Daniel Chans Saguillo": {
-     "posicion": "Defensa",
-     "edad": 18,
-     "pc": 7,
-     "pj": 7,
-     "pt": 7,
-     "min": 630,
-     "goles": 0,
-     "encajados": null,
-     "ta": 2,
-     "tr": 0
-    },
-    "Iago Vázquez Álvarez": {
-     "posicion": "Central",
-     "edad": 17,
-     "pc": 5,
-     "pj": 4,
-     "pt": 4,
-     "min": 360,
-     "goles": 0,
-     "encajados": null,
-     "ta": 1,
-     "tr": 0
-    },
-    "Mateo Caamaño García": {
-     "posicion": "Defensa",
-     "edad": 17,
-     "pc": 7,
-     "pj": 7,
-     "pt": 7,
-     "min": 630,
-     "goles": 1,
-     "encajados": null,
-     "ta": 1,
-     "tr": 0
-    },
-    "Abel Escandón Buyo": {
-     "posicion": "Centrocampista",
-     "edad": 17,
-     "pc": 4,
-     "pj": 4,
-     "pt": 1,
-     "min": 158,
-     "goles": 0,
-     "encajados": null,
-     "ta": 1,
-     "tr": 0
-    },
-    "Breixo Estévez Torres": {
-     "posicion": "Centrocampista",
-     "edad": 18,
-     "pc": 7,
-     "pj": 6,
-     "pt": 5,
-     "min": 389,
-     "goles": 1,
-     "encajados": null,
-     "ta": 1,
-     "tr": 0
-    },
-    "Diego Martínez Álvarez": {
-     "posicion": "Centrocampista",
-     "edad": 18,
-     "pc": 3,
-     "pj": 2,
-     "pt": 0,
-     "min": 50,
-     "goles": 0,
-     "encajados": null,
-     "ta": 1,
-     "tr": 0
-    },
-    "Guillermo Ramos Seijo": {
-     "posicion": "Medio Centro",
-     "edad": 17,
-     "pc": 5,
-     "pj": 5,
-     "pt": 2,
-     "min": 170,
-     "goles": 0,
-     "encajados": null,
-     "ta": 0,
-     "tr": 0
-    },
-    "Sergio Romero Cutanda": {
-     "posicion": "Centrocampista",
-     "edad": 17,
-     "pc": 0,
-     "pj": 0,
-     "pt": 0,
-     "min": 0,
-     "goles": 0,
-     "encajados": null,
-     "ta": 0,
-     "tr": 0
-    },
-    "Unai Bértalo Uribarri": {
-     "posicion": "Medio Centro",
-     "edad": 18,
-     "pc": 3,
-     "pj": 3,
-     "pt": 1,
-     "min": 119,
-     "goles": 0,
-     "encajados": null,
-     "ta": 0,
-     "tr": 0
-    },
-    "Xoel Carro Caamaño": {
-     "posicion": "Centrocampista",
-     "edad": 18,
-     "pc": 7,
-     "pj": 7,
-     "pt": 7,
-     "min": 584,
-     "goles": 0,
-     "encajados": null,
-     "ta": 3,
-     "tr": 0
-    },
-    "Hugo Cotelo Pérez": {
-     "posicion": "Delantero",
-     "edad": 17,
-     "pc": 7,
-     "pj": 7,
-     "pt": 5,
-     "min": 384,
-     "goles": 4,
-     "encajados": null,
-     "ta": 1,
-     "tr": 0
-    },
-    "Diego Moreno González": {
-     "posicion": "Delantero",
-     "edad": 18,
-     "pc": 4,
-     "pj": 4,
-     "pt": 0,
-     "min": 57,
-     "goles": 0,
-     "encajados": null,
-     "ta": 0,
-     "tr": 0
-    },
-    "Janusz Florek González": {
-     "posicion": "Extremo Derecho",
-     "edad": 18,
-     "pc": 5,
-     "pj": 5,
-     "pt": 3,
-     "min": 223,
-     "goles": 1,
-     "encajados": null,
-     "ta": 0,
-     "tr": 0
-    },
-    "Leo Fernández Rodriguez": {
-     "posicion": "Extremo Izquierdo",
-     "edad": 18,
-     "pc": 5,
-     "pj": 5,
-     "pt": 2,
-     "min": 218,
-     "goles": 3,
-     "encajados": null,
-     "ta": 1,
-     "tr": 0
-    },
-    "Marcos Arias López": {
-     "posicion": "Extremo Derecho",
-     "edad": 18,
-     "pc": 6,
-     "pj": 6,
-     "pt": 5,
-     "min": 387,
-     "goles": 0,
-     "encajados": null,
-     "ta": 0,
-     "tr": 0
-    },
-    "Nicolas Bermúdez Martinez": {
-     "posicion": "Extremo Izquierdo",
-     "edad": 18,
-     "pc": 5,
-     "pj": 5,
-     "pt": 3,
-     "min": 277,
-     "goles": 1,
-     "encajados": null,
-     "ta": 0,
-     "tr": 0
-    },
-    "Roi Cabada López": {
-     "posicion": "Extremo Izquierdo",
-     "edad": 17,
-     "pc": 6,
-     "pj": 6,
-     "pt": 3,
-     "min": 325,
-     "goles": 2,
-     "encajados": null,
-     "ta": 1,
-     "tr": 0
-    },
-    "Samuel Mendez Agbamu": {
-     "posicion": "Delantero",
-     "edad": 18,
-     "pc": 5,
-     "pj": 4,
-     "pt": 2,
-     "min": 169,
-     "goles": 1,
-     "encajados": null,
-     "ta": 0,
-     "tr": 0
-    },
-    "Xian Roberto Montero Dos Santos": {
-     "posicion": "Centrocampista",
-     "edad": 17,
-     "pc": 0,
-     "pj": 0,
-     "pt": 0,
-     "min": 0,
-     "goles": 0,
-     "encajados": null,
-     "ta": 0,
-     "tr": 0
-    }
-   }
-  },
   "escudos": {
    "CD Lugo": "https://futbolme.com/static/img/club/escudo4484.png",
    "_rutas": [
@@ -837,7 +526,12 @@ const EQUIPOS = [
    "SD Solares-Medio Cudeyo": "https://futbolme.com/static/img/club/escudo4244.png",
    "Ural Español CF": "https://futbolme.com/static/img/club/escudo4972.png",
    "Victoria CF": "https://futbolme.com/static/img/club/escudo5018.png"
-  }
+  },
+  "competicion": "División de Honor Juvenil · Grupo 1",
+  "fuente": "futbolme.com",
+  "urlOficial": "https://rfef.es/sites/default/files/2026-07/DHJ_Calendario_Grupo_1.pdf",
+  "urlClasificacion": "https://futbolme.com/resultados-directo/torneo/division-de-honor-juvenil-grupo-1/31/clasificacion",
+  "descargado": "2026-10-29T13:19"
  },
  {
   "id": "juvenil-b",
@@ -1870,7 +1564,7 @@ const EQUIPOS = [
    "Leo Sánchez Pérez": 12,
    "Rafael Sande Castro-Acuña": 14
   },
-  "descargado": "2026-10-27T20:17"
+  "descargado": "2026-10-29T13:20"
  },
  {
   "id": "cadete-a",
@@ -8514,7 +8208,7 @@ const EQUIPOS = [
    "Mauro Afonso Gómez": 17,
    "Dylan Adriano Leon Ramírez": 5
   },
-  "descargado": "2026-10-27T19:59"
+  "descargado": "2026-10-29T13:17"
  },
  {
   "id": "alevin-d",
@@ -8919,7 +8613,7 @@ const EQUIPOS = [
    "Laura Rodríguez Pena": 4,
    "Pedro López López-Crespo": 5
   },
-  "descargado": "2026-10-27T20:00"
+  "descargado": "2026-10-29T13:18"
  },
  {
   "id": "alevin-e",
@@ -9332,7 +9026,7 @@ const EQUIPOS = [
    "Valentino Medina Pérez": 12,
    "Martiño Teixeira Vega": 9
   },
-  "descargado": "2026-10-27T20:03"
+  "descargado": "2026-10-29T13:18"
  },
  {
   "id": "benjamin-a",
@@ -10046,6 +9740,49 @@ const EQUIPOS = [
     "c": [],
     "rm": {},
     "id": "1490269"
+   },
+   "1": {
+    "t": [
+     "Iago González García",
+     "Lucas Rodrigo Herosa Vázquez",
+     "Iván Valencia Trigo",
+     "Simón Pardo Pérez",
+     "Enzo Carballeira Don",
+     "Martín López Varela",
+     "Hugo González Toulze",
+     "Mateo Sánchez González"
+    ],
+    "s": [
+     "Enzo Lamas Ferreira",
+     "Luca Eiranova Asorey",
+     "Martín Cascudo Bouza",
+     "Bruno García Díaz",
+     "Bruno Costoya Mouriño",
+     "Pablo López Varela"
+    ],
+    "e": [],
+    "g": {},
+    "a": [],
+    "r": [],
+    "d": {
+     "Iago González García": 1,
+     "Lucas Rodrigo Herosa Vázquez": 2,
+     "Iván Valencia Trigo": 3,
+     "Simón Pardo Pérez": 4,
+     "Enzo Carballeira Don": 5,
+     "Martín López Varela": 6,
+     "Hugo González Toulze": 14,
+     "Mateo Sánchez González": 15,
+     "Enzo Lamas Ferreira": 13,
+     "Luca Eiranova Asorey": 7,
+     "Martín Cascudo Bouza": 8,
+     "Bruno García Díaz": 9,
+     "Bruno Costoya Mouriño": 10,
+     "Pablo López Varela": 11
+    },
+    "c": [],
+    "rm": {},
+    "id": "1490231"
    }
   },
   "dorsales": {
@@ -10065,7 +9802,7 @@ const EQUIPOS = [
    "Mateo Sánchez González": 15,
    "Martín Lorenzo Beiro": 12
   },
-  "descargado": "2026-10-27T20:04"
+  "descargado": "2026-10-29T13:19"
  },
  {
   "id": "benjamin-b",
