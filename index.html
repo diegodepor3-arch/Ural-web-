@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Ural Español C.F.</title>
   <meta name="description" content="Web oficial del Ural Español C.F. (Santa Lucía, A Coruña, desde 1929): los 23 equipos de fútbol base, de biberón a juvenil, con partidos, resultados, clasificaciones y plantillas.">
-  <meta name="theme-color" content="#18632a">
+  <meta name="theme-color" content="#ffffff">
   <link rel="icon" href="img/favicon.png">
-  <link rel="preconnect" href="https://api.fontshare.com">
-  <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
-  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&display=swap">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -25,42 +25,35 @@
   <header class="menu">
     <a href="#/" class="menu-marca" aria-label="Inicio · Ural Español C.F.">
       <img src="img/escudo.png" alt="" width="40" height="38">
-      <span translate="no">Ural Español</span>
+      <span translate="no">Ural Español C.F.</span>
     </a>
     <button class="menu-abrir" type="button" aria-expanded="false" aria-controls="menu-enlaces">Menú</button>
     <nav class="menu-enlaces" id="menu-enlaces" aria-label="Principal">
       <a href="#/cantera" data-seccion="cantera">Equipos</a>
       <a href="#/equipo/juvenil-a" data-seccion="equipo/juvenil-a">Juvenil A</a>
-      <a href="#/historia" data-seccion="historia">Historia</a>
+      <a href="#/historia" data-seccion="historia">El club</a>
       <a href="#/noticias" data-seccion="noticias">Noticias</a>
       <a href="#/buscar" data-seccion="buscar">Buscar</a>
-      <a href="#/socios" data-seccion="socios">Hazte socio</a>
-      <a href="#/#donde" class="menu-socio">¿Dónde juega tu hijo?</a>
+      <a href="#/socios" data-seccion="socios" class="menu-socio">Hazte socio</a>
     </nav>
   </header>
 
   <main id="app" tabindex="-1"></main>
 
   <footer class="pie">
-    <div class="postal">
-      <div class="postal-mensaje">
-        <h2>Nos vemos en el campo</h2>
-        <p>Ural Español C.F., fútbol base en Santa Lucía, A Coruña, desde 1929. Veintitrés equipos y un barrio detrás.</p>
-        <nav class="postal-menu" aria-label="Secundaria">
-          <a href="#/cantera">Los 23 equipos</a><a href="#/equipo/juvenil-a">Juvenil A</a><a href="#/historia">Historia</a><a href="#/noticias">Noticias</a><a href="#/buscar">Buscar un jugador</a>
-        </nav>
-      </div>
-      <div class="postal-direccion">
-        <img class="postal-sello" src="assets/torre-de-hercules-divesgallaecia2012-62.jpg" alt="Sello con la Torre de Hércules" width="88" height="117" loading="lazy">
-        <p>Ural Español C.F.<br>Santa Lucía<br>A Coruña<span id="pie-contacto"></span></p>
-        <p class="postal-enlaces"><a href="#/socios">Hazte socio</a><a id="pie-x" target="_blank" rel="noopener">X / Twitter</a><a id="pie-fed" target="_blank" rel="noopener">El club en la federación</a></p>
-      </div>
-      <div class="postal-imprenta">
-        <p id="pie-fuente"></p>
-        <p >Fotos de A Coruña y del fútbol gallego (Wikimedia Commons): <a href="https://commons.wikimedia.org/wiki/File:UD_Ourense_-_Villalonga_CF,_lance_do_xogo_3.jpg">UD Ourense - Villalonga CF, lance do xogo 3</a>, Estevoaei, CC BY-SA 4.0; <a href="https://commons.wikimedia.org/wiki/File:Torre_de_H%C3%A9rcules_-_DivesGallaecia2012-62.jpg">Torre de Hércules - DivesGallaecia2012-62</a>, Luis Miguel Bugallo Sánchez (Lmbuga), CC BY-SA 3.0; <a href="https://commons.wikimedia.org/wiki/File:Galer%C3%ADas_(glazed_window_balconies),_A_Coru%C3%B1a,_Galicia,_Spain_(PPL1-Corrected)_2_julesvernex2.jpg">Galerías (glazed window balconies), A Coruña, Galicia, Spain</a>, Jules Verne Times Two, CC BY-SA 4.0; <a href="https://commons.wikimedia.org/wiki/File:Playa_de_El_Orz%C3%A1n_-_panoramio.jpg">Playa de El Orzán - panoramio</a>, Santi Garcia, CC BY 3.0; <a href="https://commons.wikimedia.org/wiki/File:R%C3%BAa_Real,_d%C3%ADa_de_lluvia_-_panoramio.jpg">Rúa Real, día de lluvia - panoramio</a>, carrodeguas, CC BY-SA 3.0.</p>
-        <p>© Ural Español C.F., temporada 2026-27</p>
-      </div>
+    <div class="pie-notas">
+      <p class="pie-marca"><img src="img/escudo.png" alt="" width="32" height="30"> Ural Español C.F.</p>
+      <p>Club de fútbol base. Santa Lucía, A Coruña.<span id="pie-contacto"></span></p>
+      <p>Partidos los fines de semana en Grela, Torre y Elviña.</p>
+      <a class="pie-arriba" href="#app">Volver arriba</a>
     </div>
+    <a class="pie-contacto-grande" id="pie-x" target="_blank" rel="noopener">@uralespanol</a>
+    <div class="pie-meta">
+      <nav aria-label="Secundaria"><a href="#/cantera">Equipos</a><a href="#/historia">El club</a><a href="#/noticias">Noticias</a><a href="#/socios">Socios</a><a id="pie-fed" target="_blank" rel="noopener">Federación</a></nav>
+      <p id="pie-fuente"></p>
+      <p>A Coruña, temporada 2026-27</p>
+    </div>
+    <p class="pie-creditos">Fotos de A Coruña y del fútbol gallego (Wikimedia Commons): <a href="https://commons.wikimedia.org/wiki/File:UD_Ourense_-_Villalonga_CF,_lance_do_xogo_3.jpg">UD Ourense - Villalonga CF, lance do xogo 3</a>, Estevoaei, CC BY-SA 4.0; <a href="https://commons.wikimedia.org/wiki/File:Torre_de_H%C3%A9rcules_-_DivesGallaecia2012-62.jpg">Torre de Hércules - DivesGallaecia2012-62</a>, Luis Miguel Bugallo Sánchez (Lmbuga), CC BY-SA 3.0; <a href="https://commons.wikimedia.org/wiki/File:Galer%C3%ADas_(glazed_window_balconies),_A_Coru%C3%B1a,_Galicia,_Spain_(PPL1-Corrected)_2_julesvernex2.jpg">Galerías (glazed window balconies), A Coruña, Galicia, Spain</a>, Jules Verne Times Two, CC BY-SA 4.0; <a href="https://commons.wikimedia.org/wiki/File:Playa_de_El_Orz%C3%A1n_-_panoramio.jpg">Playa de El Orzán - panoramio</a>, Santi Garcia, CC BY 3.0; <a href="https://commons.wikimedia.org/wiki/File:R%C3%BAa_Real,_d%C3%ADa_de_lluvia_-_panoramio.jpg">Rúa Real, día de lluvia - panoramio</a>, carrodeguas, CC BY-SA 3.0.</p>
   </footer>
 
   <script src="data.js"></script>
