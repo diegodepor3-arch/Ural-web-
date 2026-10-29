@@ -24,8 +24,8 @@
   --cab: 64px;
   --sale: cubic-bezier(0.16, 1, 0.3, 1);
   /* borde ondulado de papel troquelado, para cortar el canto de arriba o de abajo de una hoja */
-  --ondas-arriba: radial-gradient(16px at 50% 0, #0000 97%, #000) 50% / 44px 100%;
-  --ondas-abajo: radial-gradient(16px at 50% 100%, #0000 97%, #000) 50% / 44px 100%;
+  --ondas-arriba: radial-gradient(16px at 50% 0, #0000 97%, #000) 50% / 44px 100%; /* taste-skill-ignore: máscara para recortar el papel, no es un relleno */
+  --ondas-abajo: radial-gradient(16px at 50% 100%, #0000 97%, #000) 50% / 44px 100%; /* taste-skill-ignore: máscara para recortar el papel, no es un relleno */
   color-scheme: light;
 }
 
@@ -108,11 +108,11 @@ mark { background: var(--oro); color: var(--tinta); padding: 0 0.15em; }
   display: flex; flex-direction: column; align-items: center; gap: 24px; text-align: center;
   background: var(--papel); color: var(--tinta);
   /* esquinas troqueladas por dentro, como las de un álbum de los de antes */
-  -webkit-mask: radial-gradient(28px at 0 0, #0000 98%, #000) top left, radial-gradient(28px at 100% 0, #0000 98%, #000) top right,
-    radial-gradient(28px at 0 100%, #0000 98%, #000) bottom left, radial-gradient(28px at 100% 100%, #0000 98%, #000) bottom right;
+  -webkit-mask: radial-gradient(28px at 0 0, #0000 98%, #000) top left, radial-gradient(28px at 100% 0, #0000 98%, #000) top right, /* taste-skill-ignore: máscara para recortar el papel, no es un relleno */
+    radial-gradient(28px at 0 100%, #0000 98%, #000) bottom left, radial-gradient(28px at 100% 100%, #0000 98%, #000) bottom right; /* taste-skill-ignore: máscara para recortar el papel, no es un relleno */
   -webkit-mask-size: 51% 51%; -webkit-mask-repeat: no-repeat;
-  mask: radial-gradient(28px at 0 0, #0000 98%, #000) top left, radial-gradient(28px at 100% 0, #0000 98%, #000) top right,
-    radial-gradient(28px at 0 100%, #0000 98%, #000) bottom left, radial-gradient(28px at 100% 100%, #0000 98%, #000) bottom right;
+  mask: radial-gradient(28px at 0 0, #0000 98%, #000) top left, radial-gradient(28px at 100% 0, #0000 98%, #000) top right, /* taste-skill-ignore: máscara para recortar el papel, no es un relleno */
+    radial-gradient(28px at 0 100%, #0000 98%, #000) bottom left, radial-gradient(28px at 100% 100%, #0000 98%, #000) bottom right; /* taste-skill-ignore: máscara para recortar el papel, no es un relleno */
   mask-size: 51% 51%; mask-repeat: no-repeat;
 }
 .tapa-escudo { width: 112px; margin-top: 8px; }
@@ -225,7 +225,7 @@ mark { background: var(--oro); color: var(--tinta); padding: 0 0.15em; }
 
 /* --- Juvenil A: la foto con muesca de entrada ---------------------------- */
 .juvenil { display: grid; grid-template-columns: 1fr 1fr; min-height: 88svh; margin-top: var(--hueco); background: var(--oro); color: var(--tinta); }
-.juvenil-foto { align-self: center; margin: 40px; aspect-ratio: 1; overflow: hidden; -webkit-mask: radial-gradient(30px at 100% 50%, #0000 97%, #000); mask: radial-gradient(30px at 100% 50%, #0000 97%, #000); }
+.juvenil-foto { align-self: center; margin: 40px; aspect-ratio: 1; overflow: hidden; -webkit-mask: radial-gradient(30px at 100% 50%, #0000 97%, #000); mask: radial-gradient(30px at 100% 50%, #0000 97%, #000); } /* taste-skill-ignore: máscara para recortar el papel, no es un relleno */
 .juvenil-foto img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 85%; }
 .juvenil-texto { display: flex; flex-direction: column; justify-content: space-between; gap: 48px; padding: 56px var(--m) 56px 24px; }
 .juvenil-acciones { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
