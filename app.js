@@ -76,29 +76,31 @@ function semanas() {
 }
 
 // --- Inicio -------------------------------------------------------------
+// Las carpetas de la portada: una por sección, cada una con su color; la de delante está abierta
+const CARPETAS = [
+  { id: "historia", nombre: "Historia", color: "marino" },
+  { id: "equipos", nombre: "Equipos", color: "hueso" },
+  { id: "juvenil", nombre: "Juvenil A", color: "oro" },
+  { id: "agenda", nombre: "Partidos", color: "blanco" },
+  { id: "donde", nombre: "Este finde", color: "verde" },
+];
+
 function inicio() {
   const { esta, pasada } = semanas();
   const pendientes = esta.filter((p) => !p.resultado);
-  const principal = equipo(PRINCIPAL), pp = principal && proximo(principal);
-  const titular = pendientes.length ? ["Este finde,", `${plural(pendientes.length, "partido")}.`] : ["Ural Español,", `desde ${CLUB.fundado}.`];
+  const principal = equipo(PRINCIPAL);
 
   return `
     <section class="portada" aria-labelledby="portada-titulo">
-      <div class="portada-charla">
-        <p class="portada-lema">${EQUIPOS.length} equipos de fútbol base en Santa Lucía, A Coruña, desde ${CLUB.fundado}.</p>
-        <a class="boton boton--oro" href="#donde">¿Dónde juega tu hijo?</a>
-      </div>
-      <div class="portada-grande">
-        <h1 class="portada-titulo" id="portada-titulo">${titular.map((l) => `<span class="linea"><span>${esc(l)}</span></span>`).join("")}</h1>
-        <figure class="portada-foto">
-          ${foto(FOTO.galerias, "deriva", false)}
-          ${pp ? `<a class="portada-aviso" href="${rutaEquipo(principal)}">
-            <b>${esc(mayus(fmt(pp.fecha, { weekday: "short" })))} ${esc(pp.hora || "")}</b>
-            <span>${esc(cruce(pp))}</span>
-            <small>Juvenil A · División de Honor</small>
-          </a>` : ""}
-        </figure>
-      </div>
+      <h1 class="portada-titulo" id="portada-titulo"><span class="linea"><span>Ural Español</span></span><span class="portada-que">Fútbol base de A Coruña</span></h1>
+      <p class="portada-lema">${EQUIPOS.length} equipos, de biberón a juvenil, en Santa Lucía desde ${CLUB.fundado}.${pendientes.length ? ` Este fin de semana juegan ${plural(pendientes.length, "partido")}.` : ""}</p>
+      <nav class="carpetas" aria-label="Secciones de la portada">
+        ${CARPETAS.map((c, i) => `
+          <a class="carpeta carpeta--${c.color}" href="#/#${c.id}" style="--i:${i}">
+            <span class="carpeta-pestana">${esc(c.nombre)}</span>
+            ${i === CARPETAS.length - 1 ? `<span class="boton boton--oro carpeta-accion">¿Dónde juega tu hijo?</span>` : ""}
+          </a>`).join("")}
+      </nav>
     </section>
 
     ${donde()}
@@ -110,30 +112,46 @@ function inicio() {
 
     ${pasada.length ? cifrasSemana(pasada, principal) : ""}
 
-    <section class="cantera" aria-labelledby="cantera-titulo">
-      <div class="cantera-pila" aria-hidden="true">
-        <p class="cantera-linea cantera-linea--suave">De biberón</p>
-        <p class="cantera-linea cantera-linea--suave">a División</p>
-      </div>
-      <h2 class="cantera-linea" id="cantera-titulo">de Honor.</h2>
-      ${foto(FOTO.partido, "cantera-foto")}
-      <div class="cantera-datos">
-        <p>El Ural compite en todas las categorías de la Real Federación Galega de Fútbol: ${EQUIPOS.length} equipos, de los 4 a los 18 años, y unos veteranos que siguen jugando.</p>
-        <p>El Juvenil A juega en División de Honor, la liga nacional más alta de su edad, contra el Celta, el Deportivo o el Sporting.</p>
-      </div>
-    </section>
+    ${principal ? juvenil(principal) : ""}
 
-    <section class="muro-seccion" aria-labelledby="muro-titulo">
+    <section class="muro-seccion" id="equipos" aria-labelledby="muro-titulo">
       ${muro()}
     </section>
 
-    ${historiaFija()}
+    <section class="panel" id="historia" aria-labelledby="panel-titulo">
+      <h2 class="panel-titulo" id="panel-titulo">Desde 1929 en Santa Lucía</h2>
+      <div class="panel-textos">
+        <div><h3>El nombre</h3><p>Los estudiantes que jugaban en Santa Margarita veían en su monte los Urales. De ahí sale el nombre del Ural C.F., fundado en 1962.</p></div>
+        <div><h3>Cuatro nombres, un club</h3><p>Deportivo Alameda en 1929, Derby, Español S.D. desde 1941 y Ural Español desde 2020, cuando los equipos del Ural C.F. pasaron al Español.</p></div>
+        <a class="boton boton--oro" href="#/historia">La historia completa</a>
+      </div>
+      <figure class="panel-foto">${foto(FOTO.torre)}</figure>
+    </section>
 
     <a class="unete" href="#/socios">
       <span class="unete-texto">Hazte socio del Ural: cada carné sostiene a ${EQUIPOS.length} equipos de fútbol base.</span>
       ${icono("i-diagonal", "icono unete-flecha")}
       <span class="unete-palabra">Únete</span>
     </a>`;
+}
+
+// El Juvenil A, solo: foto cuadrada a un lado, sus datos y dos accesos al otro
+function juvenil(e) {
+  const pos = filaPropia(e), fila = e.clasificacion[pos], p = proximo(e);
+  return `
+    <section class="juvenil" id="juvenil" aria-labelledby="juvenil-titulo">
+      <figure class="juvenil-foto">${foto(FOTO.partido)}</figure>
+      <div class="juvenil-texto">
+        <div>
+          <h2 class="titulo" id="juvenil-titulo">Juvenil A</h2>
+          <p class="lead">${fila ? `${pos + 1}º de ${e.clasificacion.length} con ${fila.pts} puntos en División de Honor, la liga nacional más alta de su edad.` : "En División de Honor, la liga nacional más alta de su edad."}${p ? ` Próximo partido: ${esc(mayus(fechaCorta(p.fecha)))}${p.hora ? ` a las ${esc(p.hora)}` : ""}, ${p.local ? "contra" : "en casa de"} ${esc(p.rival)}.` : ""}</p>
+        </div>
+        <p class="juvenil-acciones">
+          <a class="celda celda--tinta" href="${rutaEquipo(e)}">Ver el equipo</a>
+          <a class="celda" href="${rutaEquipo(e)}/clasificacion">Clasificación</a>
+        </p>
+      </div>
+    </section>`;
 }
 
 // ¿Dónde juega tu hijo?: eliges el equipo y sale su próximo partido como un cartel
@@ -189,23 +207,26 @@ function calendarioIcs(p, e) {
   return `data:text/calendar;charset=utf-8,${encodeURIComponent(ics)}`;
 }
 
-// Agenda: una sola tabla a un solo tamaño, con el día fijo arriba mientras se baja
+// Agenda: por días, en dos columnas; el escudo del rival hace de viñeta
 function agenda(partidos) {
   const hoyIso = iso(hoy());
   const dias = [...new Set(partidos.map((p) => p.fecha))];
-  return dias.map((f) => `
+  return dias.map((f) => {
+    const delDia = partidos.filter((p) => p.fecha === f);
+    return `
     <div class="agenda-dia">
-      <h3 class="agenda-fecha">${esc(mayus(fmt(f, { weekday: "long", day: "numeric", month: "long" })))}${f === hoyIso ? ", hoy" : ""}</h3>
-      <ul class="agenda-lista">${partidos.filter((p) => p.fecha === f).map((p) => {
+      <h3 class="agenda-fecha"><span>${esc(mayus(fmt(f, { weekday: "long", day: "numeric", month: "long" })))}${f === hoyIso ? ", hoy" : ""}</span><small>${plural(delDia.length, "partido")}</small></h3>
+      <ul class="agenda-lista">${delDia.map((p) => {
         const m = p.resultado && marcador(p);
-        return `<li><a class="agenda-fila${m ? ` agenda-fila--${m.res}` : ""}" href="${rutaEquipo(p.e)}">
+        return `<li><a class="agenda-item${m ? ` agenda-item--${m.res}` : ""}" href="${rutaEquipo(p.e)}">
+          <span class="agenda-vineta">${escudoDe(p.e, p.rival)}</span>
           <span class="agenda-equipo">${esc(nombreEquipo(p.e))}</span>
-          <span class="agenda-rival">${p.local ? "contra" : "en casa de"} ${esc(p.rival)}</span>
-          <span class="agenda-campo">${esc(p.campo || "")}</span>
           <span class="agenda-hora">${m ? `${m.nos}-${m.ellos}` : esc(p.hora || "--:--")}</span>
+          <span class="agenda-detalle">${p.local ? "Contra" : "En casa de"} ${esc(p.rival)}${p.campo ? `<br>${esc(p.campo)}` : ""}</span>
         </a></li>`;
       }).join("")}</ul>
-    </div>`).join("");
+    </div>`;
+  }).join("");
 }
 
 // La semana pasada: tres cifras en tres bloques escalonados y, debajo, todos los resultados
@@ -231,7 +252,7 @@ function cifrasSemana(pasada, principal) {
 // Muro de categorías: una baldosa por categoría, con una foto cada pocas
 function muro() {
   const cats = CATEGORIAS.filter((c) => EQUIPOS.some((e) => e.categoria === c.id));
-  const fotos = [FOTO.galeriasDetalle, FOTO.lluvia, FOTO.torre];
+  const fotos = [FOTO.galeriasDetalle, FOTO.orzan, FOTO.lluvia];
   const celdas = [`<h2 class="baldosa baldosa--titulo" id="muro-titulo">Nuestros equipos</h2>`];
   cats.forEach((c, i) => {
     const n = EQUIPOS.filter((e) => e.categoria === c.id).length;
@@ -339,9 +360,9 @@ function calendario(partidos, jugados) {
       <span class="agenda-hora">${m ? `${m.nos}-${m.ellos}` : esc(p.hora || "--:--")}</span>
     </li>`;
   };
-  return `<ul class="agenda-lista">${partidos.slice(0, corte).map(fila).join("")}</ul>
+  return `<ul class="calendario-lista">${partidos.slice(0, corte).map(fila).join("")}</ul>
     ${partidos.length > corte ? `<details class="resto"><summary>Resto de la temporada (${partidos.length - corte} partidos)</summary>
-      <ul class="agenda-lista">${partidos.slice(corte).map(fila).join("")}</ul></details>` : ""}`;
+      <ul class="calendario-lista">${partidos.slice(corte).map(fila).join("")}</ul></details>` : ""}`;
 }
 
 function tablaClasificacion(e) {
