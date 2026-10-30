@@ -248,7 +248,7 @@ async function descargarCartel(lun, cat) {
     .sort((x, y) => (x.fecha + (x.hora || "99")).localeCompare(y.fecha + (y.hora || "99")));
   const blob = await generarCartel(ps, "Este finde");
   const archivo = new File([blob], "ural-este-finde.png", { type: "image/png" });
-  if (navigator.canShare?.({ files: [archivo] })) { try { await navigator.share({ files: [archivo], title: "Ural Español: este finde" }); return; } catch { /* cancelado: se descarga */ } }
+  if (matchMedia("(pointer: coarse)").matches && navigator.canShare?.({ files: [archivo] })) { try { await navigator.share({ files: [archivo], title: "Ural Español: este finde" }); return; } catch { /* cancelado: se descarga */ } }
   const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = archivo.name; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 2000);
 }
 
