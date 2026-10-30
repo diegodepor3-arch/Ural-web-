@@ -188,7 +188,7 @@ function semanaCategorias(partidos) {
   const cats = CATEGORIAS.filter((c) => partidos.some((p) => p.e.categoria === c.id));
   if (!cats.length) return vacio("La federación aún no ha publicado partidos para esta semana.");
   return `<div class="semana-cats">${cats.map((c) => {
-    const suyos = partidos.filter((p) => p.e.categoria === c.id), equipos = [...new Set(suyos.map((p) => p.e))];
+    const suyos = partidos.filter((p) => p.e.categoria === c.id), equipos = [...new Set(suyos.map((p) => p.e))].sort((x, y) => x.letra.localeCompare(y.letra));
     return `<button type="button" class="semana-cat" data-semana="${c.id}" aria-expanded="false" aria-controls="semana-${c.id}">
         <strong>${esc(c.nombre)}</strong>
         <span class="letras">${equipos.map((e) => `<span>${esc(e.letra)}</span>`).join("")}</span>

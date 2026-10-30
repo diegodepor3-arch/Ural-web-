@@ -421,6 +421,8 @@ def descargar_equipo(cod, nombre, cat, anterior=None):
     if not comp and "DIVISION DE HONOR JUVENIL" in cat.upper():
         try:
             juvenil_division_honor(e)
+            if "perfiles" not in e and (anterior or {}).get("perfiles"):  # si lapreferente falla, se quedan los de antes
+                e["perfiles"] = anterior["perfiles"]
         except (OSError, ValueError) as err:  # si falla, se queda lo de la ejecución anterior
             print("futbolme no disponible:", err)
             for k in ("competicion", "fuente", "urlOficial", "perfiles", "urlClasificacion", "partidos", "clasificacion"):
