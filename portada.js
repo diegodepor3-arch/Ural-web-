@@ -1,1 +1,62 @@
-function inicio() { return ''; }
+// Lo que usan todas las portadas
+function datosPortada() {
+  const { esta, pasada } = semanas();
+  const principal = equipo(PRINCIPAL), pp = principal && proximo(principal);
+  return { esta, pasada, principal, pp: pp && { ...pp, e: principal }, pendientes: esta.filter((p) => !p.resultado),
+    pos: principal ? filaPropia(principal) : -1, ganados: pasada.filter((p) => marcador(p).res === "G").length,
+    goles: pasada.reduce((s, p) => s + marcador(p).nos, 0) };
+}
+const seccionNoticias = () => `<section class="bloque" aria-labelledby="not-t"><div class="bloque-cab"><h2 class="titulo" id="not-t">Noticias</h2><a href="#/noticias">Ver todas</a></div>${listaNoticias(NOTICIAS.slice(0, 3))}</section>`;
+const miFranja = () => {
+  const e = equipo(recordado());
+  if (!e) return "";
+  const p = proximo(e);
+  return `<a class="mi-franja" href="${rutaEquipo(e)}"><span>Tu equipo</span><b>${esc(nombreEquipo(e))}</b><span>${p ? `${esc(mayus(fechaCorta(p.fecha)))}${p.hora ? ` · ${esc(p.hora)}` : ""} · ${esc(cruce(p))}` : "Sin partidos pendientes"}</span></a>`;
+};
+function alPintarPortada() {}
+// Centenario: el club y su historia por delante. Escudo, 97 años, podio de goleadores y la escalera de la cantera.
+function inicio() {
+  const d = datosPortada(), j = d.principal, top = goleadoresClub(3);
+  const anios = hoy().getFullYear() - CLUB.fundado;
+  const cats = CATEGORIAS.filter((c) => c.id !== "veteranos" && EQUIPOS.some((e) => e.categoria === c.id)).reverse();
+  const podio = [top[1], top[0], top[2]];
+  return `
+    <section class="cent" aria-labelledby="h">
+      ${foto(FOTO.niebla, "cent-foto", false)}
+      <div class="cent-dentro">
+        <img class="cent-escudo" src="img/escudo.png" alt="Escudo del Ural Español" width="397" height="376">
+        <h1 id="h">Ural Español</h1>
+        <p class="cent-lema"><b data-cuenta="${anios}">${anios}</b> años de fútbol en Santa Lucía</p>
+        <p class="cent-acc"><a class="boton" href="#/partidos">Partidos de esta semana</a><a class="boton boton--claro" href="#/mi-equipo">Mi equipo</a></p>
+      </div>
+    </section>
+    ${d.pp ? `<div class="cent-partido">${tarjetaProximo(d.pp)}</div>` : ""}
+    ${cinta(d.pasada.concat(d.pendientes))}
+    ${miFranja()}
+    <section class="bloque" data-pestanas aria-labelledby="pes-t">
+      <h2 class="titulo" id="pes-t">Matchday</h2>
+      <div class="pestanas" role="tablist">
+        <button type="button" role="tab" data-pestana="prox" aria-selected="true">Próximos</button>
+        <button type="button" role="tab" data-pestana="res" aria-selected="false">Resultados</button>
+        ${j ? `<button type="button" role="tab" data-pestana="tabla" aria-selected="false">División de Honor</button>` : ""}
+      </div>
+      <div data-panel="prox"><ul>${d.pendientes.slice(0, 7).map(filaCentro).join("") || `<li>${vacio("Sin partidos publicados.")}</li>`}</ul><a class="enlace" href="#/partidos">Centro de partidos ${icono("i-flecha")}</a></div>
+      <div data-panel="res" hidden><div class="partidos">${d.pasada.slice(0, 9).map((p) => tarjetaPartido(p, false, true)).join("") || vacio("Sin resultados esta semana.")}</div></div>
+      ${j ? `<div data-panel="tabla" hidden>${tablaClasificacion(j)}</div>` : ""}
+    </section>
+    ${top.length === 3 ? `<section class="bloque" aria-labelledby="pod-t"><h2 class="titulo" id="pod-t">El podio del gol</h2>
+      <ol class="podio">${podio.map((x) => `<li><a href="${rutaFicha(x.e, x.n)}"><span class="podio-cam">${camiseta(x.g)}</span><b>${esc(x.n.split(" ").slice(0, 2).join(" "))}</b><small>${esc(nombreEquipo(x.e))} · ${plural(x.g, "gol", "goles")}</small></a><i></i></li>`).join("")}</ol></section>` : ""}
+    <section class="bloque" aria-labelledby="esc-t"><div class="bloque-cab"><h2 class="titulo" id="esc-t">Del biberón a División de Honor</h2><a href="#/cantera">Los ${EQUIPOS.length} equipos</a></div>
+      <ol class="escalera" style="--n:${cats.length}">${cats.map((c, i) => {
+        const eqs = EQUIPOS.filter((e) => e.categoria === c.id);
+        return `<li style="--i:${i}"><a href="#/cantera/${c.id}"><strong>${esc(c.nombre)}</strong><small>${esc(c.edad || "")}</small><span class="letras">${eqs.map((e) => `<span>${esc(e.letra)}</span>`).join("")}</span></a></li>`;
+      }).join("")}</ol></section>
+    <section class="cent-historia" aria-labelledby="his-t">
+      <div><h2 class="titulo" id="his-t">Cuatro nombres, un club</h2>
+        <ol>${HISTORIA.nombres.map((n) => `<li><b>${n.desde}</b>${esc(n.nombre)}</li>`).join("")}</ol>
+        <a class="enlace" href="#/historia">Historia completa ${icono("i-flecha")}</a></div>
+      <ul class="palmares">${HISTORIA.palmares.map((p) => `<li><b data-cuenta="${p.veces}">${p.veces}</b><span>${esc(p.titulo)}</span><small>${esc(p.anios)}</small></li>`).join("")}</ul>
+    </section>
+    ${donde()}
+    ${seccionNoticias()}`;
+}
