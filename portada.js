@@ -14,7 +14,27 @@ const miFranja = () => {
   return `<a class="mi-franja" href="${rutaEquipo(e)}"><span>Tu equipo</span><b>${esc(nombreEquipo(e))}</b><span>${p ? `${esc(mayus(fechaCorta(p.fecha)))}${p.hora ? ` · ${esc(p.hora)}` : ""} · ${esc(cruce(p))}` : "Sin partidos pendientes"}</span></a>`;
 };
 function alPintarPortada() {}
+// Cabecera: la franja anuncia el próximo partido y Equipos despliega los 23 equipos
+function cabeceraComun() {
+  const j = equipo(PRINCIPAL), p = j && proximo(j);
+  if (p) document.querySelector(".franja span").innerHTML = `<a href="${rutaEquipo(j)}">Próximo · ${esc(nombreEquipo(j))}: ${esc(cruce(p))} · ${esc(mayus(fechaCorta(p.fecha)))}${p.hora ? `, ${esc(p.hora)}` : ""}</a>`;
+  const menu = document.querySelector(".menu"), equipos = menu.querySelector('[data-seccion="cantera"]');
+  menu.insertAdjacentHTML("beforeend", `<div class="mega" hidden>${CATEGORIAS.filter((c) => EQUIPOS.some((e) => e.categoria === c.id)).map((c) => `<div><h3><a href="#/cantera/${c.id}">${esc(c.nombre)}</a></h3><ul>${EQUIPOS.filter((e) => e.categoria === c.id).map((e) => `<li><a href="${rutaEquipo(e)}">${esc(nombreEquipo(e))}</a></li>`).join("")}</ul></div>`).join("")}</div>`);
+  const mega = menu.querySelector(".mega"), ver = (si) => { mega.hidden = !si; };
+  menu.querySelectorAll(".menu-enlaces a").forEach((l) => ["mouseenter", "focus"].forEach((t) => l.addEventListener(t, () => ver(l === equipos))));
+  menu.addEventListener("mouseleave", () => ver(false));
+  addEventListener("hashchange", () => ver(false));
+  addEventListener("keydown", (ev) => { if (ev.key === "Escape") ver(false); });
+}
 // Centenario: el club y su historia por delante. Escudo, 97 años, podio de goleadores y la escalera de la cantera.
+function alArrancar() {
+  const nav = document.querySelector(".menu-enlaces"), l = [...nav.children], noticias = document.createElement("a");
+  noticias.href = "#/noticias"; noticias.dataset.seccion = "noticias"; noticias.textContent = "Noticias";
+  l.splice(4, 0, noticias);
+  const lado = (hijos) => { const d = document.createElement("div"); d.className = "menu-lado"; d.append(...hijos); return d; };
+  nav.replaceChildren(lado(l.slice(0, 3)), lado(l.slice(3)));
+  cabeceraComun();
+}
 function inicio() {
   const d = datosPortada(), j = d.principal, top = goleadoresClub(3);
   const anios = hoy().getFullYear() - CLUB.fundado;
@@ -30,7 +50,7 @@ function inicio() {
         <p class="cent-acc"><a class="boton" href="#/partidos">Partidos de esta semana</a><a class="boton boton--claro" href="#/mi-equipo">Mi equipo</a></p>
       </div>
     </section>
-    ${d.pp ? `<div class="cent-partido">${tarjetaProximo(d.pp)}</div>` : ""}
+    ${d.pp ? bandaPartido(d.pp) : ""}
     ${cinta(d.pasada.concat(d.pendientes))}
     ${miFranja()}
     <section class="bloque" data-pestanas aria-labelledby="pes-t">
@@ -49,7 +69,7 @@ function inicio() {
     <section class="bloque" aria-labelledby="esc-t"><div class="bloque-cab"><h2 class="titulo" id="esc-t">Del biberón a División de Honor</h2><a href="#/cantera">Los ${EQUIPOS.length} equipos</a></div>
       <ol class="escalera" style="--n:${cats.length}">${cats.map((c, i) => {
         const eqs = EQUIPOS.filter((e) => e.categoria === c.id);
-        return `<li style="--i:${i}"><a href="#/cantera/${c.id}"><strong>${esc(c.nombre)}</strong><small>${esc(c.edad || "")}</small><span class="letras">${eqs.map((e) => `<span>${esc(letraEquipo(e))}</span>`).join("")}</span></a></li>`;
+        return `<li style="--i:${i}"><a href="#/cantera/${c.id}"><strong>${esc(c.nombre)}</strong><small>${esc(c.edad || "")}</small><small class="escalera-n">${plural(eqs.length, "equipo")}</small></a></li>`;
       }).join("")}</ol></section>
     <section class="cent-historia" aria-labelledby="his-t">
       <div><h2 class="titulo" id="his-t">Cuatro nombres, un club</h2>

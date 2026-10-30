@@ -1,16 +1,25 @@
 /* Centenario: verde botella y oro, Bebas Neue y Source Sans 3, el escudo manda. */
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+3:wght@400;600;700&display=swap");
-:root { --bg: #0a261a; --panel: #0f3425; --panel-2: #174a34; --borde: #d8b24a40; --tinta: #f7f2e3; --suave: #c9d1bb; --acento: #e6bf52; --sobre-acento: #1c1500; --pos: #7fe0a0; --cam-a: #16703b; --cam-b: #0c4a26; --por-a: #e6bf52; --por-b: #b08c2c; --letra: "Source Sans 3", system-ui, sans-serif; --titulo: "Bebas Neue", sans-serif; --peso-titulo: 400; --tracking: 0.02em; --radio: 8px; --radio-p: 8px; --cab: 80px; --franja: #071c13; --cartel-fondo: #0f3425; --cartel-oscuro: #071c13; --cartel-acento: #e6bf52; --barra: #071c13; --barra-activo: #e6bf52; }
-.menu { display: grid; grid-template-columns: 1fr auto 1fr; background: #0a261a; border-bottom: 2px solid var(--acento); }
-.menu-marca { grid-column: 2; grid-row: 1; flex-direction: column; gap: 0; }
+:root { --bg: #0a261a; --panel: #0f3425; --panel-2: #174a34; --borde: #d8b24a40; --tinta: #f7f2e3; --suave: #c9d1bb; --acento: #e6bf52; --sobre-acento: #1c1500; --pos: #7fe0a0; --cam-a: #16703b; --cam-b: #0c4a26; --por-a: #e6bf52; --por-b: #b08c2c; --letra: "Source Sans 3", system-ui, sans-serif; --titulo: "Bebas Neue", sans-serif; --peso-titulo: 400; --tracking: 0.02em; --radio: 8px; --radio-p: 8px; --cab: 70px; --franja: #071c13; --cartel-fondo: #0f3425; --cartel-oscuro: #071c13; --cartel-acento: #e6bf52; --barra: #071c13; --barra-activo: #e6bf52; }
+.menu { background: #0a261a; border-bottom: 1px solid var(--acento); box-shadow: 0 3px 0 #0a261a, 0 4px 0 #e6bf5266; }
 .menu-marca img { width: 108px; margin-bottom: -58px; z-index: 2; filter: drop-shadow(0 6px 10px #0009); }
 .cent-escudo { display: none; }
 .menu-marca span { position: absolute; left: -999px; }
-.menu-enlaces { grid-column: 1 / -1; grid-row: 1; justify-content: space-between; margin: 0; padding-right: 54px; }
-.menu-enlaces a { font: 400 1.375rem var(--titulo); letter-spacing: 0.04em; }
-.menu-enlaces a:nth-child(3) { margin-right: 150px; }
-.menu-enlaces .menu-socio { margin-left: 0; }
-.menu-buscar { grid-column: 3; grid-row: 1; justify-self: end; }
+@media (min-width: 901px) {
+  .menu-marca { position: absolute; top: 5px; left: 50%; z-index: 3; transform: translateX(-50%); flex-direction: column; }
+  .menu-enlaces { display: grid; grid-template-columns: minmax(0, 1fr) 170px minmax(0, 1fr); width: 100%; height: 100%; margin: 0; }
+  .menu-lado { display: flex; align-items: center; gap: 34px; }
+  .menu-lado:first-child { justify-content: flex-end; }
+  .menu-lado:last-child { grid-column: 3; }
+  .menu-lado a { position: relative; padding: 8px 0; border-radius: 0; font: 600 0.8125rem var(--letra); text-transform: uppercase; letter-spacing: 0.13em; white-space: nowrap; transition: color 0.15s; }
+  .menu-lado a:hover, .menu-lado a[aria-current] { background: none; color: var(--acento); }
+  .menu-lado a[aria-current]::after { content: ""; position: absolute; left: 50%; bottom: -3px; width: 5px; height: 5px; margin-left: -2px; background: var(--acento); rotate: 45deg; }
+  .menu-lado .menu-socio { margin: 0; padding: 7px 13px; border: 1px solid var(--acento); background: none; color: var(--acento); }
+  .menu-lado .menu-socio:hover, .menu-lado .menu-socio[aria-current] { background: var(--acento); color: var(--sobre-acento); }
+  .menu-lado .menu-socio[aria-current]::after { display: none; }
+  .menu-buscar { position: absolute; top: 50%; right: var(--m); margin: -22px 0 0; }
+}
+@media (min-width: 901px) and (max-width: 1180px) { .menu-lado { gap: 18px; } .menu-lado a { letter-spacing: 0.08em; } .menu-enlaces { grid-template-columns: minmax(0, 1fr) 140px minmax(0, 1fr); } }
 .titulo { font-size: clamp(2.25rem, 1.7rem + 2.4vw, 3.5rem); line-height: 1; }
 .cent { position: relative; display: grid; place-items: center; min-height: 78svh; overflow: hidden; text-align: center; background: #071c13; }
 .cent-foto { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.55; animation: acerca 20s ease-out both; }
@@ -21,8 +30,8 @@
 .cent-lema { font-size: 1.375rem; }
 .cent-lema b { font: 400 1.875rem var(--titulo); color: var(--acento); }
 .cent-acc { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 14px; }
-.cent-partido { position: relative; z-index: 3; max-width: 860px; margin: -56px auto 32px; padding: 0 var(--m); }
-.cent-partido .tarjeta-proximo { border-color: var(--acento); }
+.cent + .banda { margin-top: 0; }
+.escalera-n { color: var(--acento); font-weight: 600; }
 .mi-franja { display: flex; flex-wrap: wrap; gap: 4px 14px; align-items: baseline; padding: 12px var(--m); background: var(--acento); color: var(--sobre-acento); text-decoration: none; }
 .pestanas { display: flex; gap: 4px; margin-bottom: 16px; border-bottom: 2px solid var(--borde); overflow-x: auto; }
 .pestanas button { padding: 12px 18px; border: 0; background: none; color: var(--suave); font: 400 1.375rem var(--titulo); letter-spacing: 0.03em; white-space: nowrap; cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -2px; }
