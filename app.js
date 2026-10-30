@@ -285,12 +285,14 @@ function versus(p, conHora = true) {
   </div>`;
 }
 
-const tarjetaProximo = (p) => `
-  <div class="tarjeta-proximo">
-    <p class="tarjeta-cab"><span>Próximo partido · ${esc(nombreEquipo(p.e))}</span><span>Jornada ${p.jornada}</span></p>
-    <div class="tarjeta-cuerpo">${versus(p)}${cuentaAtras(p)}</div>
-    <p class="tarjeta-pie">${p.campo ? esc(p.campo) : "Campo por confirmar"} · ${p.local ? "en casa" : "fuera"}</p>
-  </div>`;
+function bandaPartido(p) {
+  const [casa, fuera] = lados(p);
+  return `<section class="banda" aria-label="Próximo partido de ${esc(nombreEquipo(p.e))}"><div class="banda-dentro">
+    <p class="banda-fecha"><small>Jornada ${p.jornada} · ${p.local ? "en casa" : "fuera"}</small><b>${esc(mayus(fechaCorta(p.fecha)))}${p.hora ? ` · ${esc(p.hora)}` : ""}</b><span>${p.campo ? esc(p.campo) : "Campo por confirmar"}</span></p>
+    <p class="banda-cruce">${casa.img}<strong>${esc(casa.n)}</strong><i>vs</i><strong>${esc(fuera.n)}</strong>${fuera.img}</p>
+    ${cuentaAtras(p)}
+  </div></section>`;
+}
 
 // conEquipo: en la portada la tarjeta dice qué equipo juega y lleva a su página
 function tarjetaPartido(p, destacado = false, conEquipo = false) {
@@ -365,15 +367,21 @@ const tablaMini = (e, n = 6) => {
     `<li${f.propio ? ' class="propio"' : ""}><span>${desde + i + 1}</span>${f.propio ? nuestro : escudoDe(e, f.equipo)}<span>${esc(f.equipo)}</span><small>${f.pj} PJ</small><b>${f.pts}</b></li>`).join("")}</ol>`;
 };
 
-// Categorías con las letras de sus equipos
+// El cuadro de equipos: cada equipo con su liga, su puesto y su próximo partido
+function filaCuadro(e) {
+  const p = proximo(e), pos = filaPropia(e);
+  return `<li><a href="${rutaEquipo(e)}"><b>${esc(nombreEquipo(e))}</b><span class="cuadro-liga">${esc(e.liga)}</span>
+    <span class="cuadro-pos">${pos >= 0 ? `<b>${pos + 1}º</b> ${e.clasificacion[pos].pts} pts` : ""}</span>
+    <span class="cuadro-prox">${p ? `${esc(mayus(fechaCorta(p.fecha)))}${p.hora ? ` · ${esc(p.hora)}` : ""} · ${p.local ? "vs" : "en"} ${esc(p.rival)}` : "Sin partidos pendientes"}</span></a></li>`;
+}
 function muro() {
   const cats = CATEGORIAS.filter((c) => EQUIPOS.some((e) => e.categoria === c.id));
-  return `<div class="categorias">${cats.map((c) => {
-    const eqs = EQUIPOS.filter((e) => e.categoria === c.id);
-    return `<a class="categoria" href="#/cantera/${c.id}"><strong>${esc(c.nombre)}</strong><small>${esc(c.edad || "")}</small>
-      <span class="letras">${eqs.map((e) => `<span title="${esc(nombreEquipo(e))}">${esc(e.categoria === "veteranos" ? "V" : letraEquipo(e))}</span>`).join("")}</span></a>`;
-  }).join("")}</div>`;
+  return `<div class="cuadro">${cats.map((c) => `<section class="cuadro-cat"><h2><a href="#/cantera/${c.id}">${esc(c.nombre)}</a><small>${esc(c.edad || "")}</small></h2>
+    <ul>${EQUIPOS.filter((e) => e.categoria === c.id).map(filaCuadro).join("")}</ul></section>`).join("")}</div>`;
 }
+// Índice corto de categorías para la portada
+const indiceCategorias = () => `<ul class="indice">${CATEGORIAS.filter((c) => EQUIPOS.some((e) => e.categoria === c.id)).map((c) =>
+  `<li><a href="#/cantera/${c.id}">${esc(c.nombre)}<sup>${EQUIPOS.filter((e) => e.categoria === c.id).length}</sup></a></li>`).join("")}</ul>`;
 
 // La camiseta del club, verde de arriba abajo; el portero la lleva de otro color
 const SILUETA = {
@@ -423,7 +431,6 @@ function vistaEquipo(id, sub = "", jugador = "") {
   const videos = (tipo) => (extra.videos || []).filter((v) => v.tipo === tipo && v.youtube);
   const pos = filaPropia(e), fila = e.clasificacion[pos];
   const SECCION = { calendario: "Calendario", plantilla: "Plantilla", clasificacion: "Clasificación" };
-  const num = e.plantilla.map((n) => dorsal(e, n)).filter((d) => d != null).sort((x, y) => x - y)[0] ?? "";
 
   const cabecera = `
     <section class="cab cab--equipo">
@@ -435,8 +442,8 @@ function vistaEquipo(id, sub = "", jugador = "") {
         <p class="cab-acciones"><button type="button" class="pastilla" data-seguir="${e.id}" aria-pressed="${recordado() === e.id}">${recordado() === e.id ? "Es mi equipo" : "Seguir este equipo"}</button>
           ${e.partidos.some((x) => !x.resultado) ? `<a class="pastilla" href="${calendarioTemporada(e)}" download="ural-${e.id}.ics">Temporada al calendario</a>` : ""}</p>
       </div>
-      ${p ? tarjetaProximo(p) : ""}
-    </section>`;
+    </section>
+    ${p ? bandaPartido(p) : ""}`;
 
   if (sub === "calendario") return `${cabecera}
     <section class="seccion" aria-labelledby="mes-t"><h2 class="titulo" id="mes-t">Calendario</h2>${calendarioMes(e)}</section>
@@ -451,14 +458,14 @@ function vistaEquipo(id, sub = "", jugador = "") {
   if (sub) return `${cabecera}<section class="seccion">${vacio("Esta sección no existe.")}</section>`;
 
   return `${cabecera}
-    <nav class="hub" aria-label="Secciones del equipo">
-      <a class="hub-tarjeta" href="${rutaEquipo(e)}/calendario"><span class="hub-dato">${p ? `<b>${esc(fmt(p.fecha, { day: "numeric" }))}</b><small>${esc(fmt(p.fecha, { month: "short" }))}</small>` : `<b>${e.partidos.length || "–"}</b><small>partidos</small>`}</span>
-        <span class="hub-texto"><strong>Calendario</strong><small>${p ? `Próximo: ${p.local ? "contra" : "en casa de"} ${esc(p.rival)}` : "Partidos de la temporada"}</small></span></a>
-      <a class="hub-tarjeta" href="${rutaEquipo(e)}/plantilla"><span class="hub-camiseta">${camiseta(num)}</span>
-        <span class="hub-texto"><strong>Plantilla</strong><small>${e.plantilla.length ? `${plural(e.plantilla.length, "jugador", "jugadores")} y cuerpo técnico` : "Pendiente de la federación"}</small></span></a>
-      <a class="hub-tarjeta" href="${rutaEquipo(e)}/clasificacion"><span class="hub-dato">${fila ? `<b>${pos + 1}º</b><small>${fila.pts} pts</small>` : "<b>–</b>"}</span>
-        <span class="hub-texto"><strong>Clasificación</strong><small>${fila ? `De ${e.clasificacion.length} equipos` : "Pendiente de la federación"}</small></span></a>
-    </nav>
+    <div class="paneles">
+      <section class="panel"><a class="panel-cab" href="${rutaEquipo(e)}/calendario"><h2>Calendario</h2>${icono("i-flecha")}</a>
+        ${pendientes.length ? `<ul class="panel-lista">${pendientes.slice(0, 5).map((x) => `<li><span>${esc(mayus(fechaCorta(x.fecha)))}</span>${escudoDe(e, x.rival)}<b>${esc(x.rival)}</b><small>${x.local ? "casa" : "fuera"}</small></li>`).join("")}</ul>` : vacio("No hay partidos pendientes.")}</section>
+      <section class="panel"><a class="panel-cab" href="${rutaEquipo(e)}/clasificacion"><h2>Clasificación</h2>${icono("i-flecha")}</a>
+        ${fila ? tablaMini(e, 5) : vacio("Pendiente de la federación.")}</section>
+      <section class="panel"><a class="panel-cab" href="${rutaEquipo(e)}/plantilla"><h2>Plantilla</h2>${icono("i-flecha")}</a>
+        ${e.plantilla.length ? `<ul class="panel-lista panel-lista--jugadores">${e.plantilla.slice(0, 4).map((n) => `<li><span>${dorsal(e, n) ?? "–"}</span><a href="${rutaFicha(e, n)}">${esc(n)}</a></li>`).join("")}</ul><a class="panel-pie" href="${rutaEquipo(e)}/plantilla">Ver ${plural(e.plantilla.length, "jugador", "jugadores")} y cuerpo técnico</a>` : vacio("Pendiente de la federación.")}</section>
+    </div>
     ${p ? caraACara(e, p) : ""}
     <section class="seccion dos" aria-label="La temporada">
       <div><h2 class="titulo">Así va la temporada</h2>${perfilTemporada(jugados)}</div>
@@ -693,15 +700,7 @@ function cantera(catId) {
   const c = categoria(catId), eqs = EQUIPOS.filter((e) => e.categoria === catId);
   if (!eqs.length) return noEncontrado();
   return `${cabeceraSimple(c.nombre, `${esc(c.edad || "")} · ${plural(eqs.length, "equipo")} esta temporada`, `<p class="migas"><a href="#/cantera">Equipos</a></p>`)}
-    <section class="seccion" aria-label="${esc(c.nombre)}"><div class="equipos">${eqs.map((e) => {
-      const p = proximo(e), pos = filaPropia(e);
-      return `<a class="tarjeta-equipo" href="${rutaEquipo(e)}">
-        <span class="tarjeta-letra" aria-hidden="true">${esc(e.letra)}</span>
-        <strong>${esc(nombreEquipo(e))}</strong><small>${esc(e.liga)}</small>
-        ${pos >= 0 ? `<span class="tarjeta-pos"><b>${pos + 1}º</b> · ${e.clasificacion[pos].pts} pts</span>` : ""}
-        <span class="tarjeta-prox">${p ? `${esc(mayus(fechaCorta(p.fecha)))}${p.hora ? ` · ${esc(p.hora)}` : ""} · ${p.local ? "vs" : "en"} ${esc(p.rival)}` : "Sin partidos pendientes"}</span>
-      </a>`;
-    }).join("")}</div></section>`;
+    <section class="seccion" aria-label="${esc(c.nombre)}"><div class="cuadro"><ul>${eqs.map(filaCuadro).join("")}</ul></div></section>`;
 }
 
 // --- Historia -----------------------------------------------------------
@@ -848,7 +847,7 @@ const observador = "IntersectionObserver" in window && new IntersectionObserver(
 }, { rootMargin: "0px 0px -10% 0px" });
 function entradas() {
   if (!observador) return;
-  app.querySelectorAll("section, .unete, .hub").forEach((s) => { s.classList.add("entra"); observador.observe(s); });
+  app.querySelectorAll("section, .unete, .paneles").forEach((s) => { s.classList.add("entra"); observador.observe(s); });
 }
 
 // Buscador rápido: botón de la cabecera o Ctrl+K

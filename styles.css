@@ -158,7 +158,7 @@ a.partido:hover { transform: translateY(-3px); }
 
 /* Cabeceras */
 .cab { max-width: var(--ancho); margin: 0 auto; padding: clamp(32px, 5vw, 64px) var(--m) 0; }
-.cab--equipo { display: grid; grid-template-columns: 1fr minmax(0, 520px); gap: 28px; align-items: center; }
+.cab--equipo { display: block; }
 .cab-titulo { font-size: clamp(2.5rem, 1.6rem + 4vw, 4.5rem); }
 .cab-sub { margin-top: 8px; color: var(--suave); font-weight: 600; }
 .cab-sub a { color: var(--acento); }
@@ -406,3 +406,69 @@ button.pastilla { border: 0; cursor: pointer; color: inherit; }
 .cartel-mas { display: flex; flex-wrap: wrap; gap: 4px 20px; }
 .cartel-mas .enlace { margin-top: 2px; }
 @media (max-width: 860px) { .dos { grid-template-columns: 1fr; } }
+
+
+/* --- Banda del próximo partido, paneles del equipo y cuadro de equipos -------- */
+.banda { margin-top: 24px; background: var(--acento); color: var(--sobre-acento); }
+.banda-dentro { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: 16px 32px; align-items: center; max-width: var(--ancho); margin: 0 auto; padding: 18px var(--m); }
+.banda-fecha { display: grid; gap: 1px; }
+.banda-fecha small { font-weight: 600; opacity: 0.85; }
+.banda-fecha b { font: var(--peso-titulo) 1.5rem/1.1 var(--titulo); text-transform: var(--mayus); }
+.banda-cruce { display: flex; align-items: center; gap: 14px; }
+.banda-cruce strong { font: var(--peso-titulo) clamp(1.5rem, 1rem + 1.6vw, 2.5rem)/1 var(--titulo); text-transform: var(--mayus); }
+.banda-cruce i { font-style: normal; opacity: 0.75; }
+.banda-cruce .escudo { flex: none; width: 56px; height: 56px; }
+.banda .cuenta { justify-self: end; }
+.banda .cuenta span { background: #0000001f; }
+.banda .cuenta b, .banda .cuenta small { color: inherit; }
+.paneles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; max-width: var(--ancho); margin: 28px auto 0; padding: 0 var(--m); }
+.panel { display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--borde); border-radius: var(--radio); background: var(--panel); }
+.panel-cab { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: var(--tinta); color: var(--bg); text-decoration: none; }
+.panel-cab h2 { font: var(--peso-titulo) 1.5rem/1 var(--titulo); text-transform: var(--mayus); }
+.panel-cab:hover { background: var(--acento); color: var(--sobre-acento); }
+.panel .tabla-mini { padding: 6px; background: none; box-shadow: none; }
+.panel .tabla-mini small { display: none; }
+.panel-lista li { display: grid; grid-template-columns: 96px 26px minmax(0, 1fr) auto; gap: 8px; align-items: center; padding: 9px 16px; border-bottom: 1px solid var(--borde); font-size: 0.9375rem; }
+.panel-lista li:last-child { border-bottom: 0; }
+.panel-lista span { color: var(--suave); font-size: 0.875rem; }
+.panel-lista small { color: var(--suave); }
+.panel-lista .escudo { width: 26px; height: 26px; }
+.panel-lista--jugadores li { grid-template-columns: 30px minmax(0, 1fr); }
+.panel-lista--jugadores span { font: var(--peso-titulo) 1.25rem var(--titulo); color: var(--acento); }
+.panel-lista--jugadores a { text-decoration: none; }
+.panel-lista--jugadores a:hover { color: var(--acento); }
+.panel-pie { margin-top: auto; padding: 11px 16px; border-top: 1px solid var(--borde); font-weight: 700; font-size: 0.875rem; color: var(--acento); text-decoration: none; }
+.cuadro-cat { display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: 24px; padding: 22px 0; border-top: 2px solid var(--tinta); }
+.cuadro-cat h2 { position: sticky; top: calc(var(--cab) + 14px); align-self: start; font: var(--peso-titulo) 1.875rem/1 var(--titulo); text-transform: var(--mayus); }
+.cuadro-cat h2 a { text-decoration: none; }
+.cuadro-cat h2 a:hover { color: var(--acento); }
+.cuadro-cat h2 small { display: block; margin-top: 5px; font: 500 0.875rem var(--letra); text-transform: none; color: var(--suave); }
+.cuadro li a { display: grid; grid-template-columns: 150px minmax(0, 1.2fr) 86px minmax(0, 1.5fr); gap: 14px; align-items: center; min-height: 48px; padding: 8px 12px; border-bottom: 1px solid var(--borde); text-decoration: none; transition: background-color 0.15s, padding-left 0.15s var(--sale); }
+.cuadro li:last-child a { border-bottom: 0; }
+.cuadro li a:hover { padding-left: 18px; background: var(--panel); }
+.cuadro li a:hover > b { color: var(--acento); }
+.cuadro-liga, .cuadro-prox { font-size: 0.875rem; color: var(--suave); }
+.cuadro-pos { font-size: 0.875rem; font-variant-numeric: tabular-nums; }
+.cuadro-pos b { font: var(--peso-titulo) 1.25rem var(--titulo); color: var(--acento); }
+.indice { display: flex; flex-wrap: wrap; gap: 4px 34px; }
+.indice a { font: var(--peso-titulo) clamp(2rem, 1.4rem + 2.6vw, 4rem)/1.1 var(--titulo); text-transform: var(--mayus); text-decoration: none; transition: color 0.15s; }
+.indice a:hover { color: var(--acento); }
+.indice sup { margin-left: 3px; font: 700 0.875rem var(--letra); color: var(--acento); vertical-align: super; }
+.mega { position: absolute; top: 100%; left: 0; right: 0; display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 20px; padding: 26px var(--m) 30px; background: var(--panel); color: var(--tinta); border-top: 3px solid var(--acento); box-shadow: 0 24px 40px #0004; }
+.mega[hidden] { display: none; }
+.mega h3 { margin-bottom: 8px; font: var(--peso-titulo) 1.25rem/1 var(--titulo); text-transform: var(--mayus); }
+.mega h3 a { text-decoration: none; }
+.mega li a { display: block; padding: 5px 0; text-decoration: none; font-size: 0.9375rem; color: var(--suave); }
+.mega a:hover { color: var(--acento); }
+@media (max-width: 960px) {
+  .banda-dentro { grid-template-columns: 1fr; justify-items: start; }
+  .banda .cuenta { justify-self: start; }
+  .banda-cruce .escudo { width: 42px; height: 42px; }
+  .paneles { grid-template-columns: 1fr; }
+  .cuadro-cat { grid-template-columns: 1fr; gap: 10px; }
+  .cuadro-cat h2 { position: static; }
+  .cuadro li a { grid-template-columns: minmax(0, 1fr) auto; gap: 2px 12px; padding: 10px 2px; }
+  .cuadro-liga { grid-column: 1 / -1; grid-row: 2; }
+  .cuadro-prox { grid-column: 1 / -1; }
+  .mega { display: none; }
+}
