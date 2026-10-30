@@ -4,6 +4,7 @@
 .menu { background: #0a261a; border-bottom: 1px solid var(--acento); box-shadow: 0 3px 0 #0a261a, 0 4px 0 #e6bf5266; }
 .menu-marca img { width: 108px; margin-bottom: -58px; z-index: 2; filter: drop-shadow(0 6px 10px #0009); }
 .cent-escudo { display: none; }
+.mega { padding-top: 58px; }
 .menu-marca span { position: absolute; left: -999px; }
 @media (min-width: 901px) {
   .menu-marca { position: absolute; top: 5px; left: 50%; z-index: 3; transform: translateX(-50%); flex-direction: column; }
