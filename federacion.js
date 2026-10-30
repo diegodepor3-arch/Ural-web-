@@ -1,5 +1,5 @@
 // GENERADO por actualizar.py desde futgal.es. No editar a mano.
-const ACTUALIZADO = "2026-10-29T13:20";
+const ACTUALIZADO = "2026-10-30T13:11";
 const EQUIPOS = [
  {
   "id": "juvenil-a",
@@ -2646,7 +2646,7 @@ const EQUIPOS = [
    "Jorge Cillero Seoane": 4,
    "Pablo Cillero Seoane": 20
   },
-  "descargado": "2026-10-27T20:17"
+  "descargado": "2026-10-29T19:43"
  },
  {
   "id": "cadete-b",
@@ -3724,7 +3724,7 @@ const EQUIPOS = [
    "Gabriel López Oreiro": 19,
    "Adán Giménez Muñoz": 22
   },
-  "descargado": "2026-10-27T20:55"
+  "descargado": "2026-10-29T19:43"
  },
  {
   "id": "infantil-a",
@@ -4614,7 +4614,7 @@ const EQUIPOS = [
    "Álvaro Ramil García": 12,
    "Pedro Moreira Trillo": 16
   },
-  "descargado": "2026-10-27T20:55"
+  "descargado": "2026-10-29T19:44"
  },
  {
   "id": "infantil-b",
@@ -5509,7 +5509,7 @@ const EQUIPOS = [
    "Pau Fernández Vila": 4,
    "Diego Torreira Fernández": 8
   },
-  "descargado": "2026-10-29T05:59"
+  "descargado": "2026-10-30T13:10"
  },
  {
   "id": "infantil-c",
@@ -6310,7 +6310,7 @@ const EQUIPOS = [
    "José Pérez Estrada": 16,
    "Marcos Ramos Seijo": 22
   },
-  "descargado": "2026-10-29T06:00"
+  "descargado": "2026-10-30T13:10"
  },
  {
   "id": "alevin-a-f11",
@@ -6486,7 +6486,7 @@ const EQUIPOS = [
   "urlClasificacion": "https://www.futgal.es/pnfg/NPcd/NFG_VisClasificacion?cod_primaria=1000120&codgrupo=12460933&codcompeticion=11295966",
   "actas": {},
   "dorsales": {},
-  "descargado": "2026-10-28T18:57"
+  "descargado": "2026-10-30T06:00"
  },
  {
   "id": "alevin-b-f11",
@@ -6634,7 +6634,7 @@ const EQUIPOS = [
   "escudos": {},
   "actas": {},
   "dorsales": {},
-  "descargado": "2026-10-28T23:19"
+  "descargado": "2026-10-30T06:00"
  },
  {
   "id": "alevin-a",
@@ -7340,6 +7340,45 @@ const EQUIPOS = [
     "c": [],
     "rm": {},
     "id": "1486584"
+   },
+   "1": {
+    "t": [
+     "Thiago Cano García",
+     "Raúl Herosa Vázquez",
+     "Yurem Ulla Yáñez",
+     "Iván Carreira Villamor",
+     "Alejandro Valeiro Muiño",
+     "Fernando Martínez González",
+     "Vega Baamonde Ferreiro"
+    ],
+    "s": [
+     "Nicolás Leira Vidal",
+     "Diego Canoura Seisdedos",
+     "Eduardo Gantes De La Campa",
+     "Roi Martínez Sánchez",
+     "Roque Requeijo Pazos"
+    ],
+    "e": [],
+    "g": {},
+    "a": [],
+    "r": [],
+    "d": {
+     "Thiago Cano García": 13,
+     "Raúl Herosa Vázquez": 2,
+     "Yurem Ulla Yáñez": 4,
+     "Iván Carreira Villamor": 5,
+     "Alejandro Valeiro Muiño": 8,
+     "Fernando Martínez González": 9,
+     "Vega Baamonde Ferreiro": 10,
+     "Nicolás Leira Vidal": 1,
+     "Diego Canoura Seisdedos": 3,
+     "Eduardo Gantes De La Campa": 6,
+     "Roi Martínez Sánchez": 7,
+     "Roque Requeijo Pazos": 12
+    },
+    "c": [],
+    "rm": {},
+    "id": "1486546"
    }
   },
   "dorsales": {
@@ -7358,7 +7397,7 @@ const EQUIPOS = [
    "Hugo Bodelón Rubio": 11,
    "Óliver Villar González": 14
   },
-  "descargado": "2026-10-28T23:20"
+  "descargado": "2026-10-30T06:01"
  },
  {
   "id": "alevin-b",
@@ -7774,7 +7813,7 @@ const EQUIPOS = [
    "Paulo Iglesias Botana": 11,
    "Víctor Loureiro Fraga": 12
   },
-  "descargado": "2026-10-28T23:20"
+  "descargado": "2026-10-30T13:09"
  },
  {
   "id": "alevin-c",
@@ -8190,7 +8229,7 @@ const EQUIPOS = [
    "Mauro Afonso Gómez": 17,
    "Dylan Adriano Leon Ramírez": 5
   },
-  "descargado": "2026-10-29T13:17"
+  "descargado": "2026-10-30T13:10"
  },
  {
   "id": "alevin-d",
@@ -8595,7 +8634,7 @@ const EQUIPOS = [
    "Laura Rodríguez Pena": 4,
    "Pedro López López-Crespo": 5
   },
-  "descargado": "2026-10-29T13:18"
+  "descargado": "2026-10-30T13:11"
  },
  {
   "id": "alevin-e",
@@ -9008,7 +9047,7 @@ const EQUIPOS = [
    "Valentino Medina Pérez": 12,
    "Martiño Teixeira Vega": 9
   },
-  "descargado": "2026-10-29T13:18"
+  "descargado": "2026-10-30T13:11"
  },
  {
   "id": "benjamin-a",
@@ -10196,7 +10235,7 @@ const EQUIPOS = [
    "Rafael Ferreiro González": 11,
    "Pablo Moreira Trillo": 12
   },
-  "descargado": "2026-10-27T23:51"
+  "descargado": "2026-10-29T19:44"
  },
  {
   "id": "benjamin-c",
@@ -10594,7 +10633,7 @@ const EQUIPOS = [
    "Alex López García": 4,
    "Danilo Molina Rocha": 14
   },
-  "descargado": "2026-10-27T23:52"
+  "descargado": "2026-10-29T19:44"
  },
  {
   "id": "prebenjamin-a",
@@ -11171,7 +11210,7 @@ const EQUIPOS = [
    "Lucas Ribes Velez De Villa": 13,
    "Nicolás Saez Fernández": 14
   },
-  "descargado": "2026-10-28T05:55"
+  "descargado": "2026-10-29T19:44"
  },
  {
   "id": "prebenjamin-b",
@@ -11393,6 +11432,8 @@ const EQUIPOS = [
   "competicion": "Prebenjamin - Segunda Futgal · A Coruña | 1ª Fase G1",
   "urlClasificacion": "https://www.futgal.es/pnfg/NPcd/NFG_VisClasificacion?cod_primaria=1000120&codgrupo=26991931&codcompeticion=26991921",
   "escudos": {
+   "VICTORIA C.F. \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000004135_victoriacfblanco.jpg",
+   "SILVA S.D.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001103292_escudo_rfgf.jpg",
    "ATLETICO CASTROS": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001611037_escudo128.png",
    "C.F. BATALLADOR S.D.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000918106_ESCUDO_.jpg",
    "LICEO DE MONELOS S.D.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000884334_liceo_monelos_1.png",
@@ -11400,9 +11441,7 @@ const EQUIPOS = [
    "CLUB XESUITINAS": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001224529_CLUB_XESUITINAS__A_Corun__a___2_.png",
    "URAL ESPAÑOL C.F. \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000891301_ESCUDO_URAL_B.jpg",
    "SPORTING CORUÑES \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000801946_escudo-4154.jpg",
-   "COMPAÑIA DE MARIA": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001004468_logo.png",
-   "VICTORIA C.F. \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000004135_victoriacfblanco.jpg",
-   "SILVA S.D.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001103292_escudo_rfgf.jpg"
+   "COMPAÑIA DE MARIA": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001004468_logo.png"
   },
   "actas": {
    "1": {
@@ -11572,7 +11611,7 @@ const EQUIPOS = [
    "Kai Álvarez-Conchado Barlocco": 5,
    "Maximo Gundín Díaz": 15
   },
-  "descargado": "2026-10-28T05:56"
+  "descargado": "2026-10-29T23:59"
  },
  {
   "id": "prebenjamin-c",
@@ -11948,7 +11987,7 @@ const EQUIPOS = [
    "Rafael Pesqueira Esteve De Miguel": 12,
    "Simón Corgo Del Río": 13
   },
-  "descargado": "2026-10-28T13:12"
+  "descargado": "2026-10-30T00:00"
  },
  {
   "id": "biberon-a",
@@ -12001,7 +12040,7 @@ const EQUIPOS = [
   },
   "actas": {},
   "dorsales": {},
-  "descargado": "2026-10-28T13:12"
+  "descargado": "2026-10-30T00:00"
  },
  {
   "id": "veteranos-a",
@@ -12662,31 +12701,80 @@ const EQUIPOS = [
     "c": [],
     "rm": {},
     "id": "1477825"
+   },
+   "1": {
+    "t": [
+     "Feliciano Penas Pérez",
+     "Mauro García Juncal",
+     "Antón Baldomir Vilela",
+     "Marcos Ferreras Rodríguez",
+     "Pablo Barallobre Fernández",
+     "Alberto Felipez Sánchez",
+     "Juan C Ponte Mahia",
+     "Jesús Furelos Quintas",
+     "Ambrosio Orons Baña",
+     "Pablo López Villanueva",
+     "José Manuel Molla González"
+    ],
+    "s": [
+     "Francisco B Barreiro Pena",
+     "Miguel A Mejuto Pajaro",
+     "Luciano R Pérez C Iglesias"
+    ],
+    "e": [],
+    "g": {
+     "Pablo López Villanueva": 1,
+     "José Manuel Molla González": 1,
+     "Mauro García Juncal": 1
+    },
+    "a": [
+     "Ambrosio Orons Baña"
+    ],
+    "r": [],
+    "d": {
+     "Feliciano Penas Pérez": 1,
+     "Mauro García Juncal": 2,
+     "Antón Baldomir Vilela": 4,
+     "Marcos Ferreras Rodríguez": 6,
+     "Pablo Barallobre Fernández": 9,
+     "Alberto Felipez Sánchez": 12,
+     "Juan C Ponte Mahia": 15,
+     "Jesús Furelos Quintas": 16,
+     "Ambrosio Orons Baña": 19,
+     "Pablo López Villanueva": 22,
+     "José Manuel Molla González": 24,
+     "Francisco B Barreiro Pena": 17,
+     "Miguel A Mejuto Pajaro": 26,
+     "Luciano R Pérez C Iglesias": 29
+    },
+    "c": [],
+    "rm": {},
+    "id": "1477782"
    }
   },
   "dorsales": {
    "Marcos Ferreras Rodríguez": 6,
-   "José R Ares Suárez": 9,
    "Antón Baldomir Vilela": 4,
+   "José R Ares Suárez": 9,
    "Mauro García Juncal": 2,
    "David Castro Santos": 3,
    "José Manuel Molla González": 5,
    "Domingo A Monteiga Blanco": 7,
+   "Feliciano Penas Pérez": 1,
    "Jesús Furelos Quintas": 16,
    "Francisco B Barreiro Pena": 17,
-   "Carlos Rey Villamor": 26,
    "Luciano R Pérez C Iglesias": 29,
-   "Feliciano Penas Pérez": 14,
    "Pablo López Villanueva": 22,
-   "José Antonio Elizondo Martínez": 23,
-   "Pablo Barallobre Fernández": 99,
+   "Carlos Rey Villamor": 26,
    "Alberto Felipez Sánchez": 12,
    "Juan C Ponte Mahia": 15,
+   "José Antonio Elizondo Martínez": 23,
+   "Pablo Barallobre Fernández": 99,
+   "Ambrosio Orons Baña": 19,
    "José M García Villar": 21,
-   "Miguel A Mejuto Pajaro": 28,
-   "Ambrosio Orons Baña": 19
+   "Miguel A Mejuto Pajaro": 28
   },
-  "descargado": "2026-10-28T18:56"
+  "descargado": "2026-10-30T00:00"
  },
  {
   "id": "biberon-a-fs",
@@ -12930,6 +13018,6 @@ const EQUIPOS = [
   },
   "actas": {},
   "dorsales": {},
-  "descargado": "2026-10-28T18:56"
+  "descargado": "2026-10-30T00:01"
  }
 ];
