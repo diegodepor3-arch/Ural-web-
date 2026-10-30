@@ -325,8 +325,9 @@ a.partido:hover { transform: translateY(-3px); }
 .menu-buscar { flex: none; display: grid; place-items: center; width: 44px; height: 44px; margin-left: 4px; border: 0; border-radius: 50%; background: none; color: inherit; cursor: pointer; font-size: 1.25rem; }
 .menu-buscar:hover { background: #ffffff22; }
 .barra-movil { display: none; }
+.solo-movil { display: none; }
 @media (max-width: 900px) {
-  .franja span:first-child { display: none; } .franja { justify-content: flex-end; }
+  .franja span:first-child { display: none; } .franja { justify-content: center; } .solo-movil { display: inline; } #franja-fed { display: none; }
   .menu-enlaces { display: none; }
   .menu-buscar { margin-left: auto; }
   body { padding-bottom: calc(66px + env(safe-area-inset-bottom)); }

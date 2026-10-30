@@ -981,13 +981,6 @@ addEventListener("keydown", (ev) => {
   if (ev.key === "Escape") location.hash = f.dataset.volver;
 });
 
-// Menú del móvil
-const menu = document.querySelector(".menu"), botonMenu = document.querySelector(".menu-abrir");
-botonMenu.addEventListener("click", () => {
-  const abierto = menu.classList.toggle("menu--abierto");
-  botonMenu.setAttribute("aria-expanded", abierto);
-});
-
 document.getElementById("pie-contacto").innerHTML = [CLUB.direccion && ` ${esc(CLUB.direccion)}.`,
   CLUB.email && ` <a href="mailto:${esc(CLUB.email)}">${esc(CLUB.email)}</a>`].filter(Boolean).join("");
 document.getElementById("pie-x").href = CLUB.x;
