@@ -1,5 +1,5 @@
 // GENERADO por actualizar.py desde futgal.es. No editar a mano.
-const ACTUALIZADO = "2026-10-30T13:11";
+const ACTUALIZADO = "2026-10-30T16:13";
 const EQUIPOS = [
  {
   "id": "juvenil-a",
@@ -531,7 +531,6 @@ const EQUIPOS = [
   "fuente": "futbolme.com",
   "urlOficial": "https://rfef.es/sites/default/files/2026-07/DHJ_Calendario_Grupo_1.pdf",
   "urlClasificacion": "https://futbolme.com/resultados-directo/torneo/division-de-honor-juvenil-grupo-1/31/clasificacion",
-  "descargado": "2026-10-29T13:19",
   "perfiles": {
    "fecha": "2026-10-30T16:36",
    "url": "https://www.lapreferente.com/E58614T20262027/ural-espa%C3%B1ol-cf",
@@ -837,7 +836,8 @@ const EQUIPOS = [
      "tr": 0
     }
    }
-  }
+  },
+  "descargado": "2026-10-30T16:12"
  },
  {
   "id": "juvenil-b",
@@ -1870,7 +1870,7 @@ const EQUIPOS = [
    "Leo Sánchez Pérez": 12,
    "Rafael Sande Castro-Acuña": 14
   },
-  "descargado": "2026-10-29T13:20"
+  "descargado": "2026-10-30T16:12"
  },
  {
   "id": "cadete-a",
@@ -2952,7 +2952,7 @@ const EQUIPOS = [
    "Jorge Cillero Seoane": 4,
    "Pablo Cillero Seoane": 20
   },
-  "descargado": "2026-10-29T19:43"
+  "descargado": "2026-10-30T16:13"
  },
  {
   "id": "cadete-b",
@@ -4030,7 +4030,7 @@ const EQUIPOS = [
    "Gabriel López Oreiro": 19,
    "Adán Giménez Muñoz": 22
   },
-  "descargado": "2026-10-29T19:43"
+  "descargado": "2026-10-30T16:13"
  },
  {
   "id": "infantil-a",
@@ -4920,7 +4920,7 @@ const EQUIPOS = [
    "Álvaro Ramil García": 12,
    "Pedro Moreira Trillo": 16
   },
-  "descargado": "2026-10-29T19:44"
+  "descargado": "2026-10-30T16:13"
  },
  {
   "id": "infantil-b",
@@ -10129,7 +10129,7 @@ const EQUIPOS = [
    "Mateo Sánchez González": 15,
    "Martín Lorenzo Beiro": 12
   },
-  "descargado": "2026-10-29T13:19"
+  "descargado": "2026-10-30T16:12"
  },
  {
   "id": "benjamin-b",
