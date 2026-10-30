@@ -49,7 +49,7 @@ function inicio() {
     <section class="bloque" aria-labelledby="esc-t"><div class="bloque-cab"><h2 class="titulo" id="esc-t">Del biberón a División de Honor</h2><a href="#/cantera">Los ${EQUIPOS.length} equipos</a></div>
       <ol class="escalera" style="--n:${cats.length}">${cats.map((c, i) => {
         const eqs = EQUIPOS.filter((e) => e.categoria === c.id);
-        return `<li style="--i:${i}"><a href="#/cantera/${c.id}"><strong>${esc(c.nombre)}</strong><small>${esc(c.edad || "")}</small><span class="letras">${eqs.map((e) => `<span>${esc(e.letra)}</span>`).join("")}</span></a></li>`;
+        return `<li style="--i:${i}"><a href="#/cantera/${c.id}"><strong>${esc(c.nombre)}</strong><small>${esc(c.edad || "")}</small><span class="letras">${eqs.map((e) => `<span>${esc(letraEquipo(e))}</span>`).join("")}</span></a></li>`;
       }).join("")}</ol></section>
     <section class="cent-historia" aria-labelledby="his-t">
       <div><h2 class="titulo" id="his-t">Cuatro nombres, un club</h2>
