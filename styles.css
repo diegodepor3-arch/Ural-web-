@@ -63,7 +63,7 @@ button { font: inherit; color: inherit; }
 .fuente { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; margin-top: 12px; font-size: 0.875rem; color: var(--suave); }
 .punto { width: 8px; height: 8px; border-radius: 50%; background: var(--pos); }
 .letras { display: flex; flex-wrap: wrap; gap: 5px; }
-.letras span { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--acento); color: var(--sobre-acento); font-weight: 800; font-size: 0.8125rem; }
+.letras span { display: grid; place-items: center; min-width: 28px; height: 28px; padding: 0 6px; border-radius: 14px; background: var(--acento); color: var(--sobre-acento); font-weight: 800; font-size: 0.8125rem; }
 
 /* Tarjeta del próximo partido y versus */
 .tarjeta-proximo { border-radius: var(--radio); background: var(--panel); border: 1px solid var(--borde); box-shadow: var(--sombra); overflow: hidden; }
@@ -365,9 +365,9 @@ a.partido:hover { transform: translateY(-3px); }
 .centro-equipo { text-decoration: none; min-width: 0; } .centro-equipo b { display: block; }
 .centro-equipo:hover b { color: var(--acento); }
 .centro-cruce { display: flex; align-items: center; gap: 8px; min-width: 0; font-weight: 600; }
-.centro-cruce span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.centro-cruce span { line-height: 1.15; }
 .centro-cruce i { font-style: normal; color: var(--suave); }
-.centro-cruce .escudo { width: 30px; height: 30px; }
+.centro-cruce .escudo { flex: none; width: 30px; height: 30px; }
 .centro-campo { font-size: 0.875rem; color: var(--suave); }
 .centro-acciones { display: flex; justify-content: flex-end; gap: 6px; }
 .centro-acciones a { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--panel-2); color: inherit; }

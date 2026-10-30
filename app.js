@@ -34,6 +34,7 @@ const iso = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0
 const categoria = (id) => CATEGORIAS.find((c) => c.id === id) || { id, nombre: mayus(id), singular: mayus(id) };
 const equipo = (id) => EQUIPOS.find((e) => e.id === id);
 const modalidad = (e) => e.liga.includes("F-11") ? " F-11" : e.liga.includes("F-7") ? " F-7" : e.liga.includes("F.S") ? " sala" : "";
+const letraEquipo = (e) => e.letra + modalidad(e).replace(" F-", "").replace(" sala", "S");
 const nombreEquipo = (e) => e.categoria === "veteranos" ? "Veteranos"
   : `${categoria(e.categoria).singular} ${e.letra}${modalidad(e)}`;
 const rutaEquipo = (e) => `#/equipo/${e.id}`;
@@ -145,7 +146,7 @@ function calendarioTemporada(e) {
   const eventos = e.partidos.filter((p) => p.fecha && !p.resultado).map((p) => {
     const f = p.fecha.replaceAll("-", ""), [h, m] = (p.hora || "0:0").split(":").map(Number), ini = h * 60 + m;
     return ["BEGIN:VEVENT", `UID:${e.id}-${p.jornada}@ural-web`, ...(p.hora ? [`DTSTART;TZID=Europe/Madrid:${f}T${hhmm(ini)}`, `DTEND;TZID=Europe/Madrid:${f}T${hhmm(ini + 90)}`] : [`DTSTART;VALUE=DATE:${f}`]),
-      `SUMMARY:${nombreEquipo(e)}: ${cruce(p)}`, `LOCATION:${p.campo || "Campo por confirmar"}`, "END:VEVENT"].join("\r\n");
+      `SUMMARY:${nombreEquipo(e)}: ${cruce(p)}`.replace(/([,;])/g, "\\$1"), `LOCATION:${p.campo || "Campo por confirmar"}`.replace(/([,;])/g, "\\$1"), "END:VEVENT"].join("\r\n");
   });
   return `data:text/calendar;charset=utf-8,${encodeURIComponent(["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Ural Español CF//Web//ES", ...eventos, "END:VCALENDAR"].join("\r\n"))}`;
 }
@@ -169,7 +170,7 @@ function caraACara(e, p) {
   const pos = (f) => e.clasificacion.indexOf(f) + 1;
   const fila = (t, a, b, invertido = false) => {
     const total = Math.abs(a) + Math.abs(b) || 1, mejor = invertido ? a < b : a > b;
-    return `<li><b${mejor ? ' class="gana"' : ""}>${a}</b><div><span>${t}</span><i><u style="--p:${(Math.abs(a) / total) * 100}%"></u></i></div><b${!mejor && a !== b ? ' class="gana"' : ""}>${b}</b></li>`;
+    return `<li><b${mejor ? ' class="gana"' : ""}>${a}</b><div><span>${t}</span><i><u style="--p:${(Math.abs(invertido ? b : a) / total) * 100}%"></u></i></div><b${!mejor && a !== b ? ' class="gana"' : ""}>${b}</b></li>`;
   };
   const ida = e.partidos.find((x) => x.resultado && normal(x.rival) === normal(p.rival));
   return `<section class="seccion" aria-labelledby="previa-t"><h2 class="titulo" id="previa-t">La previa</h2>
@@ -229,7 +230,7 @@ async function generarCartel(partidos, titulo) {
   if (escudo) x.drawImage(escudo, 64, 56, 150, 142);
   x.fillStyle = "#fff"; x.font = `800 86px ${letraT}`; x.fillText(titulo.toUpperCase(), 244, 130);
   x.font = `600 34px ${letraB}`; x.fillStyle = acento; x.fillText("Ural Español C.F.", 248, 180);
-  const lista = partidos.slice(0, 15), alto = Math.min(68, 950 / Math.max(1, lista.length)), y0 = 330;
+  const lista = partidos.slice(0, 15), alto = Math.min(68, 945 / Math.max(1, lista.length)), y0 = 330;
   for (let i = 0; i < lista.length; i++) {
     const p = lista[i], y = y0 + i * alto;
     x.fillStyle = i % 2 ? "#ffffff12" : "#00000022"; x.fillRect(48, y, 984, alto - 6);
@@ -239,14 +240,14 @@ async function generarCartel(partidos, titulo) {
     x.font = `400 26px ${letraB}`; x.fillText(`${p.local ? "vs" : "en"} ${p.rival}`, 580, my, 440);
   }
   x.textBaseline = "alphabetic"; x.fillStyle = "#fff"; x.font = `600 28px ${letraB}`;
-  x.fillText(partidos.length > 15 ? `y ${partidos.length - 15} partidos más en la web del club` : "Toda la información en la web del club", 64, 1300);
+  x.fillText(partidos.length > 15 ? `y ${partidos.length - 15} partidos más en la web del club` : "Toda la información en la web del club", 64, 1326);
   return new Promise((ok) => c.toBlob(ok, "image/png"));
 }
 async function descargarCartel(lun, cat) {
   const base = dia(lun), fin = sumarDias(base, 6);
   const ps = todosLosPartidos().filter((p) => p.fecha && !p.resultado && dia(p.fecha) >= base && dia(p.fecha) <= fin && (!cat || p.e.categoria === cat))
     .sort((x, y) => (x.fecha + (x.hora || "99")).localeCompare(y.fecha + (y.hora || "99")));
-  const blob = await generarCartel(ps, "Este finde");
+  const blob = await generarCartel(ps, lun === iso(lunesDe(hoy())) ? "Este finde" : `Semana del ${fmt(lun, { day: "numeric", month: "short" })}`);
   const archivo = new File([blob], "ural-este-finde.png", { type: "image/png" });
   if (matchMedia("(pointer: coarse)").matches && navigator.canShare?.({ files: [archivo] })) { try { await navigator.share({ files: [archivo], title: "Ural Español: este finde" }); return; } catch { /* cancelado: se descarga */ } }
   const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = archivo.name; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 2000);
@@ -323,7 +324,7 @@ function semanaCategorias(partidos) {
     const suyos = partidos.filter((p) => p.e.categoria === c.id), equipos = [...new Set(suyos.map((p) => p.e))].sort((x, y) => x.letra.localeCompare(y.letra));
     return `<button type="button" class="semana-cat" data-semana="${c.id}" aria-expanded="false" aria-controls="semana-${c.id}">
         <strong>${esc(c.nombre)}</strong>
-        <span class="letras">${equipos.map((e) => `<span>${esc(e.letra)}</span>`).join("")}</span>
+        <span class="letras">${equipos.map((e) => `<span title="${esc(nombreEquipo(e))}">${esc(letraEquipo(e))}</span>`).join("")}</span>
         <small>${plural(suyos.length, "partido")}</small>
       </button>
       <div class="semana-panel" id="semana-${c.id}" hidden><div class="partidos">${suyos.map((p) => tarjetaPartido(p, false, true)).join("")}</div></div>`;
@@ -370,7 +371,7 @@ function muro() {
   return `<div class="categorias">${cats.map((c) => {
     const eqs = EQUIPOS.filter((e) => e.categoria === c.id);
     return `<a class="categoria" href="#/cantera/${c.id}"><strong>${esc(c.nombre)}</strong><small>${esc(c.edad || "")}</small>
-      <span class="letras">${eqs.map((e) => `<span>${esc(e.categoria === "veteranos" ? "V" : e.letra)}</span>`).join("")}</span></a>`;
+      <span class="letras">${eqs.map((e) => `<span title="${esc(nombreEquipo(e))}">${esc(e.categoria === "veteranos" ? "V" : letraEquipo(e))}</span>`).join("")}</span></a>`;
   }).join("")}</div>`;
 }
 
@@ -831,8 +832,6 @@ function render() {
     const s = l.dataset.seccion;
     l.toggleAttribute("aria-current", s ? `${ruta}/${a}`.startsWith(s) || ruta === s : !ruta);
   });
-  menu.classList.remove("menu--abierto");
-  botonMenu.setAttribute("aria-expanded", "false");
   const destino = ancla && document.getElementById(ancla);
   destino ? destino.scrollIntoView() : scrollTo(0, 0);
   entradas();
