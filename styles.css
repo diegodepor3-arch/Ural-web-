@@ -422,7 +422,7 @@ button.pastilla { border: 0; cursor: pointer; color: inherit; }
 .banda .cuenta span { background: #0000001f; }
 .banda .cuenta b, .banda .cuenta small { color: inherit; }
 .paneles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; max-width: var(--ancho); margin: 28px auto 0; padding: 0 var(--m); }
-.panel { display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--borde); border-radius: var(--radio); background: var(--panel); }
+.paneles .panel { display: flex; flex-direction: column; padding: 0; overflow: hidden; border: 1px solid var(--borde); border-radius: var(--radio); background: var(--panel); }
 .panel-cab { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: var(--tinta); color: var(--bg); text-decoration: none; }
 .panel-cab h2 { font: var(--peso-titulo) 1.5rem/1 var(--titulo); text-transform: var(--mayus); }
 .panel-cab:hover { background: var(--acento); color: var(--sobre-acento); }
@@ -433,7 +433,7 @@ button.pastilla { border: 0; cursor: pointer; color: inherit; }
 .panel-lista span { color: var(--suave); font-size: 0.875rem; }
 .panel-lista small { color: var(--suave); }
 .panel-lista .escudo { width: 26px; height: 26px; }
-.panel-lista--jugadores li { grid-template-columns: 30px minmax(0, 1fr); }
+.panel-lista--jugadores li { display: flex; gap: 10px; min-height: 44px; }
 .panel-lista--jugadores span { font: var(--peso-titulo) 1.25rem var(--titulo); color: var(--acento); }
 .panel-lista--jugadores a { text-decoration: none; }
 .panel-lista--jugadores a:hover { color: var(--acento); }

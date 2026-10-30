@@ -464,7 +464,7 @@ function vistaEquipo(id, sub = "", jugador = "") {
       <section class="panel"><a class="panel-cab" href="${rutaEquipo(e)}/clasificacion"><h2>Clasificación</h2>${icono("i-flecha")}</a>
         ${fila ? tablaMini(e, 5) : vacio("Pendiente de la federación.")}</section>
       <section class="panel"><a class="panel-cab" href="${rutaEquipo(e)}/plantilla"><h2>Plantilla</h2>${icono("i-flecha")}</a>
-        ${e.plantilla.length ? `<ul class="panel-lista panel-lista--jugadores">${e.plantilla.slice(0, 4).map((n) => `<li><span>${dorsal(e, n) ?? "–"}</span><a href="${rutaFicha(e, n)}">${esc(n)}</a></li>`).join("")}</ul><a class="panel-pie" href="${rutaEquipo(e)}/plantilla">Ver ${plural(e.plantilla.length, "jugador", "jugadores")} y cuerpo técnico</a>` : vacio("Pendiente de la federación.")}</section>
+        ${e.plantilla.length ? `<ul class="panel-lista panel-lista--jugadores">${e.plantilla.slice(0, 4).map((n) => `<li>${dorsal(e, n) != null ? `<span>${dorsal(e, n)}</span>` : ""}<a href="${rutaFicha(e, n)}">${esc(n)}</a></li>`).join("")}</ul><a class="panel-pie" href="${rutaEquipo(e)}/plantilla">Ver ${plural(e.plantilla.length, "jugador", "jugadores")} y cuerpo técnico</a>` : vacio("Pendiente de la federación.")}</section>
     </div>
     ${p ? caraACara(e, p) : ""}
     <section class="seccion dos" aria-label="La temporada">
