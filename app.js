@@ -988,5 +988,6 @@ document.getElementById("franja-fed").href = CLUB.federacion;
 document.getElementById("pie-fuente").textContent =
   `Partidos, plantillas y clasificaciones: Real Federación Galega de Fútbol (futgal.es)${typeof ACTUALIZADO === "string" && ACTUALIZADO ? `, actualizado ${new Date(ACTUALIZADO).toLocaleString("es-ES", { dateStyle: "medium", timeStyle: "short" })}` : ""}.`;
 
+if (typeof alArrancar === "function") alArrancar();
 addEventListener("hashchange", navegar);
 render();
