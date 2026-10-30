@@ -1,5 +1,5 @@
 // GENERADO por actualizar.py desde futgal.es. No editar a mano.
-const ACTUALIZADO = "2026-10-30T16:13";
+const ACTUALIZADO = "2026-10-30T18:42";
 const EQUIPOS = [
  {
   "id": "juvenil-a",
@@ -10541,7 +10541,7 @@ const EQUIPOS = [
    "Rafael Ferreiro González": 11,
    "Pablo Moreira Trillo": 12
   },
-  "descargado": "2026-10-29T19:44"
+  "descargado": "2026-10-30T18:40"
  },
  {
   "id": "benjamin-c",
@@ -10939,7 +10939,7 @@ const EQUIPOS = [
    "Alex López García": 4,
    "Danilo Molina Rocha": 14
   },
-  "descargado": "2026-10-29T19:44"
+  "descargado": "2026-10-30T18:41"
  },
  {
   "id": "prebenjamin-a",
@@ -11516,7 +11516,7 @@ const EQUIPOS = [
    "Lucas Ribes Velez De Villa": 13,
    "Nicolás Saez Fernández": 14
   },
-  "descargado": "2026-10-29T19:44"
+  "descargado": "2026-10-30T18:41"
  },
  {
   "id": "prebenjamin-b",
@@ -11620,13 +11620,13 @@ const EQUIPOS = [
    },
    {
     "equipo": "VICTORIA C.F. \"B\"",
-    "pts": 1,
-    "pj": 4,
-    "g": 0,
+    "pts": 4,
+    "pj": 5,
+    "g": 1,
     "e": 1,
     "p": 3,
-    "gf": 1,
-    "gc": 13,
+    "gf": 3,
+    "gc": 14,
     "propio": false
    },
    {
@@ -11643,12 +11643,12 @@ const EQUIPOS = [
    {
     "equipo": "SILVA S.D.",
     "pts": 0,
-    "pj": 4,
+    "pj": 5,
     "g": 0,
     "e": 0,
-    "p": 4,
-    "gf": 0,
-    "gc": 16,
+    "p": 5,
+    "gf": 1,
+    "gc": 18,
     "propio": false
    }
   ],
@@ -11917,7 +11917,7 @@ const EQUIPOS = [
    "Kai Álvarez-Conchado Barlocco": 5,
    "Maximo Gundín Díaz": 15
   },
-  "descargado": "2026-10-29T23:59"
+  "descargado": "2026-10-30T18:41"
  },
  {
   "id": "prebenjamin-c",
@@ -12293,7 +12293,7 @@ const EQUIPOS = [
    "Rafael Pesqueira Esteve De Miguel": 12,
    "Simón Corgo Del Río": 13
   },
-  "descargado": "2026-10-30T00:00"
+  "descargado": "2026-10-30T18:42"
  },
  {
   "id": "biberon-a",
@@ -12346,7 +12346,7 @@ const EQUIPOS = [
   },
   "actas": {},
   "dorsales": {},
-  "descargado": "2026-10-30T00:00"
+  "descargado": "2026-10-30T18:42"
  },
  {
   "id": "veteranos-a",
