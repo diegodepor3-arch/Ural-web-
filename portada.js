@@ -34,7 +34,7 @@ function inicio() {
     ${cinta(d.pasada.concat(d.pendientes))}
     ${miFranja()}
     <section class="bloque" data-pestanas aria-labelledby="pes-t">
-      <h2 class="titulo" id="pes-t">Matchday</h2>
+      <h2 class="titulo" id="pes-t">Esta semana</h2>
       <div class="pestanas" role="tablist">
         <button type="button" role="tab" data-pestana="prox" aria-selected="true">Próximos</button>
         <button type="button" role="tab" data-pestana="res" aria-selected="false">Resultados</button>
