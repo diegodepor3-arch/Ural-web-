@@ -7,9 +7,6 @@
   <meta name="description" content="Web oficial del Ural Español C.F. (Santa Lucía, A Coruña, desde 1929): los 23 equipos de fútbol base, de biberón a juvenil, con partidos, resultados, clasificaciones y plantillas.">
   <meta name="theme-color" content="#ffffff">
   <link rel="icon" href="img/favicon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="mvp.css">
 </head>
@@ -19,6 +16,11 @@
     <symbol id="i-diagonal" viewBox="0 0 24 24"><path d="M6 18 18 6M8 6h10v10" fill="none" stroke="currentColor" stroke-width="2.4"/></symbol>
     <symbol id="i-izq" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4"/></symbol>
     <symbol id="i-der" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4"/></symbol>
+    <defs>
+      <linearGradient id="tela-jugador" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--cam-a)"/><stop offset="1" style="stop-color:var(--cam-b)"/></linearGradient>
+      <linearGradient id="tela-portero" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--por-a)"/><stop offset="1" style="stop-color:var(--por-b)"/></linearGradient>
+      <linearGradient id="pliegues" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity="0.28"/><stop offset="0.3" stop-color="#000" stop-opacity="0"/><stop offset="0.5" stop-color="#fff" stop-opacity="0.08"/><stop offset="0.7" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.28"/></linearGradient>
+    </defs>
   </svg>
 
   <a class="saltar" href="#app">Ir al contenido</a>
@@ -32,7 +34,7 @@
     <nav class="menu-enlaces" id="menu-enlaces" aria-label="Principal">
       <a href="#/cantera" data-seccion="cantera">Equipos</a>
       <a href="#/equipo/juvenil-a" data-seccion="equipo/juvenil-a">Juvenil A</a>
-      <a href="#/historia" data-seccion="historia">El club</a>
+      <a href="#/historia" data-seccion="historia">Historia</a>
       <a href="#/noticias" data-seccion="noticias">Noticias</a>
       <a href="#/buscar" data-seccion="buscar">Buscar</a>
       <a href="#/socios" data-seccion="socios" class="menu-socio">Hazte socio</a>
@@ -42,18 +44,12 @@
   <main id="app" tabindex="-1"></main>
 
   <footer class="pie">
-    <div class="pie-notas">
-      <p class="pie-marca"><img src="img/escudo.png" alt="" width="32" height="30"> Ural Español C.F.</p>
-      <p>Club de fútbol base. Santa Lucía, A Coruña.<span id="pie-contacto"></span></p>
-      <p>Partidos los fines de semana en Grela, Torre y Elviña.</p>
-      <a class="pie-arriba" href="#app">Volver arriba</a>
+    <div class="pie-dentro">
+      <div class="pie-club"><img src="img/escudo.png" alt="" width="72" height="68"><div><strong>Ural Español C.F.</strong><p>Fútbol base. Santa Lucía, A Coruña, desde 1929.<span id="pie-contacto"></span></p></div></div>
+      <nav aria-label="Secundaria"><a href="#/cantera">Equipos</a><a href="#/equipo/juvenil-a">Juvenil A</a><a href="#/historia">Historia</a><a href="#/noticias">Noticias</a><a href="#/socios">Hazte socio</a></nav>
+      <nav aria-label="Enlaces"><a id="pie-x" target="_blank" rel="noopener">X / Twitter</a><a id="pie-fed" target="_blank" rel="noopener">El club en la federación</a><a href="#/buscar">Buscar</a></nav>
     </div>
-    <a class="pie-contacto-grande" id="pie-x" target="_blank" rel="noopener">@uralespanol</a>
-    <div class="pie-meta">
-      <nav aria-label="Secundaria"><a href="#/cantera">Equipos</a><a href="#/historia">El club</a><a href="#/noticias">Noticias</a><a href="#/socios">Socios</a><a id="pie-fed" target="_blank" rel="noopener">Federación</a></nav>
-      <p id="pie-fuente"></p>
-      <p>A Coruña, temporada 2026-27</p>
-    </div>
+    <p id="pie-fuente"></p>
     <p class="pie-creditos">Fotos de A Coruña y del fútbol gallego (Wikimedia Commons): <a href="https://commons.wikimedia.org/wiki/File:UD_Ourense_-_Villalonga_CF,_lance_do_xogo_3.jpg">UD Ourense - Villalonga CF, lance do xogo 3</a>, Estevoaei, CC BY-SA 4.0; <a href="https://commons.wikimedia.org/wiki/File:Torre_de_H%C3%A9rcules_-_DivesGallaecia2012-62.jpg">Torre de Hércules - DivesGallaecia2012-62</a>, Luis Miguel Bugallo Sánchez (Lmbuga), CC BY-SA 3.0; <a href="https://commons.wikimedia.org/wiki/File:Galer%C3%ADas_(glazed_window_balconies),_A_Coru%C3%B1a,_Galicia,_Spain_(PPL1-Corrected)_2_julesvernex2.jpg">Galerías (glazed window balconies), A Coruña, Galicia, Spain</a>, Jules Verne Times Two, CC BY-SA 4.0; <a href="https://commons.wikimedia.org/wiki/File:Playa_de_El_Orz%C3%A1n_-_panoramio.jpg">Playa de El Orzán - panoramio</a>, Santi Garcia, CC BY 3.0; <a href="https://commons.wikimedia.org/wiki/File:R%C3%BAa_Real,_d%C3%ADa_de_lluvia_-_panoramio.jpg">Rúa Real, día de lluvia - panoramio</a>, carrodeguas, CC BY-SA 3.0.</p>
   </footer>
 

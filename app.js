@@ -75,25 +75,6 @@ function semanas() {
   };
 }
 
-// El Juvenil A: su posición, su próximo partido y la cabeza de la clasificación
-function juvenil(e) {
-  const pos = filaPropia(e), fila = e.clasificacion[pos], p = proximo(e);
-  const tabla = e.clasificacion.slice(0, Math.max(5, pos + 1));
-  return `
-    <section class="eje bloque juvenil" id="juvenil" aria-labelledby="juvenil-titulo">
-      <figure class="nota juvenil-foto">${foto(FOTO.partido)}</figure>
-      <div>
-        <h2 class="titulo" id="juvenil-titulo">Juvenil A</h2>
-        <p class="lead">${fila ? `${pos + 1}º de ${e.clasificacion.length} con ${fila.pts} puntos en División de Honor, la liga nacional más alta de su edad.` : "En División de Honor, la liga nacional más alta de su edad."}${p ? ` Próximo partido: ${esc(mayus(fechaCorta(p.fecha)))}${p.hora ? ` a las ${esc(p.hora)}` : ""}, ${p.local ? "contra" : "en casa de"} ${esc(p.rival)}.` : ""}</p>
-        ${tabla.length ? `<div class="tabla-marco"><table class="tabla tabla--compacta"><caption>Cabeza de la clasificación</caption>
-          <thead><tr><th scope="col">Pos.</th><th scope="col">Equipo</th><th scope="col">PJ</th><th scope="col">Pts</th></tr></thead>
-          <tbody>${tabla.map((f, i) => `<tr${f.propio ? ' class="propio"' : ""}><td>${i + 1}</td><th scope="row">${esc(f.equipo)}</th><td>${f.pj}</td><td>${f.pts}</td></tr>`).join("")}</tbody>
-        </table></div>` : ""}
-        <p class="acciones"><a class="boton" href="${rutaEquipo(e)}">Ver el equipo</a><a class="enlace" href="${rutaEquipo(e)}/clasificacion">Clasificación completa ${icono("i-flecha")}</a></p>
-      </div>
-    </section>`;
-}
-
 // ¿Dónde juega tu hijo?: eliges el equipo y sale su próximo partido como un cartel
 const CLAVE_EQUIPO = "ural-equipo";
 const recordado = () => { try { return localStorage.getItem(CLAVE_EQUIPO); } catch { return null; } };
@@ -147,70 +128,135 @@ function calendarioIcs(p, e) {
   return `data:text/calendar;charset=utf-8,${encodeURIComponent(ics)}`;
 }
 
-// Agenda: la tabla de la semana, un bloque por día
-function agenda(partidos) {
-  const dias = [...new Set(partidos.map((p) => p.fecha))];
-  return `<div class="tabla-marco"><table class="tabla tabla--agenda">
-    <thead><tr><th scope="col">Hora</th><th scope="col">Equipo</th><th scope="col">Rival</th><th scope="col" class="opc">Campo</th></tr></thead>
-    ${dias.map((f) => `<tbody>
-      <tr class="tabla-dia"><th scope="colgroup" colspan="4">${esc(mayus(fmt(f, { weekday: "long", day: "numeric", month: "long" })))}</th></tr>
-      ${partidos.filter((p) => p.fecha === f).map((p) => {
-        const m = p.resultado && marcador(p);
-        return `<tr>
-          <td class="tabla-hora${m ? ` tabla-hora--${m.res}` : ""}">${m ? `${m.nos}-${m.ellos}` : esc(p.hora || "--:--")}</td>
-          <th scope="row"><a href="${rutaEquipo(p.e)}">${esc(nombreEquipo(p.e))}</a></th>
-          <td>${p.local ? "" : "en "}${esc(p.rival)}</td>
-          <td class="opc">${esc(p.campo || "Por confirmar")}</td>
-        </tr>`;
-      }).join("")}
-    </tbody>`).join("")}
-  </table></div>`;
+// --- Piezas de club ------------------------------------------------------
+const lados = (p) => p.local
+  ? [{ n: CLUB.corto, img: nuestro }, { n: p.rival, img: escudoDe(p.e, p.rival) }]
+  : [{ n: p.rival, img: escudoDe(p.e, p.rival) }, { n: CLUB.corto, img: nuestro }];
+
+function cuentaAtras(p) {
+  if (!p.hora) return "";
+  return `<div class="cuenta" data-objetivo="${p.fecha}T${p.hora}" role="timer" aria-label="Cuenta atrás">
+    ${["días", "horas", "min"].map((u) => `<span><b>--</b><small>${u}</small></span>`).join("")}</div>`;
 }
 
-// La semana pasada en una página de color: cifras alineadas en la coma
-function cifrasSemana(pasada, principal) {
-  const ganados = pasada.filter((p) => marcador(p).res === "G").length;
-  const goles = pasada.reduce((s, p) => s + marcador(p).nos, 0);
-  const media = (goles / pasada.length).toFixed(1).split(".");
-  const pos = principal ? filaPropia(principal) : -1;
-  const fila = (entero, dec, texto) => `<div class="cuenta-fila"><b>${entero}</b><b class="cuenta-dec">${dec ? `,${dec}` : ""}</b><span>${texto}</span></div>`;
-  return `
-    <section class="cuentas" aria-labelledby="cuentas-titulo">
-      <h2 class="cuentas-titulo" id="cuentas-titulo">La semana en cifras</h2>
-      <div class="cuentas-cifras">
-        ${fila(pasada.length, "", "partidos disputados")}
-        ${fila(ganados, "", "victorias")}
-        ${fila(goles, "", "goles a favor")}
-        ${fila(media[0], media[1], "goles por partido")}
-        ${pos >= 0 ? fila(`${pos + 1}º`, "", "puesto del Juvenil A en División de Honor") : ""}
-      </div>
-    </section>
-    <section class="eje bloque" aria-labelledby="resultados-titulo">
-      <p class="nota">Resultados oficiales de las actas arbitrales.</p>
-      <div>
-        <h2 class="titulo" id="resultados-titulo">Resultados</h2>
-        <div class="tabla-marco"><table class="tabla">
-          <thead><tr><th scope="col">Equipo</th><th scope="col">Rival</th><th scope="col">Resultado</th></tr></thead>
-          <tbody>${pasada.map((p) => {
-            const m = marcador(p);
-            return `<tr><th scope="row"><a href="${rutaEquipo(p.e)}">${esc(nombreEquipo(p.e))}</a></th><td>${p.local ? "" : "en "}${esc(p.rival)}</td><td><span class="marca res-${m.res}">${m.nos}-${m.ellos}</span></td></tr>`;
-          }).join("")}</tbody>
-        </table></div>
-      </div>
-    </section>`;
+// El enfrentamiento: escudo y nombre de cada lado, VS o resultado en medio
+function versus(p, conHora = true) {
+  const [casa, fuera] = lados(p), m = p.resultado && marcador(p);
+  return `<div class="versus">
+    <div class="versus-equipo">${casa.img}<strong>${esc(casa.n)}</strong></div>
+    <div class="versus-centro">
+      ${m ? `<span class="versus-marcador versus-marcador--${m.res}">${m.l} – ${m.v}</span>` : `<span class="versus-vs">VS</span>`}
+      ${conHora ? `<small>${esc(fechaCorta(p.fecha))}${p.hora ? ` · ${esc(p.hora)}` : ""}</small>` : ""}
+    </div>
+    <div class="versus-equipo">${fuera.img}<strong>${esc(fuera.n)}</strong></div>
+  </div>`;
 }
 
-// Directorio de equipos: una columna por categoría
+const tarjetaProximo = (p) => `
+  <div class="tarjeta-proximo">
+    <p class="tarjeta-cab"><span>Próximo partido · ${esc(nombreEquipo(p.e))}</span><span>Jornada ${p.jornada}</span></p>
+    <div class="tarjeta-cuerpo">${versus(p)}${cuentaAtras(p)}</div>
+    <p class="tarjeta-pie">${p.campo ? esc(p.campo) : "Campo por confirmar"} · ${p.local ? "en casa" : "fuera"}</p>
+  </div>`;
+
+// conEquipo: en la portada la tarjeta dice qué equipo juega y lleva a su página
+function tarjetaPartido(p, destacado = false, conEquipo = false) {
+  const t = conEquipo ? "a" : "article";
+  return `<${t} class="partido${destacado ? " partido--proximo" : ""}"${conEquipo ? ` href="${rutaEquipo(p.e)}"` : ""}>
+    <p class="partido-cab"><span>${conEquipo ? esc(nombreEquipo(p.e)) : `Jornada ${p.jornada}`}</span>${destacado ? "<span>Próximo</span>" : ""}</p>
+    ${versus(p)}
+    ${!p.resultado && p.campo ? `<p class="partido-campo">${esc(p.campo)}</p>` : ""}
+  </${t}>`;
+}
+
+// Cinta de resultados y partidos: se desplaza sola, la segunda copia es solo visual
+function cinta(partidos) {
+  if (!partidos.length) return "";
+  let lista = partidos;
+  while (lista.length < 8) lista = [...lista, ...partidos];
+  const item = (p, copia) => {
+    const m = p.resultado && marcador(p);
+    return `<a class="cinta-item" href="${rutaEquipo(p.e)}"${copia ? ' tabindex="-1"' : ""}>${escudoDe(p.e, p.rival)}
+      <span><small>${esc(nombreEquipo(p.e))}</small>${p.local ? "vs" : "en"} ${esc(p.rival)} ${m ? `<b class="res-txt-${m.res}">${m.nos}-${m.ellos}</b>` : `<i>${esc(fechaCorta(p.fecha))}${p.hora ? ` ${esc(p.hora)}` : ""}</i>`}</span></a>`;
+  };
+  return `<section class="cinta" aria-label="Partidos y resultados"><div class="cinta-pista" style="--dur:${lista.length * 4}s">
+    <div>${lista.map((p) => item(p, false)).join("")}</div><div aria-hidden="true">${lista.map((p) => item(p, true)).join("")}</div></div></section>`;
+}
+
+// Partidos de la semana por categoría: tarjeta con las letras de sus equipos; al pulsarla se despliega
+function semanaCategorias(partidos) {
+  const cats = CATEGORIAS.filter((c) => partidos.some((p) => p.e.categoria === c.id));
+  if (!cats.length) return vacio("La federación aún no ha publicado partidos para esta semana.");
+  return `<div class="semana-cats">${cats.map((c) => {
+    const suyos = partidos.filter((p) => p.e.categoria === c.id), equipos = [...new Set(suyos.map((p) => p.e))];
+    return `<button type="button" class="semana-cat" data-semana="${c.id}" aria-expanded="false" aria-controls="semana-${c.id}">
+        <strong>${esc(c.nombre)}</strong>
+        <span class="letras">${equipos.map((e) => `<span>${esc(e.letra)}</span>`).join("")}</span>
+        <small>${plural(suyos.length, "partido")}</small>
+      </button>
+      <div class="semana-panel" id="semana-${c.id}" hidden><div class="partidos">${suyos.map((p) => tarjetaPartido(p, false, true)).join("")}</div></div>`;
+  }).join("")}</div>`;
+}
+
+// Calendario del mes con el escudo del rival en cada día de partido
+const mesVisto = {};
+function calendarioMes(e) {
+  const hoyIso = iso(hoy());
+  const con = e.partidos.filter((p) => p.fecha);
+  if (!con.length) return vacio("La federación todavía no ha publicado el calendario.");
+  const inicial = (con.find((p) => !p.resultado) || con.at(-1)).fecha.slice(0, 7);
+  const ym = mesVisto[e.id] ||= inicial;
+  const [y, m] = ym.split("-").map(Number), primero = new Date(y, m - 1, 1), dias = new Date(y, m, 0).getDate();
+  const huecos = (primero.getDay() + 6) % 7;
+  const celdas = [...Array(huecos).fill(`<div class="dia dia--vacio"></div>`)];
+  for (let d = 1; d <= dias; d++) {
+    const f = `${ym}-${String(d).padStart(2, "0")}`, p = con.find((x) => x.fecha === f);
+    const r = p?.resultado && marcador({ ...p });
+    celdas.push(`<div class="dia${f === hoyIso ? " dia--hoy" : ""}${p ? " dia--partido" : ""}"><small>${d}</small>${p ? `${escudoDe(e, p.rival)}<b class="${r ? `res-txt-${r.res}` : ""}">${r ? `${r.nos}-${r.ellos}` : esc(p.hora || "")}</b><span class="sr">${p.local ? "contra" : "en casa de"} ${esc(p.rival)}</span>` : ""}</div>`);
+  }
+  return `<div class="mes" data-mes-equipo="${e.id}">
+    <div class="mes-cab">
+      <button type="button" data-mes="-1" aria-label="Mes anterior">${icono("i-izq")}</button>
+      <h3>${esc(mayus(primero.toLocaleDateString("es-ES", { month: "long", year: "numeric" })))}</h3>
+      <button type="button" data-mes="1" aria-label="Mes siguiente">${icono("i-der")}</button>
+    </div>
+    <div class="mes-sem" aria-hidden="true">${["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"].map((d) => `<span>${d}</span>`).join("")}</div>
+    <div class="mes-dias">${celdas.join("")}</div>
+  </div>`;
+}
+
+// Clasificación corta para la portada
+const tablaMini = (e, n = 6) => {
+  const pos = filaPropia(e), desde = Math.max(0, Math.min(pos - Math.floor(n / 2), e.clasificacion.length - n));
+  return `<ol class="tabla-mini" start="${desde + 1}">${e.clasificacion.slice(desde, desde + n).map((f, i) =>
+    `<li${f.propio ? ' class="propio"' : ""}><span>${desde + i + 1}</span>${f.propio ? nuestro : escudoDe(e, f.equipo)}<span>${esc(f.equipo)}</span><small>${f.pj} PJ</small><b>${f.pts}</b></li>`).join("")}</ol>`;
+};
+
+// Categorías con las letras de sus equipos
 function muro() {
   const cats = CATEGORIAS.filter((c) => EQUIPOS.some((e) => e.categoria === c.id));
-  return `<div class="directorio">${cats.map((c) => {
+  return `<div class="categorias">${cats.map((c) => {
     const eqs = EQUIPOS.filter((e) => e.categoria === c.id);
-    return `<section class="directorio-cat" aria-label="${esc(c.nombre)}">
-      <h3><a href="#/cantera/${c.id}">${esc(c.nombre)}</a></h3>
-      <p>${esc(c.edad || "")} · ${plural(eqs.length, "equipo")}</p>
-      <ul>${eqs.map((e) => `<li><a href="${rutaEquipo(e)}">${esc(nombreEquipo(e))}</a></li>`).join("")}</ul>
-    </section>`;
+    return `<a class="categoria" href="#/cantera/${c.id}"><strong>${esc(c.nombre)}</strong><small>${esc(c.edad || "")}</small>
+      <span class="letras">${eqs.map((e) => `<span>${esc(e.categoria === "veteranos" ? "V" : e.letra)}</span>`).join("")}</span></a>`;
   }).join("")}</div>`;
+}
+
+// La camiseta del club, verde de arriba abajo; el portero la lleva de otro color
+const SILUETA = {
+  corta: "M62 8 30 20 4 52l22 30 18-12v130h112V70l18 12 22-30-26-32-32-12c-4 14-20 24-38 24S66 22 62 8z",
+  larga: "M62 8 30 20C18 40 10 90 8 150l22 4c4-42 10-68 14-82v128h112V72c4 14 10 40 14 82l22-4c-2-60-10-110-22-130L138 8c-4 14-20 24-38 24S66 22 62 8z",
+};
+function camiseta(num, portero = false, espalda = "") {
+  const forma = SILUETA[portero ? "larga" : "corta"], tela = portero ? "tela-portero" : "tela-jugador";
+  const base = `<path d="${forma}" fill="url(#${tela})"/><path d="${forma}" fill="url(#pliegues)"/>`;
+  if (espalda) return `<svg class="camiseta" viewBox="0 0 200 210" aria-hidden="true">${base}
+    <path d="M62 8c6 7 20 10 38 10s32-3 38-10" fill="none" class="cam-cuello" stroke-width="6"/>
+    <text x="100" y="66" class="cam-dorso">${esc(espalda.toUpperCase())}</text><text x="100" y="168" class="cam-num cam-num--dorso">${num ?? ""}</text></svg>`;
+  return `<svg class="camiseta" viewBox="0 0 200 210" aria-hidden="true">${base}
+    <path d="M62 8c4 14 20 24 38 24s34-10 38-24" fill="none" class="cam-cuello" stroke-width="6"/>
+    <image href="img/escudo.png" x="118" y="42" width="24" height="23"/>
+    ${num != null && num !== "" ? `<text x="100" y="146" class="cam-num">${num}</text>` : ""}</svg>`;
 }
 
 // Historia con el título fijo a la izquierda mientras pasan los momentos
@@ -238,83 +284,56 @@ function vistaEquipo(id, sub = "", jugador = "") {
   if (!e) return noEncontrado();
   if (sub === "plantilla" && jugador) return vistaFicha(e, jugador);
   const p = proximo(e) && { ...proximo(e), e };
-  const partidos = e.partidos.map((x) => ({ ...x, e, esHoy: x.fecha === iso(hoy()) }));
-  const jugados = partidos.filter((x) => x.resultado);
+  const pendientes = e.partidos.filter((x) => !x.resultado).map((x) => ({ ...x, e }));
+  const jugados = e.partidos.filter((x) => x.resultado).map((x) => ({ ...x, e }));
   const extra = EXTRA[e.id] || {};
   const videos = (tipo) => (extra.videos || []).filter((v) => v.tipo === tipo && v.youtube);
   const pos = filaPropia(e), fila = e.clasificacion[pos];
-  const racha = jugados.slice(-5).map((x) => marcador(x).res);
   const SECCION = { calendario: "Calendario", plantilla: "Plantilla", clasificacion: "Clasificación" };
+  const num = e.plantilla.map((n) => dorsal(e, n)).filter((d) => d != null).sort((x, y) => x - y)[0] ?? "";
 
   const cabecera = `
     <section class="cab cab--equipo">
-      <div class="cab-texto">
+      <div>
         <p class="migas"><a href="#/cantera">Equipos</a> / <a href="#/cantera/${e.categoria}">${esc(categoria(e.categoria).nombre)}</a>${sub ? ` / <a href="${rutaEquipo(e)}">${esc(nombreEquipo(e))}</a>` : ""}</p>
-        <h1 class="cab-titulo">${esc(sub && SECCION[sub] ? `${SECCION[sub]}` : nombreEquipo(e))}</h1>
+        <h1 class="cab-titulo">${esc(SECCION[sub] || nombreEquipo(e))}</h1>
         <p class="cab-sub">${sub ? `${esc(nombreEquipo(e))} · ` : ""}${esc(e.competicion || e.liga)}</p>
-        ${fila && !sub ? `
-        <dl class="cifras">
-          <div><dt>Posición</dt><dd>${pos + 1}º de ${e.clasificacion.length}</dd></div>
-          <div><dt>Puntos</dt><dd>${fila.pts}</dd></div>
-          <div><dt>Goles</dt><dd>${fila.gf} a ${fila.gc}</dd></div>
-          ${racha.length ? `<div><dt>Últimos</dt><dd class="racha">${racha.map((r) => `<i class="marca res-${r}" title="${RESULTADO[r]}">${r === "P" ? "D" : r === "G" ? "V" : "E"}</i>`).join("")}</dd></div>` : ""}
-        </dl>` : ""}
-        <p class="fuente">Partidos de ${esc(e.fuente || "futgal.es (RFGF)")}${e.descargado ? `, actualizado ${esc(actualizado(e.descargado))}` : ", descarga pendiente: se actualiza sola cada hora"}.
-          <a href="${esc(e.urlOficial || e.urlFederacion)}" target="_blank" rel="noopener">${e.urlOficial ? "Calendario oficial RFEF" : "Ficha en la RFGF"}</a></p>
+        <p class="fuente"><span class="punto"></span>Datos de ${esc(e.fuente || "futgal.es")}${e.descargado ? ` · actualizado ${esc(actualizado(e.descargado))}` : ""}</p>
       </div>
-      ${p ? `<div class="cab-cartel"><h2 class="cab-cartel-titulo">Próximo partido</h2>${cartel(e)}</div>` : ""}
+      ${p ? tarjetaProximo(p) : ""}
     </section>`;
 
   if (sub === "calendario") return `${cabecera}
-    <section class="seccion" aria-label="Calendario">${partidos.length ? calendario(partidos, jugados.length) : vacio("La federación todavía no ha publicado el calendario.")}</section>`;
+    <section class="seccion" aria-labelledby="mes-t"><h2 class="titulo" id="mes-t">Calendario</h2>${calendarioMes(e)}</section>
+    <section class="seccion" aria-labelledby="prox-t"><h2 class="titulo" id="prox-t">Próximos partidos</h2>
+      ${pendientes.length ? tresYResto(pendientes, (x, i) => tarjetaPartido(x, i === 0), "Ver todo el calendario") : vacio("No hay partidos pendientes.")}</section>
+    <section class="seccion" aria-labelledby="jug-t"><h2 class="titulo" id="jug-t">Resultados</h2>
+      ${jugados.length ? tresYResto([...jugados].reverse(), (x) => tarjetaPartido(x), "Ver todos los resultados") : vacio("Aún no se ha jugado ningún partido.")}</section>`;
   if (sub === "clasificacion") return `${cabecera}
-    <section class="seccion" aria-label="Clasificación">${tablaClasificacion(e)}
+    <section class="seccion" aria-labelledby="cla-t"><h2 class="titulo" id="cla-t">Clasificación</h2>${tablaClasificacion(e)}
       ${e.urlClasificacion ? `<a class="enlace" href="${esc(e.urlClasificacion)}" target="_blank" rel="noopener">Ver en ${esc(e.fuente || "futgal.es")} ${icono("i-diagonal")}</a>` : ""}</section>`;
   if (sub === "plantilla") return `${cabecera}${plantilla(e)}`;
   if (sub) return `${cabecera}<section class="seccion">${vacio("Esta sección no existe.")}</section>`;
 
   return `${cabecera}
     <nav class="hub" aria-label="Secciones del equipo">
-      ${tarjetaHub(e, "calendario", "Calendario",
-        p ? `${fmt(p.fecha, { day: "numeric" })} ${fmt(p.fecha, { month: "short" })}` : partidos.length || "–",
-        p ? `Próximo: ${p.local ? "contra" : "en casa de"} ${p.rival}` : partidos.length ? plural(partidos.length, "partido") : "Pendiente de la federación")}
-      ${tarjetaHub(e, "plantilla", "Plantilla", e.plantilla.length || "–",
-        e.plantilla.length ? `jugadores${e.entrenadores.length ? " y cuerpo técnico" : ""}` : "Pendiente de la federación")}
-      ${tarjetaHub(e, "clasificacion", "Clasificación", fila ? `${pos + 1}º` : "–",
-        fila ? `${fila.pts} puntos, ${plural(e.clasificacion.length, "equipo")}` : "Pendiente de la federación")}
+      <a class="hub-tarjeta" href="${rutaEquipo(e)}/calendario"><span class="hub-dato">${p ? `<b>${esc(fmt(p.fecha, { day: "numeric" }))}</b><small>${esc(fmt(p.fecha, { month: "short" }))}</small>` : `<b>${e.partidos.length || "–"}</b><small>partidos</small>`}</span>
+        <span class="hub-texto"><strong>Calendario</strong><small>${p ? `Próximo: ${p.local ? "contra" : "en casa de"} ${esc(p.rival)}` : "Partidos de la temporada"}</small></span></a>
+      <a class="hub-tarjeta" href="${rutaEquipo(e)}/plantilla"><span class="hub-camiseta">${camiseta(num)}</span>
+        <span class="hub-texto"><strong>Plantilla</strong><small>${e.plantilla.length ? `${plural(e.plantilla.length, "jugador", "jugadores")} y cuerpo técnico` : "Pendiente de la federación"}</small></span></a>
+      <a class="hub-tarjeta" href="${rutaEquipo(e)}/clasificacion"><span class="hub-dato">${fila ? `<b>${pos + 1}º</b><small>${fila.pts} pts</small>` : "<b>–</b>"}</span>
+        <span class="hub-texto"><strong>Clasificación</strong><small>${fila ? `De ${e.clasificacion.length} equipos` : "Pendiente de la federación"}</small></span></a>
     </nav>
-    <section class="seccion" aria-labelledby="perfil-titulo">
-      <h2 class="titulo" id="perfil-titulo">Así va la temporada</h2>
-      ${perfilTemporada(jugados)}
-    </section>
+    <section class="seccion" aria-labelledby="perfil-titulo"><h2 class="titulo" id="perfil-titulo">Así va la temporada</h2>${perfilTemporada(jugados)}</section>
     ${videos("highlight").length ? `<section class="seccion"><h2 class="titulo">Resúmenes</h2>${listaVideos(videos("highlight"))}</section>` : ""}
     ${videos("entrevista").length ? `<section class="seccion"><h2 class="titulo">Entrevistas</h2>${listaVideos(videos("entrevista"))}</section>` : ""}`;
 }
 
-const tarjetaHub = (e, sub, tit, cifra, texto) => `
-  <a class="hub-panel hub-panel--${sub}" href="${rutaEquipo(e)}/${sub}">
-    <b class="hub-cifra">${esc(cifra)}</b>
-    <span class="hub-titulo">${tit}</span>
-    <span class="hub-texto">${esc(texto)}</span>
-    ${icono("i-flecha", "icono hub-flecha")}
-  </a>`;
-
-// Calendario: la misma tabla de un solo tamaño que la agenda; lo lejano, plegado
-function calendario(partidos, jugados) {
-  const corte = jugados + 4;
-  const fila = (p) => {
-    const m = p.resultado && marcador(p);
-    return `<li class="agenda-fila${m ? ` agenda-fila--${m.res}` : ""}${p.esHoy ? " agenda-fila--hoy" : ""}">
-      <span class="agenda-equipo">${esc(p.fecha ? fmt(p.fecha, { day: "numeric", month: "short" }) : `Jornada ${p.jornada}`)}</span>
-      <span class="agenda-rival">${p.local ? "contra" : "en casa de"} ${esc(p.rival)}</span>
-      <span class="agenda-campo">${m ? RESULTADO[m.res] : esc(p.campo || `Jornada ${p.jornada}`)}</span>
-      <span class="agenda-hora">${m ? `${m.nos}-${m.ellos}` : esc(p.hora || "--:--")}</span>
-    </li>`;
-  };
-  return `<ul class="calendario-lista">${partidos.slice(0, corte).map(fila).join("")}</ul>
-    ${partidos.length > corte ? `<details class="resto"><summary>Resto de la temporada (${partidos.length - corte} partidos)</summary>
-      <ul class="calendario-lista">${partidos.slice(corte).map(fila).join("")}</ul></details>` : ""}`;
-}
+// Los 3 primeros a la vista; el resto, plegado tras un botón (details nativo)
+const tresYResto = (lista, tarjeta, texto) => `
+  <div class="partidos">${lista.slice(0, 3).map(tarjeta).join("")}</div>
+  ${lista.length > 3 ? `<details class="resto"><summary>${texto} (${lista.length})</summary>
+    <div class="partidos">${lista.slice(3).map((x, i) => tarjeta(x, i + 3)).join("")}</div></details>` : ""}`;
 
 function tablaClasificacion(e) {
   if (!e.clasificacion.length) return vacio("La federación todavía no ha publicado la clasificación.");
@@ -387,26 +406,51 @@ function actasSinGoleadores(e) {
 
 function plantilla(e) {
   if (!e.plantilla.length && !e.entrenadores.length) return `<section class="seccion">${vacio("Plantilla pendiente de la federación.")}</section>`;
-  const conDatos = Object.keys(e.actas || {}).length > 0 || !!e.perfiles;
+  const conFoto = CATEGORIAS_CON_FOTO.has(e.categoria), fotos = (EXTRA[e.id] || {}).fotos || {};
+  const jugadores = ordenJugadores(e), inicial = Math.max(0, jugadores.findIndex((n) => slug(n) === ultimaFicha[e.id]));
   return `
-    <section class="seccion" aria-labelledby="plantilla-titulo">
-      <h2 class="titulo" id="plantilla-titulo">${plural(e.plantilla.length, "jugador", "jugadores")}</h2>
+    <section class="seccion" id="plantilla" aria-labelledby="plantilla-titulo">
+      <h2 class="titulo" id="plantilla-titulo">Temporada 2026-27</h2>
       ${actasSinGoleadores(e) ? `<p class="aviso">${actasSinGoleadores(e)}</p>` : ""}
-      <div class="tabla-marco"><table class="tabla tabla--plantilla">
-        <thead><tr><th scope="col">Dorsal</th><th scope="col">Jugador</th>${conDatos ? `<th scope="col">PJ</th><th scope="col" class="opc-movil">Tit.</th><th scope="col">Goles</th><th scope="col" class="opc"><abbr title="Tarjetas amarillas">TA</abbr></th><th scope="col" class="opc"><abbr title="Tarjetas rojas">TR</abbr></th>` : ""}</tr></thead>
-        <tbody>${ordenJugadores(e).map((n) => {
-          const num = dorsal(e, n), est = conDatos ? estadisticas(e, n) : null;
-          return `<tr><td class="tabla-dorsal">${num ?? "–"}</td><th scope="row"><a href="${rutaFicha(e, n)}">${esc(n)}</a>${esPortero(e, n) ? " <small>Portero</small>" : ""}</th>${est ? `<td>${est.jugados}</td><td class="opc-movil">${est.titular}</td><td>${est.goles}</td><td class="opc">${est.amarillas}</td><td class="opc">${est.rojas}</td>` : ""}</tr>`;
-        }).join("")}</tbody>
-      </table></div>
+      ${jugadores.length ? `
+      <div class="carrusel" data-activo="${inicial}">
+        <button type="button" class="redondo" data-paso="-1" aria-label="Jugador anterior">${icono("i-izq")}</button>
+        <div class="carrusel-pista">${jugadores.map((n, i) => {
+          const num = dorsal(e, n), f = conFoto && fotos[n];
+          return `<button type="button" class="carta" data-carta="${i}" data-ficha="${rutaFicha(e, n)}" data-nombre="${esc(n)}" data-num="${num ?? ""}" aria-label="${esc(n)}${num != null ? `, dorsal ${num}` : ""}">
+            ${f ? `<img src="${esc(f)}" alt="" loading="lazy">` : camiseta(num ?? iniciales(n), esPortero(e, n))}</button>`;
+        }).join("")}</div>
+        <button type="button" class="redondo" data-paso="1" aria-label="Jugador siguiente">${icono("i-der")}</button>
+      </div>
+      <p class="carrusel-nombre" aria-live="polite"></p>
+      <ul class="lista-jugadores">${jugadores.map((n) => `<li><a href="${rutaFicha(e, n)}"><b>${dorsal(e, n) ?? ""}</b>${esc(n)}</a></li>`).join("")}</ul>` : ""}
       ${e.entrenadores.length || e.delegados.length ? `
         <h3 class="subtitulo">Cuerpo técnico</h3>
         <ul class="tecnicos">
-          ${e.entrenadores.map((n) => `<li><b>${esc(n)}</b>, entrenador</li>`).join("")}
-          ${e.delegados.map((n) => `<li><b>${esc(n)}</b>, delegado</li>`).join("")}
+          ${e.entrenadores.map((n) => `<li><b>${esc(n)}</b> Entrenador</li>`).join("")}
+          ${e.delegados.map((n) => `<li><b>${esc(n)}</b> Delegado</li>`).join("")}
         </ul>` : ""}
       <a class="enlace" href="${esc(e.urlFederacion)}" target="_blank" rel="noopener">Ficha del equipo en la RFGF ${icono("i-diagonal")}</a>
     </section>`;
+}
+
+const ultimaFicha = {}; // al volver, el carrusel queda en el último jugador visto
+function colocarCarrusel(c) {
+  const activo = Number(c.dataset.activo), cartas = [...c.querySelectorAll(".carta")];
+  cartas.forEach((carta, i) => {
+    const d = i - activo, a = Math.abs(d);
+    carta.style.transform = `translateX(calc(-50% + ${d * 74}%)) scale(${a === 0 ? 1 : a === 1 ? 0.78 : 0.62})`;
+    carta.style.zIndex = 10 - a;
+    carta.style.opacity = a > 2 ? 0 : a === 0 ? 1 : 0.7;
+    carta.tabIndex = a === 0 ? 0 : -1;
+    carta.classList.toggle("carta--activa", a === 0);
+  });
+  const c0 = cartas[activo], nombre = c.parentElement.querySelector(".carrusel-nombre");
+  if (c0) nombre.innerHTML = `${c0.dataset.num ? `<small>Dorsal ${esc(c0.dataset.num)}</small>` : ""}<strong>${esc(c0.dataset.nombre)}</strong><a class="boton" href="${c0.dataset.ficha}">Ver ficha</a>`;
+}
+function moverCarrusel(c, paso) {
+  c.dataset.activo = Math.min(c.querySelectorAll(".carta").length - 1, Math.max(0, Number(c.dataset.activo) + paso));
+  colocarCarrusel(c);
 }
 
 // Minutos de partido. Infantil y menores quedan fuera: se puede volver a entrar y la federación no publica los cambios
@@ -455,50 +499,51 @@ function tiraJornadas(jornadas) {
     <p class="leyenda"><i class="ley ley--titular"></i> Titular <i class="ley ley--entra"></i> Entró <i class="ley ley--banquillo"></i> Banquillo <i class="ley ley--no"></i> No convocado <span class="ley-gol">●</span> Gol</p>`;
 }
 
+const anillo = (valor, maximo, texto, etiqueta) => `<div class="anillo">
+  <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="44"/><circle cx="50" cy="50" r="44" class="anillo-valor" style="--pct:${maximo ? Math.min(1, valor / maximo) : 0}"/></svg>
+  <b>${texto}</b><small>${etiqueta}</small></div>`;
+
 function vistaFicha(e, id) {
   const jugadores = ordenJugadores(e), i = jugadores.findIndex((n) => slug(n) === id);
   if (i < 0) return noEncontrado();
   const n = jugadores[i], num = dorsal(e, n), portero = esPortero(e, n), datos = perfil(e, n);
-  const est = estadisticas(e, n);
-  const volver = `${rutaEquipo(e)}/plantilla`;
+  ultimaFicha[e.id] = id;
+  const est = estadisticas(e, n), volver = `${rutaEquipo(e)}/plantilla`;
   const ant = jugadores[(i - 1 + jugadores.length) % jugadores.length], sig = jugadores[(i + 1) % jugadores.length];
-  const f = CATEGORIAS_CON_FOTO.has(e.categoria) && ((EXTRA[e.id] || {}).fotos || {})[n];
   const cifra = (v, t) => `<div><dt>${t}</dt><dd>${v}</dd></div>`;
-
+  const prox = e.partidos.filter((x) => !x.resultado).slice(0, 3).map((x) => ({ ...x, e }));
   return `
-    <section class="ficha eje" data-anterior="${rutaFicha(e, ant)}" data-siguiente="${rutaFicha(e, sig)}" data-volver="${volver}" aria-labelledby="ficha-nombre">
-      <div class="nota ficha-lado">
-        <div class="ficha-dorsal${portero ? " ficha-dorsal--portero" : ""}" aria-hidden="true">${f ? `<img src="${esc(f)}" alt="" width="600" height="750">` : ""}<span>${num ?? iniciales(n)}</span></div>
-        <dl class="ficha-datos">
-          <div><dt>Equipo</dt><dd>${esc(nombreEquipo(e))}</dd></div>
-          <div><dt>Posición</dt><dd>${esc(datos.posicion || (portero ? "Portero" : "Jugador"))}</dd></div>
-          ${datos.edad != null ? `<div><dt>Edad</dt><dd>${datos.edad} años</dd></div>` : ""}
-        </dl>
-      </div>
-      <div>
-        <nav class="ficha-nav" aria-label="Jugadores">
-          <a href="${volver}">${icono("i-izq")} Plantilla</a>
-          <span>
-            <a href="${rutaFicha(e, ant)}" aria-label="Jugador anterior: ${esc(ant)}">${icono("i-izq")}</a>
-            <span>${i + 1} de ${jugadores.length}</span>
-            <a href="${rutaFicha(e, sig)}" aria-label="Jugador siguiente: ${esc(sig)}">${icono("i-der")}</a>
-          </span>
-        </nav>
+    <section class="ficha" data-anterior="${rutaFicha(e, ant)}" data-siguiente="${rutaFicha(e, sig)}" data-volver="${volver}" aria-labelledby="ficha-nombre">
+      <div class="ficha-info">
+        <a class="pastilla" href="${volver}">${icono("i-izq")} Volver a la plantilla</a>
+        <p class="ficha-etiqueta">${esc(datos.posicion || (portero ? "Portero" : "Jugador"))} · ${esc(nombreEquipo(e))}</p>
         <h1 class="ficha-nombre" id="ficha-nombre">${esc(n)}</h1>
-        <dl class="ficha-cifras">
-          ${cifra(est.jugados, "Partidos")}${cifra(est.goles, "Goles")}${cifra(est.titular, "Titular")}
-          ${est.minutos != null ? cifra(est.minutos, "Minutos") : cifra(est.convocado, "Convocado")}
-          ${est.encajados != null ? cifra(est.encajados, "Encajados") : ""}${cifra(est.amarillas, "Amarillas")}${cifra(est.rojas, "Rojas")}
-          ${datos.mvp ? cifra(datos.mvp, "MVP") : ""}
-        </dl>
+        <div class="panel">
+          <dl class="ficha-cifras">
+            ${cifra(est.jugados, "Partidos")}${cifra(est.goles, "Goles")}${cifra(est.titular, "Titular")}
+            ${est.minutos != null ? cifra(est.minutos, "Minutos") : cifra(est.convocado, "Convocado")}
+            ${est.encajados != null ? cifra(est.encajados, "Encajados") : ""}${cifra(est.amarillas, "Amarillas")}${cifra(est.rojas, "Rojas")}
+            ${datos.edad != null ? cifra(datos.edad, "Edad") : ""}${datos.mvp ? cifra(datos.mvp, "MVP") : ""}
+          </dl>
+          <h2 class="subtitulo">Jornada a jornada</h2>
+          ${est.totales ? vacio("La RFEF no publica en abierto las actas de División de Honor: hay totales de la temporada, pero no el detalle de cada jornada.") : tiraJornadas(est.jornadas)}
+          <p class="fuente">${est.totales
+            ? `Totales de la temporada: <a href="${esc(e.perfiles.url)}" target="_blank" rel="noopener">lapreferente.com</a> (web no oficial).`
+            : `Actas de la RFGF (futgal.es)${est.actas ? `, ${plural(est.actas, "acta")}` : ", pendientes de descargar"}.${actasSinGoleadores(e) ? ` ${actasSinGoleadores(e)}` : ""}`}</p>
+        </div>
+        ${prox.length ? `<h2 class="subtitulo">Próximos partidos</h2><div class="partidos">${prox.map((x) => tarjetaPartido(x)).join("")}</div>` : ""}
       </div>
-    </section>
-    <section class="seccion" aria-labelledby="jornadas-titulo">
-      <h2 class="titulo" id="jornadas-titulo">Jornada a jornada</h2>
-      ${est.totales ? vacio("La RFEF no publica en abierto las actas de División de Honor: hay totales de la temporada, pero no el detalle de cada jornada.") : tiraJornadas(est.jornadas)}
-      <p class="fuente">${est.totales
-        ? `Totales de la temporada: <a href="${esc(e.perfiles.url)}" target="_blank" rel="noopener">lapreferente.com</a> (web no oficial)`
-        : `Partidos, goles y tarjetas: actas de la RFGF (futgal.es)${est.actas ? `, ${plural(est.actas, "acta")}` : ", actas pendientes de descargar"}${actasSinGoleadores(e) ? `. ${actasSinGoleadores(e)}` : ""}`}. Con las flechas del teclado pasas de un jugador a otro.</p>
+      <div class="ficha-visual">
+        <div class="ficha-flechas">
+          <a class="redondo" href="${rutaFicha(e, ant)}" aria-label="Jugador anterior: ${esc(ant)}">${icono("i-izq")}</a>
+          <a class="redondo" href="${rutaFicha(e, sig)}" aria-label="Jugador siguiente: ${esc(sig)}">${icono("i-der")}</a>
+        </div>
+        <div class="ficha-camiseta">${camiseta(num, portero, n.split(" ").at(-2) || n.split(" ")[0])}</div>
+        <div class="ficha-anillos">
+          ${anillo(est.jugados, est.actas || est.convocado, `${(est.actas || est.convocado) ? Math.round((est.jugados / (est.actas || est.convocado)) * 100) : 0}%`, "Participación")}
+          ${anillo(est.goles, est.jugados || 1, (est.jugados ? est.goles / est.jugados : 0).toFixed(2).replace(".", ","), "Goles por partido")}
+        </div>
+      </div>
     </section>`;
 }
 
@@ -506,20 +551,18 @@ function vistaFicha(e, id) {
 function cantera(catId) {
   if (!catId) return `${cabeceraSimple("Equipos", `${plural(EQUIPOS.length, "equipo")} esta temporada, de biberón a juvenil.`)}
     <section class="seccion" aria-label="Categorías">${muro()}</section>`;
-  const c = categoria(catId);
-  const eqs = EQUIPOS.filter((e) => e.categoria === catId);
+  const c = categoria(catId), eqs = EQUIPOS.filter((e) => e.categoria === catId);
   if (!eqs.length) return noEncontrado();
-  return `${cabeceraSimple(c.nombre, `${esc(c.edad || "")}: ${plural(eqs.length, "equipo")} esta temporada.`, `<p class="migas"><a href="#/cantera">Equipos</a></p>`)}
-    <section class="seccion" aria-label="${esc(c.nombre)}">
-      <ul class="lista-equipos">${eqs.map((e) => {
-        const p = proximo(e), pos = filaPropia(e);
-        return `<li><a href="${rutaEquipo(e)}">
-          <b>${esc(nombreEquipo(e))}</b>
-          <span>${esc(e.liga)}${pos >= 0 ? `, ${pos + 1}º con ${e.clasificacion[pos].pts} puntos` : ""}</span>
-          <span>${p ? `${esc(mayus(fechaCorta(p.fecha)))}${p.hora ? ` a las ${esc(p.hora)}` : ""}, ${p.local ? "contra" : "en casa de"} ${esc(p.rival)}` : "Sin partidos pendientes"}</span>
-        </a></li>`;
-      }).join("")}</ul>
-    </section>`;
+  return `${cabeceraSimple(c.nombre, `${esc(c.edad || "")} · ${plural(eqs.length, "equipo")} esta temporada`, `<p class="migas"><a href="#/cantera">Equipos</a></p>`)}
+    <section class="seccion" aria-label="${esc(c.nombre)}"><div class="equipos">${eqs.map((e) => {
+      const p = proximo(e), pos = filaPropia(e);
+      return `<a class="tarjeta-equipo" href="${rutaEquipo(e)}">
+        <span class="tarjeta-letra" aria-hidden="true">${esc(e.letra)}</span>
+        <strong>${esc(nombreEquipo(e))}</strong><small>${esc(e.liga)}</small>
+        ${pos >= 0 ? `<span class="tarjeta-pos"><b>${pos + 1}º</b> · ${e.clasificacion[pos].pts} pts</span>` : ""}
+        <span class="tarjeta-prox">${p ? `${esc(mayus(fechaCorta(p.fecha)))}${p.hora ? ` · ${esc(p.hora)}` : ""} · ${p.local ? "vs" : "en"} ${esc(p.rival)}` : "Sin partidos pendientes"}</span>
+      </a>`;
+    }).join("")}</div></section>`;
 }
 
 // --- Historia -----------------------------------------------------------
@@ -639,6 +682,8 @@ function render() {
     ruta === "buscar" ? buscar(a) :
     noEncontrado();
   document.body.classList.toggle("es-portada", !ruta);
+  app.querySelectorAll(".carrusel").forEach(colocarCarrusel);
+  tic();
   if (!ruta && typeof alPintarPortada === "function") alPintarPortada();
   document.title = `${ruta ? app.querySelector("h1")?.textContent.trim() + " · " : ""}${CLUB.nombre}`;
   document.querySelectorAll(".menu-enlaces a").forEach((l) => {
@@ -665,6 +710,60 @@ function entradas() {
   if (!observador) return;
   app.querySelectorAll("section, .unete, .hub").forEach((s) => { s.classList.add("entra"); observador.observe(s); });
 }
+
+function tic() {
+  for (const c of document.querySelectorAll("[data-objetivo]")) {
+    const s = Math.max(0, new Date(c.dataset.objetivo) - Date.now()) / 1000;
+    [s / 86400, (s % 86400) / 3600, (s % 3600) / 60].forEach((v, i) => { c.children[i].firstChild.textContent = String(Math.floor(v)); });
+  }
+}
+setInterval(tic, 15000);
+
+app.addEventListener("click", (ev) => {
+  const t = ev.target;
+  const sem = t.closest("[data-semana]");
+  if (sem) {
+    const abrir = sem.getAttribute("aria-expanded") !== "true", caja = sem.closest(".semana-cats");
+    caja.querySelectorAll("[data-semana]").forEach((b) => b.setAttribute("aria-expanded", b === sem && abrir));
+    caja.querySelectorAll(".semana-panel").forEach((p) => { p.hidden = !(abrir && p.id === `semana-${sem.dataset.semana}`); });
+    return;
+  }
+  const mes = t.closest("[data-mes]");
+  if (mes) {
+    const caja = mes.closest("[data-mes-equipo]"), e = equipo(caja.dataset.mesEquipo);
+    const [y, m] = mesVisto[e.id].split("-").map(Number), d = new Date(y, m - 1 + Number(mes.dataset.mes), 1);
+    mesVisto[e.id] = iso(d).slice(0, 7);
+    caja.outerHTML = calendarioMes(e);
+    return;
+  }
+  const paso = t.closest("[data-paso]");
+  if (paso) return moverCarrusel(paso.closest(".carrusel"), Number(paso.dataset.paso));
+  const carta = t.closest("[data-carta]");
+  if (carta) {
+    if (carta.classList.contains("carta--activa")) { location.hash = carta.dataset.ficha; return; }
+    const c = carta.closest(".carrusel"); c.dataset.activo = carta.dataset.carta; return colocarCarrusel(c);
+  }
+  const pes = t.closest("[data-pestana]");
+  if (pes) {
+    const caja = pes.closest("[data-pestanas]");
+    caja.querySelectorAll("[data-pestana]").forEach((b) => b.setAttribute("aria-selected", b === pes));
+    caja.querySelectorAll("[data-panel]").forEach((p) => { p.hidden = p.dataset.panel !== pes.dataset.pestana; });
+  }
+});
+
+// Deslizar el dedo pasa las camisetas
+let inicioDedo = null;
+app.addEventListener("pointerdown", (ev) => { if (ev.target.closest(".carrusel")) inicioDedo = ev.clientX; });
+app.addEventListener("pointerup", (ev) => {
+  const c = ev.target.closest(".carrusel");
+  if (c && inicioDedo != null && Math.abs(ev.clientX - inicioDedo) > 40) moverCarrusel(c, ev.clientX < inicioDedo ? 1 : -1);
+  inicioDedo = null;
+});
+
+app.addEventListener("keydown", (ev) => {
+  const c = ev.target.closest?.(".carrusel");
+  if (c && (ev.key === "ArrowLeft" || ev.key === "ArrowRight")) { moverCarrusel(c, ev.key === "ArrowLeft" ? -1 : 1); c.querySelector(".carta--activa")?.focus(); }
+});
 
 app.addEventListener("change", (ev) => {
   if (ev.target.id !== "donde-equipo") return;
