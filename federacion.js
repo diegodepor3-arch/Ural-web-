@@ -1,5 +1,5 @@
 // GENERADO por actualizar.py desde futgal.es. No editar a mano.
-const ACTUALIZADO = "2026-10-30T00:01";
+const ACTUALIZADO = "2026-10-30T06:01";
 const EQUIPOS = [
  {
   "id": "juvenil-a",
@@ -6486,7 +6486,7 @@ const EQUIPOS = [
   "urlClasificacion": "https://www.futgal.es/pnfg/NPcd/NFG_VisClasificacion?cod_primaria=1000120&codgrupo=12460933&codcompeticion=11295966",
   "actas": {},
   "dorsales": {},
-  "descargado": "2026-10-28T18:57"
+  "descargado": "2026-10-30T06:00"
  },
  {
   "id": "alevin-b-f11",
@@ -6652,7 +6652,7 @@ const EQUIPOS = [
   "escudos": {},
   "actas": {},
   "dorsales": {},
-  "descargado": "2026-10-28T23:19"
+  "descargado": "2026-10-30T06:00"
  },
  {
   "id": "alevin-a",
@@ -7358,6 +7358,45 @@ const EQUIPOS = [
     "c": [],
     "rm": {},
     "id": "1486584"
+   },
+   "1": {
+    "t": [
+     "Thiago Cano García",
+     "Raúl Herosa Vázquez",
+     "Yurem Ulla Yáñez",
+     "Iván Carreira Villamor",
+     "Alejandro Valeiro Muiño",
+     "Fernando Martínez González",
+     "Vega Baamonde Ferreiro"
+    ],
+    "s": [
+     "Nicolás Leira Vidal",
+     "Diego Canoura Seisdedos",
+     "Eduardo Gantes De La Campa",
+     "Roi Martínez Sánchez",
+     "Roque Requeijo Pazos"
+    ],
+    "e": [],
+    "g": {},
+    "a": [],
+    "r": [],
+    "d": {
+     "Thiago Cano García": 13,
+     "Raúl Herosa Vázquez": 2,
+     "Yurem Ulla Yáñez": 4,
+     "Iván Carreira Villamor": 5,
+     "Alejandro Valeiro Muiño": 8,
+     "Fernando Martínez González": 9,
+     "Vega Baamonde Ferreiro": 10,
+     "Nicolás Leira Vidal": 1,
+     "Diego Canoura Seisdedos": 3,
+     "Eduardo Gantes De La Campa": 6,
+     "Roi Martínez Sánchez": 7,
+     "Roque Requeijo Pazos": 12
+    },
+    "c": [],
+    "rm": {},
+    "id": "1486546"
    }
   },
   "dorsales": {
@@ -7376,7 +7415,7 @@ const EQUIPOS = [
    "Hugo Bodelón Rubio": 11,
    "Óliver Villar González": 14
   },
-  "descargado": "2026-10-28T23:20"
+  "descargado": "2026-10-30T06:01"
  },
  {
   "id": "alevin-b",
