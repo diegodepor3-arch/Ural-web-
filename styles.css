@@ -35,14 +35,8 @@ button { font: inherit; color: inherit; }
 .menu-enlaces a { padding: 9px 13px; border-radius: var(--radio-p); text-decoration: none; font-weight: 600; font-size: 0.9375rem; transition: background-color 0.15s; }
 .menu-enlaces a:hover, .menu-enlaces a[aria-current] { background: var(--panel-2); }
 .menu-enlaces .menu-socio { margin-left: 8px; background: var(--acento); color: var(--sobre-acento); }
-.menu-abrir { display: none; margin-left: auto; min-height: 44px; padding: 0 18px; border: 0; border-radius: var(--radio-p); background: var(--acento); color: var(--sobre-acento); font-weight: 700; cursor: pointer; }
-@media (max-width: 900px) {
-  .menu-abrir { display: block; }
-  .menu-enlaces { display: none; position: absolute; top: var(--cab); left: 0; right: 0; flex-direction: column; align-items: stretch; padding: 12px var(--m) 20px; background: var(--panel); }
-  .menu--abierto .menu-enlaces { display: flex; }
-  .menu-enlaces a { padding: 13px 14px; font-size: 1.0625rem; }
-  .menu-enlaces .menu-socio { margin: 8px 0 0; text-align: center; }
-}
+.menu-abrir-viejo { display: none; margin-left: auto; min-height: 44px; padding: 0 18px; border: 0; border-radius: var(--radio-p); background: var(--acento); color: var(--sobre-acento); font-weight: 700; cursor: pointer; }
+
 
 /* Comunes */
 .seccion, .bloque { max-width: var(--ancho); margin: 0 auto; padding: var(--hueco) var(--m) 0; }
@@ -321,3 +315,93 @@ a.partido:hover { transform: translateY(-3px); }
 .pie-creditos a { color: inherit; }
 @media (max-width: 760px) { .pie-dentro { grid-template-columns: 1fr 1fr; } .pie-club { grid-column: 1 / -1; } }
 ::view-transition-old(root), ::view-transition-new(root) { animation-duration: 0.2s; }
+
+
+/* --- Cabecera en dos niveles y barra del móvil ------------------------------ */
+.franja { display: flex; justify-content: space-between; gap: 16px; padding: 7px var(--m); background: var(--franja, #0006); color: var(--franja-tinta, #fff); font-size: 0.8125rem; font-weight: 600; }
+.franja-enlaces { display: flex; gap: 18px; }
+.franja a { text-decoration: none; }
+.franja a:hover, .franja a[aria-current] { text-decoration: underline; }
+.menu-buscar { flex: none; display: grid; place-items: center; width: 44px; height: 44px; margin-left: 4px; border: 0; border-radius: 50%; background: none; color: inherit; cursor: pointer; font-size: 1.25rem; }
+.menu-buscar:hover { background: #ffffff22; }
+.barra-movil { display: none; }
+@media (max-width: 900px) {
+  .franja span:first-child { display: none; } .franja { justify-content: flex-end; }
+  .menu-enlaces { display: none; }
+  .menu-buscar { margin-left: auto; }
+  body { padding-bottom: calc(66px + env(safe-area-inset-bottom)); }
+  .barra-movil { position: fixed; inset: auto 0 0 0; z-index: 60; display: grid; grid-template-columns: repeat(5, 1fr); padding-bottom: env(safe-area-inset-bottom); background: var(--barra, var(--panel)); color: var(--barra-tinta, var(--tinta)); box-shadow: 0 -6px 20px #0003; }
+  .barra-movil a, .barra-movil button { display: grid; justify-items: center; gap: 2px; min-height: 60px; padding: 9px 2px 6px; border: 0; background: none; color: inherit; text-decoration: none; font: 600 0.6875rem var(--letra); cursor: pointer; }
+  .barra-movil .icono { width: 22px; height: 22px; }
+  .barra-movil [aria-current] { color: var(--barra-activo, var(--acento)); }
+}
+.paleta { width: min(620px, calc(100vw - 24px)); margin: 10vh auto auto; padding: 0; border: 0; border-radius: var(--radio); background: var(--panel); color: var(--tinta); box-shadow: 0 30px 80px #0008; }
+.paleta::backdrop { background: #000a; }
+.paleta input { width: 100%; min-height: 60px; padding: 0 20px; border: 0; background: none; color: inherit; font: 500 1.125rem var(--letra); outline: none; }
+.paleta ul { display: grid; gap: 2px; padding: 8px; background: var(--panel-2); }
+.paleta a { display: flex; justify-content: space-between; gap: 16px; padding: 10px 12px; border-radius: 8px; text-decoration: none; }
+.paleta a span { font-size: 0.875rem; color: var(--suave); }
+.paleta a.activo, .paleta a:hover { background: var(--panel); }
+.paleta-nada { padding: 14px; color: var(--suave); }
+
+/* --- Centro de partidos ---------------------------------------------------- */
+.centro-barra { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 14px; }
+.semanas { display: flex; align-items: center; gap: 6px; }
+.vistas { display: inline-flex; padding: 3px; border-radius: var(--radio-p); background: var(--panel-2); }
+.vistas button { min-height: 40px; padding: 0 16px; border: 0; border-radius: var(--radio-p); background: none; color: inherit; font-weight: 700; cursor: pointer; }
+.vistas [aria-pressed="true"] { background: var(--acento); color: var(--sobre-acento); }
+.centro-barra .boton { margin-left: auto; }
+.fichas { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+.fichas a { padding: 8px 14px; border-radius: var(--radio-p); background: var(--panel-2); text-decoration: none; font-weight: 600; font-size: 0.9375rem; }
+.fichas a[aria-current] { background: var(--acento); color: var(--sobre-acento); }
+.centro-grupo { display: flex; justify-content: space-between; align-items: baseline; margin: 28px 0 10px; font-size: 1.5rem; }
+.centro-grupo small { font: 500 0.9375rem var(--letra); text-transform: none; color: var(--suave); }
+.centro-fila { display: grid; grid-template-columns: 74px minmax(130px, 0.8fr) minmax(0, 2fr) minmax(0, 1fr) 96px; gap: 14px; align-items: center; padding: 12px 14px; margin-bottom: 6px; border-radius: var(--radio); background: var(--panel); border-left: 4px solid transparent; transition: transform 0.15s var(--sale); }
+.centro-fila:hover { transform: translateX(3px); }
+.centro-fila--G { border-left-color: var(--pos); } .centro-fila--P { border-left-color: var(--neg); } .centro-fila--E { border-left-color: var(--emp); }
+.centro-hora b { display: block; font: var(--peso-titulo) 1.5rem/1 var(--titulo); font-variant-numeric: tabular-nums; }
+.centro-hora small, .centro-equipo small { color: var(--suave); font-size: 0.8125rem; }
+.centro-equipo { text-decoration: none; min-width: 0; } .centro-equipo b { display: block; }
+.centro-equipo:hover b { color: var(--acento); }
+.centro-cruce { display: flex; align-items: center; gap: 8px; min-width: 0; font-weight: 600; }
+.centro-cruce span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.centro-cruce i { font-style: normal; color: var(--suave); }
+.centro-cruce .escudo { width: 30px; height: 30px; }
+.centro-campo { font-size: 0.875rem; color: var(--suave); }
+.centro-acciones { display: flex; justify-content: flex-end; gap: 6px; }
+.centro-acciones a { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--panel-2); color: inherit; }
+.centro-acciones a:hover { background: var(--acento); color: var(--sobre-acento); }
+@media (max-width: 900px) {
+  .centro-fila { grid-template-columns: 58px minmax(0, 1fr) auto; gap: 4px 10px; }
+  .centro-hora { grid-row: span 3; }
+  .centro-cruce, .centro-campo { grid-column: 2 / -1; }
+  .centro-acciones { grid-column: 3; grid-row: 1; }
+  .centro-acciones a { width: 38px; height: 38px; }
+  .centro-barra .boton { width: 100%; margin: 0; }
+}
+
+/* --- Previa, goleadores, dos columnas ---------------------------------------- */
+.previa { padding: 20px; border-radius: var(--radio); background: var(--panel); border: 1px solid var(--borde); }
+.previa-cab { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 12px; margin-bottom: 14px; text-align: center; }
+.previa-cab div { display: grid; justify-items: center; gap: 4px; }
+.previa-cab .escudo { width: 60px; height: 60px; }
+.previa-cab span { font: var(--peso-titulo) 1.5rem var(--titulo); color: var(--suave); }
+.previa li { display: grid; grid-template-columns: 56px 1fr 56px; gap: 12px; align-items: center; padding: 7px 0; text-align: center; font-variant-numeric: tabular-nums; }
+.previa li b { font: var(--peso-titulo) 1.5rem var(--titulo); }
+.previa li b.gana { color: var(--acento); }
+.previa li span { display: block; font-size: 0.8125rem; color: var(--suave); }
+.previa i { display: block; height: 7px; border-radius: 9px; background: var(--panel-2); overflow: hidden; }
+.previa u { display: block; width: var(--p); height: 100%; background: var(--acento); transition: width 0.6s var(--sale); }
+.previa-ida { margin-top: 10px; text-align: center; color: var(--suave); }
+.dos { display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px; }
+.goleadores li { display: grid; grid-template-columns: 26px 1fr auto; gap: 10px; align-items: center; padding: 10px 12px; margin-bottom: 5px; border-radius: 12px; background: var(--panel); }
+.goleadores li > span { color: var(--suave); font-weight: 700; }
+.goleadores a { text-decoration: none; min-width: 0; } .goleadores a b { display: block; } .goleadores a:hover b { color: var(--acento); }
+.goleadores small { color: var(--suave); font-size: 0.8125rem; }
+.goleadores strong { font: var(--peso-titulo) 1.75rem/1 var(--titulo); color: var(--acento); font-variant-numeric: tabular-nums; }
+.cab-acciones { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+button.pastilla { border: 0; cursor: pointer; color: inherit; }
+.pastilla[aria-pressed="true"] { background: var(--acento); color: var(--sobre-acento); }
+.cartel-mas { display: flex; flex-wrap: wrap; gap: 4px 20px; }
+.cartel-mas .enlace { margin-top: 2px; }
+@media (max-width: 860px) { .dos { grid-template-columns: 1fr; } }

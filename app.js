@@ -9,6 +9,8 @@ const plural = (n, s, p = `${s}s`) => `${n} ${n === 1 ? s : p}`;
 
 // Fotos de A Coruña y del fútbol gallego (Wikimedia Commons, créditos en el pie). Ninguna es del club.
 const FOTO = {
+  red: { src: "assets/red-porteria.jpg", alt: "Red de una portería sobre el césped", w: 1600, h: 1200 },
+  niebla: { src: "assets/porteria-niebla.jpg", alt: "Portería de un campo de fútbol en la niebla", w: 1600, h: 1063 },
   galerias: { src: "assets/a-coruna-galerias-07.jpg", alt: "Galerías de la Marina, A Coruña", w: 1600, h: 1200 },
   galeriasDetalle: { src: "assets/galerias-glazed-window-balconies-a-coruna-galicia.jpg", alt: "Detalle de las galerías acristaladas de A Coruña", w: 1009, h: 1600 },
   partido: { src: "assets/ud-ourense-villalonga-cf-lance-do-xogo.jpg", alt: "Partido de fútbol gallego: UD Ourense contra Villalonga", w: 1600, h: 958 },
@@ -108,8 +110,10 @@ function cartel(e) {
     <p class="cartel-acciones">
       <a class="boton" href="${calendarioIcs(p, e)}" download="ural-${e.id}-j${p.jornada}.ics">Añadir al calendario</a>
       ${mapa ? `<a class="boton boton--claro" href="${mapa}" target="_blank" rel="noopener">Cómo llegar</a>` : ""}
-      <a class="enlace" href="${rutaEquipo(e)}">Todo su calendario ${icono("i-flecha")}</a>
-    </p>`;
+      <a class="boton boton--claro" href="${enlaceWhatsapp({ ...p, e })}" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+    </p>
+    <p class="cartel-mas"><a class="enlace" href="${rutaEquipo(e)}">Ver su página ${icono("i-flecha")}</a>
+      <a class="enlace" href="${calendarioTemporada(e)}" download="ural-${e.id}.ics">Toda la temporada al calendario</a></p>`;
 }
 
 // Evento .ics para el calendario del móvil: hora local de A Coruña, hora y media de partido
@@ -127,6 +131,134 @@ function calendarioIcs(p, e) {
     `LOCATION:${p.campo || "Campo por confirmar"}`, "END:VEVENT", "END:VCALENDAR"].join("\r\n");
   return `data:text/calendar;charset=utf-8,${encodeURIComponent(ics)}`;
 }
+
+// --- Lo propio de la web del Ural -----------------------------------------
+const urlPublica = () => location.href.split("#")[0];
+const textoPartido = (p) => `${nombreEquipo(p.e)}: ${cruce(p)}, ${mayus(fechaCorta(p.fecha))}${p.hora ? ` a las ${p.hora}` : ""}${p.campo ? `, ${p.campo}` : ""}.`;
+const enlaceWhatsapp = (p) => `https://wa.me/?text=${encodeURIComponent(`${textoPartido(p)} ${urlPublica()}${rutaEquipo(p.e)}`)}`;
+const enlaceMapa = (campo) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${campo}, A Coruña`)}`;
+const lunesDe = (d) => sumarDias(d, -((d.getDay() + 6) % 7));
+
+// Toda la temporada en un archivo .ics
+function calendarioTemporada(e) {
+  const hhmm = (min) => `${String(Math.floor(min / 60) % 24).padStart(2, "0")}${String(min % 60).padStart(2, "0")}00`;
+  const eventos = e.partidos.filter((p) => p.fecha && !p.resultado).map((p) => {
+    const f = p.fecha.replaceAll("-", ""), [h, m] = (p.hora || "0:0").split(":").map(Number), ini = h * 60 + m;
+    return ["BEGIN:VEVENT", `UID:${e.id}-${p.jornada}@ural-web`, ...(p.hora ? [`DTSTART;TZID=Europe/Madrid:${f}T${hhmm(ini)}`, `DTEND;TZID=Europe/Madrid:${f}T${hhmm(ini + 90)}`] : [`DTSTART;VALUE=DATE:${f}`]),
+      `SUMMARY:${nombreEquipo(e)}: ${cruce(p)}`, `LOCATION:${p.campo || "Campo por confirmar"}`, "END:VEVENT"].join("\r\n");
+  });
+  return `data:text/calendar;charset=utf-8,${encodeURIComponent(["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Ural Español CF//Web//ES", ...eventos, "END:VCALENDAR"].join("\r\n"))}`;
+}
+
+// Goleadores: de las actas; el Juvenil A, de los totales de lapreferente
+function goleadoresEquipo(e) {
+  const t = {};
+  if (Object.keys(e.actas || {}).length) {
+    for (const a of Object.values(e.actas)) for (const [n, g] of Object.entries(a.g || {})) t[n] = (t[n] || 0) + g;
+  } else for (const [n, d] of Object.entries(e.perfiles?.jugadores || {})) if (d.goles) t[n] = d.goles;
+  return Object.entries(t).map(([n, g]) => ({ n, g, e })).sort((x, y) => y.g - x.g);
+}
+const goleadoresClub = (n = 5) => EQUIPOS.flatMap(goleadoresEquipo).sort((x, y) => y.g - x.g).slice(0, n);
+const listaGoleadores = (lista) => lista.length ? `<ol class="goleadores">${lista.map((x, i) =>
+  `<li><span>${i + 1}</span><a href="${rutaFicha(x.e, x.n)}"><b>${esc(x.n)}</b><small>${esc(nombreEquipo(x.e))}</small></a><strong data-cuenta="${x.g}">${x.g}</strong></li>`).join("")}</ol>` : vacio("Aún no hay goles en las actas publicadas.");
+
+// La previa: cómo llegan los dos equipos, con los datos de la clasificación
+function caraACara(e, p) {
+  const yo = e.clasificacion.find((f) => f.propio), el = e.clasificacion.find((f) => normal(f.equipo) === normal(p.rival));
+  if (!yo || !el) return "";
+  const pos = (f) => e.clasificacion.indexOf(f) + 1;
+  const fila = (t, a, b, invertido = false) => {
+    const total = Math.abs(a) + Math.abs(b) || 1, mejor = invertido ? a < b : a > b;
+    return `<li><b${mejor ? ' class="gana"' : ""}>${a}</b><div><span>${t}</span><i><u style="--p:${(Math.abs(a) / total) * 100}%"></u></i></div><b${!mejor && a !== b ? ' class="gana"' : ""}>${b}</b></li>`;
+  };
+  const ida = e.partidos.find((x) => x.resultado && normal(x.rival) === normal(p.rival));
+  return `<section class="seccion" aria-labelledby="previa-t"><h2 class="titulo" id="previa-t">La previa</h2>
+    <div class="previa">
+      <div class="previa-cab"><div>${nuestro}<strong>${esc(CLUB.corto)}</strong></div><span>VS</span><div>${escudoDe(e, p.rival)}<strong>${esc(p.rival)}</strong></div></div>
+      <ul>${fila("Posición", pos(yo), pos(el), true)}${fila("Puntos", yo.pts, el.pts)}${fila("Goles a favor", yo.gf, el.gf)}${fila("Goles en contra", yo.gc, el.gc, true)}${fila("Victorias", yo.g, el.g)}</ul>
+      ${ida ? `<p class="previa-ida">En la ida: ${esc(cruce(ida))}, ${esc(ida.resultado)}.</p>` : ""}
+    </div></section>`;
+}
+
+// Centro de partidos: todo el club, por semanas, por categoría y por campo
+let vistaCentro = "dia";
+function filaCentro(p) {
+  const m = p.resultado && marcador(p), [casa, fuera] = lados(p);
+  return `<li class="centro-fila${m ? ` centro-fila--${m.res}` : ""}">
+    <span class="centro-hora">${m ? `<b class="res-txt-${m.res}">${m.l}-${m.v}</b>` : `<b>${esc(p.hora || "--:--")}</b>`}<small>${esc(mayus(fmt(p.fecha, { weekday: "short" })))}</small></span>
+    <a class="centro-equipo" href="${rutaEquipo(p.e)}"><b>${esc(nombreEquipo(p.e))}</b><small>${esc(p.e.liga)}</small></a>
+    <span class="centro-cruce">${casa.img}<span>${esc(casa.n)}</span><i>–</i><span>${esc(fuera.n)}</span>${fuera.img}</span>
+    <span class="centro-campo">${p.campo ? `<a href="${enlaceMapa(p.campo)}" target="_blank" rel="noopener">${esc(p.campo)}</a>` : "Campo por confirmar"}</span>
+    <span class="centro-acciones">${m ? "" : `<a href="${calendarioIcs(p, p.e)}" download="ural-${p.e.id}-j${p.jornada}.ics" aria-label="Añadir al calendario: ${esc(cruce(p))}" title="Añadir al calendario">${icono("i-cal")}</a>
+      <a href="${enlaceWhatsapp(p)}" target="_blank" rel="noopener" aria-label="Enviar por WhatsApp: ${esc(cruce(p))}" title="Enviar por WhatsApp">${icono("i-enviar")}</a>`}</span>
+  </li>`;
+}
+function centroPartidos(lun = "", cat = "") {
+  const base = lun ? dia(lun) : lunesDe(hoy()), fin = sumarDias(base, 6);
+  const semana = todosLosPartidos().filter((p) => p.fecha && dia(p.fecha) >= base && dia(p.fecha) <= fin)
+    .sort((x, y) => (x.fecha + (x.hora || "99")).localeCompare(y.fecha + (y.hora || "99")));
+  const lista = cat ? semana.filter((p) => p.e.categoria === cat) : semana;
+  const cats = CATEGORIAS.filter((c) => semana.some((p) => p.e.categoria === c.id));
+  const url = (d, c = cat) => `#/partidos/${iso(d)}${c ? `/${c}` : ""}`;
+  const grupos = vistaCentro === "campo"
+    ? [...new Set(lista.map((p) => p.campo || "Campo por confirmar"))].sort().map((c) => [c, lista.filter((p) => (p.campo || "Campo por confirmar") === c)])
+    : [...new Set(lista.map((p) => p.fecha))].map((f) => [mayus(fmt(f, { weekday: "long", day: "numeric", month: "long" })), lista.filter((p) => p.fecha === f)]);
+  return `${cabeceraSimple("Centro de partidos", `${plural(semana.length, "partido")} del ${esc(fmt(iso(base), { day: "numeric", month: "long" }))} al ${esc(fmt(iso(fin), { day: "numeric", month: "long" }))}`)}
+    <section class="seccion centro" aria-label="Partidos de la semana">
+      <div class="centro-barra">
+        <nav class="semanas" aria-label="Cambiar de semana"><a class="redondo" href="${url(sumarDias(base, -7))}" aria-label="Semana anterior">${icono("i-izq")}</a><a class="pastilla" href="#/partidos">Esta semana</a><a class="redondo" href="${url(sumarDias(base, 7))}" aria-label="Semana siguiente">${icono("i-der")}</a></nav>
+        <div class="vistas" role="group" aria-label="Ordenar"><button type="button" data-vista="dia" aria-pressed="${vistaCentro === "dia"}">Por día</button><button type="button" data-vista="campo" aria-pressed="${vistaCentro === "campo"}">Por campo</button></div>
+        ${lista.some((p) => !p.resultado) ? `<button type="button" class="boton" data-cartel="${iso(base)}|${cat}">Descargar el cartel</button>` : ""}
+      </div>
+      <nav class="fichas" aria-label="Categoría"><a href="${url(base, "")}"${cat ? "" : ' aria-current="true"'}>Todas</a>${cats.map((c) => `<a href="${url(base, c.id)}"${cat === c.id ? ' aria-current="true"' : ""}>${esc(c.nombre)}</a>`).join("")}</nav>
+      ${grupos.map(([t, ps]) => `<h2 class="centro-grupo">${esc(t)}<small>${plural(ps.length, "partido")}</small></h2><ul>${ps.map(filaCentro).join("")}</ul>`).join("") || vacio("No hay partidos publicados esta semana.")}
+    </section>`;
+}
+
+// Cartel del fin de semana: una imagen lista para Instagram o WhatsApp, hecha con los datos reales
+async function generarCartel(partidos, titulo) {
+  await document.fonts.ready;
+  const css = getComputedStyle(document.documentElement), v = (n, d) => css.getPropertyValue(n).trim() || d;
+  const fondo = v("--cartel-fondo", "#0d8a3e"), oscuro = v("--cartel-oscuro", "#0a4a24"), acento = v("--cartel-acento", "#ffffff"), letraT = v("--titulo", "sans-serif"), letraB = v("--letra", "sans-serif");
+  const c = document.createElement("canvas"); c.width = 1080; c.height = 1350;
+  const x = c.getContext("2d");
+  const cargar = (src) => new Promise((ok) => { const i = new Image(); i.onload = () => ok(i); i.onerror = () => ok(null); i.src = src; });
+  x.fillStyle = fondo; x.fillRect(0, 0, 1080, 1350);
+  x.fillStyle = oscuro; x.beginPath(); x.moveTo(0, 0); x.lineTo(1080, 0); x.lineTo(1080, 150); x.lineTo(0, 300); x.closePath(); x.fill();
+  const escudo = await cargar("img/escudo.png");
+  if (escudo) x.drawImage(escudo, 64, 56, 150, 142);
+  x.fillStyle = "#fff"; x.font = `800 86px ${letraT}`; x.fillText(titulo.toUpperCase(), 244, 130);
+  x.font = `600 34px ${letraB}`; x.fillStyle = acento; x.fillText("Ural Español C.F.", 248, 180);
+  const lista = partidos.slice(0, 15), alto = Math.min(68, 950 / Math.max(1, lista.length)), y0 = 330;
+  for (let i = 0; i < lista.length; i++) {
+    const p = lista[i], y = y0 + i * alto;
+    x.fillStyle = i % 2 ? "#ffffff12" : "#00000022"; x.fillRect(48, y, 984, alto - 6);
+    x.textBaseline = "middle"; const my = y + (alto - 6) / 2;
+    x.fillStyle = acento; x.font = `700 28px ${letraB}`; x.fillText(`${mayus(fmt(p.fecha, { weekday: "short" }))} ${p.hora || ""}`, 68, my);
+    x.fillStyle = "#fff"; x.font = `700 28px ${letraB}`; x.fillText(nombreEquipo(p.e), 268, my, 300);
+    x.font = `400 26px ${letraB}`; x.fillText(`${p.local ? "vs" : "en"} ${p.rival}`, 580, my, 440);
+  }
+  x.textBaseline = "alphabetic"; x.fillStyle = "#fff"; x.font = `600 28px ${letraB}`;
+  x.fillText(partidos.length > 15 ? `y ${partidos.length - 15} partidos más en la web del club` : "Toda la información en la web del club", 64, 1300);
+  return new Promise((ok) => c.toBlob(ok, "image/png"));
+}
+async function descargarCartel(lun, cat) {
+  const base = dia(lun), fin = sumarDias(base, 6);
+  const ps = todosLosPartidos().filter((p) => p.fecha && !p.resultado && dia(p.fecha) >= base && dia(p.fecha) <= fin && (!cat || p.e.categoria === cat))
+    .sort((x, y) => (x.fecha + (x.hora || "99")).localeCompare(y.fecha + (y.hora || "99")));
+  const blob = await generarCartel(ps, "Este finde");
+  const archivo = new File([blob], "ural-este-finde.png", { type: "image/png" });
+  if (navigator.canShare?.({ files: [archivo] })) { try { await navigator.share({ files: [archivo], title: "Ural Español: este finde" }); return; } catch { /* cancelado: se descarga */ } }
+  const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = archivo.name; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+}
+
+// Mi equipo: la web recuerda tu equipo en este dispositivo
+function miEquipo() {
+  const e = equipo(recordado());
+  if (e) return vistaEquipo(e.id);
+  return `${cabeceraSimple("Mi equipo", "Elige el equipo que sigues y lo tendrás siempre a mano en este móvil.")}<section class="seccion" aria-label="Elegir equipo">${muro()}</section>`;
+}
+const seguir = (id) => { try { id ? localStorage.setItem(CLAVE_EQUIPO, id) : localStorage.removeItem(CLAVE_EQUIPO); } catch { /* sin almacenamiento: solo no se recuerda */ } };
 
 // --- Piezas de club ------------------------------------------------------
 const lados = (p) => p.local
@@ -299,6 +431,8 @@ function vistaEquipo(id, sub = "", jugador = "") {
         <h1 class="cab-titulo">${esc(SECCION[sub] || nombreEquipo(e))}</h1>
         <p class="cab-sub">${sub ? `${esc(nombreEquipo(e))} · ` : ""}${esc(e.competicion || e.liga)}</p>
         <p class="fuente"><span class="punto"></span>Datos de ${esc(e.fuente || "futgal.es")}${e.descargado ? ` · actualizado ${esc(actualizado(e.descargado))}` : ""}</p>
+        <p class="cab-acciones"><button type="button" class="pastilla" data-seguir="${e.id}" aria-pressed="${recordado() === e.id}">${recordado() === e.id ? "Es mi equipo" : "Seguir este equipo"}</button>
+          ${e.partidos.some((x) => !x.resultado) ? `<a class="pastilla" href="${calendarioTemporada(e)}" download="ural-${e.id}.ics">Temporada al calendario</a>` : ""}</p>
       </div>
       ${p ? tarjetaProximo(p) : ""}
     </section>`;
@@ -324,7 +458,11 @@ function vistaEquipo(id, sub = "", jugador = "") {
       <a class="hub-tarjeta" href="${rutaEquipo(e)}/clasificacion"><span class="hub-dato">${fila ? `<b>${pos + 1}º</b><small>${fila.pts} pts</small>` : "<b>–</b>"}</span>
         <span class="hub-texto"><strong>Clasificación</strong><small>${fila ? `De ${e.clasificacion.length} equipos` : "Pendiente de la federación"}</small></span></a>
     </nav>
-    <section class="seccion" aria-labelledby="perfil-titulo"><h2 class="titulo" id="perfil-titulo">Así va la temporada</h2>${perfilTemporada(jugados)}</section>
+    ${p ? caraACara(e, p) : ""}
+    <section class="seccion dos" aria-label="La temporada">
+      <div><h2 class="titulo">Así va la temporada</h2>${perfilTemporada(jugados)}</div>
+      <div><h2 class="titulo">Goleadores</h2>${listaGoleadores(goleadoresEquipo(e).slice(0, 6))}</div>
+    </section>
     ${videos("highlight").length ? `<section class="seccion"><h2 class="titulo">Resúmenes</h2>${listaVideos(videos("highlight"))}</section>` : ""}
     ${videos("entrevista").length ? `<section class="seccion"><h2 class="titulo">Entrevistas</h2>${listaVideos(videos("entrevista"))}</section>` : ""}`;
 }
@@ -675,6 +813,8 @@ function render() {
     !ruta ? inicio() :
     ruta === "equipo" ? vistaEquipo(a, sub, extra) :
     ruta === "cantera" ? cantera(a) :
+    ruta === "partidos" ? centroPartidos(a, sub) :
+    ruta === "mi-equipo" ? miEquipo() :
     ruta === "historia" ? historia() :
     ruta === "noticias" ? `${cabeceraSimple("Noticias", "La actualidad del club.")}<section class="seccion" aria-label="Noticias">${listaNoticias(NOTICIAS)}</section>` :
     ruta === "noticia" ? noticia(a) :
@@ -684,9 +824,10 @@ function render() {
   document.body.classList.toggle("es-portada", !ruta);
   app.querySelectorAll(".carrusel").forEach(colocarCarrusel);
   tic();
+  contadores();
   if (!ruta && typeof alPintarPortada === "function") alPintarPortada();
   document.title = `${ruta ? app.querySelector("h1")?.textContent.trim() + " · " : ""}${CLUB.nombre}`;
-  document.querySelectorAll(".menu-enlaces a").forEach((l) => {
+  document.querySelectorAll("[data-seccion]").forEach((l) => {
     const s = l.dataset.seccion;
     l.toggleAttribute("aria-current", s ? `${ruta}/${a}`.startsWith(s) || ruta === s : !ruta);
   });
@@ -711,6 +852,44 @@ function entradas() {
   app.querySelectorAll("section, .unete, .hub").forEach((s) => { s.classList.add("entra"); observador.observe(s); });
 }
 
+// Buscador rápido: botón de la cabecera o Ctrl+K
+function resultadosPaleta(q) {
+  const t = normal(q.trim());
+  const items = [
+    ...CATEGORIAS.filter((c) => EQUIPOS.some((e) => e.categoria === c.id)).map((c) => ({ t: c.nombre, s: "Categoría", h: `#/cantera/${c.id}` })),
+    ...EQUIPOS.map((e) => ({ t: nombreEquipo(e), s: e.liga, h: rutaEquipo(e) })),
+    ...EQUIPOS.flatMap((e) => e.plantilla.map((n) => ({ t: n, s: nombreEquipo(e), h: rutaFicha(e, n) }))),
+  ];
+  return (t ? items.filter((i) => normal(`${i.t} ${i.s}`).includes(t)) : items).slice(0, 8);
+}
+const paleta = document.getElementById("paleta");
+const pintarPaleta = (q) => { paleta.querySelector("ul").innerHTML = resultadosPaleta(q).map((i, n) => `<li><a href="${i.h}"${n === 0 ? ' class="activo"' : ""}><b>${esc(i.t)}</b><span>${esc(i.s)}</span></a></li>`).join("") || `<li class="paleta-nada">Sin resultados</li>`; };
+function abrirPaleta() { if (!paleta.open) paleta.showModal(); paleta.querySelector("input").value = ""; pintarPaleta(""); paleta.querySelector("input").focus(); }
+document.querySelectorAll("[data-paleta]").forEach((b) => b.addEventListener("click", abrirPaleta));
+paleta.querySelector("input").addEventListener("input", (ev) => pintarPaleta(ev.target.value));
+paleta.addEventListener("click", (ev) => { if (ev.target === paleta || ev.target.closest("a")) paleta.close(); });
+paleta.addEventListener("keydown", (ev) => {
+  if (ev.key === "Enter") { const l = paleta.querySelector("a.activo"); if (l) { location.hash = l.getAttribute("href"); paleta.close(); } }
+  if (ev.key === "ArrowDown" || ev.key === "ArrowUp") {
+    ev.preventDefault();
+    const l = [...paleta.querySelectorAll("a")], i = l.findIndex((x) => x.classList.contains("activo")), n = (i + (ev.key === "ArrowDown" ? 1 : -1) + l.length) % l.length;
+    l.forEach((x, k) => x.classList.toggle("activo", k === n));
+  }
+});
+addEventListener("keydown", (ev) => { if ((ev.ctrlKey || ev.metaKey) && ev.key.toLowerCase() === "k") { ev.preventDefault(); abrirPaleta(); } });
+
+// Las cifras suben al aparecer
+const contador = "IntersectionObserver" in window && new IntersectionObserver((vistas) => {
+  for (const v of vistas) {
+    if (!v.isIntersecting) continue;
+    contador.unobserve(v.target);
+    const fin = Number(v.target.dataset.cuenta), t0 = performance.now();
+    const paso = (t) => { const k = Math.min(1, (t - t0) / 700); v.target.textContent = Math.round(fin * (1 - (1 - k) ** 3)); if (k < 1) requestAnimationFrame(paso); };
+    requestAnimationFrame(paso);
+  }
+});
+function contadores() { if (contador && !matchMedia("(prefers-reduced-motion: reduce)").matches) app.querySelectorAll("[data-cuenta]").forEach((n) => contador.observe(n)); }
+
 function tic() {
   for (const c of document.querySelectorAll("[data-objetivo]")) {
     const s = Math.max(0, new Date(c.dataset.objetivo) - Date.now()) / 1000;
@@ -721,6 +900,22 @@ setInterval(tic, 15000);
 
 app.addEventListener("click", (ev) => {
   const t = ev.target;
+  const vis = t.closest("[data-vista]");
+  if (vis) { vistaCentro = vis.dataset.vista; render(); return; }
+  const car = t.closest("[data-cartel]");
+  if (car) {
+    const [l, c] = car.dataset.cartel.split("|"), txt = car.textContent;
+    car.disabled = true; car.textContent = "Preparando…";
+    descargarCartel(l, c).finally(() => { car.disabled = false; car.textContent = txt; });
+    return;
+  }
+  const seg = t.closest("[data-seguir]");
+  if (seg) {
+    const ya = recordado() === seg.dataset.seguir;
+    seguir(ya ? "" : seg.dataset.seguir);
+    seg.setAttribute("aria-pressed", !ya); seg.textContent = ya ? "Seguir este equipo" : "Es mi equipo";
+    return;
+  }
   const sem = t.closest("[data-semana]");
   if (sem) {
     const abrir = sem.getAttribute("aria-expanded") !== "true", caja = sem.closest(".semana-cats");
@@ -797,6 +992,7 @@ document.getElementById("pie-contacto").innerHTML = [CLUB.direccion && ` ${esc(C
   CLUB.email && ` <a href="mailto:${esc(CLUB.email)}">${esc(CLUB.email)}</a>`].filter(Boolean).join("");
 document.getElementById("pie-x").href = CLUB.x;
 document.getElementById("pie-fed").href = CLUB.federacion;
+document.getElementById("franja-fed").href = CLUB.federacion;
 document.getElementById("pie-fuente").textContent =
   `Partidos, plantillas y clasificaciones: Real Federación Galega de Fútbol (futgal.es)${typeof ACTUALIZADO === "string" && ACTUALIZADO ? `, actualizado ${new Date(ACTUALIZADO).toLocaleString("es-ES", { dateStyle: "medium", timeStyle: "short" })}` : ""}.`;
 

@@ -16,6 +16,12 @@
     <symbol id="i-diagonal" viewBox="0 0 24 24"><path d="M6 18 18 6M8 6h10v10" fill="none" stroke="currentColor" stroke-width="2.4"/></symbol>
     <symbol id="i-izq" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4"/></symbol>
     <symbol id="i-der" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4"/></symbol>
+    <symbol id="i-buscar" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M15.5 15.5 21 21" stroke="currentColor" stroke-width="2.2"/></symbol>
+    <symbol id="i-cal" viewBox="0 0 24 24"><path d="M4 6h16v15H4zM4 10h16M8 3v5M16 3v5" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-enviar" viewBox="0 0 24 24"><path d="M21 3 10 14M21 3l-7 18-4-7-7-4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-inicio" viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9h-5v-6H9v6H4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-estrella" viewBox="0 0 24 24"><path d="m12 3 2.7 5.9 6.3.7-4.7 4.3 1.3 6.3L12 17.1l-5.6 3.1 1.3-6.3L3 9.6l6.3-.7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-equipos" viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.500-1 8-4 8-9V6z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
     <defs>
       <linearGradient id="tela-jugador" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--cam-a)"/><stop offset="1" style="stop-color:var(--cam-b)"/></linearGradient>
       <linearGradient id="tela-portero" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--por-a)"/><stop offset="1" style="stop-color:var(--por-b)"/></linearGradient>
@@ -25,23 +31,39 @@
 
   <a class="saltar" href="#app">Ir al contenido</a>
 
+  <div class="franja">
+    <span>Temporada 2026-27 · Fútbol base desde 1929</span>
+    <span class="franja-enlaces"><a href="#/mi-equipo" data-seccion="mi-equipo">Mi equipo</a><a href="#/noticias">Noticias</a><a id="franja-fed" target="_blank" rel="noopener">Federación</a></span>
+  </div>
   <header class="menu">
     <a href="#/" class="menu-marca" aria-label="Inicio · Ural Español C.F.">
-      <img src="img/escudo.png" alt="" width="40" height="38">
+      <img src="img/escudo.png" alt="" width="64" height="60">
       <span translate="no">Ural Español C.F.</span>
     </a>
-    <button class="menu-abrir" type="button" aria-expanded="false" aria-controls="menu-enlaces">Menú</button>
     <nav class="menu-enlaces" id="menu-enlaces" aria-label="Principal">
+      <a href="#/partidos" data-seccion="partidos">Partidos</a>
       <a href="#/cantera" data-seccion="cantera">Equipos</a>
       <a href="#/equipo/juvenil-a" data-seccion="equipo/juvenil-a">Juvenil A</a>
       <a href="#/historia" data-seccion="historia">Historia</a>
-      <a href="#/noticias" data-seccion="noticias">Noticias</a>
-      <a href="#/buscar" data-seccion="buscar">Buscar</a>
       <a href="#/socios" data-seccion="socios" class="menu-socio">Hazte socio</a>
     </nav>
+    <button class="menu-buscar" type="button" data-paleta aria-label="Buscar jugador o equipo"><svg class="icono" aria-hidden="true"><use href="#i-buscar"/></svg></button>
   </header>
 
   <main id="app" tabindex="-1"></main>
+
+  <nav class="barra-movil" aria-label="Accesos rápidos">
+    <a href="#/" data-seccion=""><svg class="icono" aria-hidden="true"><use href="#i-inicio"/></svg>Inicio</a>
+    <a href="#/partidos" data-seccion="partidos"><svg class="icono" aria-hidden="true"><use href="#i-cal"/></svg>Partidos</a>
+    <a href="#/mi-equipo" data-seccion="mi-equipo"><svg class="icono" aria-hidden="true"><use href="#i-estrella"/></svg>Mi equipo</a>
+    <a href="#/cantera" data-seccion="cantera"><svg class="icono" aria-hidden="true"><use href="#i-equipos"/></svg>Equipos</a>
+    <button type="button" data-paleta><svg class="icono" aria-hidden="true"><use href="#i-buscar"/></svg>Buscar</button>
+  </nav>
+
+  <dialog class="paleta" id="paleta" aria-label="Buscar">
+    <input type="search" placeholder="Busca un jugador, equipo o categoría…" autocomplete="off" spellcheck="false" aria-label="Buscar">
+    <ul></ul>
+  </dialog>
 
   <footer class="pie">
     <div class="pie-dentro">
@@ -50,7 +72,7 @@
       <nav aria-label="Enlaces"><a id="pie-x" target="_blank" rel="noopener">X / Twitter</a><a id="pie-fed" target="_blank" rel="noopener">El club en la federación</a><a href="#/buscar">Buscar</a></nav>
     </div>
     <p id="pie-fuente"></p>
-    <p class="pie-creditos">Fotos de A Coruña y del fútbol gallego (Wikimedia Commons): <a href="https://commons.wikimedia.org/wiki/File:UD_Ourense_-_Villalonga_CF,_lance_do_xogo_3.jpg">UD Ourense - Villalonga CF, lance do xogo 3</a>, Estevoaei, CC BY-SA 4.0; <a href="https://commons.wikimedia.org/wiki/File:Torre_de_H%C3%A9rcules_-_DivesGallaecia2012-62.jpg">Torre de Hércules - DivesGallaecia2012-62</a>, Luis Miguel Bugallo Sánchez (Lmbuga), CC BY-SA 3.0; <a href="https://commons.wikimedia.org/wiki/File:Galer%C3%ADas_(glazed_window_balconies),_A_Coru%C3%B1a,_Galicia,_Spain_(PPL1-Corrected)_2_julesvernex2.jpg">Galerías (glazed window balconies), A Coruña, Galicia, Spain</a>, Jules Verne Times Two, CC BY-SA 4.0; <a href="https://commons.wikimedia.org/wiki/File:Playa_de_El_Orz%C3%A1n_-_panoramio.jpg">Playa de El Orzán - panoramio</a>, Santi Garcia, CC BY 3.0; <a href="https://commons.wikimedia.org/wiki/File:R%C3%BAa_Real,_d%C3%ADa_de_lluvia_-_panoramio.jpg">Rúa Real, día de lluvia - panoramio</a>, carrodeguas, CC BY-SA 3.0.</p>
+    <p class="pie-creditos">Fotos de ambiente (Wikimedia Commons): <a href="https://commons.wikimedia.org/wiki/File:UD_Ourense_-_Villalonga_CF,_lance_do_xogo_3.jpg">UD Ourense - Villalonga CF, lance do xogo 3</a>, Estevoaei, CC BY-SA 4.0; <a href="https://commons.wikimedia.org/wiki/File:Torre_de_H%C3%A9rcules_-_DivesGallaecia2012-62.jpg">Torre de Hércules - DivesGallaecia2012-62</a>, Luis Miguel Bugallo Sánchez (Lmbuga), CC BY-SA 3.0; <a href="https://commons.wikimedia.org/wiki/File:A_Coru%C3%B1a_-_Galer%C3%ADas_07.JPG">A Coruña - Galerías 07</a>, Zarateman, CC0; <a href="https://commons.wikimedia.org/wiki/File:Galer%C3%ADas_(glazed_window_balconies),_A_Coru%C3%B1a,_Galicia,_Spain_(PPL1-Corrected)_2_julesvernex2.jpg">Galerías (glazed window balconies), A Coruña, Galicia, Spain</a>, Jules Verne Times Two, CC BY-SA 4.0; <a href="https://commons.wikimedia.org/wiki/File:Playa_de_El_Orz%C3%A1n_-_panoramio.jpg">Playa de El Orzán - panoramio</a>, Santi Garcia, CC BY 3.0; <a href="https://commons.wikimedia.org/wiki/File:R%C3%BAa_Real,_d%C3%ADa_de_lluvia_-_panoramio.jpg">Rúa Real, día de lluvia - panoramio</a>, carrodeguas, CC BY-SA 3.0; <a href="https://commons.wikimedia.org/wiki/File:Grass_roots_English_football_-_geograph.org.uk_-_4234422.jpg">Grass roots English football - geograph.org.uk - 4234422</a>, Fernweh, CC BY-SA 2.0; <a href="https://commons.wikimedia.org/wiki/File:Football_goal_net.jpg">Football goal net</a>, Santeri Viinamäki, CC BY-SA 4.0.</p>
   </footer>
 
   <script src="data.js"></script>
