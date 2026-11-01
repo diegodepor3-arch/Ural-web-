@@ -1,5 +1,5 @@
 // GENERADO por actualizar.py desde futgal.es. No editar a mano.
-const ACTUALIZADO = "2026-11-01T19:48";
+const ACTUALIZADO = "2026-11-01T23:42";
 const EQUIPOS = [
  {
   "id": "juvenil-a",
@@ -7119,7 +7119,7 @@ const EQUIPOS = [
   "urlClasificacion": "https://www.futgal.es/pnfg/NPcd/NFG_VisClasificacion?cod_primaria=1000120&codgrupo=12460933&codcompeticion=11295966",
   "actas": {},
   "dorsales": {},
-  "descargado": "2026-10-31T20:05"
+  "descargado": "2026-11-01T23:42"
  },
  {
   "id": "alevin-b-f11",
@@ -12173,57 +12173,57 @@ const EQUIPOS = [
    },
    {
     "equipo": "COMPAÑIA DE MARIA",
-    "pts": 9,
-    "pj": 4,
-    "g": 3,
+    "pts": 12,
+    "pj": 5,
+    "g": 4,
     "e": 0,
     "p": 1,
-    "gf": 9,
+    "gf": 13,
     "gc": 3,
     "propio": false
    },
    {
     "equipo": "LICEO DE MONELOS S.D.",
-    "pts": 9,
-    "pj": 4,
-    "g": 3,
+    "pts": 12,
+    "pj": 5,
+    "g": 4,
     "e": 0,
     "p": 1,
-    "gf": 10,
+    "gf": 14,
     "gc": 4,
+    "propio": false
+   },
+   {
+    "equipo": "CLUB XESUITINAS",
+    "pts": 7,
+    "pj": 5,
+    "g": 2,
+    "e": 1,
+    "p": 2,
+    "gf": 5,
+    "gc": 7,
     "propio": false
    },
    {
     "equipo": "URAL ESPAÑOL C.F. \"B\"",
     "pts": 6,
-    "pj": 4,
+    "pj": 5,
     "g": 2,
     "e": 0,
-    "p": 2,
+    "p": 3,
     "gf": 8,
-    "gc": 5,
+    "gc": 6,
     "propio": true
    },
    {
     "equipo": "SANTA MARIA DEL MAR \"B\"",
     "pts": 6,
-    "pj": 4,
+    "pj": 5,
     "g": 2,
     "e": 0,
-    "p": 2,
+    "p": 3,
     "gf": 7,
-    "gc": 7,
-    "propio": false
-   },
-   {
-    "equipo": "CLUB XESUITINAS",
-    "pts": 4,
-    "pj": 4,
-    "g": 1,
-    "e": 1,
-    "p": 2,
-    "gf": 4,
-    "gc": 7,
+    "gc": 11,
     "propio": false
    },
    {
@@ -12240,12 +12240,12 @@ const EQUIPOS = [
    {
     "equipo": "SPORTING CORUÑES \"B\"",
     "pts": 0,
-    "pj": 4,
+    "pj": 5,
     "g": 0,
     "e": 0,
-    "p": 4,
+    "p": 5,
     "gf": 2,
-    "gc": 11,
+    "gc": 15,
     "propio": false
    },
    {
@@ -12303,8 +12303,8 @@ const EQUIPOS = [
     "hora": "09:30",
     "local": false,
     "rival": "CLUB XESUITINAS",
-    "resultado": "",
-    "campo": "Torre Nº 5"
+    "resultado": "1-0",
+    "campo": ""
    },
    {
     "jornada": 6,
@@ -12313,7 +12313,7 @@ const EQUIPOS = [
     "local": true,
     "rival": "LICEO DE MONELOS S.D.",
     "resultado": "",
-    "campo": ""
+    "campo": "Torre Nº1.1"
    },
    {
     "jornada": 7,
@@ -12346,16 +12346,16 @@ const EQUIPOS = [
   "competicion": "Prebenjamin - Segunda Futgal · A Coruña | 1ª Fase G1",
   "urlClasificacion": "https://www.futgal.es/pnfg/NPcd/NFG_VisClasificacion?cod_primaria=1000120&codgrupo=26991931&codcompeticion=26991921",
   "escudos": {
-   "VICTORIA C.F. \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000004135_victoriacfblanco.jpg",
-   "SILVA S.D.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001103292_escudo_rfgf.jpg",
-   "ATLETICO CASTROS": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001611037_escudo128.png",
-   "C.F. BATALLADOR S.D.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000918106_ESCUDO_.jpg",
-   "LICEO DE MONELOS S.D.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000884334_liceo_monelos_1.png",
    "SANTA MARIA DEL MAR \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001611104_Escudo_sin_fondo.png",
-   "CLUB XESUITINAS": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001224529_CLUB_XESUITINAS__A_Corun__a___2_.png",
+   "VICTORIA C.F. \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000004135_victoriacfblanco.jpg",
    "URAL ESPAÑOL C.F. \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000891301_ESCUDO_URAL_B.jpg",
-   "SPORTING CORUÑES \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000801946_escudo-4154.jpg",
-   "COMPAÑIA DE MARIA": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001004468_logo.png"
+   "LICEO DE MONELOS S.D.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000884334_liceo_monelos_1.png",
+   "C.F. BATALLADOR S.D.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000918106_ESCUDO_.jpg",
+   "CLUB XESUITINAS": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001224529_CLUB_XESUITINAS__A_Corun__a___2_.png",
+   "COMPAÑIA DE MARIA": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001004468_logo.png",
+   "ATLETICO CASTROS": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001611037_escudo128.png",
+   "SILVA S.D.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001103292_escudo_rfgf.jpg",
+   "SPORTING CORUÑES \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000801946_escudo-4154.jpg"
   },
   "actas": {
    "1": {
@@ -12507,25 +12507,69 @@ const EQUIPOS = [
     "c": [],
     "rm": {},
     "id": "1509932"
+   },
+   "5": {
+    "t": [
+     "Brais Vázquez Calo",
+     "Simón Corgo Del Río",
+     "Joel Carballal González",
+     "Manuel Pesqueira Esteve De Miguel",
+     "Leo Díaz Feal",
+     "Mario Vidal Eiroa",
+     "Emilio Bosch Fernández",
+     "Leo Moran Rey"
+    ],
+    "s": [
+     "Logan Barros De Andrés",
+     "Gael García Fidalgo",
+     "Lucas Cambeiro Rama",
+     "Luca Platas González",
+     "Daniel Seoane Paredes",
+     "Kai Álvarez-Conchado Barlocco"
+    ],
+    "e": [],
+    "g": {},
+    "a": [],
+    "r": [],
+    "d": {
+     "Brais Vázquez Calo": 1,
+     "Simón Corgo Del Río": 2,
+     "Joel Carballal González": 6,
+     "Manuel Pesqueira Esteve De Miguel": 7,
+     "Leo Díaz Feal": 8,
+     "Mario Vidal Eiroa": 9,
+     "Emilio Bosch Fernández": 10,
+     "Leo Moran Rey": 14,
+     "Logan Barros De Andrés": 4,
+     "Gael García Fidalgo": 5,
+     "Lucas Cambeiro Rama": 11,
+     "Luca Platas González": 12,
+     "Daniel Seoane Paredes": 15,
+     "Kai Álvarez-Conchado Barlocco": 16
+    },
+    "c": [],
+    "rm": {},
+    "id": "1509936"
    }
   },
   "dorsales": {
-   "Luca Platas González": 12,
    "Simón Corgo Del Río": 2,
-   "Gael García Fidalgo": 4,
-   "Logan Barros De Andrés": 3,
+   "Joel Carballal González": 6,
    "Manuel Pesqueira Esteve De Miguel": 7,
    "Leo Díaz Feal": 8,
    "Mario Vidal Eiroa": 9,
    "Emilio Bosch Fernández": 10,
-   "Joel Carballal González": 6,
    "Lucas Cambeiro Rama": 11,
-   "Leo Moran Rey": 14,
    "Brais Vázquez Calo": 1,
-   "Kai Álvarez-Conchado Barlocco": 5,
-   "Maximo Gundín Díaz": 15
+   "Gael García Fidalgo": 4,
+   "Logan Barros De Andrés": 5,
+   "Leo Moran Rey": 14,
+   "Luca Platas González": 12,
+   "Daniel Seoane Paredes": 15,
+   "Kai Álvarez-Conchado Barlocco": 16,
+   "Maximo Gundín Díaz": 13
   },
-  "descargado": "2026-10-31T15:48"
+  "descargado": "2026-11-01T23:41"
  },
  {
   "id": "prebenjamin-c",
@@ -12936,7 +12980,7 @@ const EQUIPOS = [
    "Rafael Pesqueira Esteve De Miguel": 12,
    "Simón Corgo Del Río": 13
   },
-  "descargado": "2026-10-31T20:04"
+  "descargado": "2026-11-01T23:41"
  },
  {
   "id": "biberon-a",
@@ -12989,7 +13033,7 @@ const EQUIPOS = [
   },
   "actas": {},
   "dorsales": {},
-  "descargado": "2026-10-31T20:04"
+  "descargado": "2026-11-01T23:42"
  },
  {
   "id": "veteranos-a",
