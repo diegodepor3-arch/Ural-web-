@@ -1,5 +1,5 @@
 // GENERADO por actualizar.py desde futgal.es. No editar a mano.
-const ACTUALIZADO = "2026-11-02T09:42";
+const ACTUALIZADO = "2026-11-02T17:14";
 const EQUIPOS = [
  {
   "id": "juvenil-a",
@@ -87,6 +87,17 @@ const EQUIPOS = [
     "propio": false
    },
    {
+    "equipo": "Real Oviedo",
+    "pts": 16,
+    "pj": 8,
+    "g": 5,
+    "e": 1,
+    "p": 2,
+    "gf": 15,
+    "gc": 7,
+    "propio": false
+   },
+   {
     "equipo": "Real Racing Club",
     "pts": 14,
     "pj": 8,
@@ -107,17 +118,6 @@ const EQUIPOS = [
     "gf": 15,
     "gc": 13,
     "propio": true
-   },
-   {
-    "equipo": "Real Oviedo",
-    "pts": 13,
-    "pj": 7,
-    "g": 4,
-    "e": 1,
-    "p": 2,
-    "gf": 13,
-    "gc": 6,
-    "propio": false
    },
    {
     "equipo": "ED Val Miñor Nigrán",
@@ -155,12 +155,12 @@ const EQUIPOS = [
    {
     "equipo": "Victoria CF",
     "pts": 7,
-    "pj": 7,
+    "pj": 8,
     "g": 2,
     "e": 1,
-    "p": 4,
-    "gf": 9,
-    "gc": 16,
+    "p": 5,
+    "gf": 10,
+    "gc": 18,
     "propio": false
    },
    {
@@ -295,7 +295,7 @@ const EQUIPOS = [
    {
     "jornada": 9,
     "fecha": "2026-11-08",
-    "hora": "",
+    "hora": "12:30",
     "local": false,
     "rival": "ED Val Miñor Nigrán",
     "resultado": "",
@@ -530,6 +530,7 @@ const EQUIPOS = [
   "competicion": "División de Honor Juvenil · Grupo 1",
   "fuente": "futbolme.com",
   "urlOficial": "https://rfef.es/sites/default/files/2026-07/DHJ_Calendario_Grupo_1.pdf",
+  "urlClasificacion": "https://futbolme.com/resultados-directo/torneo/division-de-honor-juvenil-grupo-1/31/clasificacion",
   "perfiles": {
    "fecha": "2026-11-01T14:21",
    "url": "https://www.lapreferente.com/E58614T20262027/ural-espa%C3%B1ol-cf",
@@ -836,8 +837,7 @@ const EQUIPOS = [
     }
    }
   },
-  "urlClasificacion": "https://futbolme.com/resultados-directo/torneo/division-de-honor-juvenil-grupo-1/31/clasificacion",
-  "descargado": "2026-11-01T14:22"
+  "descargado": "2026-11-02T17:13"
  },
  {
   "id": "juvenil-b",
@@ -1332,12 +1332,12 @@ const EQUIPOS = [
   "competicion": "Juvenil - Preferente Futgal · Grupo 1",
   "urlClasificacion": "https://www.futgal.es/pnfg/NPcd/NFG_VisClasificacion?cod_primaria=1000120&codgrupo=26991084&codcompeticion=26991083",
   "escudos": {
+   "RACING CLUB FERROL S.A.D. \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001624274_ESCUDO.jpg",
+   "ATL. CORUÑA MONTAÑEROS \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000889647_AtleticoCorunaMonta.png",
    "MARINO C.F.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000801995_Escudo_Marino_en_color.jpg",
    "C.F. DUMBRIA": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000905915_EscudoFutbolColor.jpg",
    "URAL ESPAÑOL C.F. \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000891301_ESCUDO_URAL_B.jpg",
    "ORILLAMAR S.D.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000941018_ESCUDO_OFICIAL_ORILLAMAR_SD_PRINCIPAL.jpg",
-   "RACING CLUB FERROL S.A.D. \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001624274_ESCUDO.jpg",
-   "ATL. CORUÑA MONTAÑEROS \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000889647_AtleticoCorunaMonta.png",
    "E.D.LOURENZA": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000942446_escudo_club_pequeno.jpg",
    "S.D. RESIDENCIA": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001672752_ESCUDO_RESIDENCIA.jpg",
    "C.D. CALASANZ": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001120003_escudo_calasanz.jpg",
@@ -1945,7 +1945,7 @@ const EQUIPOS = [
    "Leo Sánchez Pérez": 12,
    "Rafael Sande Castro-Acuña": 14
   },
-  "descargado": "2026-11-01T14:22"
+  "descargado": "2026-11-02T17:13"
  },
  {
   "id": "cadete-a",
@@ -2447,14 +2447,14 @@ const EQUIPOS = [
    "ESCOLA DE FÚTBOL DSF": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001813655_logo_EFDS_by_Nortempo.png",
    "VICTORIA C.F.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000004135_victoriacfblanco.jpg",
    "CORUXO F.C.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000001059_CORUXO.jpg",
-   "RACING CLUB FERROL S.A.D.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001624274_ESCUDO.jpg",
-   "PABELLON OURENSE C.F.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000905211_IMG_20200628_WA0014.jpg",
    "AROSA S.C.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0011661351_ESCUDO_AROSA_SC.png",
    "URAL ESPAÑOL C.F.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000891301_ESCUDO_URAL_B.jpg",
-   "BERGANTIÑOS C.F.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0011658042_IMG_0489.png",
-   "S.D. COMPOSTELA": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001010839_logo___copia.jpg",
    "R.C. DEPORTIVO": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001196017_ESCUDO_DEPOR.png",
-   "E.D. VAL MIÑOR NIGRÁN": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001624693_Escudo_con_M__rgenes.jpg"
+   "E.D. VAL MIÑOR NIGRÁN": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001624693_Escudo_con_M__rgenes.jpg",
+   "RACING CLUB FERROL S.A.D.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001624274_ESCUDO.jpg",
+   "PABELLON OURENSE C.F.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000905211_IMG_20200628_WA0014.jpg",
+   "BERGANTIÑOS C.F.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0011658042_IMG_0489.png",
+   "S.D. COMPOSTELA": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001010839_logo___copia.jpg"
   },
   "actas": {
    "6": {
@@ -3102,7 +3102,7 @@ const EQUIPOS = [
    "Pablo Cillero Seoane": 20,
    "Jorge Cillero Seoane": 4
   },
-  "descargado": "2026-11-01T14:23"
+  "descargado": "2026-11-02T17:14"
  },
  {
   "id": "cadete-b",
@@ -4256,7 +4256,7 @@ const EQUIPOS = [
    "Roberto Freire Quintas": 21,
    "Adán Giménez Muñoz": 22
   },
-  "descargado": "2026-11-01T14:23"
+  "descargado": "2026-11-02T17:14"
  },
  {
   "id": "infantil-a",
@@ -9629,7 +9629,7 @@ const EQUIPOS = [
    "Valentino Medina Pérez": 12,
    "Martiño Teixeira Vega": 9
   },
-  "descargado": "2026-11-01T06:24"
+  "descargado": "2026-11-02T17:12"
  },
  {
   "id": "benjamin-a",
@@ -10451,7 +10451,7 @@ const EQUIPOS = [
    "Bruno Costoya Mouriño": 10,
    "Martín Lorenzo Beiro": 12
   },
-  "descargado": "2026-11-01T14:23"
+  "descargado": "2026-11-02T17:14"
  },
  {
   "id": "benjamin-b",
