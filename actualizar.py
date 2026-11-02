@@ -21,6 +21,7 @@ from itertools import count
 BASE = "https://www.futgal.es/pnfg/NPcd/"
 CLUB = 1023  # Ural Español C.F. en futgal
 TEMPORADA = 22  # 2026-2027 (código interno de futgal)
+INICIO_TEMPORADA = "2026-07-01"  # partidos anteriores son de otra temporada (cambiar junto con TEMPORADA)
 MAX_ACTAS = int(os.environ.get("MAX_ACTAS", 5))  # actas nuevas por equipo y ejecución
 
 jar = http.cookiejar.CookieJar()
@@ -457,10 +458,17 @@ def descargar_equipo(cod, nombre, cat, anterior=None):
                     e[k] = anterior[k]
     if comp:
         cc, cnombre, grupo, gnombre = comp
+        e["partidos"] = partidos(cod, grupo)
+        # futgal a veces devuelve una competición de otra temporada (p. ej. la de 2021 de un equipo que este año
+        # no está inscrito, o un torneo de Navidad del año pasado): si ningún partido es de esta temporada, no vale
+        if not any(p["fecha"] >= INICIO_TEMPORADA for p in e["partidos"]):
+            print("  competición de otra temporada, se descarta:", cnombre)
+            e["partidos"] = []
+            comp = None
+    if comp:
         e["competicion"] = f"{cnombre.title()} · {gnombre.title()}"
         e["urlClasificacion"] = f"https://www.futgal.es/pnfg/NPcd/NFG_VisClasificacion?cod_primaria=1000120&codgrupo={grupo}&codcompeticion={cc}"
         e["clasificacion"] = clasificacion(cc, grupo)
-        e["partidos"] = partidos(cod, grupo)
         proximo = next((p for p in e["partidos"] if not p["resultado"]), None)
         if proximo:
             completar_proximo(proximo, cod, cc, grupo, e)
