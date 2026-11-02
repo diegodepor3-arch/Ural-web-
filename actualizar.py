@@ -12,6 +12,7 @@ import os
 import re
 import sys
 import time
+import unicodedata
 import urllib.request
 from collections import Counter
 from datetime import datetime
@@ -217,22 +218,48 @@ def minuto(html_):
 
 
 def dorsales(actas_):
-    """El dorsal más reciente de cada jugador. Si así se repite algún número (equipos sin dorsal fijo),
-    cada número es para quien más partidos lo ha llevado, primero del 1 al 11 y luego los demás;
-    quien se queda sin ninguno recibe el primer número libre del 12 en adelante."""
-    reciente = {n: d for j in sorted(actas_, key=int) for n, d in actas_[j]["d"].items()}
-    if len(set(reciente.values())) == len(reciente):
-        return reciente
-    usos = Counter((n, d) for a in actas_.values() for n, d in a["d"].items())
-    jugados = Counter(n for a in actas_.values() for n in a["d"])
+    """El dorsal más habitual de cada jugador en las actas (si empata, el más reciente).
+    Si dos jugadores coinciden (equipos sin dorsal fijo), el número es para quien más veces lo ha llevado
+    y el otro se queda con el siguiente que más haya usado; quien se queda sin ninguno recibe el
+    primer número libre del 12 en adelante."""
+    usos, ultima = Counter(), {}
+    for j in sorted(actas_, key=int):
+        for n, d in actas_[j]["d"].items():
+            usos[n, d] += 1
+            ultima[n, d] = int(j)
     out = {}
-    for titulares in (True, False):
-        for (n, d), _ in sorted(usos.items(), key=lambda x: (-x[1], x[0][1], x[0][0])):
-            if (d <= 11) == titulares and n not in out and d not in out.values():
-                out[n] = d
+    for (n, d) in sorted(usos, key=lambda x: (-usos[x], -ultima[x], x[1], x[0])):
+        if n not in out and d not in out.values():
+            out[n] = d
+    jugados = Counter(n for (n, _), k in usos.items() for _ in range(k))
     for n in sorted(jugados.keys() - out.keys(), key=lambda n: (-jugados[n], n)):
         out[n] = next(d for d in count(12) if d not in out.values())
     return out
+
+
+def dorsales_del_club(equipos):
+    """Jugadores de la plantilla que aún no han jugado con su equipo (o no tienen acta): se les pone
+    el número que más han llevado jugando con otro equipo del club, si en el suyo está libre."""
+    usos = Counter()
+    for e in equipos:
+        for a in (e.get("actas") or {}).values():
+            for n, d in a["d"].items():
+                usos[normal(n), d] += 1
+    for e in equipos:
+        if not e.get("actas") or "dorsales" not in e:
+            continue
+        propios = {normal(n) for n in e.get("dorsales", {})}
+        for n in e["plantilla"]:
+            if normal(n) in propios:
+                continue
+            libres = [(k, d) for (m, d), k in usos.items() if m == normal(n) and d not in e["dorsales"].values()]
+            if libres:
+                e["dorsales"][n] = max(libres, key=lambda x: (x[0], -x[1]))[1]
+
+
+def normal(n):
+    """Igual que normal() de app.js: sin mayúsculas ni tildes."""
+    return "".join(c for c in unicodedata.normalize("NFD", n.lower()) if not unicodedata.combining(c)).strip()
 
 
 def copia_acta(cod_acta):
@@ -454,6 +481,7 @@ def leer_previo():
 
 
 def guardar(equipos):
+    dorsales_del_club(equipos)
     with open("federacion.js", "w", encoding="utf-8") as f:
         f.write("// GENERADO por actualizar.py desde futgal.es. No editar a mano.\n")
         f.write(f"const ACTUALIZADO = {json.dumps(max(e.get('descargado', '') for e in equipos))};\n")
