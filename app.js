@@ -268,7 +268,7 @@ const lados = (p) => p.local
 
 function cuentaAtras(p) {
   if (!p.hora) return "";
-  return `<div class="cuenta" data-objetivo="${p.fecha}T${p.hora}" role="timer" aria-label="Cuenta atrás">
+  return `<div class="cuenta" data-objetivo="${esc(p.fecha)}T${esc(p.hora)}" role="timer" aria-label="Cuenta atrás">
     ${["días", "horas", "min"].map((u) => `<span><b>--</b><small>${u}</small></span>`).join("")}</div>`;
 }
 
@@ -519,7 +519,7 @@ function perfilTemporada(jugados) {
         <path d="${linea}" class="grafica-linea"/>
         ${jugados.map((p, i) => {
           const m = marcador(p);
-          return `<g class="grafica-punto res-${m.res}"><title>Jornada ${p.jornada}, ${p.local ? "contra" : "en casa de"} ${p.rival}: ${m.nos}-${m.ellos}</title>
+          return `<g class="grafica-punto res-${m.res}"><title>Jornada ${p.jornada}, ${p.local ? "contra" : "en casa de"} ${esc(p.rival)}: ${m.nos}-${m.ellos}</title>
             <circle cx="${x(i)}" cy="${y(acum[i])}" r="6"/>
             ${i % paso === 0 || i === jugados.length - 1 ? `<text x="${x(i)}" y="${H - 8}" text-anchor="middle" class="grafica-eje">J${p.jornada}</text>` : ""}</g>`;
         }).join("")}
