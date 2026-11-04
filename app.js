@@ -1,6 +1,18 @@
 // Protección de menores: solo estas categorías muestran foto, diga lo que diga data.js.
 const CATEGORIAS_CON_FOTO = new Set(["juvenil"]);
 
+// Lo que el club escribe en su hoja de Google (hoja.js, lo genera actualizar.py cada hora) manda sobre data.js
+if (typeof HOJA !== "undefined") {
+  NOTICIAS.splice(0, NOTICIAS.length, ...HOJA.noticias);
+  Object.assign(CLUB, HOJA.club);
+  for (const [id, x] of Object.entries(HOJA.extra)) {
+    const e = (EXTRA[id] ||= {});
+    e.videos = x.videos || e.videos || [];
+    e.jugadores = { ...e.jugadores, ...x.jugadores };
+    e.fotos = { ...e.fotos, ...x.fotos };
+  }
+}
+
 const app = document.getElementById("app");
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
 const icono = (id, cls = "icono") => `<svg class="${cls}" aria-hidden="true"><use href="#${id}"/></svg>`;
@@ -758,7 +770,7 @@ function noticia(id) {
   const n = NOTICIAS.find((x) => x.id === id);
   if (!n) return noEncontrado();
   return `${cabeceraSimple(n.titulo, esc(fmt(n.fecha, { day: "numeric", month: "long", year: "numeric" })), `<p class="migas"><a href="#/noticias">Noticias</a></p>`)}
-    <article class="seccion articulo">${n.cuerpo.split(/\n\s*\n/).map((p) => `<p>${esc(p)}</p>`).join("")}</article>`;
+    <article class="seccion articulo">${n.foto ? `<img class="articulo-foto" src="${esc(n.foto)}" alt="" loading="lazy">` : ""}${n.cuerpo.split(/\n\s*\n/).map((p) => `<p>${esc(p)}</p>`).join("")}</article>`;
 }
 
 function buscar(q) {
@@ -982,6 +994,7 @@ addEventListener("keydown", (ev) => {
 document.getElementById("pie-contacto").innerHTML = [CLUB.direccion && ` ${esc(CLUB.direccion)}.`,
   CLUB.email && ` <a href="mailto:${esc(CLUB.email)}">${esc(CLUB.email)}</a>`].filter(Boolean).join("");
 document.getElementById("pie-x").href = CLUB.x;
+if (CLUB.instagram) document.getElementById("pie-x").insertAdjacentHTML("beforebegin", `<a href="${esc(CLUB.instagram)}" target="_blank" rel="noopener">Instagram</a>`);
 document.getElementById("pie-fed").href = CLUB.federacion;
 document.getElementById("franja-fed").href = CLUB.federacion;
 document.getElementById("pie-fuente").textContent =

@@ -5,6 +5,7 @@ ponytail: lee el HTML de la federación con expresiones regulares; si futgal cam
 el diseño de sus páginas habrá que ajustar los patrones de este archivo.
 """
 import gzip
+import io
 import html
 import http.cookiejar
 import json
@@ -15,13 +16,15 @@ import time
 import unicodedata
 import urllib.request
 from collections import Counter
-from datetime import datetime
+from datetime import date, datetime
 from itertools import count
 
 BASE = "https://www.futgal.es/pnfg/NPcd/"
 CLUB = 1023  # Ural Español C.F. en futgal
 TEMPORADA = 22  # 2026-2027 (código interno de futgal)
 INICIO_TEMPORADA = "2026-07-01"  # partidos anteriores son de otra temporada (cambiar junto con TEMPORADA)
+# Hoja de Google donde el club escribe noticias, vídeos, datos de jugadores y del club (compartida "cualquiera con el enlace: lector")
+HOJA_ID = "1Kz8ZsDzWaAo07bvQDYqTv7tF-NlbZm8ZotTOIIvxOQc"
 MAX_ACTAS = int(os.environ.get("MAX_ACTAS", 5))  # actas nuevas por equipo y ejecución
 
 jar = http.cookiejar.CookieJar()
@@ -512,11 +515,195 @@ def plantillas(club, previo):
         guardar([previo[c] for c, _, _ in club])
 
 
+# --- Hoja de Google del club ------------------------------------------------------------------------
+# El club escribe en una hoja de Google; aquí se descarga entera (como Excel) y se convierte en hoja.js,
+# que app.js aplica encima de data.js. Una fila mal escrita se salta; si la hoja no se puede descargar,
+# hoja.js se queda como estaba.
+SINGULAR = {"juvenil": "Juvenil", "cadete": "Cadete", "infantil": "Infantil", "alevin": "Alevín", "benjamin": "Benjamín",
+            "prebenjamin": "Prebenjamín", "biberon": "Biberón", "veteranos": "Veteranos"}
+TIPOS_VIDEO = {"resumen": "highlight", "entrevista": "entrevista"}
+DATOS_CLUB = {"email": "email", "direccion de la sede": "direccion", "campo habitual": "campo", "instagram": "instagram",
+              "x (twitter)": "x", "telefono": "telefono"}
+
+
+def nombre_hoja(e):
+    """Como sale el equipo en la lista desplegable de la hoja: «Alevín A F-11», «Biberón A sala»."""
+    mod = " F-11" if "F-11" in e["liga"] else " sala" if "F.S" in e["liga"] else ""
+    return f'{SINGULAR.get(e["categoria"], e["categoria"].title())} {e["letra"]}{mod}'
+
+
+def fecha_hoja(v):
+    """Fecha de una casilla: fecha de verdad o texto 08/11/2026 (también 8-11-26 o 2026-11-08). None si no lo es."""
+    if isinstance(v, datetime):
+        return v.date().isoformat()
+    if isinstance(v, date):
+        return v.isoformat()
+    t = str(v or "").strip()
+    if m := re.fullmatch(r"(\d{4})-(\d{1,2})-(\d{1,2})", t):
+        a, me, d = map(int, m.groups())
+    elif m := re.fullmatch(r"(\d{1,2})[/.-](\d{1,2})[/.-](\d{2}|\d{4})", t):
+        d, me, a = map(int, m.groups())
+        a += 2000 if a < 100 else 0
+    else:
+        return None
+    try:
+        return date(a, me, d).isoformat()
+    except ValueError:
+        return None
+
+
+def id_youtube(v):
+    t = str(v or "").strip()
+    m = re.search(r"(?:youtu\.be/|v=|/shorts/|/embed/|/live/)([\w-]{11})", t) or re.fullmatch(r"([\w-]{11})", t)
+    return m.group(1) if m else None
+
+
+def foto_drive(v, carpeta="img/hoja"):
+    """Enlace de una foto de Google Drive (compartida con cualquiera que tenga el enlace) -> copia en la web."""
+    t = str(v or "").strip()
+    m = re.search(r"/d/([\w-]{20,})", t) or re.search(r"[?&]id=([\w-]{20,})", t)
+    if not m:
+        if t:
+            print("  foto sin enlace de Drive, se ignora:", t)
+        return None
+    ruta = f"{carpeta}/{m.group(1)}.jpg"
+    if os.path.exists(ruta):
+        return ruta
+    try:
+        with web.open(f"https://drive.google.com/uc?export=download&id={m.group(1)}", timeout=60) as r:
+            datos, tipo = r.read(), r.headers.get("Content-Type", "")
+        if not tipo.startswith("image/"):
+            print("  la foto no es una imagen o no está compartida:", t)
+            return None
+        try:  # más pequeña para que la web cargue rápido (si no hay Pillow, se guarda tal cual)
+            from PIL import Image, ImageOps
+            im = ImageOps.exif_transpose(Image.open(io.BytesIO(datos))).convert("RGB")
+            im.thumbnail((1600, 1600))
+            salida = io.BytesIO()
+            im.save(salida, "JPEG", quality=82)
+            datos = salida.getvalue()
+        except ImportError:
+            pass
+        os.makedirs(carpeta, exist_ok=True)
+        with open(ruta, "wb") as f:
+            f.write(datos)
+        return ruta
+    except OSError as err:
+        print("  no se pudo descargar la foto:", t, err)
+        return None
+
+
+def filas_hoja(wb, pestaña):
+    """Filas de una pestaña como diccionarios {columna sin tildes ni mayúsculas: valor}."""
+    hoja_ = next((w for w in wb.worksheets if normal(w.title) == normal(pestaña)), None)
+    if hoja_ is None:
+        print("  falta la pestaña", pestaña)
+        return []
+    filas_ = list(hoja_.iter_rows(values_only=True))
+    if not filas_:
+        return []
+    cab = [normal(str(c or "")) for c in filas_[0]]
+    out = []
+    for n, f in enumerate(filas_[1:], 2):
+        d = {c: (v.strip() if isinstance(v, str) else v) for c, v in zip(cab, f) if c}
+        if any(v not in (None, "") for v in d.values()):
+            d["_fila"] = n
+            out.append(d)
+    return out
+
+
+def leer_hoja(wb, equipos):
+    """Convierte la hoja del club en lo que usa la web. equipos: los de federacion.js."""
+    por_nombre = {normal(nombre_hoja(e)): e["id"] for e in equipos}
+    out = {"noticias": [], "club": {}, "extra": {}}
+    aviso = lambda pestaña, f, txt: print(f"  {pestaña}, fila {f['_fila']}: {txt}; no se publica")
+
+    for f in filas_hoja(wb, "Noticias"):
+        if normal(str(f.get("publicar") or "")) not in ("si", "s", "x", "yes"):
+            continue
+        fecha, titulo = fecha_hoja(f.get("fecha")), str(f.get("titulo") or "").strip()
+        texto_ = str(f.get("texto completo") or "").strip()
+        if not fecha or not titulo:
+            aviso("Noticias", f, "falta la fecha o el título")
+            continue
+        resumen = str(f.get("resumen") or "").strip() or (texto_[:157] + "…" if len(texto_) > 160 else texto_)
+        n = {"id": f"{fecha}-{re.sub(r'[^a-z0-9]+', '-', normal(titulo)).strip('-')}", "fecha": fecha, "titulo": titulo,
+             "resumen": resumen, "cuerpo": texto_ or resumen}
+        if foto := foto_drive(f.get("foto")):
+            n["foto"] = foto
+        out["noticias"].append(n)
+    out["noticias"].sort(key=lambda n: n["fecha"], reverse=True)
+
+    for f in filas_hoja(wb, "Vídeos"):
+        eid = por_nombre.get(normal(str(f.get("equipo") or "")))
+        tipo = TIPOS_VIDEO.get(normal(str(f.get("tipo") or "resumen")))
+        yt = id_youtube(f.get("enlace de youtube"))
+        if not eid or not tipo or not yt:
+            aviso("Vídeos", f, "falta el equipo, el tipo o un enlace de YouTube válido")
+            continue
+        out["extra"].setdefault(eid, {}).setdefault("videos", []).append(
+            {"tipo": tipo, "youtube": yt, "titulo": str(f.get("titulo") or "").strip() or "Vídeo"})
+
+    for f in filas_hoja(wb, "Jugadores"):
+        buscado = normal(str(f.get("jugador") or ""))
+        sitios = [(e, n) for e in equipos for n in e["plantilla"] if normal(n) == buscado]
+        if not sitios:
+            aviso("Jugadores", f, "ese nombre no está en ninguna plantilla de la federación")
+            continue
+        datos = {}
+        if f.get("posicion"):
+            datos["posicion"] = str(f["posicion"]).strip()
+        if f.get("fecha de nacimiento"):
+            if nac := fecha_hoja(f["fecha de nacimiento"]):
+                datos["nacimiento"] = nac
+            else:
+                print(f"  Jugadores, fila {f['_fila']}: la fecha de nacimiento no es una fecha; se ignora")
+        try:
+            if f.get("mvp") not in (None, ""):
+                datos["mvp"] = int(float(f["mvp"]))
+        except (TypeError, ValueError):
+            print(f"  Jugadores, fila {f['_fila']}: MVP no es un número; se ignora")
+        foto = foto_drive(f.get("foto (solo juveniles)")) if any(e["categoria"] == "juvenil" for e, _ in sitios) else None
+        for e, n in sitios:
+            x = out["extra"].setdefault(e["id"], {})
+            if datos:
+                x.setdefault("jugadores", {})[n] = datos
+            if foto and e["categoria"] == "juvenil":  # fotos solo de juveniles (app.js también lo fuerza)
+                x.setdefault("fotos", {})[n] = foto
+
+    for f in filas_hoja(wb, "Club"):
+        clave = DATOS_CLUB.get(normal(str(f.get("dato") or "")))
+        valor = str(f.get("valor") or "").strip()
+        if clave and valor:
+            out["club"][clave] = valor
+    return out
+
+
+def hoja(previo):
+    url = f"https://docs.google.com/spreadsheets/d/{HOJA_ID}/export?format=xlsx"
+    try:
+        import openpyxl
+        with web.open(url, timeout=60) as r:
+            datos = r.read()
+        wb = openpyxl.load_workbook(io.BytesIO(datos), data_only=True)
+    except Exception as err:  # sin acceso o no es un Excel: se queda la versión anterior de hoja.js
+        print("Hoja del club no disponible (¿está compartida con «cualquier persona con el enlace»?):", err)
+        return
+    h = leer_hoja(wb, list(previo.values()))
+    with open("hoja.js", "w", encoding="utf-8") as f:
+        f.write("// GENERADO por actualizar.py desde la hoja de Google del club. No editar a mano: se cambia en la hoja.\n")
+        f.write(f"const HOJA = {json.dumps(h, ensure_ascii=False, indent=1)};\n")
+    print(f"Hoja del club: {len(h['noticias'])} noticias, {sum(len(x.get('videos', [])) for x in h['extra'].values())} vídeos,",
+          f"{sum(len(x.get('jugadores', {})) for x in h['extra'].values())} jugadores, {len(h['club'])} datos del club")
+
+
 def main():
     """futgal bloquea la IP tras unas decenas de páginas seguidas. Por eso cada equipo
     se guarda al momento y cada ejecución empieza por los equipos con datos más viejos:
     programado cada hora, todos se mantienen al día aunque futgal corte a mitad."""
     previo = leer_previo()
+    if "hoja" in sys.argv[1:]:  # python actualizar.py hoja -> solo la hoja de Google (no pide nada a futgal)
+        return hoja(previo)
     club = equipos_del_club()
     for cod, nombre, cat in club:  # los aún no descargados salen ya en la web, sin datos
         previo.setdefault(cod, equipo_basico(cod, nombre, cat))

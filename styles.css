@@ -261,6 +261,7 @@ a.partido:hover { transform: translateY(-3px); }
 .noticia time { font-size: 0.8125rem; color: var(--suave); font-weight: 700; }
 .noticia strong { font: var(--peso-titulo) 1.25rem/1.15 var(--titulo); }
 .noticia p { color: var(--suave); }
+.articulo-foto { display: block; width: 100%; max-width: 62ch; height: auto; margin-bottom: 1.25em; }
 .articulo { font-size: 1.1875rem; line-height: 1.6; } .articulo p { max-width: 62ch; } .articulo p + p { margin-top: 1em; }
 .buscador { display: grid; gap: 10px; max-width: 700px; }
 .buscador > span { display: flex; gap: 8px; }
