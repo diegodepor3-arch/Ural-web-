@@ -1,5 +1,5 @@
 // GENERADO por actualizar.py desde futgal.es. No editar a mano.
-const ACTUALIZADO = "2026-11-04T13:43";
+const ACTUALIZADO = "2026-11-04T13:51";
 const EQUIPOS = [
  {
   "id": "juvenil-a",
@@ -6142,7 +6142,7 @@ const EQUIPOS = [
    "Pau Fernández Vila": 4,
    "Jacobo López Alvite": 5
   },
-  "descargado": "2026-11-04T02:26"
+  "descargado": "2026-11-04T13:51"
  },
  {
   "id": "infantil-c",
@@ -7007,7 +7007,7 @@ const EQUIPOS = [
   "delegados": [],
   "clasificacion": [],
   "partidos": [],
-  "descargado": "2026-11-03T21:51"
+  "descargado": "2026-11-04T13:50"
  },
  {
   "id": "alevin-b-f11",
@@ -7021,7 +7021,7 @@ const EQUIPOS = [
   "delegados": [],
   "clasificacion": [],
   "partidos": [],
-  "descargado": "2026-11-03T21:51"
+  "descargado": "2026-11-04T13:50"
  },
  {
   "id": "alevin-a",
@@ -7823,7 +7823,7 @@ const EQUIPOS = [
    "Hugo Bodelón Rubio": 11,
    "Óliver Villar González": 14
   },
-  "descargado": "2026-11-04T02:26"
+  "descargado": "2026-11-04T13:51"
  },
  {
   "id": "alevin-b",
@@ -12402,7 +12402,7 @@ const EQUIPOS = [
    "Kai Álvarez-Conchado Barlocco": 16,
    "Maximo Gundín Díaz": 13
   },
-  "descargado": "2026-11-03T21:51"
+  "descargado": "2026-11-04T13:50"
  },
  {
   "id": "prebenjamin-c",
@@ -12815,7 +12815,7 @@ const EQUIPOS = [
    "Kai Álvarez-Conchado Barlocco": 16,
    "Daniel Seoane Paredes": 15
   },
-  "descargado": "2026-11-03T21:51"
+  "descargado": "2026-11-04T13:51"
  },
  {
   "id": "biberon-a",
@@ -12840,7 +12840,7 @@ const EQUIPOS = [
   "delegados": [],
   "clasificacion": [],
   "partidos": [],
-  "descargado": "2026-11-03T21:52"
+  "descargado": "2026-11-04T13:51"
  },
  {
   "id": "veteranos-a",
