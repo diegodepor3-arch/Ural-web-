@@ -1,5 +1,5 @@
 // GENERADO por actualizar.py desde futgal.es. No editar a mano.
-const ACTUALIZADO = "2026-11-04T11:11";
+const ACTUALIZADO = "2026-11-04T13:43";
 const EQUIPOS = [
  {
   "id": "juvenil-a",
@@ -4256,7 +4256,7 @@ const EQUIPOS = [
    "Roberto Freire Quintas": 21,
    "Adán Giménez Muñoz": 22
   },
-  "descargado": "2026-11-03T20:47"
+  "descargado": "2026-11-04T13:42"
  },
  {
   "id": "infantil-a",
@@ -5195,7 +5195,7 @@ const EQUIPOS = [
    "Javier Meiriño López": 5,
    "Álvaro Ramil García": 12
   },
-  "descargado": "2026-11-03T20:47"
+  "descargado": "2026-11-04T13:42"
  },
  {
   "id": "infantil-b",
@@ -10451,7 +10451,7 @@ const EQUIPOS = [
    "Bruno Costoya Mouriño": 10,
    "Martín Lorenzo Beiro": 12
   },
-  "descargado": "2026-11-03T20:47"
+  "descargado": "2026-11-04T13:42"
  },
  {
   "id": "benjamin-b",
@@ -10902,7 +10902,7 @@ const EQUIPOS = [
    "Matias Regueiro Callau": 3,
    "Alberto Veira Martí": 9
   },
-  "descargado": "2026-11-03T20:48"
+  "descargado": "2026-11-04T13:43"
  },
  {
   "id": "benjamin-c",
@@ -11112,14 +11112,14 @@ const EQUIPOS = [
   "urlClasificacion": "https://www.futgal.es/pnfg/NPcd/NFG_VisClasificacion?cod_primaria=1000120&codgrupo=28997334&codcompeticion=26991813",
   "escudos": {
    "RELÁMPAGO S. D.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000894509_Escudo.PNG",
-   "C.F. BATALLADOR S.D.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000918106_ESCUDO_.jpg",
-   "CLUB XESUITINAS \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001224529_CLUB_XESUITINAS__A_Corun__a___2_.png",
    "OZA JUVENIL S.D. \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000734970_00100_0000629374_Untitled_-_1.jpg",
    "URAL ESPAÑOL C.F. \"C\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000891301_ESCUDO_URAL_B.jpg",
    "VICTORIA C.F. \"E\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000004135_victoriacfblanco.jpg",
    "ORILLAMAR S.D. \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000941018_ESCUDO_OFICIAL_ORILLAMAR_SD_PRINCIPAL.jpg",
    "COMPAÑIA DE MARIA": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001004468_logo.png",
-   "C. D. CALASANZ \"E\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001120003_escudo_calasanz.jpg"
+   "C. D. CALASANZ \"E\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001120003_escudo_calasanz.jpg",
+   "C.F. BATALLADOR S.D.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000918106_ESCUDO_.jpg",
+   "CLUB XESUITINAS \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001224529_CLUB_XESUITINAS__A_Corun__a___2_.png"
   },
   "actas": {
    "1": {
@@ -11341,7 +11341,7 @@ const EQUIPOS = [
    "Lukas Villar Sande": 12,
    "Jorge Fernández De Tejera Mosquera": 13
   },
-  "descargado": "2026-11-03T21:50"
+  "descargado": "2026-11-04T13:43"
  },
  {
   "id": "prebenjamin-a",
@@ -11957,7 +11957,7 @@ const EQUIPOS = [
    "Nicolás Saez Fernández": 14,
    "Lucas Ribes Velez De Villa": 13
   },
-  "descargado": "2026-11-03T21:50"
+  "descargado": "2026-11-04T13:43"
  },
  {
   "id": "prebenjamin-b",
