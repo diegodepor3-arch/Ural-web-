@@ -1,5 +1,5 @@
 // GENERADO por actualizar.py desde futgal.es. No editar a mano.
-const ACTUALIZADO = "2026-11-04T13:51";
+const ACTUALIZADO = "2026-11-04T18:44";
 const EQUIPOS = [
  {
   "id": "juvenil-a",
@@ -6993,7 +6993,7 @@ const EQUIPOS = [
    "Adrián Garrido Calvete": 7,
    "Martín Quesada Mallo": 18
   },
-  "descargado": "2026-11-04T02:27"
+  "descargado": "2026-11-04T18:43"
  },
  {
   "id": "alevin-a-f11",
@@ -8278,7 +8278,7 @@ const EQUIPOS = [
    "Álvaro Grande Pedreira": 3,
    "Martín Castiñeira Vietes": 9
   },
-  "descargado": "2026-11-04T02:27"
+  "descargado": "2026-11-04T18:43"
  },
  {
   "id": "alevin-c",
@@ -8733,7 +8733,7 @@ const EQUIPOS = [
    "Mateo Alonso Linares": 14,
    "Enrique Martínez Micha": 9
   },
-  "descargado": "2026-11-04T11:09"
+  "descargado": "2026-11-04T18:44"
  },
  {
   "id": "alevin-d",
@@ -9177,7 +9177,7 @@ const EQUIPOS = [
    "José Venancio Salcines Barros": 15,
    "Pablo Bello Caamaño": 16
   },
-  "descargado": "2026-11-04T11:09"
+  "descargado": "2026-11-04T18:44"
  },
  {
   "id": "alevin-e",
@@ -13574,7 +13574,7 @@ const EQUIPOS = [
    "Miguel A Mejuto Pajaro": 28,
    "Domingo A Monteiga Blanco": 7
   },
-  "descargado": "2026-11-04T02:26"
+  "descargado": "2026-11-04T18:42"
  },
  {
   "id": "biberon-a-fs",
@@ -13740,7 +13740,7 @@ const EQUIPOS = [
    {
     "jornada": 4,
     "fecha": "2027-01-10",
-    "hora": "",
+    "hora": "13:40",
     "local": true,
     "rival": "C.D. CIUDAD JARDÍN",
     "resultado": "",
@@ -13818,6 +13818,6 @@ const EQUIPOS = [
   },
   "actas": {},
   "dorsales": {},
-  "descargado": "2026-11-04T02:26"
+  "descargado": "2026-11-04T18:43"
  }
 ];
