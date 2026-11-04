@@ -25,6 +25,7 @@ jobs:
       - run: python actualizar.py plantillas  # primero la plantilla de los equipos que no la tienen
         continue-on-error: true
       - run: python actualizar.py
+        continue-on-error: true  # si futgal bloquea, se guardan igual los cambios de la hoja
       - run: python escudos.py
         continue-on-error: true  # si falla, se suben igual los datos; los escudos se intentan la próxima hora
       - run: |

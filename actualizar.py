@@ -704,7 +704,11 @@ def main():
     previo = leer_previo()
     if "hoja" in sys.argv[1:]:  # python actualizar.py hoja -> solo la hoja de Google (no pide nada a futgal)
         return hoja(previo)
-    club = equipos_del_club()
+    try:
+        club = equipos_del_club()
+    except (RuntimeError, OSError) as err:  # futgal bloquea a veces: se sigue en la próxima ejecución
+        print("Parado, se sigue en la próxima ejecución:", err)
+        return
     for cod, nombre, cat in club:  # los aún no descargados salen ya en la web, sin datos
         previo.setdefault(cod, equipo_basico(cod, nombre, cat))
     guardar([previo[c] for c, _, _ in club])
