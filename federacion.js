@@ -1,5 +1,5 @@
 // GENERADO por actualizar.py desde futgal.es. No editar a mano.
-const ACTUALIZADO = "2026-11-05T07:59";
+const ACTUALIZADO = "2026-11-05T16:34";
 const EQUIPOS = [
  {
   "id": "juvenil-a",
@@ -6142,7 +6142,7 @@ const EQUIPOS = [
    "Pau Fernández Vila": 4,
    "Jacobo López Alvite": 5
   },
-  "descargado": "2026-11-04T13:51"
+  "descargado": "2026-11-05T16:33"
  },
  {
   "id": "infantil-c",
@@ -7823,7 +7823,7 @@ const EQUIPOS = [
    "Hugo Bodelón Rubio": 11,
    "Óliver Villar González": 14
   },
-  "descargado": "2026-11-04T13:51"
+  "descargado": "2026-11-05T16:33"
  },
  {
   "id": "alevin-b",
@@ -12402,7 +12402,7 @@ const EQUIPOS = [
    "Kai Álvarez-Conchado Barlocco": 16,
    "Maximo Gundín Díaz": 13
   },
-  "descargado": "2026-11-04T13:50"
+  "descargado": "2026-11-05T16:33"
  },
  {
   "id": "prebenjamin-c",
@@ -12815,7 +12815,7 @@ const EQUIPOS = [
    "Kai Álvarez-Conchado Barlocco": 16,
    "Daniel Seoane Paredes": 15
   },
-  "descargado": "2026-11-04T13:51"
+  "descargado": "2026-11-05T16:34"
  },
  {
   "id": "biberon-a",
@@ -12840,7 +12840,7 @@ const EQUIPOS = [
   "delegados": [],
   "clasificacion": [],
   "partidos": [],
-  "descargado": "2026-11-04T13:51"
+  "descargado": "2026-11-05T16:34"
  },
  {
   "id": "veteranos-a",
@@ -13574,7 +13574,7 @@ const EQUIPOS = [
    "Miguel A Mejuto Pajaro": 28,
    "Domingo A Monteiga Blanco": 7
   },
-  "descargado": "2026-11-04T18:42"
+  "descargado": "2026-11-05T16:34"
  },
  {
   "id": "biberon-a-fs",
@@ -13583,7 +13583,10 @@ const EQUIPOS = [
   "letra": "A",
   "liga": "1ª Futgal Biberón F.S.",
   "urlFederacion": "https://www.futgal.es/pnfg/NPcd/NFG_VisEquipos?cod_primaria=1000119&Codigo_Equipo=23135228",
-  "plantilla": [],
+  "plantilla": [
+   "Hugo Díez Ferreras",
+   "Xoel Fernández Ribeiro"
+  ],
   "entrenadores": [],
   "delegados": [],
   "clasificacion": [
