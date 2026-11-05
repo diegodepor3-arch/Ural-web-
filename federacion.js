@@ -1,5 +1,5 @@
 // GENERADO por actualizar.py desde futgal.es. No editar a mano.
-const ACTUALIZADO = "2026-11-05T16:34";
+const ACTUALIZADO = "2026-11-05T22:44";
 const EQUIPOS = [
  {
   "id": "juvenil-a",
@@ -6993,7 +6993,7 @@ const EQUIPOS = [
    "Adrián Garrido Calvete": 7,
    "Martín Quesada Mallo": 18
   },
-  "descargado": "2026-11-04T18:43"
+  "descargado": "2026-11-05T22:42"
  },
  {
   "id": "alevin-a-f11",
@@ -8278,7 +8278,7 @@ const EQUIPOS = [
    "Álvaro Grande Pedreira": 3,
    "Martín Castiñeira Vietes": 9
   },
-  "descargado": "2026-11-04T18:43"
+  "descargado": "2026-11-05T22:43"
  },
  {
   "id": "alevin-c",
@@ -8733,7 +8733,7 @@ const EQUIPOS = [
    "Mateo Alonso Linares": 14,
    "Enrique Martínez Micha": 9
   },
-  "descargado": "2026-11-04T18:44"
+  "descargado": "2026-11-05T22:43"
  },
  {
   "id": "alevin-d",
@@ -9177,7 +9177,7 @@ const EQUIPOS = [
    "José Venancio Salcines Barros": 15,
    "Pablo Bello Caamaño": 16
   },
-  "descargado": "2026-11-04T18:44"
+  "descargado": "2026-11-05T22:44"
  },
  {
   "id": "alevin-e",
@@ -9629,7 +9629,7 @@ const EQUIPOS = [
    "Valentino Medina Pérez": 12,
    "Martiño Teixeira Vega": 9
   },
-  "descargado": "2026-11-05T00:26"
+  "descargado": "2026-11-05T22:44"
  },
  {
   "id": "benjamin-a",
@@ -13584,8 +13584,17 @@ const EQUIPOS = [
   "liga": "1ª Futgal Biberón F.S.",
   "urlFederacion": "https://www.futgal.es/pnfg/NPcd/NFG_VisEquipos?cod_primaria=1000119&Codigo_Equipo=23135228",
   "plantilla": [
+   "Thiago Aradas Gómez",
+   "Mariano Castro Vázquez",
+   "Pepe Cotelo Uliarte",
+   "Gonzalo Delgado Otero",
    "Hugo Díez Ferreras",
-   "Xoel Fernández Ribeiro"
+   "Xoel Fernández Ribeiro",
+   "Luis Posado Varela",
+   "Carlos Rey Serrano",
+   "Gabriel Sixto Rodríguez",
+   "Aldan Ulla Yáñez",
+   "Pablo Vilariño Graña"
   ],
   "entrenadores": [],
   "delegados": [],
@@ -13821,6 +13830,6 @@ const EQUIPOS = [
   },
   "actas": {},
   "dorsales": {},
-  "descargado": "2026-11-04T18:43"
+  "descargado": "2026-11-05T22:43"
  }
 ];
