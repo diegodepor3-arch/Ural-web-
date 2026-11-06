@@ -1,5 +1,5 @@
 // GENERADO por actualizar.py desde futgal.es. No editar a mano.
-const ACTUALIZADO = "2026-11-06T09:12";
+const ACTUALIZADO = "2026-11-06T11:23";
 const EQUIPOS = [
  {
   "id": "juvenil-a",
@@ -6993,7 +6993,7 @@ const EQUIPOS = [
    "Adrián Garrido Calvete": 7,
    "Martín Quesada Mallo": 18
   },
-  "descargado": "2026-11-05T22:42"
+  "descargado": "2026-11-06T11:23"
  },
  {
   "id": "alevin-a-f11",
@@ -7823,7 +7823,7 @@ const EQUIPOS = [
    "Hugo Bodelón Rubio": 11,
    "Óliver Villar González": 14
   },
-  "descargado": "2026-11-05T16:33"
+  "descargado": "2026-11-06T11:22"
  },
  {
   "id": "alevin-b",
@@ -12402,7 +12402,7 @@ const EQUIPOS = [
    "Kai Álvarez-Conchado Barlocco": 16,
    "Maximo Gundín Díaz": 13
   },
-  "descargado": "2026-11-05T16:33"
+  "descargado": "2026-11-06T11:22"
  },
  {
   "id": "prebenjamin-c",
@@ -12815,7 +12815,7 @@ const EQUIPOS = [
    "Kai Álvarez-Conchado Barlocco": 16,
    "Daniel Seoane Paredes": 15
   },
-  "descargado": "2026-11-05T16:34"
+  "descargado": "2026-11-06T11:22"
  },
  {
   "id": "biberon-a",
@@ -12840,7 +12840,7 @@ const EQUIPOS = [
   "delegados": [],
   "clasificacion": [],
   "partidos": [],
-  "descargado": "2026-11-05T16:34"
+  "descargado": "2026-11-06T11:22"
  },
  {
   "id": "veteranos-a",
@@ -13574,7 +13574,7 @@ const EQUIPOS = [
    "Miguel A Mejuto Pajaro": 28,
    "Domingo A Monteiga Blanco": 7
   },
-  "descargado": "2026-11-05T16:34"
+  "descargado": "2026-11-06T11:23"
  },
  {
   "id": "biberon-a-fs",
