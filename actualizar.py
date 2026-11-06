@@ -5,6 +5,7 @@ ponytail: lee el HTML de la federación con expresiones regulares; si futgal cam
 el diseño de sus páginas habrá que ajustar los patrones de este archivo.
 """
 import gzip
+import hashlib
 import io
 import html
 import http.cookiejar
@@ -568,7 +569,8 @@ def foto_drive(v, carpeta="img/hoja"):
         if t:
             print("  foto sin enlace de Drive, se ignora:", t)
         return None
-    ruta = f"{carpeta}/{m.group(1)}.jpg"
+    # el nombre no es el código de Drive, para que desde la web no se pueda llegar al archivo original
+    ruta = f"{carpeta}/{hashlib.sha1(m.group(1).encode()).hexdigest()[:16]}.jpg"
     if os.path.exists(ruta):
         return ruta
     try:
