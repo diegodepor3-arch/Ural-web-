@@ -1,5 +1,5 @@
 // GENERADO por actualizar.py desde futgal.es. No editar a mano.
-const ACTUALIZADO = "2026-11-06T11:23";
+const ACTUALIZADO = "2026-11-06T11:35";
 const EQUIPOS = [
  {
   "id": "juvenil-a",
@@ -837,7 +837,7 @@ const EQUIPOS = [
     }
    }
   },
-  "descargado": "2026-11-06T03:30"
+  "descargado": "2026-11-06T11:35"
  },
  {
   "id": "juvenil-b",
@@ -8278,7 +8278,7 @@ const EQUIPOS = [
    "Álvaro Grande Pedreira": 3,
    "Martín Castiñeira Vietes": 9
   },
-  "descargado": "2026-11-05T22:43"
+  "descargado": "2026-11-06T11:32"
  },
  {
   "id": "alevin-c",
@@ -8733,7 +8733,7 @@ const EQUIPOS = [
    "Mateo Alonso Linares": 14,
    "Enrique Martínez Micha": 9
   },
-  "descargado": "2026-11-05T22:43"
+  "descargado": "2026-11-06T11:33"
  },
  {
   "id": "alevin-d",
@@ -9177,7 +9177,7 @@ const EQUIPOS = [
    "José Venancio Salcines Barros": 15,
    "Pablo Bello Caamaño": 16
   },
-  "descargado": "2026-11-05T22:44"
+  "descargado": "2026-11-06T11:33"
  },
  {
   "id": "alevin-e",
@@ -9629,7 +9629,7 @@ const EQUIPOS = [
    "Valentino Medina Pérez": 12,
    "Martiño Teixeira Vega": 9
   },
-  "descargado": "2026-11-05T22:44"
+  "descargado": "2026-11-06T11:34"
  },
  {
   "id": "benjamin-a",
@@ -13597,7 +13597,9 @@ const EQUIPOS = [
    "Pablo Vilariño Graña"
   ],
   "entrenadores": [],
-  "delegados": [],
+  "delegados": [
+   "Eduardo Álvarez Pose"
+  ],
   "clasificacion": [
    {
     "equipo": "C.D. CIUDAD JARDÍN",
@@ -13830,6 +13832,6 @@ const EQUIPOS = [
   },
   "actas": {},
   "dorsales": {},
-  "descargado": "2026-11-05T22:43"
+  "descargado": "2026-11-06T11:33"
  }
 ];
