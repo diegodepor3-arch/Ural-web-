@@ -26,7 +26,7 @@ INICIO_TEMPORADA = "2026-07-01"  # partidos anteriores son de otra temporada (ca
 # Hoja de Google donde el club escribe noticias, vídeos, datos de jugadores y del club (compartida "cualquiera con el enlace: lector")
 HOJA_ID = "1Kz8ZsDzWaAo07bvQDYqTv7tF-NlbZm8ZotTOIIvxOQc"
 # Hoja de respuestas del formulario «Publicar en la web del Ural» (vacío: aún no está vinculada)
-FORMULARIO_ID = ""
+FORMULARIO_ID = "10ZPRyCmf-t_CGToB_plbOt-e5NlweA4ib2KLmuBfW44"
 MAX_ACTAS = int(os.environ.get("MAX_ACTAS", 5))  # actas nuevas por equipo y ejecución
 
 jar = http.cookiejar.CookieJar()
