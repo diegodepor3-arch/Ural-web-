@@ -1,5 +1,5 @@
 // GENERADO por actualizar.py desde futgal.es. No editar a mano.
-const ACTUALIZADO = "2026-11-06T12:15";
+const ACTUALIZADO = "2026-11-06T19:34";
 const EQUIPOS = [
  {
   "id": "juvenil-a",
@@ -6992,7 +6992,7 @@ const EQUIPOS = [
    "Adrián Garrido Calvete": 7,
    "Martín Quesada Mallo": 18
   },
-  "descargado": "2026-11-06T11:23"
+  "descargado": "2026-11-06T19:33"
  },
  {
   "id": "alevin-a-f11",
@@ -8277,7 +8277,7 @@ const EQUIPOS = [
    "Álvaro Grande Pedreira": 3,
    "Martín Castiñeira Vietes": 9
   },
-  "descargado": "2026-11-06T11:32"
+  "descargado": "2026-11-06T19:34"
  },
  {
   "id": "alevin-c",
@@ -12401,7 +12401,7 @@ const EQUIPOS = [
    "Kai Álvarez-Conchado Barlocco": 16,
    "Maximo Gundín Díaz": 13
   },
-  "descargado": "2026-11-06T11:22"
+  "descargado": "2026-11-06T19:32"
  },
  {
   "id": "prebenjamin-c",
@@ -12491,12 +12491,12 @@ const EQUIPOS = [
    },
    {
     "equipo": "URAL ESPAÑOL C.F. \"C\"",
-    "pts": 7,
-    "pj": 5,
-    "g": 2,
+    "pts": 10,
+    "pj": 6,
+    "g": 3,
     "e": 1,
     "p": 2,
-    "gf": 8,
+    "gf": 11,
     "gc": 7,
     "propio": true
    },
@@ -12525,12 +12525,12 @@ const EQUIPOS = [
    {
     "equipo": "SANTA MARIA DEL MAR \"D\"",
     "pts": 0,
-    "pj": 5,
+    "pj": 6,
     "g": 0,
     "e": 0,
-    "p": 5,
+    "p": 6,
     "gf": 2,
-    "gc": 15,
+    "gc": 18,
     "propio": false
    }
   ],
@@ -12583,11 +12583,11 @@ const EQUIPOS = [
    {
     "jornada": 6,
     "fecha": "2026-11-06",
-    "hora": "18:00",
+    "hora": "18:25",
     "local": false,
     "rival": "SANTA MARIA DEL MAR \"D\"",
-    "resultado": "",
-    "campo": "Santa María del Mar"
+    "resultado": "0-3",
+    "campo": ""
    },
    {
     "jornada": 7,
@@ -12596,7 +12596,7 @@ const EQUIPOS = [
     "local": true,
     "rival": "OZA JUVENIL S.D. \"B\"",
     "resultado": "",
-    "campo": ""
+    "campo": "Torre Nº1.1"
    },
    {
     "jornada": 8,
@@ -12621,15 +12621,15 @@ const EQUIPOS = [
   "urlClasificacion": "https://www.futgal.es/pnfg/NPcd/NFG_VisClasificacion?cod_primaria=1000120&codgrupo=28989697&codcompeticion=26991921",
   "escudos": {
    "SANTA MARIA DEL MAR \"D\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001611104_Escudo_sin_fondo.png",
-   "URAL ESPAÑOL C.F. \"C\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000891301_ESCUDO_URAL_B.jpg",
-   "COMPAÑIA DE MARIA \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001004468_logo.png",
-   "A. C. RUEIRO": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001404224_WhatsApp_Image_2024_09_26_at_13.47.47.jpeg",
    "ORILLAMAR S.D.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000941018_ESCUDO_OFICIAL_ORILLAMAR_SD_PRINCIPAL.jpg",
    "EIRÍS S.D.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000934032_Eiris.png",
-   "IMPERATOR O.A.R. \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000911974_ESCUDO__IMPERATOR_final.png",
-   "OZA JUVENIL S.D. \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000734970_00100_0000629374_Untitled_-_1.jpg",
    "CLUB ROSALIA MERA": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001008004_ROSALIA_MERA_ESCUDO_GRANDE.jpg",
-   "COLEGIO OBRADOIRO": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000994690_Escudo_Colegio_Obradoiro.jpg"
+   "COLEGIO OBRADOIRO": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000994690_Escudo_Colegio_Obradoiro.jpg",
+   "COMPAÑIA DE MARIA \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001004468_logo.png",
+   "A. C. RUEIRO": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001404224_WhatsApp_Image_2024_09_26_at_13.47.47.jpeg",
+   "IMPERATOR O.A.R. \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000911974_ESCUDO__IMPERATOR_final.png",
+   "URAL ESPAÑOL C.F. \"C\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000891301_ESCUDO_URAL_B.jpg",
+   "OZA JUVENIL S.D. \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000734970_00100_0000629374_Untitled_-_1.jpg"
   },
   "actas": {
    "1": {
@@ -12795,6 +12795,39 @@ const EQUIPOS = [
     "c": [],
     "rm": {},
     "id": "1510029"
+   },
+   "6": {
+    "t": [
+     "Luis Posado Varela",
+     "Pablo Vilariño Graña",
+     "Carlos Rey Serrano",
+     "Aldan Ulla Yáñez",
+     "Hugo Díez Ferreras",
+     "Jacobo Regos Aguión",
+     "Gabriel Sixto Rodríguez",
+     "Pepe Cotelo Uliarte"
+    ],
+    "s": [
+     "Mariano Castro Vázquez"
+    ],
+    "e": [],
+    "g": {},
+    "a": [],
+    "r": [],
+    "d": {
+     "Luis Posado Varela": 3,
+     "Pablo Vilariño Graña": 5,
+     "Carlos Rey Serrano": 6,
+     "Aldan Ulla Yáñez": 7,
+     "Hugo Díez Ferreras": 8,
+     "Jacobo Regos Aguión": 9,
+     "Gabriel Sixto Rodríguez": 10,
+     "Pepe Cotelo Uliarte": 14,
+     "Mariano Castro Vázquez": 2
+    },
+    "c": [],
+    "rm": {},
+    "id": "1510030"
    }
   },
   "dorsales": {
@@ -12804,17 +12837,17 @@ const EQUIPOS = [
    "Pablo Vilariño Graña": 5,
    "Jacobo Regos Aguión": 9,
    "Gabriel Sixto Rodríguez": 10,
-   "Gael García Fidalgo": 4,
    "Hugo Díez Ferreras": 8,
-   "Mariano Castro Vázquez": 1,
+   "Mariano Castro Vázquez": 2,
+   "Gael García Fidalgo": 4,
    "Manuel Pesqueira Esteve De Miguel": 11,
-   "Simón Corgo Del Río": 2,
+   "Pepe Cotelo Uliarte": 14,
    "Logan Barros De Andrés": 12,
    "Rafael Pesqueira Esteve De Miguel": 13,
-   "Kai Álvarez-Conchado Barlocco": 16,
-   "Daniel Seoane Paredes": 15
+   "Simón Corgo Del Río": 15,
+   "Kai Álvarez-Conchado Barlocco": 16
   },
-  "descargado": "2026-11-06T11:22"
+  "descargado": "2026-11-06T19:33"
  },
  {
   "id": "biberon-a",
@@ -12839,7 +12872,7 @@ const EQUIPOS = [
   "delegados": [],
   "clasificacion": [],
   "partidos": [],
-  "descargado": "2026-11-06T11:22"
+  "descargado": "2026-11-06T19:33"
  },
  {
   "id": "veteranos-a",
@@ -13573,7 +13606,7 @@ const EQUIPOS = [
    "Miguel A Mejuto Pajaro": 28,
    "Domingo A Monteiga Blanco": 7
   },
-  "descargado": "2026-11-06T11:23"
+  "descargado": "2026-11-06T19:33"
  },
  {
   "id": "biberon-a-fs",
