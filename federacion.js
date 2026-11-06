@@ -1,5 +1,5 @@
 // GENERADO por actualizar.py desde futgal.es. No editar a mano.
-const ACTUALIZADO = "2026-11-06T11:47";
+const ACTUALIZADO = "2026-11-06T12:15";
 const EQUIPOS = [
  {
   "id": "juvenil-a",
@@ -6141,7 +6141,7 @@ const EQUIPOS = [
    "Pau Fernández Vila": 4,
    "Jacobo López Alvite": 5
   },
-  "descargado": "2026-11-06T09:12"
+  "descargado": "2026-11-06T12:14"
  },
  {
   "id": "infantil-c",
@@ -7020,7 +7020,7 @@ const EQUIPOS = [
   "delegados": [],
   "clasificacion": [],
   "partidos": [],
-  "descargado": "2026-11-06T09:11"
+  "descargado": "2026-11-06T12:13"
  },
  {
   "id": "alevin-a",
@@ -7822,7 +7822,7 @@ const EQUIPOS = [
    "Hugo Bodelón Rubio": 11,
    "Óliver Villar González": 14
   },
-  "descargado": "2026-11-06T11:22"
+  "descargado": "2026-11-06T12:15"
  },
  {
   "id": "alevin-b",
@@ -10901,7 +10901,7 @@ const EQUIPOS = [
    "Matias Regueiro Callau": 3,
    "Alberto Veira Martí": 9
   },
-  "descargado": "2026-11-06T09:11"
+  "descargado": "2026-11-06T12:14"
  },
  {
   "id": "benjamin-c",
@@ -11340,7 +11340,7 @@ const EQUIPOS = [
    "Lukas Villar Sande": 12,
    "Jorge Fernández De Tejera Mosquera": 13
   },
-  "descargado": "2026-11-06T09:12"
+  "descargado": "2026-11-06T12:14"
  },
  {
   "id": "prebenjamin-a",
@@ -11956,7 +11956,7 @@ const EQUIPOS = [
    "Nicolás Saez Fernández": 14,
    "Lucas Ribes Velez De Villa": 13
   },
-  "descargado": "2026-11-06T09:12"
+  "descargado": "2026-11-06T12:15"
  },
  {
   "id": "prebenjamin-b",
