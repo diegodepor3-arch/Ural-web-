@@ -25,6 +25,8 @@ TEMPORADA = 22  # 2026-2027 (código interno de futgal)
 INICIO_TEMPORADA = "2026-07-01"  # partidos anteriores son de otra temporada (cambiar junto con TEMPORADA)
 # Hoja de Google donde el club escribe noticias, vídeos, datos de jugadores y del club (compartida "cualquiera con el enlace: lector")
 HOJA_ID = "1Kz8ZsDzWaAo07bvQDYqTv7tF-NlbZm8ZotTOIIvxOQc"
+# Hoja de respuestas del formulario «Publicar en la web del Ural» (vacío: aún no está vinculada)
+FORMULARIO_ID = ""
 MAX_ACTAS = int(os.environ.get("MAX_ACTAS", 5))  # actas nuevas por equipo y ejecución
 
 jar = http.cookiejar.CookieJar()
@@ -538,7 +540,7 @@ def fecha_hoja(v):
         return v.date().isoformat()
     if isinstance(v, date):
         return v.isoformat()
-    t = str(v or "").strip()
+    t = str(v or "").strip().split(" ")[0]  # «06/11/2026 10:09:13» (marca temporal del formulario) -> la fecha
     if m := re.fullmatch(r"(\d{4})-(\d{1,2})-(\d{1,2})", t):
         a, me, d = map(int, m.groups())
     elif m := re.fullmatch(r"(\d{1,2})[/.-](\d{1,2})[/.-](\d{2}|\d{4})", t):
@@ -679,17 +681,57 @@ def leer_hoja(wb, equipos):
     return out
 
 
+def leer_formulario(wb, equipos):
+    """Respuestas del formulario: cada fila es una noticia (título, texto, foto, vídeo y equipo opcionales).
+    Las columnas se reconocen por su nombre, así que da igual el orden o que se añadan otras."""
+    hoja_ = wb.worksheets[0]
+    filas_ = list(hoja_.iter_rows(values_only=True))
+    if not filas_:
+        return [], {}
+    cab = [normal(str(c or "")) for c in filas_[0]]
+    col = lambda *claves: next((i for i, c in enumerate(cab) if any(k in c for k in claves)), None)
+    i_fecha, i_tit, i_txt = col("marca temporal", "timestamp"), col("titulo"), col("texto")
+    i_foto, i_video, i_equipo = col("foto"), col("video", "youtube"), col("equipo")
+    por_nombre = {normal(nombre_hoja(e)): e["id"] for e in equipos}
+    dato = lambda f, i: (f[i] if i is not None and i < len(f) else None)
+    noticias, extra = [], {}
+    for n_fila, f in enumerate(filas_[1:], 2):
+        fecha, titulo = fecha_hoja(dato(f, i_fecha)), str(dato(f, i_tit) or "").strip()
+        texto_ = str(dato(f, i_txt) or "").strip()
+        if not fecha or not titulo:
+            if any(v not in (None, "") for v in f):
+                print(f"  Formulario, fila {n_fila}: falta la fecha o el título; no se publica")
+            continue
+        n = {"id": f"{fecha}-{re.sub(r'[^a-z0-9]+', '-', normal(titulo)).strip('-')}", "fecha": fecha, "titulo": titulo,
+             "resumen": texto_[:157] + "…" if len(texto_) > 160 else texto_, "cuerpo": texto_ or titulo}
+        if foto := foto_drive(str(dato(f, i_foto) or "").split(",")[0]):
+            n["foto"] = foto
+        if yt := id_youtube(dato(f, i_video)):
+            n["video"] = yt
+            if eid := por_nombre.get(normal(str(dato(f, i_equipo) or ""))):  # el vídeo sale también en la página del equipo
+                extra.setdefault(eid, {}).setdefault("videos", []).append({"tipo": "highlight", "youtube": yt, "titulo": titulo})
+        noticias.append(n)
+    return noticias, extra
+
+
+def descargar_hoja(id_):
+    import openpyxl
+    with web.open(f"https://docs.google.com/spreadsheets/d/{id_}/export?format=xlsx", timeout=60) as r:
+        return openpyxl.load_workbook(io.BytesIO(r.read()), data_only=True)
+
+
 def hoja(previo):
-    url = f"https://docs.google.com/spreadsheets/d/{HOJA_ID}/export?format=xlsx"
+    equipos = list(previo.values())
     try:
-        import openpyxl
-        with web.open(url, timeout=60) as r:
-            datos = r.read()
-        wb = openpyxl.load_workbook(io.BytesIO(datos), data_only=True)
+        h = leer_hoja(descargar_hoja(HOJA_ID), equipos)
+        if FORMULARIO_ID:
+            noticias, extra = leer_formulario(descargar_hoja(FORMULARIO_ID), equipos)
+            h["noticias"] = sorted(h["noticias"] + noticias, key=lambda n: n["fecha"], reverse=True)
+            for eid, x in extra.items():
+                h["extra"].setdefault(eid, {}).setdefault("videos", []).extend(x["videos"])
     except Exception as err:  # sin acceso o no es un Excel: se queda la versión anterior de hoja.js
-        print("Hoja del club no disponible (¿está compartida con «cualquier persona con el enlace»?):", err)
+        print("Hoja del club o formulario no disponible (¿compartidos con «cualquier persona con el enlace»?):", err)
         return
-    h = leer_hoja(wb, list(previo.values()))
     with open("hoja.js", "w", encoding="utf-8") as f:
         f.write("// GENERADO por actualizar.py desde la hoja de Google del club. No editar a mano: se cambia en la hoja.\n")
         f.write(f"const HOJA = {json.dumps(h, ensure_ascii=False, indent=1)};\n")

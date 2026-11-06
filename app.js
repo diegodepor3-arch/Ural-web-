@@ -770,7 +770,7 @@ function noticia(id) {
   const n = NOTICIAS.find((x) => x.id === id);
   if (!n) return noEncontrado();
   return `${cabeceraSimple(n.titulo, esc(fmt(n.fecha, { day: "numeric", month: "long", year: "numeric" })), `<p class="migas"><a href="#/noticias">Noticias</a></p>`)}
-    <article class="seccion articulo">${n.foto ? `<img class="articulo-foto" src="${esc(n.foto)}" alt="" loading="lazy">` : ""}${n.cuerpo.split(/\n\s*\n/).map((p) => `<p>${esc(p)}</p>`).join("")}</article>`;
+    <article class="seccion articulo">${n.foto ? `<img class="articulo-foto" src="${esc(n.foto)}" alt="" loading="lazy">` : ""}${n.cuerpo.split(/\n\s*\n/).map((p) => `<p>${esc(p)}</p>`).join("")}${n.video ? listaVideos([{ youtube: n.video, titulo: "" }]) : ""}</article>`;
 }
 
 function buscar(q) {
