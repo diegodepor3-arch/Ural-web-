@@ -1,0 +1,30 @@
+# Cada 5 minutos lee la hoja del club y el formulario «Publicar en la web del Ural» y, si cambia algo,
+# hace commit de hoja.js (y de las fotos nuevas): Vercel vuelve a publicar la web sola.
+# No pide nada a futgal, así que puede ir tan a menudo sin que la federación bloquee.
+# Ojo: GitHub no garantiza la hora exacta; con mucha carga una pasada puede retrasarse unos minutos.
+name: Leer la hoja del club
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+concurrency:
+  group: hoja  # nunca dos a la vez
+  cancel-in-progress: false
+permissions:
+  contents: write
+jobs:
+  hoja:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install openpyxl pillow
+      - run: python actualizar.py hoja
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add hoja.js img/hoja
+          git diff --cached --quiet || (git commit -m "Hoja del club" && (git push || (git pull --rebase origin main && git push)))
