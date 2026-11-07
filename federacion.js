@@ -1,5 +1,5 @@
 // GENERADO por actualizar.py desde futgal.es. No editar a mano.
-const ACTUALIZADO = "2026-11-06T19:34";
+const ACTUALIZADO = "2026-11-07T00:11";
 const EQUIPOS = [
  {
   "id": "juvenil-a",
@@ -837,7 +837,7 @@ const EQUIPOS = [
     }
    }
   },
-  "descargado": "2026-11-06T11:35"
+  "descargado": "2026-11-07T00:11"
  },
  {
   "id": "juvenil-b",
@@ -1944,7 +1944,7 @@ const EQUIPOS = [
    "Leo Sánchez Pérez": 12,
    "Rafael Sande Castro-Acuña": 14
   },
-  "descargado": "2026-11-06T11:46"
+  "descargado": "2026-11-07T00:11"
  },
  {
   "id": "cadete-a",
@@ -8732,7 +8732,7 @@ const EQUIPOS = [
    "Mateo Alonso Linares": 14,
    "Enrique Martínez Micha": 9
   },
-  "descargado": "2026-11-06T11:33"
+  "descargado": "2026-11-07T00:09"
  },
  {
   "id": "alevin-d",
@@ -9176,7 +9176,7 @@ const EQUIPOS = [
    "José Venancio Salcines Barros": 15,
    "Pablo Bello Caamaño": 16
   },
-  "descargado": "2026-11-06T11:33"
+  "descargado": "2026-11-07T00:09"
  },
  {
   "id": "alevin-e",
@@ -9628,7 +9628,7 @@ const EQUIPOS = [
    "Valentino Medina Pérez": 12,
    "Martiño Teixeira Vega": 9
   },
-  "descargado": "2026-11-06T11:34"
+  "descargado": "2026-11-07T00:10"
  },
  {
   "id": "benjamin-a",
@@ -13623,6 +13623,7 @@ const EQUIPOS = [
    "Hugo Díez Ferreras",
    "Xoel Fernández Ribeiro",
    "Luis Posado Varela",
+   "Jacobo Regos Aguión",
    "Carlos Rey Serrano",
    "Gabriel Sixto Rodríguez",
    "Aldan Ulla Yáñez",
@@ -13795,7 +13796,7 @@ const EQUIPOS = [
    {
     "jornada": 5,
     "fecha": "2027-01-24",
-    "hora": "",
+    "hora": "12:00",
     "local": false,
     "rival": "OLIMPICO C.F.",
     "resultado": "",
@@ -13804,7 +13805,7 @@ const EQUIPOS = [
    {
     "jornada": 6,
     "fecha": "2027-02-07",
-    "hora": "",
+    "hora": "11:20",
     "local": true,
     "rival": "CLUB ROSALÍA MERA",
     "resultado": "",
@@ -13864,6 +13865,6 @@ const EQUIPOS = [
   },
   "actas": {},
   "dorsales": {},
-  "descargado": "2026-11-06T11:33"
+  "descargado": "2026-11-07T00:09"
  }
 ];
