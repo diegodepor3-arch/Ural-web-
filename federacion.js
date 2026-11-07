@@ -1,5 +1,5 @@
 // GENERADO por actualizar.py desde futgal.es. No editar a mano.
-const ACTUALIZADO = "2026-11-07T00:11";
+const ACTUALIZADO = "2026-11-07T06:12";
 const EQUIPOS = [
  {
   "id": "juvenil-a",
@@ -3101,7 +3101,7 @@ const EQUIPOS = [
    "Pablo Cillero Seoane": 20,
    "Jorge Cillero Seoane": 4
   },
-  "descargado": "2026-11-06T11:46"
+  "descargado": "2026-11-07T06:11"
  },
  {
   "id": "cadete-b",
@@ -4255,7 +4255,7 @@ const EQUIPOS = [
    "Roberto Freire Quintas": 21,
    "Adán Giménez Muñoz": 22
   },
-  "descargado": "2026-11-06T11:46"
+  "descargado": "2026-11-07T06:11"
  },
  {
   "id": "infantil-a",
@@ -5194,7 +5194,7 @@ const EQUIPOS = [
    "Javier Meiriño López": 5,
    "Álvaro Ramil García": 12
   },
-  "descargado": "2026-11-06T11:47"
+  "descargado": "2026-11-07T06:12"
  },
  {
   "id": "infantil-b",
@@ -7006,7 +7006,7 @@ const EQUIPOS = [
   "delegados": [],
   "clasificacion": [],
   "partidos": [],
-  "descargado": "2026-11-06T11:47"
+  "descargado": "2026-11-07T06:12"
  },
  {
   "id": "alevin-b-f11",
@@ -7020,7 +7020,7 @@ const EQUIPOS = [
   "delegados": [],
   "clasificacion": [],
   "partidos": [],
-  "descargado": "2026-11-06T12:13"
+  "descargado": "2026-11-07T06:12"
  },
  {
   "id": "alevin-a",
@@ -10450,7 +10450,7 @@ const EQUIPOS = [
    "Bruno Costoya Mouriño": 10,
    "Martín Lorenzo Beiro": 12
   },
-  "descargado": "2026-11-06T11:47"
+  "descargado": "2026-11-07T06:12"
  },
  {
   "id": "benjamin-b",
