@@ -1,5 +1,5 @@
 // GENERADO por actualizar.py desde futgal.es. No editar a mano.
-const ACTUALIZADO = "2026-11-08T16:05";
+const ACTUALIZADO = "2026-11-08T20:36";
 const EQUIPOS = [
  {
   "id": "juvenil-a",
@@ -8683,7 +8683,7 @@ const EQUIPOS = [
    "Enzo Miñones Añón": 7,
    "Paulo Iglesias Botana": 11
   },
-  "descargado": "2026-11-07T21:59"
+  "descargado": "2026-11-08T20:36"
  },
  {
   "id": "alevin-c",
@@ -11985,13 +11985,13 @@ const EQUIPOS = [
    },
    {
     "equipo": "SANTA CRUZ C.F.",
-    "pts": 12,
-    "pj": 4,
-    "g": 4,
+    "pts": 15,
+    "pj": 5,
+    "g": 5,
     "e": 0,
     "p": 0,
-    "gf": 12,
-    "gc": 2,
+    "gf": 15,
+    "gc": 3,
     "propio": false
    },
    {
@@ -12085,12 +12085,12 @@ const EQUIPOS = [
    {
     "equipo": "SADA C.F.",
     "pts": 3,
-    "pj": 4,
+    "pj": 5,
     "g": 1,
     "e": 0,
-    "p": 3,
-    "gf": 4,
-    "gc": 11,
+    "p": 4,
+    "gf": 5,
+    "gc": 14,
     "propio": false
    },
    {
@@ -12602,7 +12602,7 @@ const EQUIPOS = [
    "Brais Vázquez Calo": 1,
    "Lucas Ribes Velez De Villa": 13
   },
-  "descargado": "2026-11-07T18:07"
+  "descargado": "2026-11-08T20:35"
  },
  {
   "id": "prebenjamin-b",
@@ -13088,7 +13088,7 @@ const EQUIPOS = [
    "Daniel Seoane Paredes": 16,
    "Maximo Gundín Díaz": 13
   },
-  "descargado": "2026-11-07T18:07"
+  "descargado": "2026-11-08T20:35"
  },
  {
   "id": "prebenjamin-c",
@@ -13112,68 +13112,35 @@ const EQUIPOS = [
   "clasificacion": [
    {
     "equipo": "ORILLAMAR S.D.",
-    "pts": 15,
-    "pj": 5,
-    "g": 5,
+    "pts": 18,
+    "pj": 6,
+    "g": 6,
     "e": 0,
     "p": 0,
-    "gf": 18,
-    "gc": 1,
+    "gf": 20,
+    "gc": 2,
     "propio": false
    },
    {
     "equipo": "COLEGIO OBRADOIRO",
-    "pts": 10,
-    "pj": 5,
-    "g": 3,
+    "pts": 13,
+    "pj": 6,
+    "g": 4,
     "e": 1,
     "p": 1,
-    "gf": 15,
-    "gc": 4,
-    "propio": false
-   },
-   {
-    "equipo": "COMPAÑIA DE MARIA \"B\"",
-    "pts": 9,
-    "pj": 5,
-    "g": 3,
-    "e": 0,
-    "p": 2,
-    "gf": 11,
-    "gc": 6,
-    "propio": false
-   },
-   {
-    "equipo": "CLUB ROSALIA MERA",
-    "pts": 9,
-    "pj": 5,
-    "g": 3,
-    "e": 0,
-    "p": 2,
-    "gf": 8,
+    "gf": 18,
     "gc": 5,
     "propio": false
    },
    {
     "equipo": "A. C. RUEIRO",
-    "pts": 9,
-    "pj": 5,
-    "g": 3,
+    "pts": 12,
+    "pj": 6,
+    "g": 4,
     "e": 0,
     "p": 2,
-    "gf": 8,
+    "gf": 10,
     "gc": 8,
-    "propio": false
-   },
-   {
-    "equipo": "EIRÍS S.D.",
-    "pts": 9,
-    "pj": 5,
-    "g": 3,
-    "e": 0,
-    "p": 2,
-    "gf": 9,
-    "gc": 10,
     "propio": false
    },
    {
@@ -13188,25 +13155,58 @@ const EQUIPOS = [
     "propio": true
    },
    {
+    "equipo": "COMPAÑIA DE MARIA \"B\"",
+    "pts": 9,
+    "pj": 6,
+    "g": 3,
+    "e": 0,
+    "p": 3,
+    "gf": 11,
+    "gc": 8,
+    "propio": false
+   },
+   {
+    "equipo": "CLUB ROSALIA MERA",
+    "pts": 9,
+    "pj": 6,
+    "g": 3,
+    "e": 0,
+    "p": 3,
+    "gf": 9,
+    "gc": 8,
+    "propio": false
+   },
+   {
+    "equipo": "EIRÍS S.D.",
+    "pts": 9,
+    "pj": 6,
+    "g": 3,
+    "e": 0,
+    "p": 3,
+    "gf": 10,
+    "gc": 12,
+    "propio": false
+   },
+   {
     "equipo": "IMPERATOR O.A.R. \"B\"",
-    "pts": 3,
-    "pj": 5,
-    "g": 1,
+    "pts": 6,
+    "pj": 6,
+    "g": 2,
     "e": 0,
     "p": 4,
-    "gf": 2,
-    "gc": 13,
+    "gf": 5,
+    "gc": 14,
     "propio": false
    },
    {
     "equipo": "OZA JUVENIL S.D. \"B\"",
     "pts": 3,
-    "pj": 5,
+    "pj": 6,
     "g": 1,
     "e": 0,
-    "p": 4,
-    "gf": 3,
-    "gc": 15,
+    "p": 5,
+    "gf": 4,
+    "gc": 18,
     "propio": false
    },
    {
@@ -13534,7 +13534,7 @@ const EQUIPOS = [
    "Simón Corgo Del Río": 15,
    "Kai Álvarez-Conchado Barlocco": 16
   },
-  "descargado": "2026-11-07T18:08"
+  "descargado": "2026-11-08T20:36"
  },
  {
   "id": "biberon-a",
@@ -13559,7 +13559,7 @@ const EQUIPOS = [
   "delegados": [],
   "clasificacion": [],
   "partidos": [],
-  "descargado": "2026-11-07T18:08"
+  "descargado": "2026-11-08T20:36"
  },
  {
   "id": "veteranos-a",
@@ -13598,6 +13598,17 @@ const EQUIPOS = [
   ],
   "clasificacion": [
    {
+    "equipo": "S.C.D. SAN CRISTOBAL DAS VIÑAS",
+    "pts": 21,
+    "pj": 7,
+    "g": 7,
+    "e": 0,
+    "p": 0,
+    "gf": 24,
+    "gc": 5,
+    "propio": false
+   },
+   {
     "equipo": "IMPERATOR OAR \"B\"",
     "pts": 18,
     "pj": 7,
@@ -13609,14 +13620,14 @@ const EQUIPOS = [
     "propio": false
    },
    {
-    "equipo": "S.C.D. SAN CRISTOBAL DAS VIÑAS",
-    "pts": 18,
-    "pj": 6,
-    "g": 6,
+    "equipo": "S.D. CULTURAL MANIÑOS",
+    "pts": 15,
+    "pj": 7,
+    "g": 5,
     "e": 0,
-    "p": 0,
-    "gf": 22,
-    "gc": 5,
+    "p": 2,
+    "gf": 25,
+    "gc": 12,
     "propio": false
    },
    {
@@ -13642,36 +13653,25 @@ const EQUIPOS = [
     "propio": false
    },
    {
-    "equipo": "S.D. CULTURAL MANIÑOS",
-    "pts": 12,
-    "pj": 6,
-    "g": 4,
-    "e": 0,
-    "p": 2,
-    "gf": 19,
-    "gc": 12,
-    "propio": false
-   },
-   {
     "equipo": "ATLETICO PERILLO",
-    "pts": 10,
-    "pj": 7,
+    "pts": 11,
+    "pj": 8,
     "g": 3,
-    "e": 1,
+    "e": 2,
     "p": 3,
-    "gf": 20,
-    "gc": 19,
+    "gf": 22,
+    "gc": 21,
     "propio": false
    },
    {
     "equipo": "A.C.D. POULO",
-    "pts": 10,
-    "pj": 7,
+    "pts": 11,
+    "pj": 8,
     "g": 3,
-    "e": 1,
+    "e": 2,
     "p": 3,
-    "gf": 16,
-    "gc": 17,
+    "gf": 18,
+    "gc": 19,
     "propio": false
    },
    {
@@ -13699,45 +13699,45 @@ const EQUIPOS = [
    {
     "equipo": "URAL ESPAÑOL C.F. VUELTA XENTES",
     "pts": 6,
-    "pj": 6,
+    "pj": 7,
     "g": 2,
     "e": 0,
-    "p": 4,
+    "p": 5,
     "gf": 11,
-    "gc": 17,
+    "gc": 23,
     "propio": true
    },
    {
     "equipo": "S.D. FONTEMAYOR \"B\"",
     "pts": 6,
-    "pj": 6,
+    "pj": 7,
     "g": 2,
     "e": 0,
-    "p": 4,
+    "p": 5,
     "gf": 8,
-    "gc": 20,
+    "gc": 22,
     "propio": false
    },
    {
     "equipo": "EIRÍS S.D.",
     "pts": 3,
-    "pj": 6,
+    "pj": 7,
     "g": 0,
     "e": 3,
-    "p": 3,
-    "gf": 10,
-    "gc": 15,
+    "p": 4,
+    "gf": 11,
+    "gc": 19,
     "propio": false
    },
    {
     "equipo": "ATLETICO ARTEIXO",
-    "pts": 3,
-    "pj": 0,
+    "pts": 1,
+    "pj": 8,
     "g": 1,
-    "e": 6,
-    "p": 15,
-    "gf": 32,
-    "gc": 3,
+    "e": 1,
+    "p": 6,
+    "gf": 15,
+    "gc": 33,
     "propio": false
    }
   ],
@@ -13802,8 +13802,8 @@ const EQUIPOS = [
     "hora": "10:30",
     "local": true,
     "rival": "S.D. CULTURAL MANIÑOS",
-    "resultado": "",
-    "campo": "San Pedro de Visma 1"
+    "resultado": "0-6",
+    "campo": ""
    },
    {
     "jornada": 9,
@@ -13812,7 +13812,7 @@ const EQUIPOS = [
     "local": false,
     "rival": "ACD VETERANOS ARANGA",
     "resultado": "",
-    "campo": ""
+    "campo": "Municipal A Posta"
    },
    {
     "jornada": 10,
@@ -13962,19 +13962,19 @@ const EQUIPOS = [
   "competicion": "Veteranos - Tercera Galicia · A Coruña | 3ª División G2",
   "urlClasificacion": "https://www.futgal.es/pnfg/NPcd/NFG_VisClasificacion?cod_primaria=1000120&codgrupo=28259876&codcompeticion=26991165",
   "escudos": {
-   "SPORTING CORUÑES SDC": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000801946_escudo-4154.jpg",
-   "IMPERATOR OAR \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000911974_ESCUDO__IMPERATOR_final.png",
-   "ACD VETERANOS ARANGA": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001486797_ArangaCDX_logotipo_positivo.png",
+   "ATLETICO PERILLO": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000034822_ESCUDO_PERILLO.jpg",
    "UD CARRAL": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001484347_Carral.jpg",
    "VIOÑO C.F.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001406822_Screenshot_2024_09_30_23_24_06_656_com.android.chrome_edit.jpg",
-   "ATLETICO PERILLO": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000034822_ESCUDO_PERILLO.jpg",
-   "A.C.D. POULO": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000805848_EscudoPoulo.jpg",
+   "SPORTING CORUÑES SDC": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000801946_escudo-4154.jpg",
+   "ATLETICO ARTEIXO": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001213772_Atle__tico_Arteixo.png",
+   "EIRÍS S.D.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000934032_Eiris.png",
+   "IMPERATOR OAR \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000911974_ESCUDO__IMPERATOR_final.png",
+   "ACD VETERANOS ARANGA": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001486797_ArangaCDX_logotipo_positivo.png",
    "URAL ESPAÑOL C.F. VUELTA XENTES": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000891301_ESCUDO_URAL_B.jpg",
    "S.D. CULTURAL MANIÑOS": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000007711_Escudo.gif",
    "S.C.D. SAN CRISTOBAL DAS VIÑAS": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000716647_EMBLEMA_CLUB.jpg",
-   "S.D. FONTEMAYOR \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000805847_Escudo-Fontemaior.jpg",
-   "ATLETICO ARTEIXO": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001213772_Atle__tico_Arteixo.png",
-   "EIRÍS S.D.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000934032_Eiris.png"
+   "A.C.D. POULO": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000805848_EscudoPoulo.jpg",
+   "S.D. FONTEMAYOR \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000805847_Escudo-Fontemaior.jpg"
   },
   "actas": {
    "3": {
@@ -14269,6 +14269,54 @@ const EQUIPOS = [
     "c": [],
     "rm": {},
     "id": "1477782"
+   },
+   "8": {
+    "t": [
+     "Feliciano Penas Pérez",
+     "Mauro García Juncal",
+     "Antón Baldomir Vilela",
+     "Marcos Ferreras Rodríguez",
+     "Domingo A Monteiga Blanco",
+     "David Castro Santos",
+     "José Manuel Molla González",
+     "Jesús Furelos Quintas",
+     "José M García Villar",
+     "Carlos Rey Villamor",
+     "Pablo Barallobre Fernández"
+    ],
+    "s": [
+     "Alberto Felipez Sánchez",
+     "Francisco B Barreiro Pena",
+     "José Antonio Elizondo Martínez",
+     "Luciano R Pérez C Iglesias"
+    ],
+    "e": [],
+    "g": {},
+    "a": [
+     "Antón Baldomir Vilela",
+     "José Manuel Molla González"
+    ],
+    "r": [],
+    "d": {
+     "Feliciano Penas Pérez": 1,
+     "Mauro García Juncal": 2,
+     "Antón Baldomir Vilela": 4,
+     "Marcos Ferreras Rodríguez": 6,
+     "Domingo A Monteiga Blanco": 7,
+     "David Castro Santos": 13,
+     "José Manuel Molla González": 14,
+     "Jesús Furelos Quintas": 16,
+     "José M García Villar": 21,
+     "Carlos Rey Villamor": 26,
+     "Pablo Barallobre Fernández": 99,
+     "Alberto Felipez Sánchez": 12,
+     "Francisco B Barreiro Pena": 17,
+     "José Antonio Elizondo Martínez": 23,
+     "Luciano R Pérez C Iglesias": 29
+    },
+    "c": [],
+    "rm": {},
+    "id": "1477832"
    }
   },
   "dorsales": {
@@ -14277,23 +14325,23 @@ const EQUIPOS = [
    "Francisco B Barreiro Pena": 17,
    "Luciano R Pérez C Iglesias": 29,
    "Antón Baldomir Vilela": 4,
-   "José R Ares Suárez": 9,
-   "Pablo López Villanueva": 22,
    "Carlos Rey Villamor": 26,
    "Mauro García Juncal": 2,
    "Alberto Felipez Sánchez": 12,
    "José Antonio Elizondo Martínez": 23,
    "Pablo Barallobre Fernández": 99,
+   "José R Ares Suárez": 9,
+   "Pablo López Villanueva": 22,
+   "José M García Villar": 21,
    "Feliciano Penas Pérez": 14,
    "Juan C Ponte Mahia": 15,
+   "Domingo A Monteiga Blanco": 7,
    "Ambrosio Orons Baña": 19,
-   "José M García Villar": 21,
    "José Manuel Molla González": 5,
    "David Castro Santos": 3,
-   "Miguel A Mejuto Pajaro": 28,
-   "Domingo A Monteiga Blanco": 7
+   "Miguel A Mejuto Pajaro": 28
   },
-  "descargado": "2026-11-07T21:59"
+  "descargado": "2026-11-08T20:36"
  },
  {
   "id": "biberon-a-fs",
