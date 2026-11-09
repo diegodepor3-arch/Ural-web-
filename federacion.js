@@ -1,5 +1,5 @@
 // GENERADO por actualizar.py desde futgal.es. No editar a mano.
-const ACTUALIZADO = "2026-11-09T01:02";
+const ACTUALIZADO = "2026-11-09T08:07";
 const EQUIPOS = [
  {
   "id": "juvenil-a",
@@ -979,6 +979,17 @@ const EQUIPOS = [
     "propio": false
    },
    {
+    "equipo": "C.F. DUMBRIA",
+    "pts": 10,
+    "pj": 8,
+    "g": 3,
+    "e": 1,
+    "p": 4,
+    "gf": 18,
+    "gc": 19,
+    "propio": false
+   },
+   {
     "equipo": "E.D.LOURENZA",
     "pts": 10,
     "pj": 8,
@@ -1012,17 +1023,6 @@ const EQUIPOS = [
     "propio": false
    },
    {
-    "equipo": "C.F. DUMBRIA",
-    "pts": 7,
-    "pj": 7,
-    "g": 2,
-    "e": 1,
-    "p": 4,
-    "gf": 12,
-    "gc": 18,
-    "propio": false
-   },
-   {
     "equipo": "GALICIA DE CARANZA",
     "pts": 6,
     "pj": 8,
@@ -1047,12 +1047,12 @@ const EQUIPOS = [
    {
     "equipo": "MARINO C.F.",
     "pts": 1,
-    "pj": 7,
+    "pj": 8,
     "g": 0,
     "e": 1,
-    "p": 6,
-    "gf": 5,
-    "gc": 27,
+    "p": 7,
+    "gf": 6,
+    "gc": 33,
     "propio": false
    }
   ],
@@ -2015,7 +2015,7 @@ const EQUIPOS = [
    "Leo Sánchez Pérez": 12,
    "Rafael Sande Castro-Acuña": 14
   },
-  "descargado": "2026-11-08T01:31"
+  "descargado": "2026-11-09T08:06"
  },
  {
   "id": "cadete-a",
@@ -2059,12 +2059,12 @@ const EQUIPOS = [
   "clasificacion": [
    {
     "equipo": "R.C. DEPORTIVO",
-    "pts": 24,
-    "pj": 8,
-    "g": 8,
+    "pts": 27,
+    "pj": 9,
+    "g": 9,
     "e": 0,
     "p": 0,
-    "gf": 38,
+    "gf": 45,
     "gc": 2,
     "propio": false
    },
@@ -2082,12 +2082,12 @@ const EQUIPOS = [
    {
     "equipo": "E.D. VAL MIÑOR NIGRÁN",
     "pts": 18,
-    "pj": 8,
+    "pj": 9,
     "g": 6,
     "e": 0,
-    "p": 2,
+    "p": 3,
     "gf": 17,
-    "gc": 5,
+    "gc": 12,
     "propio": false
    },
    {
@@ -2126,12 +2126,12 @@ const EQUIPOS = [
    {
     "equipo": "SAN TIRSO S.D.",
     "pts": 13,
-    "pj": 8,
+    "pj": 9,
     "g": 4,
     "e": 1,
-    "p": 3,
+    "p": 4,
     "gf": 14,
-    "gc": 18,
+    "gc": 19,
     "propio": false
    },
    {
@@ -2212,6 +2212,17 @@ const EQUIPOS = [
     "propio": false
    },
    {
+    "equipo": "C.D. CONXO SANTIAGO",
+    "pts": 6,
+    "pj": 9,
+    "g": 2,
+    "e": 0,
+    "p": 7,
+    "gf": 7,
+    "gc": 23,
+    "propio": false
+   },
+   {
     "equipo": "ESCOLA DE FÚTBOL DSF",
     "pts": 5,
     "pj": 9,
@@ -2219,17 +2230,6 @@ const EQUIPOS = [
     "e": 2,
     "p": 6,
     "gf": 9,
-    "gc": 23,
-    "propio": false
-   },
-   {
-    "equipo": "C.D. CONXO SANTIAGO",
-    "pts": 3,
-    "pj": 8,
-    "g": 1,
-    "e": 0,
-    "p": 7,
-    "gf": 6,
     "gc": 23,
     "propio": false
    }
@@ -3252,7 +3252,7 @@ const EQUIPOS = [
    "Jorge Cillero Seoane": 4,
    "Luis Santiago Morales Morales Acuña": 15
   },
-  "descargado": "2026-11-08T01:32"
+  "descargado": "2026-11-09T08:06"
  },
  {
   "id": "cadete-b",
@@ -3294,6 +3294,17 @@ const EQUIPOS = [
   ],
   "clasificacion": [
    {
+    "equipo": "ATL. CORUÑA MONTAÑEROS C.F.",
+    "pts": 22,
+    "pj": 9,
+    "g": 7,
+    "e": 1,
+    "p": 1,
+    "gf": 26,
+    "gc": 11,
+    "propio": false
+   },
+   {
     "equipo": "C.D. CALASANZ",
     "pts": 21,
     "pj": 9,
@@ -3313,17 +3324,6 @@ const EQUIPOS = [
     "p": 1,
     "gf": 26,
     "gc": 10,
-    "propio": false
-   },
-   {
-    "equipo": "ATL. CORUÑA MONTAÑEROS C.F.",
-    "pts": 19,
-    "pj": 8,
-    "g": 6,
-    "e": 1,
-    "p": 1,
-    "gf": 22,
-    "gc": 11,
     "propio": false
    },
    {
@@ -3450,12 +3450,12 @@ const EQUIPOS = [
    {
     "equipo": "SADA C.F.",
     "pts": 7,
-    "pj": 8,
+    "pj": 9,
     "g": 1,
     "e": 4,
-    "p": 3,
+    "p": 4,
     "gf": 12,
-    "gc": 18,
+    "gc": 22,
     "propio": false
    },
    {
@@ -4482,7 +4482,7 @@ const EQUIPOS = [
    "Roberto Freire Quintas": 21,
    "Adán Giménez Muñoz": 22
   },
-  "descargado": "2026-11-08T09:09"
+  "descargado": "2026-11-09T08:07"
  },
  {
   "id": "infantil-a",
@@ -4605,6 +4605,17 @@ const EQUIPOS = [
     "propio": false
    },
    {
+    "equipo": "A.J. LÉREZ",
+    "pts": 11,
+    "pj": 9,
+    "g": 3,
+    "e": 2,
+    "p": 4,
+    "gf": 16,
+    "gc": 24,
+    "propio": false
+   },
+   {
     "equipo": "PONTEVEDRA C.F.",
     "pts": 11,
     "pj": 9,
@@ -4635,17 +4646,6 @@ const EQUIPOS = [
     "p": 5,
     "gf": 10,
     "gc": 17,
-    "propio": false
-   },
-   {
-    "equipo": "A.J. LÉREZ",
-    "pts": 8,
-    "pj": 8,
-    "g": 2,
-    "e": 2,
-    "p": 4,
-    "gf": 13,
-    "gc": 22,
     "propio": false
    },
    {
@@ -4684,12 +4684,12 @@ const EQUIPOS = [
    {
     "equipo": "CIDADE DE RIBEIRA C.F.",
     "pts": 0,
-    "pj": 8,
+    "pj": 9,
     "g": 0,
     "e": 0,
-    "p": 8,
-    "gf": 3,
-    "gc": 43,
+    "p": 9,
+    "gf": 5,
+    "gc": 46,
     "propio": false
    }
   ],
@@ -5472,7 +5472,7 @@ const EQUIPOS = [
    "Lautaro Sicilia Viana": 19,
    "Álvaro Ramil García": 12
   },
-  "descargado": "2026-11-08T09:09"
+  "descargado": "2026-11-09T08:07"
  },
  {
   "id": "infantil-b",
@@ -7336,7 +7336,7 @@ const EQUIPOS = [
   "delegados": [],
   "clasificacion": [],
   "partidos": [],
-  "descargado": "2026-11-08T09:09"
+  "descargado": "2026-11-09T08:07"
  },
  {
   "id": "alevin-b-f11",
@@ -7350,7 +7350,7 @@ const EQUIPOS = [
   "delegados": [],
   "clasificacion": [],
   "partidos": [],
-  "descargado": "2026-11-08T09:09"
+  "descargado": "2026-11-09T08:07"
  },
  {
   "id": "alevin-a",
