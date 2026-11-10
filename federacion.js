@@ -1,5 +1,5 @@
 // GENERADO por actualizar.py desde futgal.es. No editar a mano.
-const ACTUALIZADO = "2026-11-09T18:56";
+const ACTUALIZADO = "2026-11-10T02:16";
 const EQUIPOS = [
  {
   "id": "juvenil-a",
@@ -8737,7 +8737,7 @@ const EQUIPOS = [
    "Enzo Miñones Añón": 7,
    "Paulo Iglesias Botana": 11
   },
-  "descargado": "2026-11-08T20:36"
+  "descargado": "2026-11-10T02:16"
  },
  {
   "id": "alevin-c",
@@ -12036,7 +12036,7 @@ const EQUIPOS = [
    "Danilo Molina Rocha": 14,
    "Jorge Fernández De Tejera Mosquera": 13
   },
-  "descargado": "2026-11-08T16:05"
+  "descargado": "2026-11-10T02:15"
  },
  {
   "id": "prebenjamin-a",
@@ -12469,10 +12469,10 @@ const EQUIPOS = [
    "ATL. CORUÑA MONTAÑEROS C.F": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000889647_AtleticoCorunaMonta.png",
    "C.D. CALASANZ": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001120003_escudo_calasanz.jpg",
    "VICTORIA C.F.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000004135_victoriacfblanco.jpg",
-   "E.D. LUIS CALVO SANZ": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001004731_LOGO_ALTA_RES_ESCOLAS_CALVO.jpg",
-   "SPORTING CAMBRE": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000801589_ESCUDO_ESPORTING_CAMBRE.jpg",
    "SADA C.F.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000931604_Sada_CF_escudo_FUTGAL.png",
-   "SPORTING CORUÑES": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000801946_escudo-4154.jpg"
+   "SPORTING CORUÑES": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000801946_escudo-4154.jpg",
+   "E.D. LUIS CALVO SANZ": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001004731_LOGO_ALTA_RES_ESCOLAS_CALVO.jpg",
+   "SPORTING CAMBRE": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000801589_ESCUDO_ESPORTING_CAMBRE.jpg"
   },
   "actas": {
    "1": {
@@ -12695,7 +12695,7 @@ const EQUIPOS = [
    "Brais Vázquez Calo": 1,
    "Lucas Ribes Velez De Villa": 13
   },
-  "descargado": "2026-11-08T20:35"
+  "descargado": "2026-11-10T02:15"
  },
  {
   "id": "prebenjamin-b",
@@ -13181,7 +13181,7 @@ const EQUIPOS = [
    "Daniel Seoane Paredes": 16,
    "Maximo Gundín Díaz": 13
   },
-  "descargado": "2026-11-08T20:35"
+  "descargado": "2026-11-10T02:15"
  },
  {
   "id": "prebenjamin-c",
@@ -13627,7 +13627,7 @@ const EQUIPOS = [
    "Simón Corgo Del Río": 15,
    "Kai Álvarez-Conchado Barlocco": 16
   },
-  "descargado": "2026-11-08T20:36"
+  "descargado": "2026-11-10T02:16"
  },
  {
   "id": "biberon-a",
@@ -13652,7 +13652,7 @@ const EQUIPOS = [
   "delegados": [],
   "clasificacion": [],
   "partidos": [],
-  "descargado": "2026-11-08T20:36"
+  "descargado": "2026-11-10T02:16"
  },
  {
   "id": "veteranos-a",
