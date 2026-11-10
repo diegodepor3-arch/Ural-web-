@@ -1,5 +1,5 @@
 // GENERADO por actualizar.py desde futgal.es. No editar a mano.
-const ACTUALIZADO = "2026-11-10T02:16";
+const ACTUALIZADO = "2026-11-10T10:05";
 const EQUIPOS = [
  {
   "id": "juvenil-a",
@@ -837,7 +837,7 @@ const EQUIPOS = [
     }
    }
   },
-  "descargado": "2026-11-09T01:02"
+  "descargado": "2026-11-10T10:05"
  },
  {
   "id": "juvenil-b",
@@ -9231,7 +9231,7 @@ const EQUIPOS = [
    "Marcelo Sánchez Serantes": 10,
    "Mauro Afonso Gómez": 17
   },
-  "descargado": "2026-11-09T01:00"
+  "descargado": "2026-11-10T10:03"
  },
  {
   "id": "alevin-d",
@@ -9714,7 +9714,7 @@ const EQUIPOS = [
    "Alejandro Álvarez Buceta": 14,
    "Pablo Bello Caamaño": 16
   },
-  "descargado": "2026-11-09T01:00"
+  "descargado": "2026-11-10T10:03"
  },
  {
   "id": "alevin-e",
@@ -10205,7 +10205,7 @@ const EQUIPOS = [
    "Gael Platas González": 16,
    "Martiño Teixeira Vega": 9
   },
-  "descargado": "2026-11-09T01:01"
+  "descargado": "2026-11-10T10:04"
  },
  {
   "id": "benjamin-a",
@@ -14434,7 +14434,7 @@ const EQUIPOS = [
    "David Castro Santos": 3,
    "Miguel A Mejuto Pajaro": 28
   },
-  "descargado": "2026-11-08T20:36"
+  "descargado": "2026-11-10T10:03"
  },
  {
   "id": "biberon-a-fs",
@@ -14737,6 +14737,6 @@ const EQUIPOS = [
    "Hugo Díez Ferreras": 8,
    "Aldan Ulla Yáñez": 7
   },
-  "descargado": "2026-11-09T01:01"
+  "descargado": "2026-11-10T10:04"
  }
 ];
