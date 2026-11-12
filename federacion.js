@@ -1,5 +1,5 @@
 // GENERADO por actualizar.py desde futgal.es. No editar a mano.
-const ACTUALIZADO = "2026-11-11T22:48";
+const ACTUALIZADO = "2026-11-12T03:55";
 const EQUIPOS = [
  {
   "id": "juvenil-a",
@@ -7376,7 +7376,7 @@ const EQUIPOS = [
    "Adrián Garrido Calvete": 7,
    "Martín Quesada Mallo": 18
   },
-  "descargado": "2026-11-10T23:31"
+  "descargado": "2026-11-12T03:54"
  },
  {
   "id": "alevin-a-f11",
@@ -7469,12 +7469,12 @@ const EQUIPOS = [
    },
    {
     "equipo": "FABRIL F.C.",
-    "pts": 16,
-    "pj": 8,
-    "g": 5,
+    "pts": 19,
+    "pj": 9,
+    "g": 6,
     "e": 1,
     "p": 2,
-    "gf": 46,
+    "gf": 56,
     "gc": 15,
     "propio": false
    },
@@ -7591,12 +7591,12 @@ const EQUIPOS = [
    {
     "equipo": "U.D. CARRAL",
     "pts": 1,
-    "pj": 8,
+    "pj": 9,
     "g": 0,
     "e": 1,
-    "p": 7,
+    "p": 8,
     "gf": 9,
-    "gc": 55,
+    "gc": 65,
     "propio": false
    },
    {
@@ -8245,7 +8245,7 @@ const EQUIPOS = [
    "Hugo Bodelón Rubio": 11,
    "Óliver Villar González": 14
   },
-  "descargado": "2026-11-10T23:30"
+  "descargado": "2026-11-12T03:53"
  },
  {
   "id": "alevin-b",
@@ -11068,7 +11068,7 @@ const EQUIPOS = [
    "Martín Cascudo Bouza": 8,
    "Martín Lorenzo Beiro": 12
   },
-  "descargado": "2026-11-10T23:30"
+  "descargado": "2026-11-12T03:54"
  },
  {
   "id": "benjamin-b",
@@ -11556,7 +11556,7 @@ const EQUIPOS = [
    "Alberto Veira Martí": 9,
    "Matias Regueiro Callau": 3
   },
-  "descargado": "2026-11-10T23:31"
+  "descargado": "2026-11-12T03:54"
  },
  {
   "id": "benjamin-c",
@@ -12036,7 +12036,7 @@ const EQUIPOS = [
    "Danilo Molina Rocha": 14,
    "Jorge Fernández De Tejera Mosquera": 13
   },
-  "descargado": "2026-11-10T23:31"
+  "descargado": "2026-11-12T03:55"
  },
  {
   "id": "prebenjamin-a",
@@ -12695,7 +12695,7 @@ const EQUIPOS = [
    "Brais Vázquez Calo": 1,
    "Lucas Ribes Velez De Villa": 13
   },
-  "descargado": "2026-11-11T06:42"
+  "descargado": "2026-11-12T03:55"
  },
  {
   "id": "prebenjamin-b",
