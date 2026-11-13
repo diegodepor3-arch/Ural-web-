@@ -1,5 +1,5 @@
 // GENERADO por actualizar.py desde futgal.es. No editar a mano.
-const ACTUALIZADO = "2026-11-12T20:58";
+const ACTUALIZADO = "2026-11-13T01:57";
 const EQUIPOS = [
  {
   "id": "juvenil-a",
@@ -4482,7 +4482,7 @@ const EQUIPOS = [
    "Roberto Freire Quintas": 21,
    "Adán Giménez Muñoz": 22
   },
-  "descargado": "2026-11-11T22:47"
+  "descargado": "2026-11-13T01:56"
  },
  {
   "id": "infantil-a",
@@ -5472,7 +5472,7 @@ const EQUIPOS = [
    "Lautaro Sicilia Viana": 19,
    "Álvaro Ramil García": 12
   },
-  "descargado": "2026-11-11T22:48"
+  "descargado": "2026-11-13T01:56"
  },
  {
   "id": "infantil-b",
@@ -6471,7 +6471,7 @@ const EQUIPOS = [
    "Martín Quesada Mallo": 18,
    "Nicolás Olveira Borrallo": 20
   },
-  "descargado": "2026-11-11T22:48"
+  "descargado": "2026-11-13T01:56"
  },
  {
   "id": "infantil-c",
@@ -7390,7 +7390,7 @@ const EQUIPOS = [
   "delegados": [],
   "clasificacion": [],
   "partidos": [],
-  "descargado": "2026-11-11T22:48"
+  "descargado": "2026-11-13T01:57"
  },
  {
   "id": "alevin-b-f11",
@@ -7404,7 +7404,7 @@ const EQUIPOS = [
   "delegados": [],
   "clasificacion": [],
   "partidos": [],
-  "descargado": "2026-11-11T22:48"
+  "descargado": "2026-11-13T01:57"
  },
  {
   "id": "alevin-a",
@@ -7447,13 +7447,13 @@ const EQUIPOS = [
    },
    {
     "equipo": "ATL. CORUÑA MONTAÑEROS C.F.",
-    "pts": 21,
-    "pj": 8,
-    "g": 7,
+    "pts": 24,
+    "pj": 9,
+    "g": 8,
     "e": 0,
     "p": 1,
-    "gf": 34,
-    "gc": 10,
+    "gf": 39,
+    "gc": 11,
     "propio": false
    },
    {
@@ -7569,12 +7569,12 @@ const EQUIPOS = [
    {
     "equipo": "SAN TIRSO S.D.",
     "pts": 6,
-    "pj": 8,
+    "pj": 9,
     "g": 2,
     "e": 0,
-    "p": 6,
-    "gf": 18,
-    "gc": 42,
+    "p": 7,
+    "gf": 19,
+    "gc": 47,
     "propio": false
    },
    {
@@ -8245,7 +8245,7 @@ const EQUIPOS = [
    "Hugo Bodelón Rubio": 11,
    "Óliver Villar González": 14
   },
-  "descargado": "2026-11-12T03:53"
+  "descargado": "2026-11-13T01:57"
  },
  {
   "id": "alevin-b",
