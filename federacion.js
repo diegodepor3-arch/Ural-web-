@@ -1,5 +1,5 @@
 // GENERADO por actualizar.py desde futgal.es. No editar a mano.
-const ACTUALIZADO = "2026-11-13T17:53";
+const ACTUALIZADO = "2026-11-13T23:43";
 const EQUIPOS = [
  {
   "id": "juvenil-a",
@@ -837,7 +837,7 @@ const EQUIPOS = [
     }
    }
   },
-  "descargado": "2026-11-12T20:57"
+  "descargado": "2026-11-13T23:42"
  },
  {
   "id": "juvenil-b",
@@ -2015,7 +2015,7 @@ const EQUIPOS = [
    "Leo Sánchez Pérez": 12,
    "Rafael Sande Castro-Acuña": 14
   },
-  "descargado": "2026-11-12T20:57"
+  "descargado": "2026-11-13T23:42"
  },
  {
   "id": "cadete-a",
@@ -3252,7 +3252,7 @@ const EQUIPOS = [
    "Jorge Cillero Seoane": 4,
    "Luis Santiago Morales Morales Acuña": 15
   },
-  "descargado": "2026-11-12T20:58"
+  "descargado": "2026-11-13T23:42"
  },
  {
   "id": "cadete-b",
@@ -4482,7 +4482,7 @@ const EQUIPOS = [
    "Roberto Freire Quintas": 21,
    "Adán Giménez Muñoz": 22
   },
-  "descargado": "2026-11-13T01:56"
+  "descargado": "2026-11-13T23:43"
  },
  {
   "id": "infantil-a",
@@ -14434,7 +14434,7 @@ const EQUIPOS = [
    "David Castro Santos": 3,
    "Miguel A Mejuto Pajaro": 28
   },
-  "descargado": "2026-11-12T20:55"
+  "descargado": "2026-11-13T23:40"
  },
  {
   "id": "biberon-a-fs",
@@ -14737,6 +14737,6 @@ const EQUIPOS = [
    "Hugo Díez Ferreras": 8,
    "Aldan Ulla Yáñez": 7
   },
-  "descargado": "2026-11-12T20:56"
+  "descargado": "2026-11-13T23:41"
  }
 ];
