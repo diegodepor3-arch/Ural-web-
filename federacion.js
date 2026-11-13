@@ -1,5 +1,5 @@
 // GENERADO por actualizar.py desde futgal.es. No editar a mano.
-const ACTUALIZADO = "2026-11-13T09:43";
+const ACTUALIZADO = "2026-11-13T17:53";
 const EQUIPOS = [
  {
   "id": "juvenil-a",
@@ -9231,7 +9231,7 @@ const EQUIPOS = [
    "Marcelo Sánchez Serantes": 10,
    "Mauro Afonso Gómez": 17
   },
-  "descargado": "2026-11-12T12:55"
+  "descargado": "2026-11-13T17:51"
  },
  {
   "id": "alevin-d",
@@ -9714,7 +9714,7 @@ const EQUIPOS = [
    "Alejandro Álvarez Buceta": 14,
    "Pablo Bello Caamaño": 16
   },
-  "descargado": "2026-11-12T12:55"
+  "descargado": "2026-11-13T17:52"
  },
  {
   "id": "alevin-e",
@@ -10205,7 +10205,7 @@ const EQUIPOS = [
    "Gael Platas González": 16,
    "Martiño Teixeira Vega": 9
   },
-  "descargado": "2026-11-12T20:55"
+  "descargado": "2026-11-13T17:53"
  },
  {
   "id": "benjamin-a",
@@ -13181,7 +13181,7 @@ const EQUIPOS = [
    "Daniel Seoane Paredes": 16,
    "Maximo Gundín Díaz": 13
   },
-  "descargado": "2026-11-12T12:54"
+  "descargado": "2026-11-13T17:51"
  },
  {
   "id": "prebenjamin-c",
@@ -13627,7 +13627,7 @@ const EQUIPOS = [
    "Simón Corgo Del Río": 15,
    "Kai Álvarez-Conchado Barlocco": 16
   },
-  "descargado": "2026-11-12T12:55"
+  "descargado": "2026-11-13T17:52"
  },
  {
   "id": "biberon-a",
@@ -13652,7 +13652,7 @@ const EQUIPOS = [
   "delegados": [],
   "clasificacion": [],
   "partidos": [],
-  "descargado": "2026-11-12T12:55"
+  "descargado": "2026-11-13T17:52"
  },
  {
   "id": "veteranos-a",
