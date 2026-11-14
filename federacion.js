@@ -1,5 +1,5 @@
 // GENERADO por actualizar.py desde futgal.es. No editar a mano.
-const ACTUALIZADO = "2026-11-14T14:18";
+const ACTUALIZADO = "2026-11-14T19:18";
 const EQUIPOS = [
  {
   "id": "juvenil-a",
@@ -8772,25 +8772,36 @@ const EQUIPOS = [
   "clasificacion": [
    {
     "equipo": "SILVA S.D.",
-    "pts": 16,
-    "pj": 6,
-    "g": 5,
+    "pts": 19,
+    "pj": 7,
+    "g": 6,
     "e": 1,
     "p": 0,
-    "gf": 53,
+    "gf": 63,
     "gc": 9,
     "propio": false
    },
    {
     "equipo": "URAL ESPAÑOL C.F. \"C\"",
-    "pts": 16,
-    "pj": 6,
-    "g": 5,
+    "pts": 19,
+    "pj": 7,
+    "g": 6,
     "e": 1,
     "p": 0,
-    "gf": 45,
-    "gc": 13,
+    "gf": 57,
+    "gc": 14,
     "propio": true
+   },
+   {
+    "equipo": "VICTORIA C.F. \"B\"",
+    "pts": 15,
+    "pj": 7,
+    "g": 5,
+    "e": 0,
+    "p": 2,
+    "gf": 49,
+    "gc": 17,
+    "propio": false
    },
    {
     "equipo": "C.D. CIUDAD",
@@ -8804,36 +8815,25 @@ const EQUIPOS = [
     "propio": false
    },
    {
-    "equipo": "VICTORIA C.F. \"B\"",
-    "pts": 12,
-    "pj": 6,
-    "g": 4,
+    "equipo": "SPORTING CORUÑES \"C\"",
+    "pts": 9,
+    "pj": 7,
+    "g": 3,
     "e": 0,
-    "p": 2,
-    "gf": 42,
-    "gc": 15,
+    "p": 4,
+    "gf": 37,
+    "gc": 38,
     "propio": false
    },
    {
     "equipo": "C. D. CALASANZ \"F\"",
     "pts": 9,
-    "pj": 6,
+    "pj": 7,
     "g": 3,
     "e": 0,
-    "p": 3,
+    "p": 4,
     "gf": 27,
-    "gc": 19,
-    "propio": false
-   },
-   {
-    "equipo": "SPORTING CORUÑES \"C\"",
-    "pts": 9,
-    "pj": 6,
-    "g": 3,
-    "e": 0,
-    "p": 3,
-    "gf": 35,
-    "gc": 31,
+    "gc": 29,
     "propio": false
    },
    {
@@ -8861,12 +8861,12 @@ const EQUIPOS = [
    {
     "equipo": "VIOÑO C.F. \"A\"",
     "pts": 3,
-    "pj": 6,
+    "pj": 7,
     "g": 1,
     "e": 0,
-    "p": 5,
-    "gf": 9,
-    "gc": 42,
+    "p": 6,
+    "gf": 10,
+    "gc": 54,
     "propio": false
    },
    {
@@ -8942,8 +8942,8 @@ const EQUIPOS = [
     "hora": "09:30",
     "local": false,
     "rival": "VIOÑO C.F. \"A\"",
-    "resultado": "",
-    "campo": "San Pedro de Visma 1"
+    "resultado": "1-12",
+    "campo": ""
    },
    {
     "jornada": 8,
@@ -8952,7 +8952,7 @@ const EQUIPOS = [
     "local": true,
     "rival": "C. D. CALASANZ \"F\"",
     "resultado": "",
-    "campo": ""
+    "campo": "Torre Nº1.1"
    },
    {
     "jornada": 9,
@@ -8968,15 +8968,15 @@ const EQUIPOS = [
   "urlClasificacion": "https://www.futgal.es/pnfg/NPcd/NFG_VisClasificacion?cod_primaria=1000120&codgrupo=26991619&codcompeticion=26991597",
   "escudos": {
    "VIOÑO C.F. \"A\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001406822_Screenshot_2024_09_30_23_24_06_656_com.android.chrome_edit.jpg",
-   "URAL ESPAÑOL C.F. \"C\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000891301_ESCUDO_URAL_B.jpg",
-   "C. D. CALASANZ \"F\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000621474_escudo_calasanz.bmp",
-   "SILVA S.D.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001103292_escudo_rfgf.jpg",
-   "SPORTING CORUÑES \"C\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000801946_escudo-4154.jpg",
    "VICTORIA C.F. \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000004135_victoriacfblanco.jpg",
-   "C.D. CIUDAD JARDIN \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001218414_Imagen_de_WhatsApp_2024_04_26_a_las_20.12.37_97ce5fe8.jpg",
+   "C.D. CIUDAD": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001223589_CD_CIUDAD_TR_2.png",
+   "SPORTING CORUÑES \"C\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000801946_escudo-4154.jpg",
    "C.D. MARTE \"A\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001109542_nuevo_escudo_page_0001.jpg",
    "RELÁMPAGO S. D. \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000894509_Escudo.PNG",
-   "C.D. CIUDAD": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001223589_CD_CIUDAD_TR_2.png"
+   "SILVA S.D.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001103292_escudo_rfgf.jpg",
+   "C.D. CIUDAD JARDIN \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001218414_Imagen_de_WhatsApp_2024_04_26_a_las_20.12.37_97ce5fe8.jpg",
+   "URAL ESPAÑOL C.F. \"C\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000891301_ESCUDO_URAL_B.jpg",
+   "C. D. CALASANZ \"F\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000621474_escudo_calasanz.bmp"
   },
   "actas": {
    "1": {
@@ -9212,26 +9212,65 @@ const EQUIPOS = [
     "c": [],
     "rm": {},
     "id": "1509583"
+   },
+   "7": {
+    "t": [
+     "Bruno Loureiro Vidal",
+     "Diego Maquieira Sánchez",
+     "Mario Velasco Vilanova",
+     "Nico González Viña",
+     "Marcelo Sánchez Serantes",
+     "Mateo Alonso Linares",
+     "Mauro Afonso Gómez"
+    ],
+    "s": [
+     "Mario Veleiro Gesto",
+     "Enrique Martínez Micha",
+     "Breogán Saavedra Pérez",
+     "Darío García Nión",
+     "Martín Álvarez Arrojo"
+    ],
+    "e": [],
+    "g": {},
+    "a": [],
+    "r": [],
+    "d": {
+     "Bruno Loureiro Vidal": 1,
+     "Diego Maquieira Sánchez": 3,
+     "Mario Velasco Vilanova": 7,
+     "Nico González Viña": 8,
+     "Marcelo Sánchez Serantes": 10,
+     "Mateo Alonso Linares": 14,
+     "Mauro Afonso Gómez": 17,
+     "Mario Veleiro Gesto": 13,
+     "Enrique Martínez Micha": 9,
+     "Breogán Saavedra Pérez": 12,
+     "Darío García Nión": 15,
+     "Martín Álvarez Arrojo": 16
+    },
+    "c": [],
+    "rm": {},
+    "id": "1509588"
    }
   },
   "dorsales": {
    "Bruno Loureiro Vidal": 1,
-   "Breogan Rodríguez Sánchez-Feijoo": 2,
    "Diego Maquieira Sánchez": 3,
-   "Dylan Adriano Leon Ramírez": 5,
-   "Mateo Castro Alvela": 6,
    "Nico González Viña": 8,
    "Breogán Saavedra Pérez": 12,
    "Mario Veleiro Gesto": 13,
    "Mateo Alonso Linares": 14,
    "Darío García Nión": 15,
    "Martín Álvarez Arrojo": 16,
-   "Enrique Martínez Micha": 9,
    "Mario Velasco Vilanova": 7,
+   "Enrique Martínez Micha": 9,
    "Marcelo Sánchez Serantes": 10,
-   "Mauro Afonso Gómez": 17
+   "Mauro Afonso Gómez": 17,
+   "Breogan Rodríguez Sánchez-Feijoo": 2,
+   "Dylan Adriano Leon Ramírez": 5,
+   "Mateo Castro Alvela": 6
   },
-  "descargado": "2026-11-13T17:51"
+  "descargado": "2026-11-14T19:17"
  },
  {
   "id": "alevin-d",
@@ -9262,12 +9301,12 @@ const EQUIPOS = [
   "clasificacion": [
    {
     "equipo": "ACADEMIA CORUÑA DEPORTIVA \"B\"",
-    "pts": 18,
-    "pj": 6,
-    "g": 6,
+    "pts": 21,
+    "pj": 7,
+    "g": 7,
     "e": 0,
     "p": 0,
-    "gf": 32,
+    "gf": 42,
     "gc": 13,
     "propio": false
    },
@@ -9284,35 +9323,46 @@ const EQUIPOS = [
    },
    {
     "equipo": "IMPERATOR O.A.R.",
-    "pts": 13,
-    "pj": 6,
-    "g": 4,
+    "pts": 16,
+    "pj": 7,
+    "g": 5,
     "e": 1,
     "p": 1,
-    "gf": 44,
+    "gf": 47,
     "gc": 10,
     "propio": false
    },
    {
     "equipo": "A. C. RUEIRO",
-    "pts": 10,
-    "pj": 6,
-    "g": 3,
+    "pts": 13,
+    "pj": 7,
+    "g": 4,
     "e": 1,
     "p": 2,
-    "gf": 23,
-    "gc": 17,
+    "gf": 29,
+    "gc": 22,
     "propio": false
    },
    {
     "equipo": "ATL. CORUÑA MONTAÑEROS C.F. \"C\"",
     "pts": 9,
-    "pj": 6,
+    "pj": 7,
     "g": 3,
     "e": 0,
+    "p": 4,
+    "gf": 29,
+    "gc": 16,
+    "propio": false
+   },
+   {
+    "equipo": "C.D. CALASANZ \"E\"",
+    "pts": 8,
+    "pj": 7,
+    "g": 2,
+    "e": 2,
     "p": 3,
-    "gf": 27,
-    "gc": 13,
+    "gf": 17,
+    "gc": 33,
     "propio": false
    },
    {
@@ -9329,45 +9379,34 @@ const EQUIPOS = [
    {
     "equipo": "URAL ESPAÑOL C.F. \"D\"",
     "pts": 5,
-    "pj": 6,
+    "pj": 7,
     "g": 1,
     "e": 2,
-    "p": 3,
+    "p": 4,
     "gf": 16,
-    "gc": 15,
+    "gc": 18,
     "propio": true
-   },
-   {
-    "equipo": "C.D. CALASANZ \"E\"",
-    "pts": 5,
-    "pj": 6,
-    "g": 1,
-    "e": 2,
-    "p": 3,
-    "gf": 14,
-    "gc": 31,
-    "propio": false
    },
    {
     "equipo": "C.D. CIUDAD \"B\"",
     "pts": 3,
-    "pj": 6,
+    "pj": 7,
     "g": 1,
     "e": 0,
-    "p": 5,
+    "p": 6,
     "gf": 6,
-    "gc": 65,
+    "gc": 75,
     "propio": false
    },
    {
     "equipo": "C.D. CIUDAD JARDÍN",
     "pts": 1,
-    "pj": 6,
+    "pj": 7,
     "g": 0,
     "e": 1,
-    "p": 5,
-    "gf": 6,
-    "gc": 35,
+    "p": 6,
+    "gf": 11,
+    "gc": 41,
     "propio": false
    }
   ],
@@ -9432,8 +9471,8 @@ const EQUIPOS = [
     "hora": "09:30",
     "local": true,
     "rival": "IMPERATOR O.A.R.",
-    "resultado": "",
-    "campo": "Víctor Fernández Alonso - Antigua Leyma"
+    "resultado": "0-3",
+    "campo": ""
    },
    {
     "jornada": 8,
@@ -9442,7 +9481,7 @@ const EQUIPOS = [
     "local": true,
     "rival": "ORILLAMAR S.D. \"B\"",
     "resultado": "",
-    "campo": ""
+    "campo": "Torre Nº2.2"
    },
    {
     "jornada": 9,
@@ -9457,16 +9496,16 @@ const EQUIPOS = [
   "competicion": "Alevin F-7 - Segunda Futgal · A Coruña | 1ª Fase G3",
   "urlClasificacion": "https://www.futgal.es/pnfg/NPcd/NFG_VisClasificacion?cod_primaria=1000120&codgrupo=28988795&codcompeticion=26991597",
   "escudos": {
-   "C.D. CIUDAD \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001223589_CD_CIUDAD_TR_2.png",
-   "ACADEMIA CORUÑA DEPORTIVA \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001621171_ESCUDO_ACADEMIA_CORU_A.jpg",
-   "ATL. CORUÑA MONTAÑEROS C.F. \"C\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000889647_AtleticoCorunaMonta.png",
-   "C.D. CALASANZ \"E\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001120003_escudo_calasanz.jpg",
    "URAL ESPAÑOL C.F. \"D\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000891301_ESCUDO_URAL_B.jpg",
-   "IMPERATOR O.A.R.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000911974_ESCUDO__IMPERATOR_final.png",
-   "A. C. RUEIRO": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001404224_WhatsApp_Image_2024_09_26_at_13.47.47.jpeg",
-   "C.D. CIUDAD JARDÍN": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001218414_Imagen_de_WhatsApp_2024_04_26_a_las_20.12.37_97ce5fe8.jpg",
+   "ORILLAMAR S.D. \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000941018_ESCUDO_OFICIAL_ORILLAMAR_SD_PRINCIPAL.jpg",
+   "ACADEMIA CORUÑA DEPORTIVA \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001621171_ESCUDO_ACADEMIA_CORU_A.jpg",
    "C.F. BATALLADOR S.D.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000918106_ESCUDO_.jpg",
-   "ORILLAMAR S.D. \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000941018_ESCUDO_OFICIAL_ORILLAMAR_SD_PRINCIPAL.jpg"
+   "C.D. CALASANZ \"E\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001120003_escudo_calasanz.jpg",
+   "C.D. CIUDAD \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001223589_CD_CIUDAD_TR_2.png",
+   "C.D. CIUDAD JARDÍN": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001218414_Imagen_de_WhatsApp_2024_04_26_a_las_20.12.37_97ce5fe8.jpg",
+   "ATL. CORUÑA MONTAÑEROS C.F. \"C\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000889647_AtleticoCorunaMonta.png",
+   "IMPERATOR O.A.R.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000911974_ESCUDO__IMPERATOR_final.png",
+   "A. C. RUEIRO": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001404224_WhatsApp_Image_2024_09_26_at_13.47.47.jpeg"
   },
   "actas": {
    "1": {
@@ -9696,25 +9735,64 @@ const EQUIPOS = [
     "c": [],
     "rm": {},
     "id": "1509670"
+   },
+   "7": {
+    "t": [
+     "Ian Montoro Valeiro",
+     "Martín Pérez García",
+     "Laura Rodríguez Pena",
+     "Pedro López López-Crespo",
+     "Adrián Rey Reiriz",
+     "Mario Barcon Vergara",
+     "Javier García Bermúdez"
+    ],
+    "s": [
+     "Borja Pérez García",
+     "Luis Pesqueira Esteve De Miguel",
+     "Telmo Díaz Tordable",
+     "Pablo Bello Caamaño",
+     "José Venancio Salcines Barros"
+    ],
+    "e": [],
+    "g": {},
+    "a": [],
+    "r": [],
+    "d": {
+     "Ian Montoro Valeiro": 1,
+     "Martín Pérez García": 2,
+     "Laura Rodríguez Pena": 4,
+     "Pedro López López-Crespo": 5,
+     "Adrián Rey Reiriz": 8,
+     "Mario Barcon Vergara": 9,
+     "Javier García Bermúdez": 10,
+     "Borja Pérez García": 6,
+     "Luis Pesqueira Esteve De Miguel": 7,
+     "Telmo Díaz Tordable": 11,
+     "Pablo Bello Caamaño": 14,
+     "José Venancio Salcines Barros": 15
+    },
+    "c": [],
+    "rm": {},
+    "id": "1509679"
    }
   },
   "dorsales": {
    "Ian Montoro Valeiro": 1,
-   "Ibai Salazar Abarrategui": 3,
    "Martín Pérez García": 2,
    "Laura Rodríguez Pena": 4,
    "Pedro López López-Crespo": 5,
    "Borja Pérez García": 6,
    "Luis Pesqueira Esteve De Miguel": 7,
-   "Javier García Bermúdez": 10,
    "Adrián Rey Reiriz": 8,
-   "Telmo Díaz Tordable": 12,
+   "Javier García Bermúdez": 10,
+   "Ibai Salazar Abarrategui": 3,
    "Mario Barcon Vergara": 9,
+   "Telmo Díaz Tordable": 12,
    "José Venancio Salcines Barros": 15,
    "Alejandro Álvarez Buceta": 14,
    "Pablo Bello Caamaño": 16
   },
-  "descargado": "2026-11-13T17:52"
+  "descargado": "2026-11-14T19:18"
  },
  {
   "id": "alevin-e",
@@ -12758,7 +12836,9 @@ const EQUIPOS = [
    "Brais Vázquez Calo",
    "Mario Vidal Eiroa"
   ],
-  "entrenadores": [],
+  "entrenadores": [
+   "Diego Reguera Rey"
+  ],
   "delegados": [],
   "clasificacion": [
    {
@@ -12785,12 +12865,12 @@ const EQUIPOS = [
    },
    {
     "equipo": "ATLETICO CASTROS",
-    "pts": 13,
-    "pj": 6,
-    "g": 4,
+    "pts": 16,
+    "pj": 7,
+    "g": 5,
     "e": 1,
     "p": 1,
-    "gf": 14,
+    "gf": 18,
     "gc": 4,
     "propio": false
    },
@@ -12806,15 +12886,15 @@ const EQUIPOS = [
     "propio": false
    },
    {
-    "equipo": "URAL ESPAÑOL C.F. \"B\"",
-    "pts": 7,
-    "pj": 6,
-    "g": 2,
+    "equipo": "VICTORIA C.F. \"B\"",
+    "pts": 10,
+    "pj": 7,
+    "g": 3,
     "e": 1,
     "p": 3,
-    "gf": 10,
-    "gc": 8,
-    "propio": true
+    "gf": 7,
+    "gc": 15,
+    "propio": false
    },
    {
     "equipo": "CLUB XESUITINAS",
@@ -12828,47 +12908,47 @@ const EQUIPOS = [
     "propio": false
    },
    {
-    "equipo": "VICTORIA C.F. \"B\"",
-    "pts": 7,
-    "pj": 6,
+    "equipo": "URAL ESPAÑOL C.F. \"B\"",
+    "pts": 8,
+    "pj": 7,
     "g": 2,
-    "e": 1,
+    "e": 2,
     "p": 3,
-    "gf": 4,
-    "gc": 14,
-    "propio": false
+    "gf": 11,
+    "gc": 9,
+    "propio": true
    },
    {
     "equipo": "SANTA MARIA DEL MAR \"B\"",
-    "pts": 6,
-    "pj": 6,
+    "pts": 7,
+    "pj": 7,
     "g": 2,
-    "e": 0,
+    "e": 1,
     "p": 4,
-    "gf": 7,
-    "gc": 12,
+    "gf": 8,
+    "gc": 13,
     "propio": false
    },
    {
     "equipo": "SPORTING CORUÑES \"B\"",
     "pts": 3,
-    "pj": 6,
+    "pj": 7,
     "g": 1,
     "e": 0,
-    "p": 5,
-    "gf": 4,
-    "gc": 15,
+    "p": 6,
+    "gf": 5,
+    "gc": 18,
     "propio": false
    },
    {
     "equipo": "SILVA S.D.",
     "pts": 0,
-    "pj": 6,
+    "pj": 7,
     "g": 0,
     "e": 0,
-    "p": 6,
+    "p": 7,
     "gf": 1,
-    "gc": 20,
+    "gc": 24,
     "propio": false
    }
   ],
@@ -12933,8 +13013,8 @@ const EQUIPOS = [
     "hora": "10:00",
     "local": false,
     "rival": "SANTA MARIA DEL MAR \"B\"",
-    "resultado": "",
-    "campo": "Santa María del Mar"
+    "resultado": "1-1",
+    "campo": ""
    },
    {
     "jornada": 8,
@@ -12943,7 +13023,7 @@ const EQUIPOS = [
     "local": false,
     "rival": "VICTORIA C.F. \"B\"",
     "resultado": "",
-    "campo": ""
+    "campo": "Grela 1"
    },
    {
     "jornada": 9,
@@ -12958,16 +13038,16 @@ const EQUIPOS = [
   "competicion": "Prebenjamin - Segunda Futgal · A Coruña | 1ª Fase G1",
   "urlClasificacion": "https://www.futgal.es/pnfg/NPcd/NFG_VisClasificacion?cod_primaria=1000120&codgrupo=26991931&codcompeticion=26991921",
   "escudos": {
-   "SANTA MARIA DEL MAR \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001611104_Escudo_sin_fondo.png",
-   "URAL ESPAÑOL C.F. \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000891301_ESCUDO_URAL_B.jpg",
-   "ATLETICO CASTROS": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001611037_escudo128.png",
-   "SILVA S.D.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001103292_escudo_rfgf.jpg",
    "VICTORIA C.F. \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000004135_victoriacfblanco.jpg",
-   "SPORTING CORUÑES \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000801946_escudo-4154.jpg",
-   "CLUB XESUITINAS": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001224529_CLUB_XESUITINAS__A_Corun__a___2_.png",
+   "URAL ESPAÑOL C.F. \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000891301_ESCUDO_URAL_B.jpg",
+   "C.F. BATALLADOR S.D.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000918106_ESCUDO_.jpg",
+   "SANTA MARIA DEL MAR \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001611104_Escudo_sin_fondo.png",
    "COMPAÑIA DE MARIA": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001004468_logo.png",
    "LICEO DE MONELOS S.D.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000884334_liceo_monelos_1.png",
-   "C.F. BATALLADOR S.D.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000918106_ESCUDO_.jpg"
+   "SILVA S.D.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001103292_escudo_rfgf.jpg",
+   "CLUB XESUITINAS": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001224529_CLUB_XESUITINAS__A_Corun__a___2_.png",
+   "SPORTING CORUÑES \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000801946_escudo-4154.jpg",
+   "ATLETICO CASTROS": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001611037_escudo128.png"
   },
   "actas": {
    "1": {
@@ -13203,26 +13283,65 @@ const EQUIPOS = [
     "c": [],
     "rm": {},
     "id": "1509941"
+   },
+   "7": {
+    "t": [
+     "Brais Vázquez Calo",
+     "Simón Corgo Del Río",
+     "Joel Carballal González",
+     "Leo Díaz Feal",
+     "Mario Vidal Eiroa",
+     "Emilio Bosch Fernández",
+     "Luca Platas González",
+     "Leo Moran Rey"
+    ],
+    "s": [
+     "Logan Barros De Andrés",
+     "Lucas Cambeiro Rama",
+     "Kai Álvarez-Conchado Barlocco",
+     "Daniel Seoane Paredes"
+    ],
+    "e": [],
+    "g": {},
+    "a": [],
+    "r": [],
+    "d": {
+     "Brais Vázquez Calo": 1,
+     "Simón Corgo Del Río": 5,
+     "Joel Carballal González": 6,
+     "Leo Díaz Feal": 8,
+     "Mario Vidal Eiroa": 9,
+     "Emilio Bosch Fernández": 10,
+     "Luca Platas González": 12,
+     "Leo Moran Rey": 14,
+     "Logan Barros De Andrés": 2,
+     "Lucas Cambeiro Rama": 11,
+     "Kai Álvarez-Conchado Barlocco": 15,
+     "Daniel Seoane Paredes": 16
+    },
+    "c": [],
+    "rm": {},
+    "id": "1509945"
    }
   },
   "dorsales": {
    "Joel Carballal González": 6,
-   "Manuel Pesqueira Esteve De Miguel": 7,
    "Leo Díaz Feal": 8,
    "Mario Vidal Eiroa": 9,
    "Emilio Bosch Fernández": 10,
    "Lucas Cambeiro Rama": 11,
    "Leo Moran Rey": 14,
-   "Simón Corgo Del Río": 2,
-   "Luca Platas González": 12,
+   "Manuel Pesqueira Esteve De Miguel": 7,
    "Brais Vázquez Calo": 1,
+   "Luca Platas González": 12,
+   "Simón Corgo Del Río": 2,
    "Gael García Fidalgo": 4,
-   "Logan Barros De Andrés": 5,
    "Kai Álvarez-Conchado Barlocco": 15,
    "Daniel Seoane Paredes": 16,
+   "Logan Barros De Andrés": 5,
    "Maximo Gundín Díaz": 13
   },
-  "descargado": "2026-11-13T17:51"
+  "descargado": "2026-11-14T19:17"
  },
  {
   "id": "prebenjamin-c",
@@ -13246,34 +13365,34 @@ const EQUIPOS = [
   "clasificacion": [
    {
     "equipo": "ORILLAMAR S.D.",
-    "pts": 18,
-    "pj": 6,
-    "g": 6,
+    "pts": 21,
+    "pj": 7,
+    "g": 7,
     "e": 0,
     "p": 0,
-    "gf": 20,
+    "gf": 24,
     "gc": 2,
     "propio": false
    },
    {
     "equipo": "COLEGIO OBRADOIRO",
-    "pts": 13,
-    "pj": 6,
-    "g": 4,
+    "pts": 16,
+    "pj": 7,
+    "g": 5,
     "e": 1,
     "p": 1,
-    "gf": 18,
+    "gf": 21,
     "gc": 5,
     "propio": false
    },
    {
     "equipo": "A. C. RUEIRO",
-    "pts": 12,
-    "pj": 6,
-    "g": 4,
+    "pts": 15,
+    "pj": 7,
+    "g": 5,
     "e": 0,
     "p": 2,
-    "gf": 10,
+    "gf": 14,
     "gc": 8,
     "propio": false
    },
@@ -13287,17 +13406,6 @@ const EQUIPOS = [
     "gf": 11,
     "gc": 7,
     "propio": true
-   },
-   {
-    "equipo": "COMPAÑIA DE MARIA \"B\"",
-    "pts": 9,
-    "pj": 6,
-    "g": 3,
-    "e": 0,
-    "p": 3,
-    "gf": 11,
-    "gc": 8,
-    "propio": false
    },
    {
     "equipo": "CLUB ROSALIA MERA",
@@ -13322,14 +13430,25 @@ const EQUIPOS = [
     "propio": false
    },
    {
-    "equipo": "IMPERATOR O.A.R. \"B\"",
-    "pts": 6,
-    "pj": 6,
-    "g": 2,
+    "equipo": "COMPAÑIA DE MARIA \"B\"",
+    "pts": 9,
+    "pj": 7,
+    "g": 3,
     "e": 0,
     "p": 4,
+    "gf": 11,
+    "gc": 11,
+    "propio": false
+   },
+   {
+    "equipo": "IMPERATOR O.A.R. \"B\"",
+    "pts": 6,
+    "pj": 7,
+    "g": 2,
+    "e": 0,
+    "p": 5,
     "gf": 5,
-    "gc": 14,
+    "gc": 18,
     "propio": false
    },
    {
@@ -13346,12 +13465,12 @@ const EQUIPOS = [
    {
     "equipo": "SANTA MARIA DEL MAR \"D\"",
     "pts": 0,
-    "pj": 6,
+    "pj": 7,
     "g": 0,
     "e": 0,
-    "p": 6,
+    "p": 7,
     "gf": 2,
-    "gc": 18,
+    "gc": 22,
     "propio": false
    }
   ],
@@ -13668,7 +13787,7 @@ const EQUIPOS = [
    "Simón Corgo Del Río": 15,
    "Kai Álvarez-Conchado Barlocco": 16
   },
-  "descargado": "2026-11-13T17:52"
+  "descargado": "2026-11-14T19:18"
  },
  {
   "id": "biberon-a",
@@ -13693,7 +13812,7 @@ const EQUIPOS = [
   "delegados": [],
   "clasificacion": [],
   "partidos": [],
-  "descargado": "2026-11-13T17:52"
+  "descargado": "2026-11-14T19:18"
  },
  {
   "id": "veteranos-a",
