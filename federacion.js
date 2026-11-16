@@ -1,5 +1,5 @@
 // GENERADO por actualizar.py desde futgal.es. No editar a mano.
-const ACTUALIZADO = "2026-11-15T22:59";
+const ACTUALIZADO = "2026-11-16T02:53";
 const EQUIPOS = [
  {
   "id": "juvenil-a",
@@ -837,7 +837,7 @@ const EQUIPOS = [
     }
    }
   },
-  "descargado": "2026-11-14T23:12"
+  "descargado": "2026-11-16T02:51"
  },
  {
   "id": "juvenil-b",
@@ -880,14 +880,25 @@ const EQUIPOS = [
   ],
   "clasificacion": [
    {
+    "equipo": "SAN TIRSO S.D.",
+    "pts": 20,
+    "pj": 9,
+    "g": 6,
+    "e": 2,
+    "p": 1,
+    "gf": 19,
+    "gc": 6,
+    "propio": false
+   },
+   {
     "equipo": "C.D. CALASANZ",
     "pts": 19,
-    "pj": 8,
+    "pj": 9,
     "g": 6,
     "e": 1,
-    "p": 1,
-    "gf": 16,
-    "gc": 4,
+    "p": 2,
+    "gf": 17,
+    "gc": 9,
     "propio": false
    },
    {
@@ -902,36 +913,36 @@ const EQUIPOS = [
     "propio": true
    },
    {
-    "equipo": "SAN TIRSO S.D.",
+    "equipo": "S.D. RESIDENCIA",
     "pts": 17,
-    "pj": 8,
+    "pj": 9,
     "g": 5,
     "e": 2,
-    "p": 1,
-    "gf": 17,
-    "gc": 5,
-    "propio": false
-   },
-   {
-    "equipo": "VICTORIA C.F. \"B\"",
-    "pts": 16,
-    "pj": 8,
-    "g": 5,
-    "e": 1,
     "p": 2,
-    "gf": 21,
+    "gf": 20,
     "gc": 15,
     "propio": false
    },
    {
     "equipo": "ORILLAMAR S.D.",
-    "pts": 15,
-    "pj": 8,
+    "pts": 16,
+    "pj": 9,
     "g": 4,
-    "e": 3,
+    "e": 4,
     "p": 1,
-    "gf": 16,
-    "gc": 4,
+    "gf": 18,
+    "gc": 6,
+    "propio": false
+   },
+   {
+    "equipo": "VICTORIA C.F. \"B\"",
+    "pts": 16,
+    "pj": 9,
+    "g": 5,
+    "e": 1,
+    "p": 3,
+    "gf": 22,
+    "gc": 17,
     "propio": false
    },
    {
@@ -943,17 +954,6 @@ const EQUIPOS = [
     "p": 3,
     "gf": 16,
     "gc": 15,
-    "propio": false
-   },
-   {
-    "equipo": "S.D. RESIDENCIA",
-    "pts": 14,
-    "pj": 8,
-    "g": 4,
-    "e": 2,
-    "p": 2,
-    "gf": 15,
-    "gc": 14,
     "propio": false
    },
    {
@@ -979,6 +979,17 @@ const EQUIPOS = [
     "propio": false
    },
    {
+    "equipo": "C.F. DUMBRIA",
+    "pts": 11,
+    "pj": 9,
+    "g": 3,
+    "e": 2,
+    "p": 4,
+    "gf": 20,
+    "gc": 21,
+    "propio": false
+   },
+   {
     "equipo": "OZA JUVENIL S.D.",
     "pts": 11,
     "pj": 9,
@@ -987,17 +998,6 @@ const EQUIPOS = [
     "p": 4,
     "gf": 19,
     "gc": 23,
-    "propio": false
-   },
-   {
-    "equipo": "C.F. DUMBRIA",
-    "pts": 10,
-    "pj": 8,
-    "g": 3,
-    "e": 1,
-    "p": 4,
-    "gf": 18,
-    "gc": 19,
     "propio": false
    },
    {
@@ -2092,7 +2092,7 @@ const EQUIPOS = [
    "Leo Sánchez Pérez": 12,
    "Rafael Sande Castro-Acuña": 14
   },
-  "descargado": "2026-11-14T23:13"
+  "descargado": "2026-11-16T02:52"
  },
  {
   "id": "cadete-a",
@@ -2201,6 +2201,17 @@ const EQUIPOS = [
     "propio": false
    },
    {
+    "equipo": "C.D. LUGO",
+    "pts": 15,
+    "pj": 10,
+    "g": 5,
+    "e": 0,
+    "p": 5,
+    "gf": 18,
+    "gc": 15,
+    "propio": false
+   },
+   {
     "equipo": "SAN TIRSO S.D.",
     "pts": 14,
     "pj": 10,
@@ -2214,23 +2225,23 @@ const EQUIPOS = [
    {
     "equipo": "CORUXO F.C.",
     "pts": 13,
-    "pj": 9,
+    "pj": 10,
     "g": 4,
     "e": 1,
-    "p": 4,
+    "p": 5,
     "gf": 10,
-    "gc": 17,
+    "gc": 18,
     "propio": false
    },
    {
-    "equipo": "C.D. LUGO",
-    "pts": 12,
-    "pj": 9,
+    "equipo": "AROSA S.C.",
+    "pts": 13,
+    "pj": 10,
     "g": 4,
-    "e": 0,
+    "e": 1,
     "p": 5,
-    "gf": 17,
-    "gc": 15,
+    "gf": 13,
+    "gc": 26,
     "propio": false
    },
    {
@@ -2247,23 +2258,12 @@ const EQUIPOS = [
    {
     "equipo": "S.D. COMPOSTELA",
     "pts": 10,
-    "pj": 9,
+    "pj": 10,
     "g": 3,
     "e": 1,
-    "p": 5,
+    "p": 6,
     "gf": 8,
-    "gc": 19,
-    "propio": false
-   },
-   {
-    "equipo": "AROSA S.C.",
-    "pts": 10,
-    "pj": 9,
-    "g": 3,
-    "e": 1,
-    "p": 5,
-    "gf": 12,
-    "gc": 26,
+    "gc": 20,
     "propio": false
    },
    {
@@ -3404,7 +3404,7 @@ const EQUIPOS = [
    "Jorge Cillero Seoane": 4,
    "Luis Santiago Morales Morales Acuña": 15
   },
-  "descargado": "2026-11-15T02:48"
+  "descargado": "2026-11-16T02:52"
  },
  {
   "id": "cadete-b",
@@ -3490,6 +3490,17 @@ const EQUIPOS = [
     "propio": false
    },
    {
+    "equipo": "ATLETICO ARTEIXO",
+    "pts": 17,
+    "pj": 10,
+    "g": 5,
+    "e": 2,
+    "p": 3,
+    "gf": 21,
+    "gc": 14,
+    "propio": false
+   },
+   {
     "equipo": "URAL ESPAÑOL C.F. \"B\"",
     "pts": 17,
     "pj": 10,
@@ -3508,17 +3519,6 @@ const EQUIPOS = [
     "e": 3,
     "p": 3,
     "gf": 16,
-    "gc": 12,
-    "propio": false
-   },
-   {
-    "equipo": "ATLETICO ARTEIXO",
-    "pts": 14,
-    "pj": 9,
-    "g": 4,
-    "e": 2,
-    "p": 3,
-    "gf": 18,
     "gc": 12,
     "propio": false
    },
@@ -3545,6 +3545,17 @@ const EQUIPOS = [
     "propio": false
    },
    {
+    "equipo": "RACING C. VILLALBES",
+    "pts": 10,
+    "pj": 10,
+    "g": 2,
+    "e": 4,
+    "p": 4,
+    "gf": 19,
+    "gc": 26,
+    "propio": false
+   },
+   {
     "equipo": "S.D.C.y R. NARON O FREIXO",
     "pts": 9,
     "pj": 10,
@@ -3553,17 +3564,6 @@ const EQUIPOS = [
     "p": 5,
     "gf": 11,
     "gc": 11,
-    "propio": false
-   },
-   {
-    "equipo": "RACING C. VILLALBES",
-    "pts": 9,
-    "pj": 9,
-    "g": 2,
-    "e": 3,
-    "p": 4,
-    "gf": 18,
-    "gc": 25,
     "propio": false
    },
    {
@@ -3578,6 +3578,17 @@ const EQUIPOS = [
     "propio": false
    },
    {
+    "equipo": "C.D. LUGO \"B\"",
+    "pts": 8,
+    "pj": 10,
+    "g": 2,
+    "e": 2,
+    "p": 6,
+    "gf": 18,
+    "gc": 21,
+    "propio": false
+   },
+   {
     "equipo": "S.D. RESIDENCIA",
     "pts": 8,
     "pj": 10,
@@ -3586,17 +3597,6 @@ const EQUIPOS = [
     "p": 4,
     "gf": 9,
     "gc": 18,
-    "propio": false
-   },
-   {
-    "equipo": "C.D. LUGO \"B\"",
-    "pts": 7,
-    "pj": 9,
-    "g": 2,
-    "e": 1,
-    "p": 6,
-    "gf": 17,
-    "gc": 20,
     "propio": false
    },
    {
@@ -3613,12 +3613,12 @@ const EQUIPOS = [
    {
     "equipo": "VICTORIA F.C.",
     "pts": 4,
-    "pj": 9,
+    "pj": 10,
     "g": 1,
     "e": 1,
-    "p": 7,
-    "gf": 8,
-    "gc": 30,
+    "p": 8,
+    "gf": 10,
+    "gc": 33,
     "propio": false
    }
   ],
@@ -4719,7 +4719,7 @@ const EQUIPOS = [
    "Adán Giménez Muñoz": 22,
    "Rodrigo De La Campa García": 20
   },
-  "descargado": "2026-11-15T02:48"
+  "descargado": "2026-11-16T02:52"
  },
  {
   "id": "infantil-a",
@@ -4800,12 +4800,12 @@ const EQUIPOS = [
    {
     "equipo": "RACING CLUB FERROL",
     "pts": 18,
-    "pj": 9,
+    "pj": 10,
     "g": 5,
     "e": 3,
-    "p": 1,
-    "gf": 14,
-    "gc": 14,
+    "p": 2,
+    "gf": 15,
+    "gc": 17,
     "propio": false
    },
    {
@@ -4828,6 +4828,17 @@ const EQUIPOS = [
     "p": 3,
     "gf": 15,
     "gc": 14,
+    "propio": false
+   },
+   {
+    "equipo": "PONTEVEDRA C.F.",
+    "pts": 14,
+    "pj": 10,
+    "g": 4,
+    "e": 2,
+    "p": 4,
+    "gf": 17,
+    "gc": 26,
     "propio": false
    },
    {
@@ -4861,17 +4872,6 @@ const EQUIPOS = [
     "p": 5,
     "gf": 18,
     "gc": 27,
-    "propio": false
-   },
-   {
-    "equipo": "PONTEVEDRA C.F.",
-    "pts": 11,
-    "pj": 9,
-    "g": 3,
-    "e": 2,
-    "p": 4,
-    "gf": 14,
-    "gc": 25,
     "propio": false
    },
    {
@@ -5762,7 +5762,7 @@ const EQUIPOS = [
    "Roque Freire Pereira": 21,
    "Álvaro Ramil García": 12
   },
-  "descargado": "2026-11-15T02:49"
+  "descargado": "2026-11-16T02:53"
  },
  {
   "id": "infantil-b",
@@ -5818,12 +5818,12 @@ const EQUIPOS = [
    {
     "equipo": "BERGANTIÑOS C.F.",
     "pts": 22,
-    "pj": 9,
+    "pj": 10,
     "g": 7,
     "e": 1,
-    "p": 1,
-    "gf": 37,
-    "gc": 16,
+    "p": 2,
+    "gf": 39,
+    "gc": 19,
     "propio": false
    },
    {
@@ -5871,6 +5871,17 @@ const EQUIPOS = [
     "propio": false
    },
    {
+    "equipo": "SAN TIRSO S.D. \"B\"",
+    "pts": 16,
+    "pj": 10,
+    "g": 4,
+    "e": 4,
+    "p": 2,
+    "gf": 25,
+    "gc": 14,
+    "propio": false
+   },
+   {
     "equipo": "RACING CLUB FERROL \"B\"",
     "pts": 16,
     "pj": 10,
@@ -5901,17 +5912,6 @@ const EQUIPOS = [
     "p": 4,
     "gf": 19,
     "gc": 18,
-    "propio": false
-   },
-   {
-    "equipo": "SAN TIRSO S.D. \"B\"",
-    "pts": 13,
-    "pj": 9,
-    "g": 3,
-    "e": 4,
-    "p": 2,
-    "gf": 22,
-    "gc": 12,
     "propio": false
    },
    {
@@ -6812,7 +6812,7 @@ const EQUIPOS = [
    "Mateo Juane Fernández": 15,
    "Martín Quesada Mallo": 18
   },
-  "descargado": "2026-11-15T02:49"
+  "descargado": "2026-11-16T02:53"
  },
  {
   "id": "infantil-c",
@@ -7785,7 +7785,7 @@ const EQUIPOS = [
   "delegados": [],
   "clasificacion": [],
   "partidos": [],
-  "descargado": "2026-11-15T11:11"
+  "descargado": "2026-11-16T02:53"
  },
  {
   "id": "alevin-b-f11",
