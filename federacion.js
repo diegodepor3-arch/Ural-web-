@@ -1,5 +1,5 @@
 // GENERADO por actualizar.py desde futgal.es. No editar a mano.
-const ACTUALIZADO = "2026-11-20T13:10";
+const ACTUALIZADO = "2026-11-20T21:17";
 const EQUIPOS = [
  {
   "id": "juvenil-a",
@@ -6075,7 +6075,7 @@ const EQUIPOS = [
    {
     "jornada": 11,
     "fecha": "2026-11-21",
-    "hora": "18:15",
+    "hora": "16:00",
     "local": false,
     "rival": "S.D.C.y R. NARÓN O FREIXO",
     "resultado": "",
@@ -6812,7 +6812,7 @@ const EQUIPOS = [
    "Mateo Juane Fernández": 15,
    "Martín Quesada Mallo": 18
   },
-  "descargado": "2026-11-18T22:08"
+  "descargado": "2026-11-20T21:16"
  },
  {
   "id": "infantil-c",
@@ -6889,12 +6889,12 @@ const EQUIPOS = [
    {
     "equipo": "SILVA S.D. \"B\"",
     "pts": 18,
-    "pj": 7,
+    "pj": 8,
     "g": 6,
     "e": 0,
-    "p": 1,
-    "gf": 42,
-    "gc": 20,
+    "p": 2,
+    "gf": 43,
+    "gc": 26,
     "propio": false
    },
    {
@@ -6907,6 +6907,17 @@ const EQUIPOS = [
     "gf": 31,
     "gc": 28,
     "propio": true
+   },
+   {
+    "equipo": "C.F. BATALLADOR S.D.",
+    "pts": 16,
+    "pj": 8,
+    "g": 5,
+    "e": 1,
+    "p": 2,
+    "gf": 43,
+    "gc": 15,
+    "propio": false
    },
    {
     "equipo": "VICTORIA C.F. \"C\"",
@@ -6928,17 +6939,6 @@ const EQUIPOS = [
     "p": 3,
     "gf": 33,
     "gc": 18,
-    "propio": false
-   },
-   {
-    "equipo": "C.F. BATALLADOR S.D.",
-    "pts": 13,
-    "pj": 7,
-    "g": 4,
-    "e": 1,
-    "p": 2,
-    "gf": 37,
-    "gc": 14,
     "propio": false
    },
    {
@@ -7771,7 +7771,7 @@ const EQUIPOS = [
    "Raul Pazos Castro": 20,
    "Martín Quesada Mallo": 18
   },
-  "descargado": "2026-11-18T22:09"
+  "descargado": "2026-11-20T21:16"
  },
  {
   "id": "alevin-a-f11",
@@ -7785,7 +7785,7 @@ const EQUIPOS = [
   "delegados": [],
   "clasificacion": [],
   "partidos": [],
-  "descargado": "2026-11-18T22:09"
+  "descargado": "2026-11-20T21:16"
  },
  {
   "id": "alevin-b-f11",
@@ -7799,7 +7799,7 @@ const EQUIPOS = [
   "delegados": [],
   "clasificacion": [],
   "partidos": [],
-  "descargado": "2026-11-18T22:09"
+  "descargado": "2026-11-20T21:16"
  },
  {
   "id": "alevin-a",
@@ -8679,7 +8679,7 @@ const EQUIPOS = [
    "Hugo Bodelón Rubio": 11,
    "Óliver Villar González": 14
   },
-  "descargado": "2026-11-18T22:09"
+  "descargado": "2026-11-20T21:17"
  },
  {
   "id": "alevin-b",
@@ -9210,7 +9210,7 @@ const EQUIPOS = [
    "Álvaro Grande Pedreira": 3,
    "Paulo Iglesias Botana": 11
   },
-  "descargado": "2026-11-19T13:28"
+  "descargado": "2026-11-20T21:17"
  },
  {
   "id": "alevin-c",
