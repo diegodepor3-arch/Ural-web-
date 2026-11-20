@@ -1,5 +1,5 @@
 // GENERADO por actualizar.py desde futgal.es. No editar a mano.
-const ACTUALIZADO = "2026-11-20T03:35";
+const ACTUALIZADO = "2026-11-20T13:10";
 const EQUIPOS = [
  {
   "id": "juvenil-a",
@@ -837,7 +837,7 @@ const EQUIPOS = [
     }
    }
   },
-  "descargado": "2026-11-18T14:16"
+  "descargado": "2026-11-20T13:09"
  },
  {
   "id": "juvenil-b",
@@ -2092,7 +2092,7 @@ const EQUIPOS = [
    "Leo Sánchez Pérez": 12,
    "Rafael Sande Castro-Acuña": 14
   },
-  "descargado": "2026-11-18T14:16"
+  "descargado": "2026-11-20T13:09"
  },
  {
   "id": "cadete-a",
@@ -3404,7 +3404,7 @@ const EQUIPOS = [
    "Jorge Cillero Seoane": 4,
    "Luis Santiago Morales Morales Acuña": 15
   },
-  "descargado": "2026-11-18T14:17"
+  "descargado": "2026-11-20T13:10"
  },
  {
   "id": "cadete-b",
@@ -3903,14 +3903,14 @@ const EQUIPOS = [
    "S.D. RESIDENCIA": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001672752_ESCUDO_RESIDENCIA.jpg",
    "RACING C. VILLALBES": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001826551_ESCUDO_SIN_FONDO.png",
    "SADA C.F.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000931604_Sada_CF_escudo_FUTGAL.png",
-   "IMPERATOR O.A.R.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000911974_ESCUDO__IMPERATOR_final.png",
-   "SAN TIRSO S.D. \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000916862_ESCUDO_20_21.jpg",
    "S.D. COMPOSTELA \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001010839_logo___copia.jpg",
    "RACING CLUB FERROL S.A.D. \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001624274_ESCUDO.jpg",
-   "S.D.C.y R. NARON O FREIXO": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000665884_escudo_freixo100x100.png",
-   "ATL. CORUÑA MONTAÑEROS C.F.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000889647_AtleticoCorunaMonta.png",
    "S.D. VIVEIRO": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000916034_ESCUDO_SD.jpg",
    "ATLETICO ARTEIXO": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001414249_Escudo_Arteixo.png",
+   "IMPERATOR O.A.R.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000911974_ESCUDO__IMPERATOR_final.png",
+   "SAN TIRSO S.D. \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000916862_ESCUDO_20_21.jpg",
+   "S.D.C.y R. NARON O FREIXO": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000665884_escudo_freixo100x100.png",
+   "ATL. CORUÑA MONTAÑEROS C.F.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000889647_AtleticoCorunaMonta.png",
    "URAL ESPAÑOL C.F. \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000891301_ESCUDO_URAL_B.jpg",
    "GALICIA DE CARANZA": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001017519_Escudo_Galicia.png"
   },
@@ -4719,7 +4719,7 @@ const EQUIPOS = [
    "Adán Giménez Muñoz": 22,
    "Rodrigo De La Campa García": 20
   },
-  "descargado": "2026-11-18T14:17"
+  "descargado": "2026-11-20T13:10"
  },
  {
   "id": "infantil-a",
@@ -5762,7 +5762,7 @@ const EQUIPOS = [
    "Roque Freire Pereira": 21,
    "Álvaro Ramil García": 12
   },
-  "descargado": "2026-11-18T22:08"
+  "descargado": "2026-11-20T13:10"
  },
  {
   "id": "infantil-b",
@@ -15529,6 +15529,6 @@ const EQUIPOS = [
    "Hugo Díez Ferreras": 8,
    "Aldan Ulla Yáñez": 7
   },
-  "descargado": "2026-11-18T14:15"
+  "descargado": "2026-11-20T13:08"
  }
 ];
