@@ -1,5 +1,5 @@
 // GENERADO por actualizar.py desde futgal.es. No editar a mano.
-const ACTUALIZADO = "2026-11-19T13:29";
+const ACTUALIZADO = "2026-11-20T03:35";
 const EQUIPOS = [
  {
   "id": "juvenil-a",
@@ -10795,7 +10795,7 @@ const EQUIPOS = [
    "Carlos De Diego Prada": 15,
    "Martiño Teixeira Vega": 9
   },
-  "descargado": "2026-11-18T04:33"
+  "descargado": "2026-11-20T03:34"
  },
  {
   "id": "benjamin-a",
@@ -12794,6 +12794,17 @@ const EQUIPOS = [
     "propio": false
    },
    {
+    "equipo": "UD CARRAL",
+    "pts": 8,
+    "pj": 7,
+    "g": 2,
+    "e": 2,
+    "p": 3,
+    "gf": 8,
+    "gc": 11,
+    "propio": false
+   },
+   {
     "equipo": "SADA C.F.",
     "pts": 6,
     "pj": 6,
@@ -12802,17 +12813,6 @@ const EQUIPOS = [
     "p": 4,
     "gf": 7,
     "gc": 15,
-    "propio": false
-   },
-   {
-    "equipo": "UD CARRAL",
-    "pts": 5,
-    "pj": 6,
-    "g": 1,
-    "e": 2,
-    "p": 3,
-    "gf": 6,
-    "gc": 10,
     "propio": false
    },
    {
@@ -12829,12 +12829,12 @@ const EQUIPOS = [
    {
     "equipo": "ATLETICO ARTEIXO",
     "pts": 1,
-    "pj": 6,
+    "pj": 7,
     "g": 0,
     "e": 1,
-    "p": 5,
-    "gf": 3,
-    "gc": 16,
+    "p": 6,
+    "gf": 4,
+    "gc": 18,
     "propio": false
    },
    {
@@ -13365,7 +13365,7 @@ const EQUIPOS = [
    "Lucas Ribes Velez De Villa": 1,
    "Brais Vázquez Calo": 13
   },
-  "descargado": "2026-11-18T04:32"
+  "descargado": "2026-11-20T03:33"
  },
  {
   "id": "prebenjamin-b",
@@ -13892,7 +13892,7 @@ const EQUIPOS = [
    "Logan Barros De Andrés": 5,
    "Maximo Gundín Díaz": 13
   },
-  "descargado": "2026-11-18T04:32"
+  "descargado": "2026-11-20T03:34"
  },
  {
   "id": "prebenjamin-c",
@@ -14373,7 +14373,7 @@ const EQUIPOS = [
    "Simón Corgo Del Río": 15,
    "Kai Álvarez-Conchado Barlocco": 16
   },
-  "descargado": "2026-11-18T04:33"
+  "descargado": "2026-11-20T03:34"
  },
  {
   "id": "biberon-a",
@@ -14398,7 +14398,7 @@ const EQUIPOS = [
   "delegados": [],
   "clasificacion": [],
   "partidos": [],
-  "descargado": "2026-11-18T04:33"
+  "descargado": "2026-11-20T03:34"
  },
  {
   "id": "veteranos-a",
@@ -15226,7 +15226,7 @@ const EQUIPOS = [
    "David Castro Santos": 3,
    "Miguel A Mejuto Pajaro": 28
   },
-  "descargado": "2026-11-18T14:14"
+  "descargado": "2026-11-20T03:35"
  },
  {
   "id": "biberon-a-fs",
