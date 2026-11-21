@@ -1,5 +1,5 @@
 // GENERADO por actualizar.py desde futgal.es. No editar a mano.
-const ACTUALIZADO = "2026-11-21T02:35";
+const ACTUALIZADO = "2026-11-21T11:24";
 const EQUIPOS = [
  {
   "id": "juvenil-a",
@@ -10299,24 +10299,35 @@ const EQUIPOS = [
   "clasificacion": [
    {
     "equipo": "VICTORIA C.F. \"C\"",
-    "pts": 21,
-    "pj": 7,
-    "g": 7,
+    "pts": 24,
+    "pj": 8,
+    "g": 8,
     "e": 0,
     "p": 0,
-    "gf": 76,
-    "gc": 4,
+    "gf": 86,
+    "gc": 7,
     "propio": false
    },
    {
     "equipo": "ATL. CORUÑA MONTAÑEROS C.F \"B\"",
-    "pts": 21,
-    "pj": 7,
-    "g": 7,
+    "pts": 24,
+    "pj": 8,
+    "g": 8,
     "e": 0,
     "p": 0,
-    "gf": 56,
-    "gc": 11,
+    "gf": 67,
+    "gc": 12,
+    "propio": false
+   },
+   {
+    "equipo": "ATLETICO CASTROS",
+    "pts": 15,
+    "pj": 8,
+    "g": 5,
+    "e": 0,
+    "p": 3,
+    "gf": 64,
+    "gc": 21,
     "propio": false
    },
    {
@@ -10333,33 +10344,22 @@ const EQUIPOS = [
    {
     "equipo": "URAL ESPAÑOL C.F. \"E\"",
     "pts": 13,
-    "pj": 7,
+    "pj": 8,
     "g": 4,
     "e": 1,
-    "p": 2,
-    "gf": 37,
-    "gc": 28,
+    "p": 3,
+    "gf": 40,
+    "gc": 38,
     "propio": true
    },
    {
-    "equipo": "ATLETICO CASTROS",
+    "equipo": "COLEGIO LICEO",
     "pts": 12,
-    "pj": 7,
+    "pj": 8,
     "g": 4,
     "e": 0,
-    "p": 3,
-    "gf": 54,
-    "gc": 20,
-    "propio": false
-   },
-   {
-    "equipo": "COLEGIO LICEO",
-    "pts": 9,
-    "pj": 7,
-    "g": 3,
-    "e": 0,
     "p": 4,
-    "gf": 28,
+    "gf": 40,
     "gc": 32,
     "propio": false
    },
@@ -10375,36 +10375,36 @@ const EQUIPOS = [
     "propio": false
    },
    {
-    "equipo": "COMPAÑIA DE MARIA \"B\"",
+    "equipo": "ORILLAMAR S.D. \"C\"",
     "pts": 3,
-    "pj": 7,
+    "pj": 8,
     "g": 1,
     "e": 0,
-    "p": 6,
-    "gf": 10,
-    "gc": 49,
+    "p": 7,
+    "gf": 14,
+    "gc": 65,
     "propio": false
    },
    {
-    "equipo": "ORILLAMAR S.D. \"C\"",
+    "equipo": "COMPAÑIA DE MARIA \"B\"",
     "pts": 3,
-    "pj": 7,
+    "pj": 8,
     "g": 1,
     "e": 0,
-    "p": 6,
-    "gf": 13,
-    "gc": 55,
+    "p": 7,
+    "gf": 10,
+    "gc": 61,
     "propio": false
    },
    {
     "equipo": "OZA JUVENIL S.D. \"D\"",
     "pts": 3,
-    "pj": 7,
+    "pj": 8,
     "g": 1,
     "e": 0,
-    "p": 6,
-    "gf": 13,
-    "gc": 56,
+    "p": 7,
+    "gf": 14,
+    "gc": 67,
     "propio": false
    }
   ],
@@ -10478,8 +10478,8 @@ const EQUIPOS = [
     "hora": "09:30",
     "local": false,
     "rival": "VICTORIA C.F. \"C\"",
-    "resultado": "",
-    "campo": "Víctor Fernández Alonso - Antigua Leyma"
+    "resultado": "10-3",
+    "campo": ""
    },
    {
     "jornada": 9,
@@ -10488,22 +10488,22 @@ const EQUIPOS = [
     "local": true,
     "rival": "ATLETICO CASTROS",
     "resultado": "",
-    "campo": ""
+    "campo": "Torre Nº1.1"
    }
   ],
   "competicion": "Alevin F-7 - Segunda Futgal · A Coruña | 1ª Fase G5",
   "urlClasificacion": "https://www.futgal.es/pnfg/NPcd/NFG_VisClasificacion?cod_primaria=1000120&codgrupo=28989125&codcompeticion=26991597",
   "escudos": {
-   "VICTORIA C.F. \"C\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000004135_victoriacfblanco.jpg",
    "URAL ESPAÑOL C.F. \"E\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000891301_ESCUDO_URAL_B.jpg",
-   "COLEGIO LICEO": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000798377_Logo_Liceo_FONDO_BLANCO_sin_margen.jpg",
-   "COMPAÑIA DE MARIA \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001004468_logo.png",
-   "OZA JUVENIL S.D. \"D\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000734970_00100_0000629374_Untitled_-_1.jpg",
-   "ATL. CORUÑA MONTAÑEROS C.F \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000889647_AtleticoCorunaMonta.png",
    "ATLETICO CASTROS": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001611037_escudo128.png",
    "ORILLAMAR S.D. \"C\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000941018_ESCUDO_OFICIAL_ORILLAMAR_SD_PRINCIPAL.jpg",
-   "ESCOLAS DEPORTIVAS NA PEGADA": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000941018_ESCUDO_OFICIAL_ORILLAMAR_SD_PRINCIPAL.jpg",
-   "CLUB XESUITINAS \"A\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001224529_CLUB_XESUITINAS__A_Corun__a___2_.png"
+   "COLEGIO LICEO": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000798377_Logo_Liceo_FONDO_BLANCO_sin_margen.jpg",
+   "COMPAÑIA DE MARIA \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001004468_logo.png",
+   "ESCOLAS DEPORTIVAS NA PEGADA": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001224529_CLUB_XESUITINAS__A_Corun__a___2_.png",
+   "CLUB XESUITINAS \"A\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001224529_CLUB_XESUITINAS__A_Corun__a___2_.png",
+   "OZA JUVENIL S.D. \"D\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000734970_00100_0000629374_Untitled_-_1.jpg",
+   "ATL. CORUÑA MONTAÑEROS C.F \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000889647_AtleticoCorunaMonta.png",
+   "VICTORIA C.F. \"C\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000004135_victoriacfblanco.jpg"
   },
   "actas": {
    "1": {
@@ -10776,26 +10776,65 @@ const EQUIPOS = [
     "c": [],
     "rm": {},
     "id": "1509765"
+   },
+   "8": {
+    "t": [
+     "Diego Rey Crespo",
+     "Pablo Ramírez Blanco",
+     "Enzo Trigo Bermúdez",
+     "Enzo Rivas Bouza",
+     "Emanuel Bitca",
+     "Leo Jiménez Amor",
+     "Aythor Jesús Guerra Yusti"
+    ],
+    "s": [
+     "Gael Platas González",
+     "Daniel Chamorro Salinas",
+     "Mateo Mosquera Varona",
+     "Martiño Teixeira Vega",
+     "Valentino Medina Pérez"
+    ],
+    "e": [],
+    "g": {},
+    "a": [],
+    "r": [],
+    "d": {
+     "Diego Rey Crespo": 13,
+     "Pablo Ramírez Blanco": 2,
+     "Enzo Trigo Bermúdez": 3,
+     "Enzo Rivas Bouza": 4,
+     "Emanuel Bitca": 5,
+     "Leo Jiménez Amor": 10,
+     "Aythor Jesús Guerra Yusti": 11,
+     "Gael Platas González": 16,
+     "Daniel Chamorro Salinas": 6,
+     "Mateo Mosquera Varona": 8,
+     "Martiño Teixeira Vega": 9,
+     "Valentino Medina Pérez": 12
+    },
+    "c": [],
+    "rm": {},
+    "id": "1509770"
    }
   },
   "dorsales": {
    "Enzo Trigo Bermúdez": 3,
    "Enzo Rivas Bouza": 4,
    "Emanuel Bitca": 5,
-   "Jorge Fereira Vidal": 7,
    "Diego Rey Crespo": 13,
    "Pablo Ramírez Blanco": 2,
    "Daniel Chamorro Salinas": 6,
    "Leo Jiménez Amor": 10,
-   "Jaime Vidal Ordoñez": 14,
+   "Jorge Fereira Vidal": 7,
    "Mateo Mosquera Varona": 8,
    "Aythor Jesús Guerra Yusti": 11,
-   "Gael Platas González": 16,
+   "Jaime Vidal Ordoñez": 14,
    "Valentino Medina Pérez": 12,
+   "Gael Platas González": 16,
    "Carlos De Diego Prada": 15,
    "Martiño Teixeira Vega": 9
   },
-  "descargado": "2026-11-20T03:34"
+  "descargado": "2026-11-21T11:22"
  },
  {
   "id": "benjamin-a",
@@ -13459,6 +13498,17 @@ const EQUIPOS = [
     "propio": true
    },
    {
+    "equipo": "CLUB XESUITINAS",
+    "pts": 8,
+    "pj": 8,
+    "g": 2,
+    "e": 2,
+    "p": 4,
+    "gf": 7,
+    "gc": 16,
+    "propio": false
+   },
+   {
     "equipo": "SANTA MARIA DEL MAR \"B\"",
     "pts": 7,
     "pj": 7,
@@ -13467,17 +13517,6 @@ const EQUIPOS = [
     "p": 4,
     "gf": 8,
     "gc": 13,
-    "propio": false
-   },
-   {
-    "equipo": "CLUB XESUITINAS",
-    "pts": 7,
-    "pj": 7,
-    "g": 2,
-    "e": 1,
-    "p": 4,
-    "gf": 5,
-    "gc": 14,
     "propio": false
    },
    {
@@ -13493,13 +13532,13 @@ const EQUIPOS = [
    },
    {
     "equipo": "SILVA S.D.",
-    "pts": 0,
-    "pj": 7,
+    "pts": 1,
+    "pj": 8,
     "g": 0,
-    "e": 0,
+    "e": 1,
     "p": 7,
-    "gf": 1,
-    "gc": 24,
+    "gf": 3,
+    "gc": 26,
     "propio": false
    }
   ],
@@ -13892,7 +13931,7 @@ const EQUIPOS = [
    "Logan Barros De Andrés": 5,
    "Maximo Gundín Díaz": 13
   },
-  "descargado": "2026-11-20T03:34"
+  "descargado": "2026-11-21T11:23"
  },
  {
   "id": "prebenjamin-c",
@@ -13938,13 +13977,13 @@ const EQUIPOS = [
    },
    {
     "equipo": "A. C. RUEIRO",
-    "pts": 15,
-    "pj": 7,
-    "g": 5,
+    "pts": 18,
+    "pj": 8,
+    "g": 6,
     "e": 0,
     "p": 2,
-    "gf": 14,
-    "gc": 8,
+    "gf": 16,
+    "gc": 9,
     "propio": false
    },
    {
@@ -13971,24 +14010,24 @@ const EQUIPOS = [
    },
    {
     "equipo": "COMPAÑIA DE MARIA \"B\"",
-    "pts": 9,
-    "pj": 7,
-    "g": 3,
+    "pts": 12,
+    "pj": 8,
+    "g": 4,
     "e": 0,
     "p": 4,
-    "gf": 11,
+    "gf": 12,
     "gc": 11,
     "propio": false
    },
    {
     "equipo": "EIRÍS S.D.",
     "pts": 9,
-    "pj": 7,
+    "pj": 8,
     "g": 3,
     "e": 0,
-    "p": 4,
+    "p": 5,
     "gf": 10,
-    "gc": 14,
+    "gc": 15,
     "propio": false
    },
    {
@@ -14005,12 +14044,12 @@ const EQUIPOS = [
    {
     "equipo": "OZA JUVENIL S.D. \"B\"",
     "pts": 3,
-    "pj": 7,
+    "pj": 8,
     "g": 1,
     "e": 0,
-    "p": 6,
-    "gf": 5,
-    "gc": 20,
+    "p": 7,
+    "gf": 6,
+    "gc": 22,
     "propio": false
    },
    {
@@ -14373,7 +14412,7 @@ const EQUIPOS = [
    "Simón Corgo Del Río": 15,
    "Kai Álvarez-Conchado Barlocco": 16
   },
-  "descargado": "2026-11-20T03:34"
+  "descargado": "2026-11-21T11:23"
  },
  {
   "id": "biberon-a",
@@ -14398,7 +14437,7 @@ const EQUIPOS = [
   "delegados": [],
   "clasificacion": [],
   "partidos": [],
-  "descargado": "2026-11-20T03:34"
+  "descargado": "2026-11-21T11:23"
  },
  {
   "id": "veteranos-a",
@@ -15226,7 +15265,7 @@ const EQUIPOS = [
    "David Castro Santos": 3,
    "Miguel A Mejuto Pajaro": 28
   },
-  "descargado": "2026-11-20T03:35"
+  "descargado": "2026-11-21T11:24"
  },
  {
   "id": "biberon-a-fs",
@@ -15529,6 +15568,6 @@ const EQUIPOS = [
    "Hugo Díez Ferreras": 8,
    "Aldan Ulla Yáñez": 7
   },
-  "descargado": "2026-11-20T13:08"
+  "descargado": "2026-11-21T11:24"
  }
 ];
