@@ -97,5 +97,6 @@ const ESCUDOS = {
  "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001826551_ESCUDO_SIN_FONDO.png": "img/escudos/00100_0001826551_ESCUDO_SIN_FONDO.webp",
  "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0011658042_IMG_0489.png": "img/escudos/00100_0011658042_IMG_0489.webp",
  "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0011661351_ESCUDO_AROSA_SC.png": "img/escudos/00100_0011661351_ESCUDO_AROSA_SC.webp",
- "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0012023275_ESCUDOS_EDXO_2.png": "img/escudos/00100_0012023275_ESCUDOS_EDXO_2.webp"
+ "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0012023275_ESCUDOS_EDXO_2.png": "img/escudos/00100_0012023275_ESCUDOS_EDXO_2.webp",
+ "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0012079561_Logo_Nuevo.png": "img/escudos/00100_0012079561_Logo_Nuevo.webp"
 };
