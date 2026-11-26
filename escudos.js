@@ -64,7 +64,6 @@ const ESCUDOS = {
  "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001003273_pontevedra_plano.jpg": "img/escudos/00100_0001003273_pontevedra_plano.webp",
  "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001003337_ESCUDO_CD_AS_PONTES.jpg": "img/escudos/00100_0001003337_ESCUDO_CD_AS_PONTES.webp",
  "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001003537_escudo_scdmilagrosa_hires.png": "img/escudos/00100_0001003537_escudo_scdmilagrosa_hires.webp",
- "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001004468_logo.png": "img/escudos/00100_0001004468_logo.webp",
  "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001004731_LOGO_ALTA_RES_ESCOLAS_CALVO.jpg": "img/escudos/00100_0001004731_LOGO_ALTA_RES_ESCOLAS_CALVO.webp",
  "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001008004_ROSALIA_MERA_ESCUDO_GRANDE.jpg": "img/escudos/00100_0001008004_ROSALIA_MERA_ESCUDO_GRANDE.webp",
  "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001010839_logo___copia.jpg": "img/escudos/00100_0001010839_logo___copia.webp",
