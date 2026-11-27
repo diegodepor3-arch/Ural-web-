@@ -1,5 +1,5 @@
 // GENERADO por actualizar.py desde futgal.es. No editar a mano.
-const ACTUALIZADO = "2026-11-27T15:17";
+const ACTUALIZADO = "2026-11-27T23:37";
 const EQUIPOS = [
  {
   "id": "juvenil-a",
@@ -837,7 +837,7 @@ const EQUIPOS = [
     }
    }
   },
-  "descargado": "2026-11-26T12:53"
+  "descargado": "2026-11-27T23:36"
  },
  {
   "id": "juvenil-b",
@@ -2166,7 +2166,7 @@ const EQUIPOS = [
    "Leo Sánchez Pérez": 12,
    "Rafael Sande Castro-Acuña": 14
   },
-  "descargado": "2026-11-26T12:53"
+  "descargado": "2026-11-27T23:36"
  },
  {
   "id": "cadete-a",
@@ -3558,7 +3558,7 @@ const EQUIPOS = [
    "Jorge Cillero Seoane": 4,
    "Luis Santiago Morales Morales Acuña": 15
   },
-  "descargado": "2026-11-26T22:25"
+  "descargado": "2026-11-27T23:36"
  },
  {
   "id": "cadete-b",
@@ -4949,7 +4949,7 @@ const EQUIPOS = [
    "Adán Giménez Muñoz": 22,
    "Rodrigo De La Campa García": 20
   },
-  "descargado": "2026-11-26T22:25"
+  "descargado": "2026-11-27T23:37"
  },
  {
   "id": "infantil-a",
@@ -15183,7 +15183,7 @@ const EQUIPOS = [
   "delegados": [],
   "clasificacion": [],
   "partidos": [],
-  "descargado": "2026-11-26T12:51"
+  "descargado": "2026-11-27T23:34"
  },
  {
   "id": "veteranos-a",
@@ -16070,7 +16070,7 @@ const EQUIPOS = [
    "David Castro Santos": 13,
    "Miguel A Mejuto Pajaro": 28
   },
-  "descargado": "2026-11-26T12:51"
+  "descargado": "2026-11-27T23:35"
  },
  {
   "id": "biberon-a-fs",
@@ -16409,6 +16409,6 @@ const EQUIPOS = [
    "Gabriel Sixto Rodríguez": 10,
    "Gonzalo Delgado Otero": 15
   },
-  "descargado": "2026-11-26T12:52"
+  "descargado": "2026-11-27T23:35"
  }
 ];
