@@ -1,5 +1,5 @@
 // GENERADO por actualizar.py desde futgal.es. No editar a mano.
-const ACTUALIZADO = "2026-11-27T05:09";
+const ACTUALIZADO = "2026-11-27T15:17";
 const EQUIPOS = [
  {
   "id": "juvenil-a",
@@ -11383,7 +11383,7 @@ const EQUIPOS = [
    "Carlos De Diego Prada": 15,
    "Martiño Teixeira Vega": 9
   },
-  "descargado": "2026-11-26T02:55"
+  "descargado": "2026-11-27T15:15"
  },
  {
   "id": "benjamin-a",
@@ -12495,12 +12495,12 @@ const EQUIPOS = [
    },
    {
     "jornada": 8,
-    "fecha": "2026-11-21",
+    "fecha": "2026-12-02",
     "hora": "19:00",
     "local": false,
     "rival": "VICTORIA C.F. \"B\"",
     "resultado": "",
-    "campo": "Torre Nº 4"
+    "campo": "Víctor Fernández Alonso - Antigua Leyma"
    },
    {
     "jornada": 9,
@@ -12521,10 +12521,10 @@ const EQUIPOS = [
    "C.D. CIUDAD JARDIN": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001218414_Imagen_de_WhatsApp_2024_04_26_a_las_20.12.37_97ce5fe8.jpg",
    "SANTA MARIA DEL MAR \"D\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001611104_Escudo_sin_fondo.png",
    "C. P. ESCLAVAS \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001133115_4DA7C320_0949_4D89_A088_624E6471CBA6.jpeg",
-   "VICTORIA C.F. \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000004135_victoriacfblanco.jpg",
-   "URAL ESPAÑOL C.F. \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000891301_ESCUDO_URAL_B.jpg",
    "IMPERATOR O.A.R. \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000911974_ESCUDO__IMPERATOR_final.png",
-   "TORRE S.D.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000957278_descarga__3_.jpg"
+   "TORRE S.D.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000957278_descarga__3_.jpg",
+   "VICTORIA C.F. \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000004135_victoriacfblanco.jpg",
+   "URAL ESPAÑOL C.F. \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000891301_ESCUDO_URAL_B.jpg"
   },
   "actas": {
    "1": {
@@ -12816,7 +12816,7 @@ const EQUIPOS = [
    "Bruno Castro Rial Pena": 2,
    "Matias Regueiro Callau": 3
   },
-  "descargado": "2026-11-26T02:55"
+  "descargado": "2026-11-27T15:15"
  },
  {
   "id": "benjamin-c",
@@ -13028,12 +13028,12 @@ const EQUIPOS = [
    "C. D. CALASANZ \"E\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001120003_escudo_calasanz.jpg",
    "VICTORIA C.F. \"E\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000004135_victoriacfblanco.jpg",
    "C.F. BATALLADOR S.D.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000918106_ESCUDO_.jpg",
-   "RELÁMPAGO S. D.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000894509_Escudo.PNG",
-   "COMPAÑIA DE MARIA": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0012079561_Logo_Nuevo.png",
    "CLUB XESUITINAS \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0001224529_CLUB_XESUITINAS__A_Corun__a___2_.png",
    "URAL ESPAÑOL C.F. \"C\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000891301_ESCUDO_URAL_B.jpg",
    "ORILLAMAR S.D. \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000941018_ESCUDO_OFICIAL_ORILLAMAR_SD_PRINCIPAL.jpg",
-   "OZA JUVENIL S.D. \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000734970_00100_0000629374_Untitled_-_1.jpg"
+   "OZA JUVENIL S.D. \"B\"": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000734970_00100_0000629374_Untitled_-_1.jpg",
+   "RELÁMPAGO S. D.": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0000894509_Escudo.PNG",
+   "COMPAÑIA DE MARIA": "https://rfgf.filesnovanet.es/pnfg/pimg/Clubes/00100_0012079561_Logo_Nuevo.png"
   },
   "actas": {
    "1": {
@@ -13337,7 +13337,7 @@ const EQUIPOS = [
    "Yago Prieto Cancelo": 11,
    "Jorge Fernández De Tejera Mosquera": 1
   },
-  "descargado": "2026-11-26T02:55"
+  "descargado": "2026-11-27T15:16"
  },
  {
   "id": "prebenjamin-a",
@@ -14078,7 +14078,7 @@ const EQUIPOS = [
    "Brais Vázquez Calo": 1,
    "Lucas Ribes Velez De Villa": 13
   },
-  "descargado": "2026-11-26T02:56"
+  "descargado": "2026-11-27T15:16"
  },
  {
   "id": "prebenjamin-b",
@@ -14644,7 +14644,7 @@ const EQUIPOS = [
    "Daniel Seoane Paredes": 16,
    "Maximo Gundín Díaz": 13
   },
-  "descargado": "2026-11-26T12:50"
+  "descargado": "2026-11-27T15:16"
  },
  {
   "id": "prebenjamin-c",
@@ -15158,7 +15158,7 @@ const EQUIPOS = [
    "Rafael Pesqueira Esteve De Miguel": 15,
    "Simón Corgo Del Río": 16
   },
-  "descargado": "2026-11-26T12:51"
+  "descargado": "2026-11-27T15:17"
  },
  {
   "id": "biberon-a",
